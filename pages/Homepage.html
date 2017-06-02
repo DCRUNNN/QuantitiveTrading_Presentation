@@ -261,9 +261,9 @@
         </div>
     </div>
 
-    <div id="marketTemperature" style="width: 700px;height: 600px">
+    <div class="box-body chart-responsive">
+        <div class="chart" id="bar-chart" style="height: 300px;"></div>
     </div>
-
 
 </div><!-- /.container -->
 
@@ -305,12 +305,11 @@
 
 <script src="../vue/vue.js"></script>
 <script src="../vue-resource/vue-resource.js"></script>
-<script src="../js/HomePage.js"></script>
-
 <!-- jQuery 2.2.3 -->
 <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <!-- DataTables -->
 <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -322,11 +321,11 @@
 <script src="../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+<script src="../plugins/morris/morris.min.js"></script>
+
 <!-- page script -->
 <script>
     $(function () {
-
-//        $('#example1').DataTable();
         $('#example1').DataTable({
             "paging": true,
             "lengthChange": true,
@@ -335,7 +334,35 @@
             "info": true,
             "autoWidth": false
         });
+
+
     });
+</script>
+
+<script>
+    $(function () {
+        "use strict";
+
+        var bar = new Morris.Bar({
+            element: 'bar-chart',
+            resize: true,
+            data: [
+                {y: '2006', a: 100, b: 90},
+                {y: '2007', a: 75, b: 65},
+                {y: '2008', a: 50, b: 40},
+                {y: '2009', a: 75, b: 65},
+                {y: '2010', a: 50, b: 40},
+                {y: '2011', a: 75, b: 65},
+                {y: '2012', a: 100, b: 90}
+            ],
+            barColors: ['#00a65a', '#f56954'],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['CPU', 'DISK'],
+            hideHover: 'auto'
+        });
+    });
+
 </script>
 </body>
 </html>
