@@ -1,10 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>UMT - 访问记录</title>
+    <meta name="keywords" content="layui,ui,前端框架,JS组件">
+    <meta name="description" content="经典模块化前端框架">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="../../bootstrap/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../bootstrap/css/global.css" media="all">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect.
+    -->
+    <link rel="stylesheet" href="../../dist/css/skins/skin-blue.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        clearBlock { margin:0px;padding:0px;text-align: center;}
+        #hidebg { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+    </style>
 </head>
-<body>
+<body class="hold-transition skin-blue sidebar-mini site-home">
+<div class="wrapper">
+
+    <div id="clearBlock">
+        <div id="hidebg"></div>
+        <form class="form-horizontal">
+            <div id="login" class="box-body">
+                <hr>
+                <div class="form-group" style="text-align: center">
+                    <label class=" control-label">是否确定清空浏览记录</label>
+
+                </div>
+                <br>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" style="left: 80px;" @click.prevent="">确定</button>
+                    <button type="button" class="btn btn-danger" style="left: 230px;" onclick="hide()">取消</button>
+                </div>
+                <hr>
+            </div>
+        </form>
+    </div>
+
+    <div class="layui-header header header-index">
+        <div class="layui-main">
+            <a class="logo" href="../Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
+                UMT
+            </a>
+
+            <ul class="layui-nav" pc>
+                <li class="layui-nav-item ">
+                    <a href="../../pages/Homepage.html">首页</a>
+                </li>
+                <li class="layui-nav-item ">
+                    <a href="../../pages/SearchStock.html">个股</a>
+                </li>
+                <li class="layui-nav-item" pc>
+                    <a href="../../pages/" target="_blank">量化策略</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
+                </li>
+                <li class="layui-nav-item" >
+                    <a href="../../pages/个性化/PersonnalDevice.html">个性化</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="../Login.html" target="_blank">登录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>城管大队</p>
+                    <!-- Status -->
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header" style="height: 40px">导航栏</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li><a href="PersonnalDevice.html"><i class="fa fa-circle-o"></i> <span>我的信息</span></a></li>
+                <li class="active"><a href="#"><i class="fa fa-circle-o"></i> <span>浏览记录</span></a></li>
+                <li><a href="MyChosenStock.html"><i class="fa fa-circle-o"></i> <span>我的自选股</span></a></li>
+                <li><a href="MyStrategy.html"><i class="fa fa-circle-o"></i> <span>我的策略</span></a></li>
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content" style="margin-left: 15%">
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="box box-info">
+                        <div class="box-header with-border" style="text-align: left">
+                            <h3 class="box-title">浏览记录</h3>
+                        </div>
+                        <!-- The time line -->
+                        <ul class="timeline">
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-envelope bg-blue"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Support Team sent you an email</a></h3>
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-user bg-aqua"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header no-border"><a href="#">Sarah Young accepted your friend request</a></h3>
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-comments bg-yellow"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-home bg-red"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-map bg-olive"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-link bg-gray-light"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-heart bg-green"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-weixin bg-yellow"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i> {{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-qq bg-blue"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-adn bg-success"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
+
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+
+                        </ul>
+                        <div style="text-align: center">
+                            <button type="button" class="btn btn-danger" style="" onclick="show()">清空记录</button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2017 <a href="#">UMT</a>.</strong> All rights reserved.
+    </footer>
+
+    <div class="control-sidebar-bg"></div>
+</div>
+
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="site-tree-mobile layui-hide">
+    <i class="layui-icon">&#xe602;</i>
+</div>
+
+<script src="//res.layui.com/layui/build/layui.js?t=1494451009005" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '//res.layui.com/lay/modules/layui/'
+        ,version: '1494451009005'
+    }).use('global');
+
+    window.global = {
+        preview: function(){
+            var preview = document.getElementById('LAY_preview');
+            return preview ? preview.innerHTML : '';
+        }()
+    };
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+<script src="../../js/History.js"></script>
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>
+
 
 </body>
 </html>
