@@ -1,0 +1,1201 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>UMT-股票分析师</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="../plugins/morris/morris.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+
+
+    <link rel="stylesheet" href="../bootstrap/css/layui.css" media="all">
+    <link rel="stylesheet" href="../bootstrap/css/global.css" media="all">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/carousel.css" rel="stylesheet">
+
+    <meta name="description" content="UMT量化交易平台是为量化爱好者量身打造的云平台，我们为您提供精准的回测功能、高速实盘交易接口、易用的API文档、由易入难的策略库，便于您快速实现、使用线上客户提供的特色量化交易策略。">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link type="text/css" href="https://cdn.joinquant.com/common/css/lib.min.css?v=201706011122201706021232" rel="stylesheet">
+    <link type="text/css" href="https://cdn.joinquant.com/common/css/common.min.css?v=201706011122201706021232" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.joinquant.com/themes/jq/static/common/css/jq-common.min.css?v=201706011122201706021232">
+    <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
+
+    <link type='text/css'  href="https://cdn.joinquant.com/themes/jq/static/common/css/beforelogin-layer.css?v=201706011122201706021232" rel='stylesheet'/>
+    <link href="https://cdn.joinquant.com/third/At/css/jquery.atwho.min.css" rel="stylesheet" />
+    <link href="https://cdn.joinquant.com/themes/jq/static/community/css/exceptional.min.css?v=201706011122201706021232" rel="stylesheet" />
+
+    <link href="https://cdn.joinquant.com/themes/jq/static/community/css/community.min.css?v=201706011122201706021232" rel="stylesheet">
+
+
+
+    <style>
+        span.new{
+            background: rgba(0,0,0,0);
+        }
+        .side-bar .top .name.user-alias img{
+            width:16px;
+            height:16px;
+            float: none;
+            margin-right:0;
+        }
+        .kk_footer .wp20.last img{
+            position: relative;
+            top:-2px;
+        }
+        .kk_footer .wp20.last .item>a{
+            position: relative;
+            left:-5px;
+        }
+    </style>
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '949f6a566feb9b09']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<body >
+<div class="kk_main in_wrap">
+
+    <header id="kk_nav" class="fixed-top kk_nav navbar narbar-static-top">
+        <div id="container">
+            <div class="layui-header header header-index">
+                <div class="layui-main">
+                    <a class="logo" href="../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
+                        UMT
+                    </a>
+                    <div class="layui-form component">
+                        <select lay-search lay-filter="component">
+                            <option value="">搜索组件或模块</option>
+                            <option value="element/color.html">color 颜色</option>
+                        </select>
+                    </div>
+                    <ul class="layui-nav" pc>
+                        <li class="layui-nav-item ">
+                            <a href="#">首页</a>
+                        </li>
+                        <li class="layui-nav-item ">
+                            <a href="../pages/SingleStock.html">个股</a>
+                        </li>
+                        <li class="layui-nav-item" pc>
+                            <a href="http://fly.layui.com/" target="_blank">量化策略</a>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
+                        </li>
+                        <li class="layui-nav-item" >
+                            <a href="javascript:;">个性化</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="http://layim.layui.com/" target="_blank">我的策略</a></dd>
+                                <dd><a href="http://fly.layui.com/jie/8157.html" target="_blank">我的收藏</a></dd>
+                                <dd><a href="http://fly.layui.com/jie/9842.html" target="_blank">浏览记录</a></dd>
+                                <dd><a href="#" target="_blank">个人设置</a> </dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="../pages/Login.html" target="_blank">登录</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--/header-->
+    <div class="kk_body  top_50">
+        <!--登录注册弹出框 -->
+        <div class="login-shadow hidden" id="loginDialog-model" style="position: absolute; top: 0px; left: 0px;">
+            <div class="login-container" style="position: absolute;">
+                <div class="login-head clear">
+                    <div class="login-title fleft">登录</div>
+                    <div class="login-close fright"><img src="https://cdn.joinquant.com/themes/jq/static/algorithm/img/x.png" alt=""></div>
+                </div>
+                <div class="login-content">
+                    <div class="title">
+                        <div class="title-item login-title-item active" _id="1">登录</div>
+                        <div class="title-item login-title-item" _id="2">注册</div>
+                    </div>
+                    <div class="form_pane active" index="1">
+
+                        <form class="kkform" name="CyLoginForm" id="loginForm" method="post" action="/user/login/DoLogin">
+                            <div class="form-group form-group-lg">
+                                <input type="text" class="form-control" placeholder="手机号" name="CyLoginForm[username]" autofocus="autofocus">
+                            </div>
+                            <div class="relative">
+                                <div class="form-group form-group-lg">
+                                    <input type="password"  class="form-control" name="CyLoginForm[pwd]" placeholder="密码">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-block btn-lg" type="submit" id="btnSubmit" >登录</button>
+                        </form>
+                        <!-- <div class="password_link fright "></div> -->
+                        <div class="fleft mt_20 cursor">
+                            <a class="link_gray f14" href="/user/account/forgetpwd">忘记密码&nbsp;</a>
+                        </div>
+                        <div class=" fright mt_20 cursor"><span class="link_gray alert_btn f14">无法登录？</span></div>
+                        <div class="alert">
+                            <span>请通过QQ反馈您遇到的问题<br>QQ:1120116269</span><br>
+                            <button type="button" class="btn btn-primary alert_ok">确定
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form_pane" index="2">
+                        <form class="kkform" name="UserModel" id="registerForm" autocomplete="off" method="post" action="/user/login/DoRegister">
+                            <input class="hidden" type="text" style='display:none'/>
+                            <input class="hidden" type="password" style='display:none'/>
+                            <div class="form-group form-group-lg">
+                                <input type="text" class="form-control" name="UserModel[mob]" placeholder="手机号" autofocus="autofocus">
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <div style="" id="valideCode">
+                                    <input type="text" style="width:55%;float:left" class="form-control" name="valideCode" placeholder="图形验证码">
+                                    <img id="valideCode-img" class="valideCode" src="/common/verifyCode/valideCode?width=215" style="margin-left:18px;cursor:pointer">
+                                </div>
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <div id="verifyCode" class="clear">
+                                    <input type="text" style="width:55%;float:left;" class="form-control" name="verifyCode" placeholder="手机验证码">
+                                    <button type="button" id="btnVerifyCode" class="btn btn-primary btn-block" style="width:40%;float:right;height:44px;padding-top:8px;font-size: 14px">获取手机验证码</button>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group form-group-lg">
+                                    <input type="password" id="password" name="UserModel[pwd]" class="form-control" placeholder="密码">
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group form-group-lg">
+                                    <input type="昵称" name="UserModel[alias]" class="form-control" placeholder="昵称">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-block btn-lg" id="btnRegister" type="submit" >注册</button>
+                            <div class="checkbox form_rule gray">
+                                <label class="pl_0i f16 fleft"><div class="icheckbox_square-blue checked" style="position: relative;"><input type="checkbox"  checked="checked" name="privacy" style="margin-top:9px;margin-left:0"></div><span class="pl_10 inline-block " style="padding-left: 15px;font-size: 12px">我已阅读并同意<a>服务协议</a>和<a>隐私政策</a></span></label>
+                                <div class=" absolute top_14 right cursor alert_btn"><span class="link_gray">无法注册？</span></div>
+                            </div>
+                            <div class="alert fleft">
+                                <span>请通过QQ反馈您遇到的问题<br>QQ:1120116269</span><br>
+                                <button type="button" class="btn btn-primary alert_ok">确定
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="community_body detail detail_sidebar">
+
+
+            <a href="/community?fromPost=1511">
+                <div class="back-to-community plr_18">
+                    <div class="back-icon" style="margin-top:5px"></div>
+                    <div class="back-text">返回主题列表</div>
+                </div>
+            </a>
+            <div class="item item_title" style="margin-top:0px">
+                <h3 class="title plr_18" id="post-title">均值回归策略，展现个股策略收益率</h3>
+            </div>
+
+
+            <!--/preview_title-->
+            <div class="item item_body relative">
+                <input type="hidden" name="postId" value="1511" id="postId">
+
+                <input type="hidden" name="postUser" value="180e069cad8998263505d7f6a1c7516e" id="post-userId">
+                <div class="list post-row">
+                    <div class="avatar-container">
+                    </div>
+                    <div class="post-title mt_8">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">【系统】</a> 发布于2017-04-24
+                        <span class="ml_20">回复 xx</span>
+                        <span class="ml_10">浏览 1234</span>
+                        <span class="ml_10 collection collect" title="登录点击收藏" _noLogin="1">
+                                       <i class="icon icon-heart-empty"></i>
+                                       <span class="ml_2">82</span>
+                                   </span>
+                    </div>
+                    <div id="share-container"  class="inline-block info_right" _url="https://www.joinquant.com/post/1511">
+                        <div class="link_blue kk_listen hidden"><i></i>listen</div>
+                        <div class="dropdown share-control other-action-link">
+                            <span>分享到：</span>
+                            <a href="###" _type="weixin" id="btn-share-weixin" class="share-row popover-right mr_10 btn-share-weixin" data-toggle="popover" data-trigger="hover" title="用微信扫码下方的二维码">
+                                <i class="icon icon-comments"></i>
+                                微信
+                            </a>
+                            <a href="" _type="weibo" class="share-row mr_10 btn-share-weibo" id="btn-share-weibo">
+                                <i class="icon icon-weibo"></i>
+                                微博
+                            </a>
+                            <a href="" _type="xueqiu" class="share-row btn-share-xueqiu" id="btn-share-xueqiu">
+                                <img src="https://cdn.joinquant.com/community/img/xq_icon.png" alt="">
+                                雪球
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list detail-hei">
+                    <input type="hidden" id="backtestId" value="838446">
+                    <div class="info hidden content" id="content">发发牢骚balabala魔仙变，巴拉拉能量，变成猪吧</div>
+                    <iframe _src="/algorithm/backtest/summary?backtestId=d13c1295ba5595794e751591434fc6a8&postId=1511&iframe=1" id='notebook-iframed'  class="backtest-wrapper"></iframe>
+
+                    <div class="exceptional-container">
+                        <input class="alias" type="hidden" value="JimZ">
+                        <div class="exceptional-cont m_0a tcenter">
+                            <button class="btn btn-warning exceptional-btn" id="exceptional-btn" _postId=1511>感谢作者</button>
+                            <p class="tcenter" id="exce_count"></p>
+                            <div class="exceptional-avatar">
+                                <div class="inline-block " id="exce_avatar">
+
+                                </div>
+                                <!-- 查看更多 -->
+                                <span id="more_avatar" class="hidden"><img title="查看更多" src="https://cdn.joinquant.com/themes/jq/static/algorithm/img/more-avatar.png" class="avatar"></span>
+                            </div>
+                            <div class="message-container hidden"> <div class="message"> <p class="tleft f14 title" style="margin-bottom: 2px">选择金额</p> <div class="message-btns active message-cash"> <button class="btn" val='1'>1元</button> <button class="btn selected" val='6'>6元</button> <button class="btn" val='8'>8元</button> <button class="btn" val='66'>66元</button> <button class="btn" val='88'>88元</button> <button class="btn custom" href=".message-input">其他金额</button> </div> <div class="message-input message-cash"> <input class="user-defined" type="text" placeholder="0.00" value=""> </div> <div class="payment-container clear"> <div class="pay fleft"> <span class="pay-radio mr_5 selected"> <input type="checkbox" value="wx_pub_qr" checked=""> </span> <img src="https://cdn.joinquant.com/themes/jq/static/algorithm/img/wechat-pay.png" alt=""> </div> <div class="pay fleft"> <span class="pay-radio"> <input value="alipay_qr" type="checkbox"> </span> <img src="https://cdn.joinquant.com/themes/jq/static/algorithm/img/ali-pay.png" alt=""> </div> </div> </div> </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/algorithm/index/wizard?f=community&m=ad"><img src="https://cdn.joinquant.com/themes/jq/static/community/img/ad_wizard1.png" alt=""></a>
+                <div class="list post-row hidden">
+                    <div class="post-title mt_8">
+                                
+                                                                   <span class="ml_10 collection collect" title="登录点击收藏" _noLogin="1">
+                                       <i class="icon icon-heart-empty" style="font-size: 20px;vertical-align: middle;"></i>
+                                       <span class="ml_2">82</span>
+                                   </span>
+                    </div>
+                    <div id="share-container"  class="inline-block info_right" _url="https://www.joinquant.com/post/1511">
+                        <div class="link_blue kk_listen hidden"><i></i>listen</div>
+                        <div class="dropdown share-control other-action-link">
+                            <span>分享到：</span>
+                            <a href="###" _type="weixin" id="btn-share-weixin" class="btn-share-weixin share-row popover-right mr_10" data-toggle="popover" data-trigger="hover" title="用微信扫码下方的二维码">
+                                <i class="icon icon-comments"></i>
+                                微信
+                            </a>
+                            <a href="" _type="weibo" class="share-row mr_10 btn-share-weibo" >
+                                <i class="icon icon-weibo"></i>
+                                微博
+                            </a>
+                            <a href="" _type="xueqiu" class="share-row btn-share-xueqiu">
+                                <img src="https://cdn.joinquant.com/community/img/xq_icon.png" alt="">
+                                雪球
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="pinglun">评论</h5>
+
+
+                <a name="9869"></a>
+                <div class=" first-post-row list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/7a11d32da800f2b88f77caabcf6d27d5">
+                            <img src="https://image.joinquant.com/f3be8844f12bad20fd250e966b48bea4" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="5c7d526417f2b94053ebb7625b4951e6">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/7a11d32da800f2b88f77caabcf6d27d5" class="user-alias">Agic Deng</a>
+                        </div>
+                        <div class="content hidden reply_info">这参数怎么这么敏感？ 好奇具体的交易</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+                        <iframe _src="/algorithm/backtest/summary?backtestId=973aad1fb1c19757d1cff3c1e1f4c149&postId=1511"  class="backtest-wrapper"></iframe>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="这参数怎么这么敏感？ 好奇具体的交易">
+                    </div>
+
+                </div>
+                <a name="9870"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="e352afe711bb500bd5d7aa2087b59779">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@Agic Deng
+                            哦哦，60作为卖出阈值太高了，因为这个指标本来就是主要在45和55之间波动，基本上不到60，这也是我在犹豫的地方，这么敏感的指标只怕实盘不好用。。。</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@Agic Deng
+哦哦，60作为卖出阈值太高了，因为这个指标本来就是主要在45和55之间波动，基本上不到60，这也是我在犹豫的地方，这么敏感的指标只怕实盘不好用。。。">
+                    </div>
+
+                </div>
+                <a name="9875"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/7a11d32da800f2b88f77caabcf6d27d5">
+                            <img src="https://image.joinquant.com/f3be8844f12bad20fd250e966b48bea4" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="40555a67e07025d90dff8ff0db9dd5e5">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/7a11d32da800f2b88f77caabcf6d27d5" class="user-alias">Agic Deng</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ  如果说45-55波动的话，那也可以，这个指标好神奇。</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ  如果说45-55波动的话，那也可以，这个指标好神奇。">
+                    </div>
+
+                </div>
+                <a name="9876"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/7a11d32da800f2b88f77caabcf6d27d5">
+                            <img src="https://image.joinquant.com/f3be8844f12bad20fd250e966b48bea4" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="7f7ac52057543251d22ff7cb8dade076">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/7a11d32da800f2b88f77caabcf6d27d5" class="user-alias">Agic Deng</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ  如果说波动范围本来就很小的话，我一下5个点确实是不对的，你可以简单计算下这个指标的统计指标，均值，方差啊之类的，再比较看看。</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ  如果说波动范围本来就很小的话，我一下5个点确实是不对的，你可以简单计算下这个指标的统计指标，均值，方差啊之类的，再比较看看。">
+                    </div>
+
+                </div>
+                <a name="9877"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="f2da0d15ce8ad09c89bec55173613325">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@Agic Deng
+                            用沪深300算的话，均值50.12，标准差7.95
+                            不知道除了回测还有什么方法怎么去判断一个指标的稳定性，哎。</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@Agic Deng
+用沪深300算的话，均值50.12，标准差7.95
+不知道除了回测还有什么方法怎么去判断一个指标的稳定性，哎。">
+                    </div>
+
+                </div>
+                <a name="9884"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/7a11d32da800f2b88f77caabcf6d27d5">
+                            <img src="https://image.joinquant.com/f3be8844f12bad20fd250e966b48bea4" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="ee0013d55797fbd1e85e86a38ba5b214">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/7a11d32da800f2b88f77caabcf6d27d5" class="user-alias">Agic Deng</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ 那我估计基本就是统计手段了，可以加下微信，私下聊聊？</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ 那我估计基本就是统计手段了，可以加下微信，私下聊聊？">
+                    </div>
+
+                </div>
+                <a name="9885"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/7a11d32da800f2b88f77caabcf6d27d5">
+                            <img src="https://image.joinquant.com/f3be8844f12bad20fd250e966b48bea4" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="44dca0e11bf82096b7b43dadd07d5001">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/7a11d32da800f2b88f77caabcf6d27d5" class="user-alias">Agic Deng</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ 单纯从均值，标准差看信息不充分，分位数，经验分布，直方图，密度图。。。巴拉巴拉的</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ 单纯从均值，标准差看信息不充分，分位数，经验分布，直方图，密度图。。。巴拉巴拉的">
+                    </div>
+
+                </div>
+                <a name="9886"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="a96ef408397ddd7e87cb8c767d8cb488">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@Agic Deng
+                            可以啊，你加我还是我加你</div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@Agic Deng
+可以啊，你加我还是我加你">
+                    </div>
+
+                </div>
+                <a name="9889"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/7a11d32da800f2b88f77caabcf6d27d5">
+                            <img src="https://image.joinquant.com/f3be8844f12bad20fd250e966b48bea4" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="00bedae3104c91b002bb5ec2ec392976">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/7a11d32da800f2b88f77caabcf6d27d5" class="user-alias">Agic Deng</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ  哈哈哈哈 你加我吧 anjie718
+
+                        </div>
+                        <div class="replay_bot">
+                            <span>2016-06-04 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ  哈哈哈哈 你加我吧 anjie718
+
+">
+                    </div>
+
+                </div>
+                <a name="10015"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/4c8393f56ea5d95acd1f62445c35e9a8">
+                            <img src="https://image.joinquant.com/dce23cd2a8c6007bd9943bd08e2e77d3" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="2354a9bda95a354abab90cd1e12f2ea2">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/4c8393f56ea5d95acd1f62445c35e9a8" class="user-alias">duanqs</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ  您好! 看了一下这个代码, 发现一些问题, 商榷.
+                            1. 开盘前模块里, 缺少了一种情形的处理:
+                            当前满仓, 同时又有新入选的etf需要买入
+                            这种情形出现的时机不多, 但是也有发生.
+                            可以考虑的解决方案是:
+                            卖出一半已持有的etf, 同时资金余额全部买入新入选的etf
+                            2. 本策略的特点是: 精选出一只标的, 然后全仓进出.
+                            可否考虑选股模块里: 选出top2, 也就是
+                            同时持有2只标的, #1标的配置2/3 的资金, #2标的配置1/3的资金
+
+                            另: 我本人不懂python, 代码的意思基本能明白, 但是就是没有能力进行修改.
+                            被python里的诸多类型搞晕了. 加之也不熟悉python的ide, 又是刚接触joinquant.
+                            小散想搞量化,需要掌握的知识还真不少.  正在学习的路上艰难前行.
+
+                            3. 本策略里的参数比较多. 不下10个. 重要的有
+                            RSI的3个相关参数: 计算窗长, 高低门槛
+                            ema23: 均线的窗长
+                            变盘的判定准则,
+                            选股里的参数之: 收益率稳定性排名里的窗长, 等
+
+                            总体感觉值得研究, 加上标的都是etf, 不用关注任何一只股票.
+                            所以对选出的任何一只标的都比较有信心.  但从这一点上来说, 实战中就比较容易执行.
+                        </div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ  您好! 看了一下这个代码, 发现一些问题, 商榷.
+1. 开盘前模块里, 缺少了一种情形的处理: 
+    当前满仓, 同时又有新入选的etf需要买入
+    这种情形出现的时机不多, 但是也有发生. 
+    可以考虑的解决方案是: 
+          卖出一半已持有的etf, 同时资金余额全部买入新入选的etf
+2. 本策略的特点是: 精选出一只标的, 然后全仓进出.
+    可否考虑选股模块里: 选出top2, 也就是
+    同时持有2只标的, #1标的配置2/3 的资金, #2标的配置1/3的资金
+
+另: 我本人不懂python, 代码的意思基本能明白, 但是就是没有能力进行修改. 
+被python里的诸多类型搞晕了. 加之也不熟悉python的ide, 又是刚接触joinquant.
+小散想搞量化,需要掌握的知识还真不少.  正在学习的路上艰难前行. 
+
+3. 本策略里的参数比较多. 不下10个. 重要的有
+       RSI的3个相关参数: 计算窗长, 高低门槛
+       ema23: 均线的窗长
+       变盘的判定准则, 
+       选股里的参数之: 收益率稳定性排名里的窗长, 等
+
+总体感觉值得研究, 加上标的都是etf, 不用关注任何一只股票. 
+所以对选出的任何一只标的都比较有信心.  但从这一点上来说, 实战中就比较容易执行.
+">
+                    </div>
+
+                </div>
+                <a name="10016"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="bbc0eff02c8a56e7b992770c3156e2da">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@duanqs
+                            您好！
+                            如果当前满仓，新入选的etf也需要买入的时候，我是想着用这个简单的办法，干脆不管它，一直到第一只卖出。后来我试过你的想法，卖一半并买进新的，或者卖光并买进新的，结果都不如什么不干这种的效果。原因我大概看了下成交纪录，因为这完全就是个做左侧的策略，当第一只买进的时候我就是赌它能反转，后面新入选的etf出现时，如果频繁地操作，容易还没有等到第一只反转就割肉了，而且交易费用也增加了。
+                            参数太多了确实是个大问题，我个人的大概取了几个参数附近的值实验，最重要的其实是RSI的三个参数，以及变盘的标准判定，ema那个值其实是按照平时常用的ema20拍脑袋决定的，选成交量前十主要是为了保证流动性，也是拍脑袋。。。
+                            不过那个收益率选第一名，如果从05开始测，这个第一就很重要了，因为前几年etf非常少，只有1到4只，也就是说如果选收益率top2，平均仓位买入，其实就会有一半买进那只很差的，就像本是想二八轮动结果二八同时买进了。这种状况下从05年开始测效果大减。</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@duanqs
+您好！
+如果当前满仓，新入选的etf也需要买入的时候，我是想着用这个简单的办法，干脆不管它，一直到第一只卖出。后来我试过你的想法，卖一半并买进新的，或者卖光并买进新的，结果都不如什么不干这种的效果。原因我大概看了下成交纪录，因为这完全就是个做左侧的策略，当第一只买进的时候我就是赌它能反转，后面新入选的etf出现时，如果频繁地操作，容易还没有等到第一只反转就割肉了，而且交易费用也增加了。
+参数太多了确实是个大问题，我个人的大概取了几个参数附近的值实验，最重要的其实是RSI的三个参数，以及变盘的标准判定，ema那个值其实是按照平时常用的ema20拍脑袋决定的，选成交量前十主要是为了保证流动性，也是拍脑袋。。。
+不过那个收益率选第一名，如果从05开始测，这个第一就很重要了，因为前几年etf非常少，只有1到4只，也就是说如果选收益率top2，平均仓位买入，其实就会有一半买进那只很差的，就像本是想二八轮动结果二八同时买进了。这种状况下从05年开始测效果大减。">
+                    </div>
+
+                </div>
+                <a name="10017"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="265de5baf024b60bc4f8b890de9e1d89">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@duanqs
+                            你可以看下，我之前漏掉了一个情况，现持仓需要卖出同时新入选的需要买进的时候，现在加入了这种状况，先卖出旧的，再买进新的。这次注释写的更清晰一些。并且在开盘前直接去除了所有带“债”、“黄金”、“恒生”这些不追踪A股市场的etf。</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+                        <iframe _src="/algorithm/backtest/summary?backtestId=8e83ba754322f50e3bbaaec93ca73ccc&postId=1511"  class="backtest-wrapper"></iframe>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@duanqs
+你可以看下，我之前漏掉了一个情况，现持仓需要卖出同时新入选的需要买进的时候，现在加入了这种状况，先卖出旧的，再买进新的。这次注释写的更清晰一些。并且在开盘前直接去除了所有带“债”、“黄金”、“恒生”这些不追踪A股市场的etf。">
+                    </div>
+
+                </div>
+                <a name="10018"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="f8694e523625a36cfdde7180552ee3d9">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">接上</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+                        <iframe _src="/algorithm/backtest/summary?backtestId=76a87b956c3f65824f60c930dc3be298&postId=1511"  class="backtest-wrapper"></iframe>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="接上">
+                    </div>
+
+                </div>
+                <a name="10019"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="aa0d9b5d44ee0b38b3091d466f41f95b">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">接上</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+                        <iframe _src="/algorithm/backtest/summary?backtestId=116ed202a51331fb0cb30596328306a7&postId=1511"  class="backtest-wrapper"></iframe>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="接上">
+                    </div>
+
+                </div>
+                <a name="10022"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/4c8393f56ea5d95acd1f62445c35e9a8">
+                            <img src="https://image.joinquant.com/dce23cd2a8c6007bd9943bd08e2e77d3" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="6bcccdd101a7b65b69f5936a9bfc73db">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/4c8393f56ea5d95acd1f62445c35e9a8" class="user-alias">duanqs</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ
+                            您好! 谢谢回复.
+                            我也是对RSI比较有兴趣, 因为它不像趋势系统那样违背人性的心里, 不存在'执行难'的问题.
+                            曾经看到有针对RSI2的日线策略, 岂不更是激进的左侧吗.  用它来选择买低卖高的时机, 应该没错,
+                            而且出现机会的次数也比较多(该指标变动很块吗, 对吧).
+                            需要对它的分布特征进行量化. 慢慢来吧.
+                            以后用money来代替volume, 进行流动性过滤, 可能更精确些.
+
+                            我在想弄一套交易系统绩效评测, 不知您可否给点参考意见?
+                            对jq里的某些绩效指标不是太理解. </div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ
+您好! 谢谢回复. 
+我也是对RSI比较有兴趣, 因为它不像趋势系统那样违背人性的心里, 不存在'执行难'的问题. 
+曾经看到有针对RSI2的日线策略, 岂不更是激进的左侧吗.  用它来选择买低卖高的时机, 应该没错,
+而且出现机会的次数也比较多(该指标变动很块吗, 对吧). 
+需要对它的分布特征进行量化. 慢慢来吧.  
+以后用money来代替volume, 进行流动性过滤, 可能更精确些. 
+
+我在想弄一套交易系统绩效评测, 不知您可否给点参考意见?
+对jq里的某些绩效指标不是太理解. ">
+                    </div>
+
+                </div>
+                <a name="10023"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="3f446f3766e3f6b51ce89d7c1996d8c8">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@duanqs
+                            我也是新手，哈哈，绩效评测我只能指望jq的工程师们能多上线更多的指标，一定要我给个建议的话我个人感觉最大回撤时长挺有用的。另外，想了解这些绩效指标上知乎上有不少通俗易懂的解答
+                            比如[知乎][1]
+
+
+                            [1]: https://www.zhihu.com/question/21905471</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@duanqs
+我也是新手，哈哈，绩效评测我只能指望jq的工程师们能多上线更多的指标，一定要我给个建议的话我个人感觉最大回撤时长挺有用的。另外，想了解这些绩效指标上知乎上有不少通俗易懂的解答
+比如[知乎][1]
+
+
+  [1]: https://www.zhihu.com/question/21905471">
+                    </div>
+
+                </div>
+                <a name="10032"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/4c8393f56ea5d95acd1f62445c35e9a8">
+                            <img src="https://image.joinquant.com/dce23cd2a8c6007bd9943bd08e2e77d3" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="70898898ce4d6a372edc510b703dc60f">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/4c8393f56ea5d95acd1f62445c35e9a8" class="user-alias">duanqs</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ
+                            if panduan2 == 1:
+                            g.buyDict[security2] = context.portfolio.portfolio_value*1.1
+                            这里的买入额为什么要比组合里的总资产还要多出10%呢, 是想加一点杠杆的意思吗?</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ
+if panduan2 == 1:
+                g.buyDict[security2] = context.portfolio.portfolio_value*1.1
+这里的买入额为什么要比组合里的总资产还要多出10%呢, 是想加一点杠杆的意思吗?">
+                    </div>
+
+                </div>
+                <a name="10036"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/4c8393f56ea5d95acd1f62445c35e9a8">
+                            <img src="https://image.joinquant.com/dce23cd2a8c6007bd9943bd08e2e77d3" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="31f7446fda2a56cd1c407ea1198a9336">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/4c8393f56ea5d95acd1f62445c35e9a8" class="user-alias">duanqs</a>
+                        </div>
+                        <div class="content hidden reply_info">@JimZ
+                            还有一个想法:  依据第一张图里的参数
+                            1.  分年度, 统计出每日选股时流动性榜单top10里的样本个体出现的次数, 降序排序
+                            2.  分年度, 统计出每日选股时稳健收益榜单top5里的样本个体出现的次数, 降序排序
+                            3.  依据交易记录, 分年度, 统计出操作(一个来回算一次交易)过的etf列表, 交易次数降序排序
+
+                            etf的样本空间没有多少, 总共100出头的样子, 经常被操作的就那么几个(我估计), 想用图表或者报表的形式呈现以下.
+
+                            这里涉及到需要重构/组织: 数据对象, 比如pd.DataFrame, Series, np.Array的基本操作和运算
+                            还涉及到: matplotlib, 绘图+个性定制.
+                            刚接触到这些大块头的包/组件, 又是如此的功能强大, 使用灵活, 实在消化不了.
+                            您有没有兴趣呢?
+
+                            祝端午节愉快!</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@JimZ
+还有一个想法:  依据第一张图里的参数
+1.  分年度, 统计出每日选股时流动性榜单top10里的样本个体出现的次数, 降序排序
+2.  分年度, 统计出每日选股时稳健收益榜单top5里的样本个体出现的次数, 降序排序
+3.  依据交易记录, 分年度, 统计出操作(一个来回算一次交易)过的etf列表, 交易次数降序排序     
+
+etf的样本空间没有多少, 总共100出头的样子, 经常被操作的就那么几个(我估计), 想用图表或者报表的形式呈现以下. 
+
+这里涉及到需要重构/组织: 数据对象, 比如pd.DataFrame, Series, np.Array的基本操作和运算
+还涉及到: matplotlib, 绘图+个性定制. 
+刚接触到这些大块头的包/组件, 又是如此的功能强大, 使用灵活, 实在消化不了. 
+您有没有兴趣呢?
+
+祝端午节愉快!">
+                    </div>
+
+                </div>
+                <a name="10041"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="9dd1d07277eaef57a585de364333238f">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@duanqs
+                            这一天先卖出现持仓，然后买进新建仓。在卖出现持仓后，由于是以今天的开盘价卖出的，所以卖出后得到的现金可能比昨天结束时的账户总价值多，但是再怎么多也只可能增加百分之十，所以加了个1.1，JQ会根据你的现金限制买入量。</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@duanqs
+这一天先卖出现持仓，然后买进新建仓。在卖出现持仓后，由于是以今天的开盘价卖出的，所以卖出后得到的现金可能比昨天结束时的账户总价值多，但是再怎么多也只可能增加百分之十，所以加了个1.1，JQ会根据你的现金限制买入量。">
+                    </div>
+
+                </div>
+                <a name="10042"></a>
+                <div class="list post-row" style="">
+                    <div class="avatar-container">
+                        <a href="/user/180e069cad8998263505d7f6a1c7516e">
+                            <img src="https://image.joinquant.com/cb941f819c6b9d01573e8cec453f0a86" class="avatar">
+                        </a>
+                    </div>
+                    <div class="post-title mt_8 relative" style="width:90%" id="b6ce724bd8646cf569d0b3d5bb77c956">
+                        <div class="post_info mb_20">
+                            <a class="pr_10" href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">JimZ</a>
+                        </div>
+                        <div class="content hidden reply_info">@duanqs
+                            分年度统计次数，有点意思，有时间的话我试试</div>
+                        <div class="replay_bot">
+                            <span>2016-06-07 </span>
+                        </div>
+
+                        <div class="reply_editor hidden"></div>
+                        <input type="hidden"  class="content-for-edit hidden" value="@duanqs
+分年度统计次数，有点意思，有时间的话我试试">
+                    </div>
+
+                </div>
+                <div class="mt_m page_box" id="page1">
+                    <div class="pagination m15 cf f13">
+                        <ul class="pagination" id="yw0"><li class="first nodisplay"><a href="/post/1511">首页</a></li>
+                            <li class="previous nodisplay"><a href="/post/1511">上一页</a></li>
+                            <li class="page selected"><a href="/post/1511">1</a></li>
+                            <li class="page"><a href="/post/1511?page=2">2</a></li>
+                            <li class="page"><a href="/post/1511?page=3">3</a></li>
+                            <li class="page"><a href="/post/1511?page=4">4</a></li>
+                            <li class="next"><a href="/post/1511?page=2">下一页</a></li>
+                            <li class="last"><a href="/post/1511?page=4">尾页</a></li></ul>   </div>
+                </div>
+
+            </div>
+            <!--/preview_body-->
+
+
+
+
+            <div class="sign-in-please">
+                您尚未登录，请 <a href="/user/login/index?redirect=/post/1511?f=home&m=alg_example">登录</a> 或者 <a href="/user/register/index">注册</a> 聚宽发表回复。
+            </div>
+
+        </div>
+        <form id="edit-reply-form" name="ReplyModel" class="form_pane hidden" novalidate="novalidate" disabled>
+            <input type="hidden" name="ReplyModel[replyId]" value="" id="reply-replyId">
+            <div class="item item_detail mt_35">
+                <div class="form-group form-group-lg">
+                    <div id="wmd-button-bar-reply"></div>
+                    <textarea name="ReplyModel[content]" id="wmd-input-reply" class="wmd-input form-control disabled with-events" rows="3" placeholder=""></textarea>
+                </div>
+            </div>
+            <!--/item_others-->
+            <div class="item item_submit clearfix">
+                <div class="form-group form-group-lg">
+                    <div class="pull-right post-submit">
+                        <!-- <a class="btn btn-link f18 link_gray nounderline mr_10">取 消</a> -->
+                        <button id="btn-submit-cancel" class="btn btn-preview btn_l blue_on_white mr_20" type="button">取 消</button>
+                        <button id="btn-submit-reply" class="btn btn-default btn_l blue_on_white mr_20" type="button">提 交</button>
+                    </div>
+                </div>
+            </div>
+            <!--/item_others-->
+        </form>
+
+    </div>
+    <!--/body-->
+
+    <footer class="kk_footer clearfix bottom-50">
+        <div class="inner auto_w">
+            <div class="wp19 fleft">
+                <div class="item title">关于</div>
+                <div class="item"><a href="/about#aboutUs">关于我们</a></div>
+                <div class="item"><a href="/about#joinUs">加入我们</a></div>
+                <div class="item"><a href="/about#contactUs">联系我们</a></div>
+            </div>
+            <div class="wp19 fleft hidden">
+                <div class="item title">数据</div>
+                <div class="item"><a href="/help/data/index">指数数据</a></div>
+                <div class="item"><a href="/help/data/fund">基金数据</a></div>
+                <div class="item"><a href="/data/dict/gta">国泰安数据</a></div>
+                <div class="item"><a href="/help/data/stock">股票财务数据</a></div>
+                <div class="item"><a href="/help/data/futures">金融期货数据</a></div>
+                <div class="item"><a href="/help/api/plateData">行业概念数据</a></div>
+            </div>
+            <div class="wp19 fleft">
+                <div class="item title">帮助</div>
+                <div class="item"><a href="/faq">常见问题</a></div>
+                <div class="item"><a href="/api">API文档</a></div>
+                <div class="item"><a href="/study#link=python" target="_blank">Python教程</a></div>
+                <div class="item"><a href="/algorithm/apishare/list" target="_blank">共享函数库</a></div>
+                <div class="item"><a href="/post/553">系统更新日志</a></div>
+                <div class="item"><a href="/post/4089">数据调整记录</a></div>
+            </div>
+            <div class="wp19 fleft">
+                <div class="item title">友情链接</div>
+                <div class="item"><a href="http://tushare.org/index.html?f=joinquant">TuShare</a></div>
+                <div class="item"><a href="https://guorn.com/?from=joinquant">果仁网</a></div>
+            </div>
+            <div class="wp19 fleft">
+                <div class="item title" style="padding-left:5px">关注我们</div>
+                <div class="item"><a href="https://zhuanlan.zhihu.com/JoinQuant"><img style="width:24px;" src="https://cdn.joinquant.com/common/img/zhi.png" alt="">知乎专栏</a></div>
+                <div class="item"><a href="https://xueqiu.com/JoinQuant/profile"> <img style="width:24px;" src="https://cdn.joinquant.com/common/img/xq.png" alt="">雪球</a></div>
+            </div>
+            <div class="wp24 fleft last tright">
+                <div class="item inline-block pr_10 fleft">
+                    <img class="mb_10" src="https://cdn.joinquant.com/themes/jq/static/common/img/wechat_no.png" alt="">
+                    <p class="f14 tcenter">微信公众号</p>
+                </div>
+                <div class="item inline-block pl_20 fleft">
+                    <img class="mr_10 mb_10" src="https://cdn.joinquant.com/themes/jq/static/common/img/qq_qroup.png" alt="">
+                    <p class="f14 tcenter">QQ群：524080396</p>
+                </div>
+            </div>
+            <div class="copyright tcenter clear">@2017 @joinquant.com | 京ICP备13039866号-3</div>
+        </div>
+    </footer>
+    <div class="mkk_footer">
+        <div class="inner">
+            <div class="list">
+                <a href="#mfooter1" class="item title" type="button" data-toggle='collapse' data-target='#mfooter1' aria-expanded="false" aria-controls="mfooter1">关于</a>
+                <div class='collapse mfooter1' id="mfooter1">
+                    <div class="item"><a href="/about#aboutUs">关于我们</a></div>
+                    <div class="item"><a href="/about#joinUs">加入我们</a></div>
+                    <div class="item"><a href="/about#contactUs">联系我们</a></div>
+                </div>
+            </div>
+            <div class="list">
+                <a href="#mfooter2" class="item title" data-toggle='collapse' data-target='#mfooter2' aria-expanded="false" aria-controls="mfooter2">数据</a>
+                <div class='collapse mfooter2' id="mfooter2">
+                    <div class="item"><a href="/help/data/index">指数数据</a></div>
+                    <div class="item"><a href="/help/data/fund">基金数据</a></div>
+                    <div class="item"><a href="/data/dict/gta">国泰安数据</a></div>
+                    <div class="item"><a href="/help/data/stock">股票财务数据</a></div>
+                    <div class="item"><a href="/help/data/futures">金融期货数据</a></div>
+                    <div class="item"><a href="help/api/plateData">行业概念数据</a></div>
+                </div>
+            </div>
+            <div class="list">
+                <a href="#mfooter3" class="item title" data-toggle='collapse' data-target='#mfooter3' aria-expanded="false" aria-controls="mfooter3">帮助</a>
+                <div class='collapse mfooter3' id="mfooter3">
+                    <div class="item"><a href="/faq">常见问题</a></div>
+                    <div class="item"><a href="/api">API文档</a></div>
+                    <div class="item"><a href="/study#link=python" target="_blank">Python教程</a></div>
+                    <div class="item"><a href="/post/553">系统更新日志</a></div>
+                    <div class="item"><a href="/post/4089">数据调整记录</a></div>
+                </div>
+            </div>
+            <div class="list last">
+                <div class="logo"><a href="/"></a></div>
+                <div class="copyright">@2015 @joinquant.com | 京ICP备13039866号-3</div>
+            </div>
+        </div>
+    </div>
+    <!--/footer-->
+
+
+</div>
+<!-- 回到顶部 联系我们 -->
+<div id="leftsead" class="hidden">
+    <ul>
+        <li id="btn">
+            <a id="top_btn">
+                <img src="https://cdn.joinquant.com/themes/jq/static/common/img/toTop.png" width="47" height="49" class="shows" />
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var g_staticHost = 'https://cdn.joinquant.com';
+
+    var g_isMobile = false;
+
+    var g_isLogin = false;
+
+    var g_isWinApp= false;
+
+</script>
+<script src="https://cdn.joinquant.com/common/js/lib.min.js?v=201706011122201706021232"></script>
+<script src="https://cdn.joinquant.com/themes/jq/static/common/js/setGroIO.js"></script>
+
+
+
+<script>
+    $('.dropdown-toggle').dropdown();
+    $("body").delegate("a","click",function(){
+        if ($(this)[0].hostname.length>0 && $(this)[0].hostname != window.location.hostname) {
+            window.open($(this)[0].href);
+            return false;
+        }
+    });
+
+    function addUserIcon(){
+        var user = {
+            "4c2438ee379986919782ec5aaea31ac0":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "a9a94cbf1fbc67a98acd312753232aec":'<i class="icon icon-trophy icon-trophy-silver" title="2015年最受欢迎策略亚军"></i>',
+            "179b1b0056b901e816d968d28fa8e81e":'<i class="icon icon-trophy icon-trophy-copper" title="2015年最受欢迎策略季军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "16fd60756833d488b18dac0554f03244":'<i class="icon icon-trophy icon-trophy-gold" title="2015年圣诞节最受欢迎策略冠军"></i>',
+            "eca7f63f7c3df62982dc6e8e8b29b2ab":'<i class="icon icon-trophy icon-trophy-silver" title="2015年圣诞节最受欢迎策略亚军"></i>',
+            "a4c98dec350e69891a6df83add745e26":'<i class="icon icon-trophy icon-trophy-copper" title="2015年圣诞节最受欢迎策略季军"></i>',
+            "aa87bf18818ee992b8583c1330ef846d":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "0f914195a39242d21c29934566e18396":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "f405ebf43640edc10f4f7e12d954ec87":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "47ba0b58397b94aa4ac1a49cb6aa6c66":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "51fcdf0e00a2508bfb79941d668f82a1":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "48c6200451d21c4b3fe6093a39fbd9df":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "31f1ab9f679923fe3f7c9fdfc6257a10":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "9eb156885cf6b7314d8534d630dad77b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "42c36f513d5a18b2364c6ac8e37dc03e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "fcf44ad36423fb2cac78ea69ab510919":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "7cc9c0254e6d756a55d208487d2196b4":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "43735a12db3380763d253ec2ffc4b16e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "db948de33bc2e862b5f8f16443394c2b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "e3bde20a826bc82d976f0d286b3b32be":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "86324720004bc022ef8b527c20151cbb":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "0d815da657403ee258f228a168c30489":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "7c94444a5f7e6513c2894f5766a027c6":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "67240f4041bc73f9461f83d8b1bdca58":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            //"00e28d92af2a53a2a4b98b775c8f6bb2":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant"><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+        }
+
+        $('.user-alias').each(function(){
+            /*
+             var alias =  $(this).html();
+             if(user[alias]){
+             alias = alias+user[alias];
+             $(this).html(alias);
+             }
+             */
+            var euid = $(this).attr('href').replace("/user/","");
+            if(user[euid]){
+                var alias =  $(this).html();
+                alias = alias+user[euid];
+                $(this).html(alias);
+            }
+        });
+    }
+</script>
+<script src="https://cdn.joinquant.com/themes/jq/static/common/js/beforelogin-layer.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/exceptional.min.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/third/pagedown/marked.jq.min.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/detail.min.js?v=201706011122201706021232"></script>
+<script src='https://cdn.bootcss.com/mathjax/2.6.0-beta.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/common/js/trace.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/user/js/loginDialog.js?v=201706011122201706021232"></script>
+<script>
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+
+
+
+<div style="display:none">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1256107754&web_id=1256107754" language="JavaScript"></script>
+    <!-- 返回顶部 -->
+    <script>
+        function toTop(){
+            var scrollT=$(window).scrollTop();
+            if (scrollT>=200) {
+                $('#leftsead').removeClass('hidden');
+            }else{
+                $('#leftsead').addClass('hidden');
+            }
+        }
+        if (!g_isMobile) {
+            toTop();
+        }
+
+        $(window).scroll(function(){
+            if (!g_isMobile) {
+                toTop();
+            }
+        })
+        $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
+        /* var g_isBackToTop = true;
+         if(g_isBackToTop){
+         $('#leftsead').removeClass('hidden');
+         $("#leftsead a").hover(function(){
+         if($(this).prop("className")=="youhui"){
+         $(this).children("img.hides").show();
+         }else{
+         $(this).children("div.hides").show();
+         $(this).children("img.shows").hide();
+         $(this).children("div.hides").animate({marginRight:'0px'},'0');
+         }
+         },function(){
+         if($(this).prop("className")=="youhui"){
+         $(this).children("img.hides").hide();
+         }else{
+         $(this).children("div.hides").animate({marginRight:'-163px'},0,function(){$(this).hide();$(this).next("img.shows").show();});
+         }
+         });
+         $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
+
+         //右侧导航 - 二维码
+         $(".youhui").mouseover(function(){
+         $(this).children(".2wm").show();
+         })
+         $(".youhui").mouseout(function(){
+         $(this).children(".2wm").hide();
+         });
+         }*/
+    </script>
+    <script>
+        var img = new Image();
+        var referer = "https%3A%2F%2Fwww.joinquant.com%2F";
+        var euid = "0";
+        var urd = "0000_00_00";
+        var logHost = '';
+        var timestamp=new Date().getTime();
+        img.src = logHost+'/log/p.gif?euid='+euid+"&referer="+referer+'&urd='+urd+'&_t='+timestamp;
+    </script>
+    <script>
+        /*cnzz点击事件统计*/
+        $('.track_event_click').click(function(){
+            var cate = $(this).attr('_cate');
+            var name = $(this).attr('_name');
+            _czc.push(['_trackEvent', cate, '点击', name]);
+        });
+    </script>
+</div>
+</body>
+</html>

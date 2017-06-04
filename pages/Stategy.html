@@ -1,0 +1,1051 @@
+<html><head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>UMT-股票分析师</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="../plugins/morris/morris.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+
+
+    <link rel="stylesheet" href="../bootstrap/css/layui.css" media="all">
+    <link rel="stylesheet" href="../bootstrap/css/global.css" media="all">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/carousel.css" rel="stylesheet">
+
+    <meta name="description" content="UMT量化交易平台是为量化爱好者量身打造的云平台，我们为您提供精准的回测功能、高速实盘交易接口、易用的API文档、由易入难的策略库，便于您快速实现、使用线上客户提供的特色量化交易策略。">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link type="text/css" href="https://cdn.joinquant.com/common/css/lib.min.css?v=201706011122201706021232" rel="stylesheet">
+    <link type="text/css" href="https://cdn.joinquant.com/common/css/common.min.css?v=201706011122201706021232" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.joinquant.com/themes/jq/static/common/css/jq-common.min.css?v=201706011122201706021232">
+    <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
+
+    <!-- <link type='text/css'  href="https://cdn.joinquant.com/third/looper/looper.min.css?v=201706011122201706021232" rel='stylesheet'/> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.joinquant.com/themes/jq/static/user/css/loginDialog.min.css?v=201706011122201706021232">
+    <link type="text/css" href="https://cdn.joinquant.com/themes/jq/static/default/css/style.min.css?v=201706011122201706021232" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.joinquant.com/default/css/slide.css?v=201706011122201706021232">
+    <link type="text/css" href="https://cdn.joinquant.com/themes/jq/static/common/css/beforelogin-layer.css?v=201706011122201706021232" rel="stylesheet">
+
+
+    <style>
+        span.new{
+            background: rgba(0,0,0,0);
+        }
+        .side-bar .top .name.user-alias img{
+            width:16px;
+            height:16px;
+            float: none;
+            margin-right:0;
+        }
+        .kk_footer .wp20.last img{
+            position: relative;
+            top:-2px;
+        }
+        .kk_footer .wp20.last .item>a{
+            position: relative;
+            left:-5px;
+        }
+    </style>
+    <script type="text/javascript" async="" src="https://dn-growing.qbox.me/vds.js"></script><script type="text/javascript">
+    var _vds = _vds || [];
+    window._vds = _vds;
+    (function(){
+        _vds.push(['setAccountId', '949f6a566feb9b09']);
+        (function() {
+            var vds = document.createElement('script');
+            vds.type='text/javascript';
+            vds.async = true;
+            vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(vds, s);
+        })();
+    })();
+</script>
+</head>
+<body>
+<div class="kk_main in_wrap">
+
+    <header id="kk_nav" class=" kk_nav navbar narbar-static-top">
+        <div id="container">
+            <div class="layui-header header header-index">
+                <div class="layui-main">
+                    <a class="logo" href="../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
+                        UMT
+                    </a>
+                    <div class="layui-form component">
+                        <select lay-search lay-filter="component">
+                            <option value="">搜索组件或模块</option>
+                            <option value="element/color.html">color 颜色</option>
+                        </select>
+                    </div>
+                    <ul class="layui-nav" pc>
+                        <li class="layui-nav-item ">
+                            <a href="#">首页</a>
+                        </li>
+                        <li class="layui-nav-item ">
+                            <a href="../pages/SingleStock.html">个股</a>
+                        </li>
+                        <li class="layui-nav-item" pc>
+                            <a href="http://fly.layui.com/" target="_blank">量化策略</a>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
+                        </li>
+                        <li class="layui-nav-item" >
+                            <a href="javascript:;">个性化</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="http://layim.layui.com/" target="_blank">我的策略</a></dd>
+                                <dd><a href="http://fly.layui.com/jie/8157.html" target="_blank">我的收藏</a></dd>
+                                <dd><a href="http://fly.layui.com/jie/9842.html" target="_blank">浏览记录</a></dd>
+                                <dd><a href="#" target="_blank">个人设置</a> </dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="../pages/Login.html" target="_blank">登录</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!--/header-->
+    <div class="kk_body ">
+        <div class="in_body">
+
+            <!--/banner-->
+
+            <!-- 策略示例 -->
+            <div class="celue">
+                <div class="celuebox auto_w clear m_0a">
+                    <div class="item-header">
+                        <span class="title inline-block">策略广场</span>
+                        <!-- <span class="item-line inline-block"></span> -->
+
+                    </div>
+
+                    <div class="item-header">
+                        <span class="title inline-block">***************系统策略包括动量回归与均值策略，用户也可参考其他用户提供的策略进行回测***************</span>
+                        <!-- <span class="item-line inline-block"></span> -->
+
+                    </div>
+
+                    <div class="celue_box">
+
+                        <div class="item celue_item" postid_backtestid="3594_1810351">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">动量策略</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">策略回测</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/634e7bca35fa442aefbba7d053168779" class="avatar">
+                                    <span class="f14">系统策略</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/3594?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_36f8cddda954da207237dc2d72d880e7.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">84.84%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">4.51%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥30000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20 subscribeCount">605</span>人订阅</span>
+                                <button class="fright f14 free_order freeOrder" _backtestid="957048" _postid="6103">免费订阅</button>
+                            </div>
+                        </div>
+
+                        <div class="item celue_item" postid_backtestid="3594_1810351">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">均值回归</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">策略回测</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/634e7bca35fa442aefbba7d053168779" class="avatar">
+                                    <span class="f14">系统策略</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/3594?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_36f8cddda954da207237dc2d72d880e7.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">84.84%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">4.51%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥30000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20 subscribeCount">605</span>人订阅</span>
+                                <button class="fright f14 free_order freeOrder" _backtestid="957048" _postid="6103">免费订阅</button>
+                            </div>
+                        </div>
+
+                        <div class="item celue_item" postid_backtestid="3594_1810351">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">银行日内</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">模拟实盘</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/634e7bca35fa442aefbba7d053168779" class="avatar">
+                                    <span class="f14">囚徒之爱</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/3594?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_36f8cddda954da207237dc2d72d880e7.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">84.84%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">4.51%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥30000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <p class="tcenter un_order">策略作者不允许订阅</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="6103_957048">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/6103?f=home&amp;m=alg_example" target="_blank"> 嬴率季胜季</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">模拟实盘</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/dab6a29372be351c2c4fd3f41d5321b1" class="avatar">
+                                    <span class="f14">鏖戰先覺者</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/6103?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/6103?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_fa570000237a8c81d63445030594db32.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">305.71%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">13.31%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥50000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20 subscribeCount">605</span>人订阅</span>
+                                <button class="fright f14 free_order freeOrder" _backtestid="957048" _postid="6103">免费订阅</button>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="3132_1557510">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/3132?f=home&amp;m=alg_example" target="_blank">分级A轮动策略</a>
+                                </p>
+                                <span class="fright inline-block title_span backtest f12">策略回测</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/634e7bca35fa442aefbba7d053168779" class="avatar">
+                                    <span class="f14">囚徒</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/3132?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/3132?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_850cfd8129fdbea6f8df477166dff567.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">18.58%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">1.08%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥300000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20">862</span>人获取源码</span>
+                                <button class="fright f14 get_code getCode" _backtestid="1557510" _postid="3132">获取源码</button>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="2709_1652786">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/2709?f=home&amp;m=alg_example" target="_blank">基于SVM的机器学习策略</a>
+                                </p>
+                                <span class="fright inline-block title_span backtest f12">策略回测</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/ade9049d89dd2d9a33a2b0f4f49250e3" class="avatar">
+                                    <span class="f14">走得很慢的海龟</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/2709?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/2709?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_8026c2a0bd35c6927e348cc843c38dd7.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">10.05%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">20.49%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥1000000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20">694</span>人获取源码</span>
+                                <button class="fright f14 get_code getCode" _backtestid="1652786" _postid="2709">获取源码</button>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="3595_846963">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/3595?f=home&amp;m=alg_example" target="_blank">日内B</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">模拟实盘</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/634e7bca35fa442aefbba7d053168779" class="avatar">
+                                    <span class="f14">囚徒之爱</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/3595?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/3595?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_76dde528737c14152d2fc6c9d21da8ab.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">41.47%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">5.19%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥200000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <p class="tcenter un_order">策略作者不允许订阅</p>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="1587_773598">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/1587?f=home&amp;m=alg_example" target="_blank">原来B基还可以这么玩，终于可以躺着数钱。</a>
+                                </p>
+                                <span class="fright inline-block title_span backtest f12">策略回测</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/56bf0b6e36a205ae84ddb34afb4819bf" class="avatar">
+                                    <span class="f14">日记本</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/1587?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/1587?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_e0d4135f6b34ed86187a37dabdbbfb7b.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">39.61%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">2.9%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥100000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20">1710</span>人获取源码</span>
+                                <button class="fright f14 get_code getCode" _backtestid="773598" _postid="1587">获取源码</button>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="287_60670">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/287?f=home&amp;m=alg_example" target="_blank">【钟摆理论1】量化模型实现</a>
+                                </p>
+                                <span class="fright inline-block title_span backtest f12">策略回测</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/3e6d9bb897c2c58ab88cf12e57c2efe5" class="avatar">
+                                    <span class="f14">冰柠檬</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/287?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/287?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_91086a8afd18de7c8c1158f7fcc89091.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">13.73%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">28.22%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥100000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20">380</span>人获取源码</span>
+                                <button class="fright f14 get_code getCode" _backtestid="60670" _postid="287">获取源码</button>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="5993_2854248">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/5993?f=home&amp;m=alg_example" target="_blank">X2.0 择时优化</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">模拟实盘</span>
+                                <div class="user_box clear">
+                                    <img src="https://cdn.joinquant.com/common/img/default_header-2.png" class="avatar">
+                                    <span class="f14">pfrao</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/5993?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/5993?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_d2abfabc525e1720d8295c75d4a1e45e.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">19.86%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">8.84%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥300000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <span class="f14">已有<span class="red f20 subscribeCount">9</span>人订阅</span>
+                                <button class="fright f14 free_order freeOrder" _backtestid="2854248" _postid="5993">免费订阅</button>
+                            </div>
+                        </div>
+
+
+                        <div class="item celue_item" postid_backtestid="2175_1121408">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/2175?f=home&amp;m=alg_example" target="_blank">小市值策略</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">模拟实盘</span>
+                                <div class="user_box clear">
+                                    <img src="https://image.joinquant.com/88ee5287037beaf6cd66c59e3781bbc8" class="avatar">
+                                    <span class="f14">进击的炮灰</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <span class="f12 celue_blue"><span></span>策略收益</span>
+                                <span class="f12 celue_red"><span></span>基准收益</span>
+                                <a href="/post/2175?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/2175?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_d4756a6498a74911a622ced22cc338dd.png" alt=""></a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">13.86%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">14.91%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥300000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <p class="tcenter un_order">策略作者不允许订阅</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item-more f16 clear" id="more_item">加载更多策略&gt;&gt;</div>
+                </div>
+            </div>
+            <!-- 策略示例结束 -->
+            <!-- 链接开始 -->
+            <div class="link">
+                <div class="link_container auto_w m_0a clear">
+                    <div class="link_item">
+                        <h3>常见问题</h3>
+                        <a href="/faq?f=home&amp;m=faq#joinquant提供什么服务" class="title" target="_blank" title="JoinQuant提供什么服务？">JoinQuant提供什么服务？</a>
+                        <a href="/data?f=home&amp;m=faq" class="title" target="_blank" title="JoinQuant提供哪些数据？">JoinQuant提供哪些数据？</a>
+                        <a href="/post/1023?f=home&amp;m=faq" class="title" target="_blank" title="如何使用JoinQuant编写策略？">如何使用JoinQuant编写策略？</a>
+                        <a href="/faq?f=home&amp;m=faq#joinquant收费吗" class="title" target="_blank" title="JoinQuant收费吗？">JoinQuant收费吗？</a>
+                        <a href="/faq?f=home&amp;m=faq#我的策略是否安全" class="title" target="_blank" title="我的策略是否安全？">我的策略是否安全？</a>
+                        <a href="/faq?f=home&amp;m=faq" class="more f16" target="_blank"><span class="link_more_span"> - </span>查看更多</a>
+                    </div>
+                    <div class="link_item study">
+                        <h3>量化课堂</h3>
+                        <a href="/post/6113?f=home&amp;m=study" class="title" target="_blank" title="【量化课堂】多因子换档反转策略">【量化课堂】多因子换档反转策略</a>
+                        <a href="/post/5395?f=home&amp;m=study" class="title" target="_blank" title="【量化课堂】PEG 动态选股策略">【量化课堂】PEG 动态选股策略</a>
+                        <a href="/post/4596?f=home&amp;m=study" class="title" target="_blank" title="【量化课堂】MPT 模型的解析解（上）">【量化课堂】MPT 模型的解析解（上）</a>
+                        <a href="/post/4594?f=home&amp;m=study" class="title" target="_blank" title="【量化课堂】因子研究系列之四 -- 市值与行业的中性化">【量化课堂】因子研究系列之四 -- 市值与行业的中性化</a>
+                        <a href="/post/4351?f=home&amp;m=study" class="title" target="_blank" title="【量化课堂】多回测运行和参数分析框架">【量化课堂】多回测运行和参数分析框架</a>
+                        <a href="/study?f=home&amp;m=study" target="_blank" class="more f16"><span class="link_more_span"> - </span>查看更多</a>
+                    </div>
+                    <div class="link_item community">
+                        <h3>社区精选</h3>
+                        <a href="/post/7098?f=home&amp;m=community" class="title" target="_blank" title="【JoinQuant】求贤季">【JoinQuant】求贤季</a>
+                        <a href="/post/7117?f=home&amp;m=community" class="title" target="_blank" title="【量化资讯】高频交易派系揭秘">【量化资讯】高频交易派系揭秘</a>
+                        <a href="/post/7029?f=home&amp;m=community" class="title" target="_blank" title="小费雪选股法（终）">小费雪选股法（终）</a>
+                        <a href="/post/5049?f=home&amp;m=community" class="title" target="_blank" title="【官方福利贴】券商、私募有意高价求购策略">【官方福利贴】券商、私募有意高价求购策略</a>
+                        <a href="/post/4938?f=home&amp;m=community" class="title" target="_blank" title="策略常用函数库、行业板块代码">策略常用函数库、行业板块代码</a>
+                        <a href="/community/algorithm?f=home&amp;m=community" target="_blank" class="more f16"><span class="link_more_span"> - </span>查看更多</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 链接结束 -->
+            <!--/numbers-->
+            <div class="function">
+                <div class="functionbox relative auto_w m_0a">
+                    <div class="ma-function">
+                        <h3 class="title relative"><span>我们提供</span><p class="line"></p></h3>
+                    </div>
+                    <div class="tile_pane clearfix ">
+                        <div class="item">
+                            <div class="padding_div clear relative">
+                                <a href="/data?f=home&amp;m=we_provide" target="_blank">
+                                    <div class="tile_img img1"></div>
+                                    <div class="tile_title">高质量数据</div>
+                                </a>
+                                <div class="tile">
+                                    <div class="tile_info">我们免费提供2005年至今的A股行情数据、财务数据、基金数据、指数数据、金融期货数据、行业板块数据</div>
+                                    <div class="more"><a href="/data?f=home&amp;m=we_provide" target="_blank">立即体验</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="padding_div clear relative">
+                                <a href="/algorithm/index/new" target="_blank">
+                                    <div class="tile_img img2"></div>
+                                    <div class="tile_title">精准回测</div>
+                                </a>
+                                <div class="tile">
+                                    <div class="tile_info">我们免费提供高效、精准的回测引擎，快速验证策略，支持日级、分钟级回测。</div>
+                                    <div class="more"><a href="/algorithm/index/new" target="_blank">立即体验</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="padding_div clear relative">
+                                <a href="/algorithm/trade/list?f=home&amp;m=we_provide" target="_blank">
+                                    <div class="tile_img img3"></div>
+                                    <div class="tile_title">模拟交易</div>
+                                </a>
+                                <div class="tile">
+                                    <div class="tile_info">我们免费提供最准确、实时的沪深A股、ETF模拟交易工具，支持日级、分钟级、tick级模拟交易</div>
+                                    <div class="more"><a href="/algorithm/trade/list?f=home&amp;m=we_provide" target="_blank">立即体验</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="padding_div clear relative">
+                                <a href="/community?f=home&amp;m=we_provide" target="_blank">
+                                    <div class="tile_img img4"></div>
+                                    <div class="tile_title">量化交流社区</div>
+                                </a>
+                                <div class="tile">
+                                    <div class="tile_info">我们为量化爱好者提供线上交流社区，支持一键克隆策略，便于用户交流量化策略、学习量化知识，一起成长</div>
+                                    <div class="more"><a href="/community?f=home&amp;m=we_provide" target="_blank">立即体验</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!--/tile_pane-->
+            <div class="feat_pane">
+                <div class="cont auto_w box_center">
+                    <div class="title text-center relative"><span style="">我们的优势</span><p class="line"></p></div>
+                    <!-- <div class="subtitle text-center"></div> -->
+                    <div class="row clearfix">
+                        <div class="item feat1">
+                            <div class="item_img img1"></div>
+                            <div class="item_title">用户第一</div>
+                            <div class="item_info">追求极致的用户体验，快速响应用户需求，为用户创造价值。</div>
+                        </div>
+                        <div class="item feat1">
+                            <div class="item_img img2"></div>
+                            <div class="item_title">尊重知识产权</div>
+                            <div class="item_info">策略是用户最大的财富，您对策略拥有100%的知识产权。</div>
+                        </div>
+                        <div class="item feat1">
+                            <div class="item_img img3"></div>
+                            <div class="item_title">保障策略安全</div>
+                            <div class="item_info">提供业界最高的安全级别，通过https传输、加密存储、沙箱保护保障您的策略安全，任何人无法获取您的策略。</div>
+                        </div>
+                        <div class="item feat1">
+                            <div class="item_img img4"></div>
+                            <div class="item_title">高质量数据</div>
+                            <div class="item_info">我们的数据基于2005年至今完整的Level-2数据，包含完整的停复牌、复权等信息，盘后及时更新。</div>
+                        </div>
+                        <div class="item feat1">
+                            <div class="item_img img5"></div>
+                            <div class="item_title">强大的研究平台</div>
+                            <div class="item_info">提供分钟级数据，采用Docker技术隔离，资源独立、安全性更高、性能更好，同步支持Python2、Python3。</div>
+                        </div>
+                        <div class="item feat1">
+                            <div class="item_img img6"></div>
+                            <div class="item_title">顶级回测体验</div>
+                            <div class="item_info">支持每日、分钟两级回测，提供简洁、强大的API，回测结果实时显示、快速响应、数据全面。</div>
+                        </div>
+                        <div class="item feat1">
+                            <div class="item_img img7"></div>
+                            <div class="item_title">顶尖模拟交易</div>
+                            <div class="item_info">提供最准确、实时的沪深A股、ETF模拟交易工具，支持基于tick级的模拟交易。</div>
+                        </div>
+                        <div class="item feat1">
+                            <div class="item_img img8"></div>
+                            <div class="item_title">量化交流社区</div>
+                            <div class="item_info">为量化爱好者提供线上交流社区，便于用户交流量化策略、学习量化知识，一起成长。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/feat_pane-->
+            <div class="join_pane">
+                <div class="auto_w box_center clearfix bg">
+                    <div class=" col_text">
+                        <div class="title">开启量化投资之旅</div>
+                    </div>
+                    <div class="col_btn tcenter"><a href="/user/register/index?f=home&amp;m=register" class="btn btn-default white_on_white">立即开启</a></div>
+                </div>
+            </div>
+            <!--/join_pane-->
+        </div>
+
+        <!-- 登录框 -->
+        <!--登录注册弹出框 -->
+        <div class="login-shadow hidden" id="loginDialog-model" style="position: absolute; top: 0px; left: 0px;">
+            <div class="login-container" style="position: absolute;">
+                <div class="login-head clear">
+                    <div class="login-title fleft">登录</div>
+                    <div class="login-close fright"><img src="https://cdn.joinquant.com/themes/jq/static/algorithm/img/x.png" alt=""></div>
+                </div>
+                <div class="login-content">
+                    <div class="title">
+                        <div class="title-item login-title-item active" _id="1">登录</div>
+                        <div class="title-item login-title-item" _id="2">注册</div>
+                    </div>
+                    <div class="form_pane active" index="1">
+
+                        <form class="kkform" name="CyLoginForm" id="loginForm" method="post" action="/user/login/DoLogin">
+                            <div class="form-group form-group-lg">
+                                <input type="text" class="form-control" placeholder="手机号" name="CyLoginForm[username]" autofocus="autofocus">
+                            </div>
+                            <div class="relative">
+                                <div class="form-group form-group-lg">
+                                    <input type="password" class="form-control" name="CyLoginForm[pwd]" placeholder="密码">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-block btn-lg" type="submit" id="btnSubmit">登录</button>
+                        </form>
+                        <!-- <div class="password_link fright "></div> -->
+                        <div class="fleft mt_20 cursor">
+                            <a class="link_gray f14" href="/user/account/forgetpwd">忘记密码&nbsp;</a>
+                        </div>
+                        <div class=" fright mt_20 cursor"><span class="link_gray alert_btn f14">无法登录？</span></div>
+                        <div class="alert">
+                            <span>请通过QQ反馈您遇到的问题<br>QQ:1120116269</span><br>
+                            <button type="button" class="btn btn-primary alert_ok">确定
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form_pane" index="2">
+                        <form class="kkform" name="UserModel" id="registerForm" autocomplete="off" method="post" action="/user/login/DoRegister">
+                            <input class="hidden" type="text" style="display:none">
+                            <input class="hidden" type="password" style="display:none">
+                            <div class="form-group form-group-lg">
+                                <input type="text" class="form-control" name="UserModel[mob]" placeholder="手机号" autofocus="autofocus">
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <div style="" id="valideCode">
+                                    <input type="text" style="width:55%;float:left" class="form-control" name="valideCode" placeholder="图形验证码">
+                                    <img id="valideCode-img" class="valideCode" src="/common/verifyCode/valideCode?width=215" style="margin-left:18px;cursor:pointer">
+                                </div>
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <div id="verifyCode" class="clear">
+                                    <input type="text" style="width:55%;float:left;" class="form-control" name="verifyCode" placeholder="手机验证码">
+                                    <button type="button" id="btnVerifyCode" class="btn btn-primary btn-block" style="width:40%;float:right;height:44px;padding-top:8px;font-size: 14px">获取手机验证码</button>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group form-group-lg">
+                                    <input type="password" id="password" name="UserModel[pwd]" class="form-control" placeholder="密码">
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="form-group form-group-lg">
+                                    <input type="昵称" name="UserModel[alias]" class="form-control" placeholder="昵称">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-block btn-lg" id="btnRegister" type="submit">注册</button>
+                            <div class="checkbox form_rule gray">
+                                <label class="pl_0i f16 fleft"><div class="icheckbox_square-blue checked" style="position: relative;"><input type="checkbox" checked="checked" name="privacy" style="margin-top:9px;margin-left:0"></div><span class="pl_10 inline-block " style="padding-left: 15px;font-size: 12px">我已阅读并同意<a>服务协议</a>和<a>隐私政策</a></span></label>
+                                <div class=" absolute top_14 right cursor alert_btn"><span class="link_gray">无法注册？</span></div>
+                            </div>
+                            <div class="alert fleft">
+                                <span>请通过QQ反馈您遇到的问题<br>QQ:1120116269</span><br>
+                                <button type="button" class="btn btn-primary alert_ok">确定
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!--/body-->
+
+    <footer class="kk_footer clearfix ">
+        <div class="inner auto_w">
+            <div class="wp19 fleft">
+                <div class="item title">关于</div>
+                <div class="item"><a href="/about?f=home&amp;m=footer#aboutUs">关于我们</a></div>
+                <div class="item"><a href="/about?f=home&amp;m=footer#joinUs">加入我们</a></div>
+                <div class="item"><a href="/about?f=home&amp;m=footer#contactUs">联系我们</a></div>
+            </div>
+            <div class="wp19 fleft hidden">
+                <div class="item title">数据</div>
+                <div class="item"><a href="/help/data/index?f=home&amp;m=footer">指数数据</a></div>
+                <div class="item"><a href="/help/data/fund?f=home&amp;m=footer">基金数据</a></div>
+                <div class="item"><a href="/data/dict/gta?f=home&amp;m=footer">国泰安数据</a></div>
+                <div class="item"><a href="/help/data/stock?f=home&amp;m=footer">股票财务数据</a></div>
+                <div class="item"><a href="/help/data/futures?f=home&amp;m=footer">金融期货数据</a></div>
+                <div class="item"><a href="/help/api/plateData?f=home&amp;m=footer">行业概念数据</a></div>
+            </div>
+            <div class="wp19 fleft">
+                <div class="item title">帮助</div>
+                <div class="item"><a href="/faq?f=home&amp;m=footer">常见问题</a></div>
+                <div class="item"><a href="/api?f=home&amp;m=footer">API文档</a></div>
+                <div class="item"><a href="/study#link=python?f=home&amp;m=footer" target="_blank">Python教程</a></div>
+                <div class="item"><a href="/algorithm/apishare/list?f=home&amp;m=footer" target="_blank">共享函数库</a></div>
+                <div class="item"><a href="/post/553?f=home&amp;m=footer">系统更新日志</a></div>
+                <div class="item"><a href="/post/4089?f=home&amp;m=footer">数据调整记录</a></div>
+            </div>
+            <div class="wp19 fleft">
+                <div class="item title">友情链接</div>
+                <div class="item"><a href="http://tushare.org/index.html??f=joinquant">TuShare</a></div>
+                <div class="item"><a href="https://guorn.com/?f=joinquant">果仁网</a></div>
+            </div>
+            <div class="wp19 fleft">
+                <div class="item title" style="padding-left:5px">关注我们</div>
+                <div class="item"><a href="https://zhuanlan.zhihu.com/JoinQuant?f=home&amp;m=footer"><img style="width:24px;" src="https://cdn.joinquant.com/common/img/zhi.png" alt="">知乎专栏</a></div>
+                <div class="item"><a href="https://xueqiu.com/JoinQuant/profile?f=home&amp;m=footer"> <img style="width:24px;" src="https://cdn.joinquant.com/common/img/xq.png" alt="">雪球</a></div>
+            </div>
+            <div class="wp24 fleft last tright">
+                <div class="item inline-block pr_10 fleft">
+                    <img class="mb_10" src="https://cdn.joinquant.com/themes/jq/static/common/img/wechat_no.png" alt="">
+                    <p class="f14 tcenter">微信公众号</p>
+                </div>
+                <div class="item inline-block pl_20 fleft">
+                    <img class="mr_10 mb_10" src="https://cdn.joinquant.com/themes/jq/static/common/img/qq_qroup.png" alt="">
+                    <p class="f14 tcenter">QQ群：524080396</p>
+                </div>
+            </div>
+            <div class="copyright tcenter clear">@2017 @joinquant.com | 京ICP备13039866号-3</div>
+        </div>
+    </footer>
+    <div class="mkk_footer">
+        <div class="inner">
+            <div class="list">
+                <a href="#mfooter1" class="item title" type="button" data-toggle="collapse" data-target="#mfooter1" aria-expanded="false" aria-controls="mfooter1">关于</a>
+                <div class="collapse mfooter1" id="mfooter1">
+                    <div class="item"><a href="/about#aboutUs?f=home&amp;m=footer">关于我们</a></div>
+                    <div class="item"><a href="/about#joinUs?f=home&amp;m=footer">加入我们</a></div>
+                    <div class="item"><a href="/about#contactUs?f=home&amp;m=footer">联系我们</a></div>
+                </div>
+            </div>
+            <div class="list">
+                <a href="#mfooter2" class="item title" data-toggle="collapse" data-target="#mfooter2" aria-expanded="false" aria-controls="mfooter2">数据</a>
+                <div class="collapse mfooter2" id="mfooter2">
+                    <div class="item"><a href="/help/data/index?f=home$m=footer">指数数据</a></div>
+                    <div class="item"><a href="/help/data/fund?f=home$m=footer">基金数据</a></div>
+                    <div class="item"><a href="/data/dict/gta?f=home$m=footer">国泰安数据</a></div>
+                    <div class="item"><a href="/help/data/stock?f=home$m=footer">股票财务数据</a></div>
+                    <div class="item"><a href="/help/data/futures?f=home$m=footer">金融期货数据</a></div>
+                    <div class="item"><a href="/help/api/plateData?f=home&amp;m=footer">行业概念数据</a></div>
+                </div>
+            </div>
+            <div class="list">
+                <a href="#mfooter3" class="item title" data-toggle="collapse" data-target="#mfooter3" aria-expanded="false" aria-controls="mfooter3">帮助</a>
+                <div class="collapse mfooter3" id="mfooter3">
+                    <div class="item"><a href="/faq?f=home&amp;m=footer">常见问题</a></div>
+                    <div class="item"><a href="/api?f=home&amp;m=footer">API文档</a></div>
+                    <div class="item"><a href="/study#link=python?f=home&amp;m=footer" target="_blank">Python教程</a></div>
+                    <div class="item"><a href="/post/553?f=home&amp;m=footer">系统更新日志</a></div>
+                    <div class="item"><a href="/post/4089?f=home&amp;m=footer">数据调整记录</a></div>
+                </div>
+            </div>
+            <div class="list last">
+                <div class="logo"><a href="/?f=home&amp;m=footer"></a></div>
+                <div class="copyright">@2015 @joinquant.com | 京ICP备13039866号-3</div>
+            </div>
+        </div>
+    </div>
+    <!--/footer-->
+
+
+</div>
+<!-- 回到顶部 联系我们 -->
+<div id="leftsead" class="hidden">
+    <ul>
+        <li id="btn">
+            <a id="top_btn">
+                <img src="https://cdn.joinquant.com/themes/jq/static/common/img/toTop.png" width="47" height="49" class="shows">
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var g_staticHost = 'https://cdn.joinquant.com';
+
+    var g_isMobile = false;
+
+    var g_isLogin = false;
+
+    var g_isWinApp= false;
+
+</script>
+<script src="https://cdn.joinquant.com/common/js/lib.min.js?v=201706011122201706021232"></script>
+<script src="https://cdn.joinquant.com/themes/jq/static/common/js/setGroIO.js"></script>
+
+
+
+<script>
+    $('.dropdown-toggle').dropdown();
+    $("body").delegate("a","click",function(){
+        if ($(this)[0].hostname.length>0 && $(this)[0].hostname != window.location.hostname) {
+            window.open($(this)[0].href);
+            return false;
+        }
+    });
+
+    function addUserIcon(){
+        var user = {
+            "4c2438ee379986919782ec5aaea31ac0":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "a9a94cbf1fbc67a98acd312753232aec":'<i class="icon icon-trophy icon-trophy-silver" title="2015年最受欢迎策略亚军"></i>',
+            "179b1b0056b901e816d968d28fa8e81e":'<i class="icon icon-trophy icon-trophy-copper" title="2015年最受欢迎策略季军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "16fd60756833d488b18dac0554f03244":'<i class="icon icon-trophy icon-trophy-gold" title="2015年圣诞节最受欢迎策略冠军"></i>',
+            "eca7f63f7c3df62982dc6e8e8b29b2ab":'<i class="icon icon-trophy icon-trophy-silver" title="2015年圣诞节最受欢迎策略亚军"></i>',
+            "a4c98dec350e69891a6df83add745e26":'<i class="icon icon-trophy icon-trophy-copper" title="2015年圣诞节最受欢迎策略季军"></i>',
+            "aa87bf18818ee992b8583c1330ef846d":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "0f914195a39242d21c29934566e18396":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "f405ebf43640edc10f4f7e12d954ec87":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "47ba0b58397b94aa4ac1a49cb6aa6c66":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "51fcdf0e00a2508bfb79941d668f82a1":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "48c6200451d21c4b3fe6093a39fbd9df":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "31f1ab9f679923fe3f7c9fdfc6257a10":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "9eb156885cf6b7314d8534d630dad77b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "42c36f513d5a18b2364c6ac8e37dc03e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "fcf44ad36423fb2cac78ea69ab510919":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "7cc9c0254e6d756a55d208487d2196b4":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "43735a12db3380763d253ec2ffc4b16e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "db948de33bc2e862b5f8f16443394c2b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "e3bde20a826bc82d976f0d286b3b32be":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "86324720004bc022ef8b527c20151cbb":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "0d815da657403ee258f228a168c30489":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "7c94444a5f7e6513c2894f5766a027c6":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "67240f4041bc73f9461f83d8b1bdca58":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            //"00e28d92af2a53a2a4b98b775c8f6bb2":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant"><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+        }
+
+        $('.user-alias').each(function(){
+            /*
+             var alias =  $(this).html();
+             if(user[alias]){
+             alias = alias+user[alias];
+             $(this).html(alias);
+             }
+             */
+            var euid = $(this).attr('href').replace("/user/","");
+            if(user[euid]){
+                var alias =  $(this).html();
+                alias = alias+user[euid];
+                $(this).html(alias);
+            }
+        });
+    }
+</script>
+<script src="https://cdn.joinquant.com/themes/jq/static/common/js/beforelogin-layer.js?v=201706011122201706021232"></script>
+<script src="https://cdn.joinquant.com/default/js/index.min.js?v=201706011122201706021232"></script>
+<script src="https://cdn.joinquant.com/themes/jq/static/default/js/jq-index.min.js?v=201706011122201706021232"></script>
+
+<div style="display:none">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1256107754&amp;web_id=1256107754" language="JavaScript"></script><script src="https://c.cnzz.com/core.php?web_id=1256107754&amp;t=z" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1256107754" target="_blank" title="站长统计">站长统计</a>
+    <!-- 返回顶部 -->
+    <script>
+        function toTop(){
+            var scrollT=$(window).scrollTop();
+            if (scrollT>=200) {
+                $('#leftsead').removeClass('hidden');
+            }else{
+                $('#leftsead').addClass('hidden');
+            }
+        }
+        if (!g_isMobile) {
+            toTop();
+        }
+
+        $(window).scroll(function(){
+            if (!g_isMobile) {
+                toTop();
+            }
+        })
+        $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
+        /* var g_isBackToTop = true;
+         if(g_isBackToTop){
+         $('#leftsead').removeClass('hidden');
+         $("#leftsead a").hover(function(){
+         if($(this).prop("className")=="youhui"){
+         $(this).children("img.hides").show();
+         }else{
+         $(this).children("div.hides").show();
+         $(this).children("img.shows").hide();
+         $(this).children("div.hides").animate({marginRight:'0px'},'0');
+         }
+         },function(){
+         if($(this).prop("className")=="youhui"){
+         $(this).children("img.hides").hide();
+         }else{
+         $(this).children("div.hides").animate({marginRight:'-163px'},0,function(){$(this).hide();$(this).next("img.shows").show();});
+         }
+         });
+         $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
+
+         //右侧导航 - 二维码
+         $(".youhui").mouseover(function(){
+         $(this).children(".2wm").show();
+         })
+         $(".youhui").mouseout(function(){
+         $(this).children(".2wm").hide();
+         });
+         }*/
+    </script>
+    <script>
+        var img = new Image();
+        var referer = "https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3D2KGb9BElU2IqgGPuItsHc0UsUCMDhxN6nP8ZJoNIZBQYb7-24dmimVIeus7w53Ue%26wd%3D%26eqid%3Dc6bc921d0003ba40000000035932863e";
+        var euid = "0";
+        var urd = "0000_00_00";
+        var logHost = '';
+        var timestamp=new Date().getTime();
+        img.src = logHost+'/log/p.gif?euid='+euid+"&referer="+referer+'&urd='+urd+'&_t='+timestamp;
+    </script>
+    <script>
+        /*cnzz点击事件统计*/
+        $('.track_event_click').click(function(){
+            var cate = $(this).attr('_cate');
+            var name = $(this).attr('_name');
+            _czc.push(['_trackEvent', cate, '点击', name]);
+        });
+    </script>
+</div>
+
+
+</body></html>
