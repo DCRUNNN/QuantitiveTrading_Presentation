@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
-<html>
-<head>
+<html style="height: 100%;width:100%">
+<head style="height: 100%;width:100%">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UMT - 自定义策略</title>
@@ -29,22 +29,23 @@
     <![endif]-->
 
     <style type="text/css">
-        *{margin: 0; padding: 0;}
-        html,body{height: 100%; margin: 0; padding: 0;font: 12px/1.5 tahoma, arial, 'hiragino sans gb', 'microsoft yahei', sans-serif;-webkit-font-smoothing: antialiased;}
-        #mian{ width:540px; height:100%; }
-        #leftBox{background:#ecf0f5;width:15px; height:100%; text-align:left;float:left;}
-        #test{border:6px solid #eaeaea; outline:none; width:530px; height:100%; resize: none; background: rgb(250,250,250); line-height: 24px;font-size: 14px;float: left; padding:10px 8px;  color: black; font-family: inherit; box-sizing: border-box;}
-        #leftNum{ height:100%; width: 100%; resize: none;outline:none; overflow-y: hidden; overflow-x: hidden; border: 0; background: rgb(247,247,247); color: #999;line-height: 24px;font-size: 14px; padding:10px 4px; text-align: right; font-weight: bold; box-sizing: border-box;}
-        #result{width:400px;height:500px;}
-        #pic{width:600px;height: 50%;border:1px solid black;}
-        #log{width:600px;height:50%}
-        /*.pic img{max-width:100%; max-height:100%;}*/
+        /**{margin: 0; padding: 0;}*/
+        /*html,body{height: 100%; margin: 0; padding: 0;font: 12px/1.5 tahoma, arial, 'hiragino sans gb', 'microsoft yahei', sans-serif;-webkit-font-smoothing: antialiased;}*/
+        /*#mian{ width:540px; height:100%; }*/
+        /*#leftBox{background:#ecf0f5;width:15px; height:100%; text-align:left;float:left;}*/
+        /*#test{border:6px solid #eaeaea; outline:none; width:530px; height:100%; resize: none; background: rgb(250,250,250); line-height: 24px;font-size: 14px;float: left; padding:10px 8px;  color: black; font-family: inherit; box-sizing: border-box;}*/
+        /*#leftNum{ height:100%; width: 100%; resize: none;outline:none; overflow-y: hidden; overflow-x: hidden; border: 0; background: rgb(247,247,247); color: #999;line-height: 24px;font-size: 14px; padding:10px 4px; text-align: right; font-weight: bold; box-sizing: border-box;}*/
+        /*#result{width:400px;height:500px;}*/
+        /*#pic{width:600px;height: 50%;border:1px solid black;}*/
+        /*#log{width:600px;height:50%}*/
 
-        /*.breadcrumb > li + li:before {*/
-            /*color: #CCCCCC;*/
-            /*content: "/ ";*/
-            /*padding: 0 0px;*/
-        /*}*/
+        #main{color:#666}
+        textarea{border:1px solid #7f9db9;font-size:9pt;width:100%;height:auto;color:#000}
+        .grey{color:#999}
+        #msg1,#msg2,#msg3,#msg4{ display:none}
+        #ol{position:absolute;z-index:1;padding:0px;margin:0px;border:0px;background:#ecf0f5;width:4%;height:100%;text-align:left; }
+        #li{background:#ecf0f5;height:160px;overflow:hidden;width:100%;height:100%;border-right:0;line-height:20px;margin:0px;padding:0px;text-align:center}
+        #c2{font-family:Arial, Helvetica, sans-serif;height:160px; margin:0px; width:100%;height:100%;padding:0 0 0 35px;overflow-x: hidden;line-height:20px;}
 
         #page-demo .breadcrumb{height:24px;height:1.5rem;padding:6.4px 16px;padding:.4rem 1rem;background:#f2f2f2}#page-demo .breadcrumb ul li{float:left}#page-demo .breadcrumb .algorithm-name{margin:0 0 0 8px;margin:0 0 0 .5rem;height:24px;height:1.5rem;line-height:24px;line-height:1.5rem;padding:0 8px;padding:0 .5rem;border-radius:5px;max-width:400px;max-width:25rem;font-size:12.8px;font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:400}#page-demo .breadcrumb .algorithm-name-edit{max-width:480px;max-width:30rem;text-align:center;z-index:2}#page-demo .breadcrumb .algorithm-desc{position:relative;margin:0 0 0 8px;margin:0 0 0 .5rem;padding:0 8px;padding:0 .5rem;height:24px;height:1.5rem;line-height:24px;line-height:1.5rem;border-radius:.2rem;font-weight:400;font-size:11.2px;font-size:.7rem}#page-demo .breadcrumb .algorithm-desc .desc{padding:0 3.2px;padding:0 .2rem;display:inline-block;position:relative;margin-left:3.2px;margin-left:.2rem;height:16px;height:1rem}#page-demo .breadcrumb .algorithm-desc:hover{background:#fff}#page-demo .breadcrumb .algorithm-desc-edit{top:0;left:-32px;left:-2rem;padding:0 32px;padding:0 2rem}#page-demo .breadcrumb .algorithm-desc .rqicon{position:relative;z-index:1}#page-demo .breadcrumb .algorithm-desc .desc-close{position:absolute;top:-2px;right:3.2px;right:.2rem;font-size:10px}#page-demo .breadcrumb>span{padding:0 8px;padding:0 .5rem;font-size:12px;line-height:24px;line-height:1.5rem}#page-demo .breadcrumb>a{line-height:24px;line-height:1.5rem;font-size:12.8px;font-size:.8rem}#page-demo .breadcrumb .btn-mini{border-right-width:0}#page-demo .breadcrumb .border-right{border-right-width:1px}#page-demo .breadcrumb .type-0,#page-demo .breadcrumb .type-java,#page-demo .breadcrumb .type-Java{color:#c00}#page-demo .breadcrumb .type-1,#page-demo .breadcrumb .type-python,#page-demo .breadcrumb .type-Python{color:#3777ad}#page-demo .toolbar{height:24px;height:1.5rem;padding:6.4px 12px 5.6px;padding:.4rem .75rem .35rem;background-color:#fff;border-bottom:1px solid #999}#page-demo #editor-box{border-top:1px solid #ccc;position:absolute;top:84.8px;top:5.3rem;bottom:1px;left:0;right:0}#page-demo #editor-box.no-plot #build-wrapper{height:226px}#page-demo #editor-box.no-plot #log-wrapper{height:calc(100vh - 226px - 5.35rem)}#page-demo #editor-wrapper{position:relative;height:100%;width:50%}#page-demo #editor-wrapper .yellow-arrow{position:absolute;right:80px;right:5rem;top:4.8px;top:.3rem;z-index:3;height:28.8px;height:1.8rem;width:48px;width:3rem}#page-demo #editor-wrapper .toolbar{text-align:right;padding-right:10px}#page-demo #editor-wrapper .btn{margin-right:12px;margin-right:.75rem}#page-demo #editor-wrapper .settings{display:inline-block;margin-right:15px;top:-2px}#page-demo #editor-wrapper .rqicon{font-size:14.4px;font-size:.9rem;color:#999}#page-demo #editor-wrapper .rqicon:hover{color:#5584ff}#page-demo #sep-control{position:absolute;right:0;top:0;bottom:0;width:8px;background-color:#fff;border-left:1px solid #333;border-right:1px solid #333}#page-demo #editor{position:absolute;top:36.8px;top:2.3rem;left:0;right:10px;bottom:0;margin:0}#page-demo #build-wrapper,#page-demo #log-wrapper{position:relative}#page-demo #build-wrapper{height:424px;overflow:hidden}#page-demo #build-wrapper .yellow-arrow{position:absolute;right:80px;right:5rem;top:3.2px;top:.2rem}#page-demo #build-wrapper input{height:24px;height:1.5rem;line-height:24px;line-height:1.5rem;padding:0 5px;width:80px;width:5rem;border:0;background:#f2f2f2;color:#999}#page-demo #build-wrapper .tip{position:absolute;color:#fc6;font-size:32px;font-size:2rem;top:5px;right:65.6px;right:4.1rem}#page-demo #build-wrapper .select{width:56px;width:3.5rem;line-height:22.4px;line-height:1.4rem;vertical-align:top}#page-demo #build-wrapper .select-trigger{border:1px solid #ccc}#page-demo #build-wrapper .select li{height:23.2px;height:1.45rem}#page-demo #build-wrapper .select li:last-child{height:24px;height:1.5rem}#page-demo #build-wrapper .select.active .select-sheet{height:49.6px;height:3.1rem;border-width:1px}#page-demo #build-wrapper #explain{color:#ccc;font-size:12.8px;font-size:.8rem;margin-top:4.8px;margin-top:.3rem}#page-demo #build-wrapper #explain span:first-child{position:relative;left:41.6px;left:2.6rem}#page-demo #build-wrapper #explain span:nth-child(2){position:relative;left:88px;left:5.5rem}#page-demo #build-wrapper #explain span:nth-child(3){position:relative;left:124.8px;left:7.8rem}#page-demo #build-wrapper #explain span:nth-child(4){position:relative;left:145.6px;left:9.1rem}#page-demo #build-result{position:absolute;top:36.8px;top:2.3rem;left:0;right:0;bottom:0}#page-demo #build-result>p{position:absolute;top:50%;left:50%;margin-top:-15px;margin-left:-150px;font-size:19.2px;font-size:1.2rem;height:30px;line-height:30px;width:300px;text-align:center;color:#ccc}#page-demo #log-wrapper{overflow:hidden;height:55%}#page-demo #log-wrapper .tab-nav{height:35px;border-top:1px solid #999;border-bottom:1px solid #ccc;background-color:#f2f2f2}#page-demo #log-wrapper .tab-nav a{display:block;height:28px;line-height:28px;margin:6px 0 0 15px;padding:1px 16px 0;color:#999}#page-demo #log-wrapper .tab-nav .active{height:29px;padding:0 15px;border:1px solid #ccc;border-bottom:0;border-radius:5px 5px 0 0;color:#5584ff;background-color:#fff}#page-demo #log-wrapper .tab-nav .new-log:after{content:"";display:block;height:8px;width:8px;background-color:#e55;border-radius:4px;position:relative;top:-18px;left:-10px}#page-demo #log-wrapper .tab-nav .active.new-log:after{display:none}#page-demo #log-wrapper .tab-sheet{overflow-y:auto;box-sizing:border-box;height:calc(100% - 37px);background:#fff;color:#333}#page-demo #log-wrapper .theme-dark{background-color:#323232;color:#fff}#page-demo #log-wrapper .theme-dark.loading:after{background-image:url(//alicdn.ricequant.com/img/loading-cat-black-957f3edcd9.gif)}#page-demo #log-box p{font-size:19.2px;font-size:1.2rem;text-align:center;color:#ccc;margin-top:128px;margin-top:8rem}#page-demo #err-box p{font-size:19.2px;font-size:1.2rem;text-align:center;color:#ccc;margin-top:128px;margin-top:8rem}#page-demo footer{display:none}#page-demo .join-us-bg{position:fixed;top:0;bottom:0;left:0;right:0;background:hsla(0,0%,78%,.5);z-index:3}#page-demo .join-us-box{position:absolute;top:50%;left:50%;margin-top:-200px;margin-top:-12.5rem;margin-left:-313.6px;margin-left:-19.6rem}#page-demo .join-us-box,#page-demo .join-us-box img{height:400px;height:25rem;width:628px;width:39.25rem}#page-demo .join-us-box a{position:absolute;height:47.2px;height:2.95rem;bottom:52.8px;bottom:3.3rem}#page-demo .join-us-box .register-btn{left:190.4px;left:11.9rem;width:128px;width:8rem}#page-demo .join-us-box .login-btn{right:163.2px;right:10.2rem;width:123.2px;width:7.7rem}#page-demo .join-us-box .cancel-btn{height:16px;height:1rem;width:16px;width:1rem;top:105.6px;top:6.6rem;right:14.4px;right:.9rem}
 
@@ -52,8 +53,8 @@
     </style>
 
 </head>
-<body class="hold-transition login-page" style="background-image: url(https://topvet.azureedge.net/Backgrounds/background1.png)">
-<div class="layui-header header header-index">
+<body class="hold-transition login-page" style="height: 100%;width:100%;background-image: url(https://topvet.azureedge.net/Backgrounds/background1.png)" onLoad="keyUp();">
+<div class="layui-header header header-index" >
     <div class="layui-main">
         <a class="logo" href="../../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
             UMT
@@ -100,63 +101,134 @@
 </div>
 
 <div class="breadcrumb">
-    <button type="button" class="btn btn-primary">编译策略</button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    &nbsp;从&nbsp;<input type="text" value="2017-01-01" >
-    &nbsp;至&nbsp;<input type="text" value="2017-06-03" >
-    &nbsp;¥&nbsp;<input type="text" value="100000">
+    <label style="font-size: 17px;color: darkblue">参数选择</label>
+
+    &nbsp;从&nbsp;<input type="text" value="2017-01-01" class="">
+    &nbsp;至&nbsp;<input type="text" value="2017-06-03" class="" >
+    &nbsp;¥&nbsp;<input type="text" value="100000" >
     <select name="" style="width:60px;height:22px">
         <option value="0">每天</option>
         <option value="1">分钟</option>
     </select>
-    &nbsp;&nbsp;
-    <button type="button" class="btn btn-primary pull-right">运行回测</button>
+    <button type="button" class="btn btn-primary btn-sm pull-right">编译运行</button>
 </div>
 
-<div id="leftBox">
-    <textarea wrap="off" cols="2" id="leftNum" disabled></textarea>
-</div>
-     <textarea style="left:50px" id="test" name="content" onkeydown="keyUp()" onscroll="getId('leftNum').scrollTop = this.scrollTop;">
-    </textarea>
+<!--<div id="leftBox">-->
+    <!--<textarea wrap="off" cols="2" id="leftNum" disabled></textarea>-->
+<!--</div>-->
+     <!--<textarea style="left:50px" id="test" name="content" onkeydown="keyUp()" onscroll="getId('leftNum').scrollTop = this.scrollTop;">-->
+    <!--</textarea>-->
 
 
-<div class="col">
-        <div class="col-xs-6" >
-            <div class="panel panel-default" style="width: 600px;">
-                <div class="btn-group btn-group-sm" >
-                    <button type="button" class="btn btn-default">启动时间</button>
-                    <button type="button" class="btn btn-default">结束时间</button>
-                    <button type="button" class="btn btn-default">初始资金</button>
-                    <button type="button" class="btn btn-default">运行频率</button>
+<div class="container" style="height: 100%;width:100%">
 
-                </div>
-                <div class="panel-body" style="height: 50%">
-                    <img src="../../dist/img/运行截图.png" style="max-width: 100%;max-height: 100%;">
+    <div class="row"  style="height: 100%;width:100%">
+        <div class="col-md-6" style="height: 100%;width:50%">
+                <table width="100%"  border="0" cellspacing="0" cellpadding="0" style="position:relative;height:100%">
+                    <tr>
+                        <td width="100%">
+                            <div id="ol"><textarea cols="10" rows="10" id="li" disabled></textarea></div>
+                            <textarea name="co" cols="60" rows="10" wrap="off" id="c2" onblur="check('2')" onKeyUp="keyUp()" onFocus="clearValue('2')" onscroll="G('li').scrollTop=this.scrollTop;" oncontextmenu="return false" class="grey">
+
+                            </textarea>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+        <script>document.getElementById("c2").placeholder="public class Example{}"</script>
+
+        <div class="col-md-6" style="height: 100%;width:50%">
+            <div class="row" style="height:50%">
+                <div class="panel panel-default" style="height:100%">
+                    <!--<div class="btn-group btn-group-sm" >-->
+                        <!--<button type="button" class="btn btn-default">启动时间</button>-->
+                        <!--<button type="button" class="btn btn-default">结束时间</button>-->
+                        <!--<button type="button" class="btn btn-default">初始资金</button>-->
+                        <!--<button type="button" class="btn btn-default">运行频率</button>-->
+
+                    <!--</div>-->
+                    <div class="panel-body" style="height:100%;width: 100%">
+                        <img src="../../dist/img/运行截图.png" style="max-width: 100%;max-height: 100%;">
+                    </div>
                 </div>
             </div>
+            <div class="row" style="height:50%">
+                <!--<div class="panel panel-default" style="width: 600px;height:200px;">-->
+                    <!--<div class="btn-group btn-group-sm">-->
+                        <!--<button type="button" class="btn btn-default">日志</button>-->
+                        <!--<button type="button" class="btn btn-default">运行时错误</button>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<p>这里显示日志</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p>或者运行时错误</p>&ndash;&gt;-->
+                    <!--<div align="center" vertical-align="middle" >-->
+                        <!--<p style="color:blue">这里显示日志或者运行时错误</p>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+
+                <div class="panel panel-default" style="height:100%;">
+                <div class="tabbable" style="height:100%;"> <!-- Only required for left/right tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab1" data-toggle="tab">日志</a></li>
+                        <li><a href="#tab2" data-toggle="tab">运行时错误</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <p>这里显示日志.</p>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <p>这里显示运行时错误</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
         </div>
-
-         <div class="col-xs-6" >
-             <div class="panel panel-default" style="width: 600px;height:200px;">
-                 <div class="btn-group btn-group-sm">
-                     <button type="button" class="btn btn-default">日志</button>
-                     <button type="button" class="btn btn-default">运行时错误</button>
-                 </div>
-                 <!--<p>这里显示日志</p>-->
-                 <!--<p>或者运行时错误</p>-->
-                 <div align="center" vertical-align="middle" >
-                     <p style="color:blue">这里显示日志或者运行时错误</p>
-                 </div>
-
-             </div>
-         </div>
+    </div>
 </div>
+
+
+
+    <!--<div class="col">-->
+        <!--<div class="col-xs-6" >-->
+            <!--<div class="panel panel-default" style="width: 600px;">-->
+                <!--<div class="btn-group btn-group-sm" >-->
+                    <!--<button type="button" class="btn btn-default">启动时间</button>-->
+                    <!--<button type="button" class="btn btn-default">结束时间</button>-->
+                    <!--<button type="button" class="btn btn-default">初始资金</button>-->
+                    <!--<button type="button" class="btn btn-default">运行频率</button>-->
+
+                <!--</div>-->
+                <!--<div class="panel-body" style="height: 50%">-->
+                    <!--<img src="../../dist/img/运行截图.png" style="max-width: 100%;max-height: 100%;">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="col-xs-6" >-->
+            <!--<div class="panel panel-default" style="width: 600px;height:200px;">-->
+                <!--<div class="btn-group btn-group-sm">-->
+                    <!--<button type="button" class="btn btn-default">日志</button>-->
+                    <!--<button type="button" class="btn btn-default">运行时错误</button>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<p>这里显示日志</p>&ndash;&gt;-->
+                <!--&lt;!&ndash;<p>或者运行时错误</p>&ndash;&gt;-->
+                <!--<div align="center" vertical-align="middle" >-->
+                    <!--<p style="color:blue">这里显示日志或者运行时错误</p>-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+
 
 
 
@@ -197,5 +269,6 @@
         });
     });
 </script>
+
 </body>
 </html>
