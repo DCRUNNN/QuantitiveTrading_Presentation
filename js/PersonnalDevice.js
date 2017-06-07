@@ -11,3 +11,16 @@ function hide() {
     document.getElementById("hidebg").style.display="none";
     document.getElementById("login").style.display="none";
 }
+
+var vm = new Vue({
+   el:'container',
+    data:{
+
+    },
+    methods:{
+
+    },
+    mounted(){
+
+    }
+});
