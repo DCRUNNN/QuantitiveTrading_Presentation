@@ -213,17 +213,17 @@
                                 </thead>
                                 <tbody>
 
-                                <!--<tr v-for="item in items" id="line">-->
-                                    <!--<td>{{item.stockId}}</td>-->
-                                    <!--<td>{{item.stockName}}</td>-->
-                                    <!--<td>{{item.}}</td>-->
-                                    <!--<td>{{item.}}</td>-->
-                                    <!--<td>{{item.}}</td>-->
-                                    <!--<td>{{item.}}</td>-->
-                                    <!--<td>{{item.highest}}</td>-->
-                                    <!--<td>{{item.lowest}}</td>-->
-                                    <!--<td>{{item.details}}</td>-->
-                                <!--</tr>-->
+                                <tr v-for="item in items" id="line">
+                                    <td>{{item.stockId}}</td>
+                                    <td>{{item.stockName}}</td>
+                                    <td>{{item.changeRange}}</td>
+                                    <td>{{item.volume}}</td>
+                                    <td>{{item.yeClose}}</td>
+                                    <td>{{item.toOpen}}</td>
+                                    <td>{{item.highest}}</td>
+                                    <td>{{item.lowest}}</td>
+                                    <td><a href="#" >{{item.details}}</a></td>
+                                </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
@@ -287,11 +287,11 @@
     <i class="layui-icon">&#xe602;</i>
 </div>
 <div class="site-mobile-shade"></div>
-<script src="//res.layui.com/layui/build/layui.js?t=1494451009005" charset="utf-8"></script>
+<script src="//res.layui.com/layui/build/layui.js?t=1496641896938" charset="utf-8"></script>
 <script>
     layui.config({
         base: '//res.layui.com/lay/modules/layui/'
-        ,version: '1494451009005'
+        ,version: '1496641896938'
     }).use('global');
 
     window.global = {
@@ -306,6 +306,7 @@
 
 <script src="../vue/vue.js"></script>
 <script src="../vue-resource/vue-resource.js"></script>
+<script src="../js/HomePage.js"></script>
 <!-- jQuery 2.2.3 -->
 <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -338,32 +339,6 @@
 
 
     });
-</script>
-
-<script>
-    $(function () {
-        "use strict";
-
-        var bar = new Morris.Bar({
-            element: 'bar-chart',
-            resize: true,
-            data: [
-                {y: '2006', a: 100, b: 90},
-                {y: '2007', a: 75, b: 65},
-                {y: '2008', a: 50, b: 40},
-                {y: '2009', a: 75, b: 65},
-                {y: '2010', a: 50, b: 40},
-                {y: '2011', a: 75, b: 65},
-                {y: '2012', a: 100, b: 90}
-            ],
-            barColors: ['#00a65a', '#f56954'],
-            xkey: 'y',
-            ykeys: ['a', 'b'],
-            labels: ['CPU', 'DISK'],
-            hideHover: 'auto'
-        });
-    });
-
 </script>
 </body>
 </html>
