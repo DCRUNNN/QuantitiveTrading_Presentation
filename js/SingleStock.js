@@ -184,9 +184,77 @@ var vm = new Vue({
 
         this.$http.get("http://localhost:8080/company/news/"+code).then(function (response) {
 
+            self.newstitle1=response.data.data[0].title;
+            self.newsurl1=response.data.data[0].link;
+            self.newsdate1=response.data.data[0].data;
+
+            self.newstitle2=response.data.data[1].title;
+            self.newsurl2=response.data.data[1].link;
+            self.newsdate2=response.data.data[1].data;
+
+            self.newstitle3=response.data.data[2].title;
+            self.newsurl3=response.data.data[2].link;
+            self.newsdate3=response.data.data[2].data;
+
+            self.newstitle4=response.data.data[3].title;
+            self.newsurl4=response.data.data[3].link;
+            self.newsdate4=response.data.data[3].data;
+
+            self.newstitle5=response.data.data[4].title;
+            self.newsurl5=response.data.data[4].link;
+            self.newsdate5=response.data.data[4].data;
+
+            self.newstitle6=response.data.data[5].title;
+            self.newsurl6=response.data.data[5].link;
+            self.newsdate6=response.data.data[5].data;
+
+            self.newstitle7=response.data.data[6].title;
+            self.newsurl7=response.data.data[6].link;
+            self.newsdate7=response.data.data[6].data;
+
+            self.newstitle8=response.data.data[7].title;
+            self.newsurl8=response.data.data[7].link;
+            self.newsdate8=response.data.data[7].data;
+
         }).catch(function (response) {
             alert("出现了未知的错误！");
-        })
+        });
+
+        this.$http.get("http://localhost:8080/company/announcement/"+code).then(function (response) {
+            self.announcementtitle1=response.data.data[0].title;
+            self.announcementurl1=response.data.data[0].link;
+            self.announcementdate1=response.data.data[0].date;
+
+            self.announcementtitle2=response.data.data[1].title;
+            self.announcementurl2=response.data.data[1].link;
+            self.announcementdate2=response.data.data[1].date;
+
+            self.announcementtitle3=response.data.data[2].title;
+            self.announcementurl3=response.data.data[2].link;
+            self.announcementdate3=response.data.data[2].date;
+
+            self.announcementtitle4=response.data.data[3].title;
+            self.announcementurl4=response.data.data[3].link;
+            self.announcementdate4=response.data.data[3].date;
+
+            self.announcementtitle5=response.data.data[4].title;
+            self.announcementurl5=response.data.data[4].link;
+            self.announcementdate5=response.data.data[4].date;
+
+            self.announcementtitle6=response.data.data[5].title;
+            self.announcementurl6=response.data.data[5].link;
+            self.announcementdate6=response.data.data[5].date;
+
+            self.announcementtitle7=response.data.data[6].title;
+            self.announcementurl7=response.data.data[6].link;
+            self.announcementdate7=response.data.data[6].date;
+
+            self.announcementtitle8=response.data.data[7].title;
+            self.announcementurl8=response.data.data[7].link;
+            self.announcementdate8=response.data.data[7].date;
+        }).catch(function (response) {
+            alert("出现了未知的错误！");
+        });
 
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
             params:{
