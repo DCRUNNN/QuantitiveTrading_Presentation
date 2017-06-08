@@ -111,7 +111,7 @@
                 <!-- /.col -->
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="info-box" style="height:120px;">
-                        <span class="info-box-icon bg-red " style="height:120px;"><i class="fa fa-arrow-up"></i></span>
+                        <span v-bind:class="classObject" style="height:120px;"><i v-bind:class="iObject"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text" style="margin-left: 10%;margin-top: 5%;">涨跌幅：{{quote_change}}</span>
                             <span class="info-box-number" style="margin-top: 10%;margin-left: 10%;">涨跌幅百分比：{{quote_change_per}}</span>

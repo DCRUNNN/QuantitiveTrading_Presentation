@@ -90,15 +90,14 @@ var vm = new Vue({
         total:'10000',
         flowstock:'900',
 
-        topenprice:'',
-        thighprice:'',
-        tlowprice:'',
-        pprice:'',
-        price:'',
-        tvolume:'',
-        ttotal:'',
-        market:'',
-
+        topenprice:'1',
+        thighprice:'2',
+        tlowprice:'3',
+        pprice:'4',
+        price:'5',
+        tvolume:'6',
+        ttotal:'7',
+        market:'8',
 
 
         newstitle1:'',
@@ -154,6 +153,21 @@ var vm = new Vue({
 
     },
     methods:{
+    },// info-box-icon bg-red
+    computed:{
+        classObject:function () {
+            if(self.quote_change>0){
+                return "info-box-icon bg-green";
+            }
+            return "info-box-icon bg-red";
+        },
+
+        iObject:function () {
+            if(self.quote_change>0) {
+                return "fa fa-arrow-up";
+            }
+            return "fa fa-arrow-down";
+        }
     },
     mounted:function () {
 
@@ -164,7 +178,7 @@ var vm = new Vue({
         var klineData;
         const self = this;
 
-        this.$http.get("htttp://localhost:8080/company/details/"+code).then(function (response) {
+        this.$http.get("http://localhost:8080/company/details/"+code).then(function (response) {
             self.topenprice = response.data.data.open;
             self.thighprice = response.data.data.high;
             self.tlowprice = response.data.data.low;
@@ -173,11 +187,11 @@ var vm = new Vue({
             self.tvolume = response.data.data.volume;
             self.ttotal = response.data.data.turnover;
             self.market = response.data.data.market;
+            self.quote_change=(self.price-self.pprice).toPrecision(2);
+            self.quote_change_per=response.data.data.quote_change+"%";
         }).catch(function (error) {
             alert("出现了未知的错误！")
         });
-
-
 
         this.$http.get("http://localhost:8080/company/info/"+code).then(function (response) {
             // console.log(response.data);
