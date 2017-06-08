@@ -164,7 +164,7 @@ var vm = new Vue({
         var klineData;
         const self = this;
 
-        this.$http.get("htttp://localhost:8080/company/details/"+code).then(function (response) {
+        this.$http.get("http://localhost:8080/company/details/"+code).then(function (response) {
             self.topenprice = response.data.data.open;
             self.thighprice = response.data.data.high;
             self.tlowprice = response.data.data.low;
@@ -174,6 +174,9 @@ var vm = new Vue({
             self.ttotal = response.data.data.turnover;
             self.market = response.data.data.market;
         }).catch(function (error) {
+            if(error==20000001){
+                alert("股票不存在！")
+            }
             alert("出现了未知的错误！")
         });
 
