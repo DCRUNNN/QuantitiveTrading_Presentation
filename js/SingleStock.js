@@ -4,6 +4,64 @@
 /**
  * Created by cyz on 2017/5/16.
  */
+
+function changeTag() {
+    var temp=document.getElementById("select").value;
+    if(temp == "opt1"){
+        document.getElementById("changeColumn").innerHTML="涨幅";
+        document.getElementById("涨幅").style.display="";
+        document.getElementById("成交量").style.display="none";
+        document.getElementById("换手").style.display="none";
+        document.getElementById("量比").style.display="none";
+        document.getElementById("市盈率").style.display="none";
+        document.getElementById("跌幅").style.display="none";
+    }
+    if(temp == "opt2"){
+        document.getElementById("changeColumn").innerHTML="跌幅";
+        document.getElementById("涨幅").style.display="none";
+        document.getElementById("成交量").style.display="none";
+        document.getElementById("换手").style.display="none";
+        document.getElementById("量比").style.display="none";
+        document.getElementById("市盈率").style.display="none";
+        document.getElementById("跌幅").style.display="";
+    }
+    if(temp=="opt3"){
+        document.getElementById("changeColumn").innerHTML="成交量";
+        document.getElementById("涨幅").style.display="none";
+        document.getElementById("跌幅").style.display="none";
+        document.getElementById("换手").style.display="none";
+        document.getElementById("量比").style.display="none";
+        document.getElementById("市盈率").style.display="none";
+        document.getElementById("成交量").style.display="";
+    }
+    if(temp=="opt4"){
+        document.getElementById("涨幅").style.display="none";
+        document.getElementById("成交量").style.display="none";
+        document.getElementById("跌幅").style.display="none";
+        document.getElementById("量比").style.display="none";
+        document.getElementById("市盈率").style.display="none";
+        document.getElementById("换手").style.display="";
+    }
+    if(temp=="opt5"){
+        document.getElementById("涨幅").style.display="none";
+        document.getElementById("成交量").style.display="none";
+        document.getElementById("换手").style.display="none";
+        document.getElementById("跌幅").style.display="none";
+        document.getElementById("市盈率").style.display="none";
+        document.getElementById("量比").style.display="";
+    }
+    if(temp=="opt6"){
+        document.getElementById("涨幅").style.display="none";
+        document.getElementById("成交量").style.display="none";
+        document.getElementById("换手").style.display="none";
+        document.getElementById("量比").style.display="none";
+        document.getElementById("市盈率").style.display="";
+        document.getElementById("跌幅").style.display="none";
+    }
+}
+
+
+
 Vue.prototype.$echarts = echarts
 
 var vm = new Vue({
@@ -206,16 +264,17 @@ var vm = new Vue({
                 grid: [           {
                     left: '3%',
                     right: '1%',
+                    top:'7%',
                     height: '60%'
                 },{
-                    left: '3%',
+                    left: '8%',
                     right: '1%',
-                    top: '76%',
+                    top: '73%',
                     height: '10%'
                 },{
                     left: '3%',
                     right: '1%',
-                    top: '88%',
+                    top: '82%',
                     height: '14%'
                 }],
                 xAxis: [{

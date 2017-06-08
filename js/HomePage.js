@@ -14,17 +14,15 @@ var vm = new Vue({
             window.location.href = "../pages/SingleStock.html?code=" + code;
         }
     },
-    mounted(){
+    beforeCreate(){
         const self=this;
 
-        this.$http.get("http://localhost:8080/homepage/market/"+"2016-04-06").then(function (response) {
+        this.$http.get("http://localhost:8080/homepage/market/"+"2016-05-12").then(function (response) {
             self.charts=response.data.data;
         });
 
-
         $(function () {
                 "use strict";
-
                 var bar = new Morris.Bar({
                     element: 'bar-chart',
                     resize: true,

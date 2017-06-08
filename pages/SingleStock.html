@@ -18,14 +18,9 @@
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="../plugins/morris/morris.css">
     <!-- jvectormap -->
     <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -52,12 +47,7 @@
             <a class="logo" href="index.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
                 UMT
             </a>
-            <div class="layui-form component">
-                <select lay-search lay-filter="component">
-                    <option value="">搜索组件或模块</option>
-                    <option value="element/color.html">color 颜色</option>
-                </select>
-            </div>
+
             <ul class="layui-nav" pc>
                 <li class="layui-nav-item ">
                     <a href="../pages/Homepage.html">首页</a>
@@ -74,10 +64,10 @@
                 <li class="layui-nav-item" >
                     <a href="javascript:;">个性化</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="http://layim.layui.com/" target="_blank">我的策略</a></dd>
-                        <dd><a href="http://fly.layui.com/jie/8157.html" target="_blank">我的收藏</a></dd>
-                        <dd><a href="http://fly.layui.com/jie/9842.html" target="_blank">浏览记录</a></dd>
-                        <dd><a href="#" target="_blank">个人设置</a> </dd>
+                        <dd><a href="../pages/个性化/PersonnalDevice.html" target="_blank">我的信息</a></dd>
+                        <dd><a href="../pages/个性化/History.html" target="_blank">浏览记录</a></dd>
+                        <dd><a href="../pages/个性化/MyChosenStock.html" target="_blank">我的自选股</a></dd>
+                        <dd><a href="../pages/个性化/MyStrategy.html" target="_blank">我的策略</a> </dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -112,8 +102,8 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="http://www.sunlordinc.com/" class="small-box-footer" style="padding-bottom: 2px">
-                            More info <i class="fa fa-arrow-circle-right"></i>
+                        <a href="http://www.sunlordinc.com/" class="small-box-footer" style="margin-top: 0%">
+                            加入自选股 <i class="fa fa-plus-circle"></i>
                         </a>
                     </div>
                     <!-- /.info-box -->
@@ -123,8 +113,8 @@
                     <div class="info-box" style="height:120px;">
                         <span class="info-box-icon bg-red " style="height:120px;"><i class="fa fa-arrow-up"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">涨跌幅：0.01</span>
-                            <span class="info-box-number">涨跌幅百分比：0.06%</span>
+                            <span class="info-box-text" style="margin-left: 10%;margin-top: 5%;">涨跌幅：{{quote_change}}</span>
+                            <span class="info-box-number" style="margin-top: 10%;margin-left: 10%;">涨跌幅百分比：{{quote_change_per}}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -184,11 +174,10 @@
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body no-padding"  style="height: 560px">
+                        <div class="box-body no-padding"  style="height: 590px">
                             <div class="row">
                                 <div class="box-body col-md-12">
                                     <div class="form-group col-md-12" style="margin-top: 0;padding-top: 0">
@@ -300,7 +289,7 @@
                     </div>
                 </div>
 
-                <div class="nav-tabs-custom col-md-10" style="cursor: move;height: 605px">
+                <div class="nav-tabs-custom col-md-10" style="cursor: move;height: 635px">
                     <!-- Tabs within a box -->
                     <ul class="nav nav-tabs pull-right ui-sortable-handle">
                         <li class="active"><a href="#kline" data-toggle="tab" aria-expanded="true">K线图</a></li>
@@ -308,11 +297,10 @@
                     </ul>
                     <div class="tab-content no-padding">
                         <script src="../js/echarts.js"></script>
-                        <div class="tab-pane active" id="kline" style="width: 1000px;height: 550px;">
+                        <div class="tab-pane active" id="kline" style="width: 1000px;height: 580px;">
 
                         </div>
                     </div>
-
 
                 </div>
             </div>
@@ -326,16 +314,356 @@
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body no-padding"  style="height: 350px">
+                        <div class="box-body no-padding"  style="height: 470px">
                             <div class="row">
-                                <div class="col-md-9 col-sm-8">
-                                    <div class="pad">
-                                        <!-- Map will be created here -->
-                                        <div style="height: 325px;"></div>
+                                <div class="col-md-9 col-sm-8" style="text-align: center">
+                                    <div class="pad col-md-12" style="text-align: center">
+                                          <form role="form" style="margin-left: 15%">
+                                              <div class="form-group col-md-12">
+                                                  <select class="form-control" onchange="changeTag()" id="select">
+                                                      <option id="select1" value="opt1">涨幅排行</option>
+                                                      <option id="select2" value="opt2">跌幅排行</option>
+                                                      <option id="select3" value="opt3">成交量排行</option>
+                                                      <option id="select4" value="opt4">换手排行</option>
+                                                      <option id="select5" value="opt5">量比排行</option>
+                                                      <option id="select6" value="opt6">市盈率排行</option>
+                                                  </select>
+                                              </div>
+                                          </form>
+
+                                        <table id="example1" class="table" style="margin-left: 10%">
+                                            <thead>
+                                            <tr>
+                                                <th style="text-align: center">名称</th>
+                                                <th style="text-align: center">最新价</th>
+                                                <th style="text-align: center" id="changeColumn">涨幅</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody style="" id="涨幅">
+                                        <tr>
+                                            <td>润欣科技</td>
+                                            <td>13.95</td>
+                                            <td>10.02%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>弘信电子</td>
+                                            <td>29.02</td>
+                                            <td>10.01%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>圣邦股份</td>
+                                            <td>51.95</td>
+                                            <td>9.99%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>北方华创</td>
+                                            <td>26.65</td>
+                                            <td>7.37%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>东晶电子</td>
+                                            <td>14.89</td>
+                                            <td>2.76%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>法拉电子</td>
+                                            <td>45.86</td>
+                                            <td>2.73%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>三环集团</td>
+                                            <td>20.20</td>
+                                            <td>2.54%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>生益科技</td>
+                                            <td>11.53</td>
+                                            <td>1.59%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>中电广通</td>
+                                            <td>31.75</td>
+                                            <td>1.47%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>华锋股份</td>
+                                            <td>24.88</td>
+                                            <td>1.30%</td>
+                                        </tr>
+                                        </tbody>
+                                            <tbody style="display: none" id="跌幅">
+                                            <tr>
+                                                <td>华锋股份</td>
+                                                <td>24.88</td>
+                                                <td>1.30%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>中电广通</td>
+                                                <td>31.75</td>
+                                                <td>1.47%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>生益科技</td>
+                                                <td>11.53</td>
+                                                <td>1.59%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三环集团</td>
+                                                <td>20.20</td>
+                                                <td>2.54%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>法拉电子</td>
+                                                <td>45.86</td>
+                                                <td>2.73%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>东晶电子</td>
+                                                <td>14.89</td>
+                                                <td>2.76%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>北方华创</td>
+                                                <td>26.65</td>
+                                                <td>7.37%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>圣邦股份</td>
+                                                <td>51.95</td>
+                                                <td>9.99%</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>弘信电子</td>
+                                                <td>29.02</td>
+                                                <td>10.01%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>润欣科技</td>
+                                                <td>13.95</td>
+                                                <td>10.02%</td>
+                                            </tr>
+                                            </tbody>
+                                            <tbody style="display: none" id="成交量">
+
+                                            <tr>
+                                                <td>生益科技</td>
+                                                <td>11.53</td>
+                                                <td>206052</td>
+                                            </tr>
+                                            <tr>
+                                                <td>华锋股份</td>
+                                                <td>24.88</td>
+                                                <td>118992</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三环集团</td>
+                                                <td>20.20</td>
+                                                <td>111367</td>
+                                            </tr>
+                                            <tr>
+                                                <td>北方华创</td>
+                                                <td>26.65</td>
+                                                <td>94947</td>
+                                            </tr>
+                                            <tr>
+                                                <td>润欣科技</td>
+                                                <td>13.95</td>
+                                                <td>32753</td>
+                                            </tr>
+                                            <tr>
+                                                <td>中电广通</td>
+                                                <td>31.75</td>
+                                                    <td>32000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>法拉电子</td>
+                                                <td>45.86</td>
+                                                <td>29711</td>
+                                            </tr>
+                                            <tr>
+                                                <td>东晶电子</td>
+                                                <td>14.89</td>
+                                                <td>15878</td>
+                                            </tr>
+                                            <tr>
+                                                <td>弘信电子</td>
+                                                <td>29.02</td>
+                                                <td>1088</td>
+                                            </tr>
+                                            <tr>
+                                                <td>圣邦股份</td>
+                                                <td>51.95</td>
+                                                <td>49</td>
+                                            </tr>
+                                            </tbody>
+                                            <tbody style="display: none" id="换手">
+                                            <tr>
+                                                <td>华锋股份</td>
+                                                <td>24.88</td>
+                                                <td>35.00%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>北方华创</td>
+                                                <td>26.65</td>
+                                                <td>5.70%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>润欣科技</td>
+                                                <td>11.53</td>
+                                                <td>1.42%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>生益科技</td>
+                                                <td>11.53</td>
+                                                <td>1.42%</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>法拉电子</td>
+                                                <td>45.86</td>
+                                                <td>1.32%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>东晶电子</td>
+                                                <td>14.89</td>
+                                                <td>1.21%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三环集团</td>
+                                                <td>20.20</td>
+                                                <td>1.14%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>中电广通</td>
+                                                <td>31.75</td>
+                                                <td>0.97%</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>弘信电子</td>
+                                                <td>29.02</td>
+                                                <td>0.42%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>圣邦股份</td>
+                                                <td>51.95</td>
+                                                <td>0.03%</td>
+                                            </tr>
+
+                                            </tbody>
+                                            <tbody style="display: none;" id="量比">
+                                            <tr>
+                                                <td>弘信电子</td>
+                                                <td>29.02</td>
+                                                <td>4.23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>北方华创</td>
+                                                <td>26.65</td>
+                                                <td>2.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>华锋股份</td>
+                                                <td>24.88</td>
+                                                <td>2.05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>中电广通</td>
+                                                <td>31.75</td>
+                                                <td>1.77</td>
+                                            </tr>
+                                            <tr>
+                                                <td>润欣科技</td>
+                                                <td>11.53</td>
+                                                <td>1.52</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三环集团</td>
+                                                <td>20.20</td>
+                                                <td>1.39</td>
+                                            </tr>
+                                            <tr>
+                                                <td>法拉电子</td>
+                                                <td>45.86</td>
+                                                <td>1.21</td>
+                                            </tr>
+                                            <tr>
+                                                <td>圣邦股份</td>
+                                                <td>51.95</td>
+                                                <td>1.21</td>
+                                            </tr>
+                                            <tr>
+                                                <td>生益科技</td>
+                                                <td>11.53</td>
+                                                <td>1.18</td>
+                                            </tr>
+                                            <tr>
+                                                <td>东晶电子</td>
+                                                <td>14.89</td>
+                                                <td>0.97</td>
+                                            </tr>
+                                            </tbody>
+                                            <tbody style="display: none" id="市盈率">
+                                            <tr>
+                                                <td>北方华创</td>
+                                                <td>26.65</td>
+                                                <td>1902.42</td>
+                                            </tr>
+                                            <tr>
+                                                <td>东晶电子</td>
+                                                <td>14.89</td>
+                                                <td>900.66</td>
+                                            </tr>
+                                            <tr>
+                                                <td>华锋股份</td>
+                                                <td>24.88</td>
+                                                <td>243.55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>中电广通</td>
+                                                <td>31.75</td>
+                                                <td>186.18</td>
+                                            </tr>
+                                            <tr>
+                                                <td>润欣科技</td>
+                                                <td>13.95</td>
+                                                <td>98.79</td>
+                                            </tr>
+                                            <tr>
+                                                <td>圣邦股份</td>
+                                                <td>51.95</td>
+                                                <td>54.19</td>
+                                            </tr>
+                                            <tr>
+                                                <td>弘信电子</td>
+                                                <td>29.02</td>
+                                                <td>43.44</td>
+                                            </tr>
+                                            <tr>
+                                                <td>三环集团</td>
+                                                <td>20.20</td>
+                                                <td>37.56</td>
+                                            </tr>
+                                            <tr>
+                                                <td>法拉电子</td>
+                                                <td>45.86</td>
+                                                <td>31.27</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>生益科技</td>
+                                                <td>11.53</td>
+                                                <td>14.72</td>
+                                            </tr>
+
+
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </div>
 
@@ -354,7 +682,6 @@
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                             </div>
                         </div>
                         <!-- /.box-header -->
@@ -427,7 +754,6 @@
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                 </button>
-                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                             </div>
                         </div>
                         <!-- /.box-header -->
@@ -479,13 +805,23 @@
                                     <div class="col-md-3 form-news">
                                         <label class="control-label" style="font-weight: normal">{{announcementdate8}}</label>
                                     </div>
-                                </div>s
+                                </div>
 
                             </div>
                             <!-- /.row -->
                         </div>
                         <!-- /.box-body -->
                     </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="info-box" style="height: 100px;">
+                        <span class="info-box-icon bg-primary " style="height: 100px"><i class="fa fa-star-o"></i></span>
+                        <div class="info-box-content">
+
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
                 </div>
             </div>
             <!-- /.row -->
@@ -570,6 +906,10 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="../plugins/fastclick/fastclick.js"></script>
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
 <!-- Sparkline -->
