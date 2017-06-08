@@ -47,19 +47,14 @@
                 <a href="../pages/SingleStock.html">个股</a>
             </li>
             <li class="layui-nav-item" pc>
-                <a href="http://fly.layui.com/" target="_blank">量化策略</a>
+                <a href="Stategy.html" target="_blank">量化策略</a>
             </li>
             <li class="layui-nav-item">
-                <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
+                <a href="../pages/Strategy/NewStrategy.html" target="_blank">自定义策略</a>
             </li>
             <li class="layui-nav-item" >
-                <a href="javascript:;">个性化</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="http://layim.layui.com/" target="_blank">我的策略</a></dd>
-                    <dd><a href="http://fly.layui.com/jie/8157.html" target="_blank">我的收藏</a></dd>
-                    <dd><a href="http://fly.layui.com/jie/9842.html" target="_blank">浏览记录</a></dd>
-                    <dd><a href="#" target="_blank">个人设置</a> </dd>
-                </dl>
+                <a href="../pages/个性化/PersonnalDevice.html">个性化</a>
+
             </li>
             <li class="layui-nav-item">
                 <a href="../pages/Login.html" target="_blank">登录</a>
@@ -77,10 +72,10 @@
     <br>
 
         <div class="input-group-lg col-lg-11" style="position: absolute; left: 350px;width: 500px">
-            <input type="text" class="form-control" placeholder="请输入您想搜索的股票代码或名称：">
+            <input type="text" class="form-control" placeholder="请输入您想搜索的股票代码或名称：" id="input">
         </div>
        <div class="col-lg-2" style="left: 375px">
-           <button type="button" class="btn btn-primary btn-lg">搜索</button>
+           <button type="button" class="btn btn-primary btn-lg" onclick="search()">搜索</button>
        </div>
 
 
@@ -102,6 +97,7 @@
     };
 </script>
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+<script src="../js/SearchStock.js"></script>
 <!-- jQuery 2.2.3 -->
 <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->

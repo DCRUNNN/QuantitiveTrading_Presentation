@@ -2,52 +2,59 @@
  * Created by pc on 2017/6/1.
  */
 
-$(function () {
-    "use strict";
-
-    var bar = new Morris.Bar({
-        element: 'bar-chart',
-        resize: true,
-        data: [
-            {y: '2006', a: 100},
-            {y: '2007', a: 75},
-            {y: '2008', a: 50},
-            {y: '2009', a: 75},
-            {y: '2010', a: 50},
-            {y: '2011', a: 75},
-            {y: '2012', a: 100}
-        ],
-        barColors: ['#f56954'],
-        xkey: 'y',
-        ykeys: ['a'],
-        labels: ['CPU'],
-        hideHover: 'auto'
-    });
-});
-
 var vm = new Vue({
     el:'#container',
     data:{
         items:[
-        ]
+        ],
+        charts:{}
     },
     methods:{
-        // viewSingleStock:function () {
-        //
-        //     var name =document.getElementById("example1").getElementsByTagName("tr")[1].getElementsByTagName("td")[1];
-        //
-        // },
+
     },
     mounted(){
         const self=this;
-        this.$http.get(url)
-            .then(function (response) {
-            self.items=response.data;
+
+        this.$http.get("http://localhost:8080/homepage/market/"+"2016-04-06").then(function (response) {
+            self.charts=response.data.data;
+        });
+
+
+        $(function () {
+                "use strict";
+
+                var bar = new Morris.Bar({
+                    element: 'bar-chart',
+                    resize: true,
+                    data: [
+                        {y: '成交量', a:self.charts.volume},
+                        {y: '涨停数', a:self.charts.amountOfLimitUp},
+                        {y: '跌停数', a: self.charts.amountOfLimitDown},
+                        {y: '涨幅超5%', a: self.charts.amountOf5PercentUp},
+                        {y: '跌幅超5%', a: self.charts.amountOf5PercentDown},
+                        {y: '开减收>5%*', a: self.charts.amountOf5PercentUptolastClose},
+                        {y: '开减收<5%*昨收数', a: self.charts.amountOf5PercentDowntolastClose}
+                    ],
+                    barColors: ['#f56954'],
+                    xkey: 'y',
+                    ykeys: ['a'],
+                    labels: ['数量'],
+                    hideHover: 'auto'
+                });
+            }
+        );
+
+        this.$http.get("http://localhost:8080/homepage/allstock/"+"2016-01-01").then(function (response) {
+            self.items=response.data.data;
             setTimeout(function () {
                 $('#example1').DataTable();
             },0);
         }).catch(function (error) {
             alert("出现了未知的错误！")
-        })
+        });
+
+
+
     }
 });
+
