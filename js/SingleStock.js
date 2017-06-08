@@ -190,6 +190,9 @@ var vm = new Vue({
             self.quote_change=(self.price-self.pprice).toPrecision(2);
             self.quote_change_per=response.data.data.quote_change+"%";
         }).catch(function (error) {
+            if(error==20000001){
+                alert("股票不存在！")
+            }
             alert("出现了未知的错误！")
         });
 
