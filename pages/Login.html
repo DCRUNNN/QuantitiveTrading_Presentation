@@ -26,7 +26,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition login-page" style="background-image: url(https://topvet.azureedge.net/Backgrounds/background1.png)">
-<div class="login-box">
+<div class="login-box" id="app">
     <div class="login-logo">
         <a href="../pages/Init.html" style="color: #f1f1f1"><b>UMT</b>-股票分析师</a>
     </div>
@@ -34,13 +34,13 @@
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="../../index2.html" method="post">
+        <form method="post">
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" placeholder="phone number" v-model="phoneNumber">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" v-model="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -53,7 +53,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="button" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <button type="button" class="btn btn-primary btn-block btn-flat" @click="login">Sign In</button>
                 </div>
                 <!-- /.col -->
             </div>
@@ -66,7 +66,7 @@
             </div>
 
             <div class="col-md-6" style="position: absolute;left: 57.5%">
-                <a href="../pages/Register.html" >注册</a><br>
+                <a href="Register.html" >注册</a><br>
             </div>
         </div>
 
@@ -90,6 +90,50 @@
             increaseArea: '20%' // optional
         });
     });
+</script>
+
+<script src="../vue/vue.js"></script>
+<script src="../vue-resource/vue-resource.js"></script>
+
+<script>
+    var vm = new Vue({
+          el:"#app",
+        data:{
+              phoneNumber:"",
+            password:""
+        },
+        methods:{
+              login:function () {
+                  const self = this;
+                  this.$http.post("http://localhost:8080/login",{
+                      phoneNumber:self.phoneNumber,
+                      password:self.password
+                  }).then(function (response) {
+                      if(response.data.errorCode === 0 ) {
+//                          console.log("登录成功！");
+                          var x_token = response.data.data;
+                          self.setCookie("x_token", x_token, 1);
+                          alert("登录成功！");
+                          window.location.href = "Homepage.html";
+                      }else if(response.data.errorCode === 30000001){
+                          alert("输入的帐号密码不匹配！");
+                      }
+                      else {
+                          alert("发生了未知的错误");
+                      }
+                  }).catch(function (error) {
+                      alert("发生了未知的错误");
+                  })
+              },
+            setCookie:function (cname,cvalue,exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*20*60*1000));
+                var expires = "expires="+d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+        }
+        }
+    );
 </script>
 </body>
 </html>

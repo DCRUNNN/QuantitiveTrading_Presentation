@@ -10,7 +10,9 @@ var vm = new Vue({
         charts:{}
     },
     methods:{
-
+        getSingle:function (code) {
+            window.location.href = "../pages/SingleStock.html?code=" + code;
+        }
     },
     mounted(){
         const self=this;
