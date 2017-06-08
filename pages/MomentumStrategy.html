@@ -276,7 +276,6 @@
                     </div>
                     <div class="post-title mt_8">
                         <a href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">【系统】</a> 发布于2017-04-24
-                        <span class="ml_20">回复 xx</span>
                         <span class="ml_10">浏览 1234</span>
                         <span class="ml_10 collection collect" title="登录点击收藏" _noLogin="1">
                                        <i class="icon icon-heart-empty"></i>
@@ -286,54 +285,60 @@
                 </div>
                 <div class="list detail-hei">
                     <input type="hidden" id="backtestId" value="838446">
-                    <div class="info hidden content" id="content">这里是用来描述动量策略的，具体怎么描述呢我也不是很清楚，我只想吐槽这破玩意儿怎么跟我想的那么不一样呢，嗨呀好烦，不想写了呀，谁来救救我。还有雪球是什么鬼，感觉很厉害的样子。这里还要插文本框啊，妈耶！
-                    下面的评论数据都是假的，我们要有这个功能嘛？</div>
-                    <div class="well">
+                    <p>　　动量交易策略，即预先对股票收益和交易量设定过滤准则，当股票收益或股票收益和交易量同时满足过滤准则就买入或卖出股票的投资策略。行为金融意义上的动量交易策略的提出，源于对股市中股票价格中期收益延续性的研究。
+                    </p><p>　　动量投资策略的主要论据是反应不足和保守心理，研究认为动量交易策略能够获利，存在着许多解释：一种解释是，“收益动量”，即当股票收益的增长超过预期，或者当投资者一致预测股票未来收益的增长时，股票的收益会趋于升高。因此，动量交易策略所获得的利润是由于股票基本价值的变动带来的。另一种解释是，基于价格动量和收益动量的策略因为利用了市场对不同信息的反应不足而获利。收益动量策略是利用了对公司短期前景的反应不足一一最终体现在短期收益中;价格动量策略利用了对公司价值有关信息反应迟缓和在短期收益中未被近期收益和历史收益增长充分反应的公司长期前景。
+                </p><p>　　动量/反向策略的理论假设是市场并不总是有效的，通过模型开发、大势研判和个股选择可以获得超常收益，而且对于优秀的投资者来说，这种超常收益在一定程度上是持续的。从技术层面上看，一方面随着这种零成本的套利策略的普及，动量/反向现象将消失;另一方面动量/反向策略必然结果是频繁的交易，大量的交易成本抵消动量/反向策略的赢利。
+                </p>
 
-                        <input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:400px;height:40px" readonly>
-
-
-
-                        <input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:400px;height:40px" readonly>
+                    <div class="list post-row">
+                        <div class="avatar-container">
+                        </div>
+                        <div class="post-title mt_8">
+                            <span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>
+                        </div>
                     </div>
 
                     <div class="well">
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择形成期天数 <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">10</a></li>
-                            <li><a href="#">15</a></li>
-                            <li><a href="#">20</a></li>
-                            <li><a href="#">25</a></li>
-                            <li><a href="#">30</a></li>
-                        </ul>
-                    </div><!-- /btn-group -->
-
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择持有期天数 <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">10</a></li>
-                            <li><a href="#">15</a></li>
-                            <li><a href="#">20</a></li>
-                            <li><a href="#">25</a></li>
-                            <li><a href="#">30</a></li>
-                        </ul>
-                    </div><!-- /btn-group -->
+                        <span class="ml_10" style="font-size: large">起始日期:　　　　</span>
+                        <input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:200px;height:35px;text-align:center" readonly>
+                        <span class="ml_10" style="font-size: large">　　结束日期:　　　　</span>
+                        <input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:200px;height:35px;text-align:center" readonly>
                     </div>
 
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="请输入股票名称或编号...">
-                            <span class="input-group-btn">
+                    <div class="well">
+                        <div class="input-group-btn">
+                            <span class="ml_10" style="font-size: large">形成期天数:　　　　　　</span>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择形成期天数 <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#">15</a></li>
+                                <li><a href="#">20</a></li>
+                                <li><a href="#">25</a></li>
+                                <li><a href="#">30</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+
+                        <div class="input-group-btn">
+                            <span class="ml_10" style="font-size: large">持有期天数:　　　　　　</span>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择持有期天数 <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#">15</a></li>
+                                <li><a href="#">20</a></li>
+                                <li><a href="#">25</a></li>
+                                <li><a href="#">30</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="请输入股票名称或编号...">
+                        <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">查询</button>
                             </span>
-                        </div><!-- /input-group -->
-
-
-
-
-
+                    </div><!-- /input-group -->
 
                     <script type="text/javascript">
                         var datepickerOptions = {
@@ -352,7 +357,7 @@
                             clearfun:function(val) {},   //清除日期后的回调
                             okfun:function(val) {}       //点击确定后的回调
                         };
-                    jeDate(datepickerOptions);
+                        jeDate(datepickerOptions);
                     </script>
 
                     <script type="text/javascript">

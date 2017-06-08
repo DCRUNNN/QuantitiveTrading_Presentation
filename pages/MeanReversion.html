@@ -276,7 +276,6 @@
                     </div>
                     <div class="post-title mt_8">
                         <a href="/user/180e069cad8998263505d7f6a1c7516e" class="user-alias">【系统】</a> 发布于2017-04-24
-                        <span class="ml_20">回复 xx</span>
                         <span class="ml_10">浏览 1234</span>
                         <span class="ml_10 collection collect" title="登录点击收藏" _noLogin="1">
                                        <i class="icon icon-heart-empty"></i>
@@ -286,17 +285,34 @@
                 </div>
                 <div class="list detail-hei">
                     <input type="hidden" id="backtestId" value="838446">
-                    <div class="info hidden content" id="content">此处用来描述均值回归</div>
+                    <p>　　均值回归是指股票价格无论高于或低于价值中枢（或均值）都会以很高的概率向价值中枢回归的趋势。根据这个理论，股票价格总是围绕其平均值上下波动。
+                    </p><p>　　均值回归理论就是股票收益可预测理论的一个突破性进展，尤其对于长线投资者具有重要指导意义。
+                    </p>
+                    <div class="info hidden content" id="content"><img src="../dist/img/MeanReversion.jpg">
+                    </div>
+                    <p>　　<b>1、</b>均值回归从理论上讲应具有必然性。因为有一点是肯定的，股票价格不能总是上涨或下跌，一种趋势不管其持续的时间多长都不能永远持续下去。在一个趋势内，股票价格呈持续上升或下降，我们称之为均值回避(Mean Aversion)。当出现相反趋势时就呈均值回归(Mean Reversion)。到目前为止，均值回归理论仍不能解决的或者说不能预测的是回归的时间间隔，即回归的周期呈“随机漫步”。不同的股票市场，回归的周期会不一样，就是对同一个股票市场来说，每次回归的周期也不一样。如果能够发现均值回归的时间周期或者回归时间周期的分布范围，股票收益的可预测性就会很强。否则，仅仅是证明某一股票市场是否存在均值回归仍然是没有意义的。现在看来，均值回归理论的研究仅仅是刚刚起步，未来需要做的事情一定很多。
+                    </p><p>　　<b>2、</b>均值回归必然具有不对称性。正的收益与负的收益回归的幅度与速度不可能一样。因为它们之间并没有必然的联系，回归的幅度与速度也具有随机性。对称的均值回归才是不正常的、偶然的，这一点也被实证检验所证实。
+                </p><p>　　<b>3、</b>均值回归理论与政府行为。股票收益率均值回归证明市场不会偏离价值中枢时间太久，市场的内在力量会促使其向内在价值回归。从这一点上讲，市场在没有政府利多或利空政策的作用下也会实现有效的目标，即股票价格会在市场机制的作用下自然的向均值回归。但这并不否定政府行为对促进市场有效性的作用，因为市场偏离内在价值后并不等于立即就会向内在价值回归，很可能会出现持续地均值回避。政府行为会起到抑制市场无效和促进市场有效的作用。在促进市场有效方面政府行为是必不可少的因素之一，市场失灵是政府参与调控的直接理由。
+                </p>
 
+                    <div class="list post-row">
+                        <div class="avatar-container">
+                        </div>
+                        <div class="post-title mt_8">
+                            <span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>
+                        </div>
+                    </div>
 
                     <div class="well">
-
-                        <input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:400px;height:40px" readonly>
-                        <input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:400px;height:40px" readonly>
+                        <span class="ml_10" style="font-size: large">起始日期:　　　　</span>
+                        <input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:200px;height:35px;text-align:center" readonly>
+                        <span class="ml_10" style="font-size: large">　　结束日期:　　　　</span>
+                        <input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:200px;height:35px;text-align:center" readonly>
                     </div>
 
                     <div class="well">
                         <div class="input-group-btn">
+                            <span class="ml_10" style="font-size: large">形成期天数:　　　　　　</span>
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择形成期天数 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
                                 <li><a href="#">5</a></li>
@@ -309,6 +325,7 @@
                         </div><!-- /btn-group -->
 
                         <div class="input-group-btn">
+                            <span class="ml_10" style="font-size: large">持有期天数:　　　　　　</span>
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择持有期天数 <span class="caret"></span></button>
                             <ul class="dropdown-menu">
                                 <li><a href="#">5</a></li>
