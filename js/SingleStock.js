@@ -156,14 +156,14 @@ var vm = new Vue({
     },// info-box-icon bg-red
     computed:{
         classObject:function () {
-            if(self.quote_change>0){
+            if(self.quote_change>=0){
                 return "info-box-icon bg-green";
             }
             return "info-box-icon bg-red";
         },
 
         iObject:function () {
-            if(self.quote_change>0) {
+            if(self.quote_change>=0) {
                 return "fa fa-arrow-up";
             }
             return "fa fa-arrow-down";
