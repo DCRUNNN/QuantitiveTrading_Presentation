@@ -90,25 +90,25 @@ var vm = new Vue({
         total:'10000',
         flowstock:'900',
 
-        topenprice:'18.3',
-        thighprice:'22',
-        tlowprice:'11',
-        pprice:'10',
+        topenprice:'',
+        thighprice:'',
+        tlowprice:'',
+        pprice:'',
         price:'',
         tvolume:'',
-        total:'',
+        ttotal:'',
         market:'',
 
 
 
-        newstitle1:'私募调研热情创年内新高 市场有望演绎“明星效应”',
-        newstitle2:'苹果再创新高 与其感叹 不如看看苹果概念都有谁',
-        newstitle3:'股市泡沫竟大过楼市？揭秘：如何在恐怖的“穷5月”多赚210%！',
-        newstitle4:'顺络电子：产品和技术领先 主业稳中有升',
-        newstitle5:'百度布局人工智能 人工智能概念股再受关注',
-        newstitle6:'4月62家私募密集调研逾百家上市公司 四成跑赢大盘',
-        newstitle7:'公司互动：顺络电子无线充电产品中的发射线圈与接收线圈已经量产',
-        newstitle8:'四机构卖出顺络电子',
+        newstitle1:'',
+        newstitle2:'',
+        newstitle3:'',
+        newstitle4:'',
+        newstitle5:'',
+        newstitle6:'',
+        newstitle7:'',
+        newstitle8:'',
         newsurl1:'',
         newsurl2:'',
         newsurl3:'',
@@ -117,23 +117,23 @@ var vm = new Vue({
         newsurl6:'',
         newsurl7:'',
         newsurl8:'',
-        newsdate1:'05-16 14:49',
-        newsdate2:'05-10 20:36',
-        newsdate3:'05-10 16:38',
-        newsdate4:'05-09 07:24',
-        newsdate5:'05-05 09:41',
-        newsdate6:'05-04 19:43',
-        newsdate7:'05-04 13:28',
-        newsdate8:'05-03 08:29',
+        newsdate1:'',
+        newsdate2:'',
+        newsdate3:'',
+        newsdate4:'',
+        newsdate5:'',
+        newsdate6:'',
+        newsdate7:'',
+        newsdate8:'',
 
-        announcementtitle1:'顺络电子：关于员工持股计划实施进展的公告',
-        announcementtitle2:'顺络电子：2017年5月10日投资者关系活动记',
-        announcementtitle3:'顺络电子：2017年第一季度报告正文',
-        announcementtitle4:'顺络电子：第四届董事会第二十三次会议决议',
-        announcementtitle5:'顺络电子：关于收购信柏陶瓷部分股权的进展',
-        announcementtitle6:'顺络电子：2017年第一季度报告全文',
-        announcementtitle7:'顺络电子：关于第一大股东解除部分股权质押',
-        announcementtitle8:'顺络电子：西藏信托-莱沃35号集合资金信托',
+        announcementtitle1:'',
+        announcementtitle2:'',
+        announcementtitle3:'',
+        announcementtitle4:'',
+        announcementtitle5:'',
+        announcementtitle6:'',
+        announcementtitle7:'',
+        announcementtitle8:'',
 
         announcementurl1:'',
         announcementurl2:'',
@@ -143,14 +143,14 @@ var vm = new Vue({
         announcementurl6:'',
         announcementurl7:'',
         announcementurl8:'',
-        announcementdate1:'2017-05-17',
-        announcementdate2:'2017-05-12',
-        announcementdate3:'2017-04-29',
-        announcementdate4:'2017-04-29',
-        announcementdate5:'2017-04-29',
-        announcementdate6:'2017-04-29',
-        announcementdate7:'2017-04-28',
-        announcementdate8:'2017-04-26'
+        announcementdate1:'',
+        announcementdate2:'',
+        announcementdate3:'',
+        announcementdate4:'',
+        announcementdate5:'',
+        announcementdate6:'',
+        announcementdate7:'',
+        announcementdate8:''
 
     },
     methods:{
@@ -164,15 +164,17 @@ var vm = new Vue({
         var klineData;
         const self = this;
 
-        this.$http.get("htttp://localhost:8080/company/details/"+code).then(function (reponse) {
+        this.$http.get("htttp://localhost:8080/company/details/"+code).then(function (response) {
             self.topenprice = response.data.data.open;
             self.thighprice = response.data.data.high;
             self.tlowprice = response.data.data.low;
             self.pprice = response.data.data.close;
             self.price = response.data.data.currentPrice;
             self.tvolume = response.data.data.volume;
-            self.total = response.data.data.turnover;
+            self.ttotal = response.data.data.turnover;
             self.market = response.data.data.market;
+        }).catch(function (error) {
+            alert("出现了未知的错误！")
         });
 
 
@@ -237,35 +239,35 @@ var vm = new Vue({
         });
 
         this.$http.get("http://localhost:8080/company/announcement/"+code).then(function (response) {
-            self.announcementtitle1=response.data.data[0].title;
+            self.announcementtitle1=response.data.data[0].title.substring(0,18);
             self.announcementurl1=response.data.data[0].link;
             self.announcementdate1=response.data.data[0].date;
 
-            self.announcementtitle2=response.data.data[1].title;
+            self.announcementtitle2=response.data.data[1].title.substring(0,18);
             self.announcementurl2=response.data.data[1].link;
             self.announcementdate2=response.data.data[1].date;
 
-            self.announcementtitle3=response.data.data[2].title;
+            self.announcementtitle3=response.data.data[2].title.substring(0,18);
             self.announcementurl3=response.data.data[2].link;
             self.announcementdate3=response.data.data[2].date;
 
-            self.announcementtitle4=response.data.data[3].title;
+            self.announcementtitle4=response.data.data[3].title.substring(0,18);
             self.announcementurl4=response.data.data[3].link;
             self.announcementdate4=response.data.data[3].date;
 
-            self.announcementtitle5=response.data.data[4].title;
+            self.announcementtitle5=response.data.data[4].title.substring(0,18);
             self.announcementurl5=response.data.data[4].link;
             self.announcementdate5=response.data.data[4].date;
 
-            self.announcementtitle6=response.data.data[5].title;
+            self.announcementtitle6=response.data.data[5].title.substring(0,18);
             self.announcementurl6=response.data.data[5].link;
             self.announcementdate6=response.data.data[5].date;
 
-            self.announcementtitle7=response.data.data[6].title;
+            self.announcementtitle7=response.data.data[6].title.substring(0,18);
             self.announcementurl7=response.data.data[6].link;
             self.announcementdate7=response.data.data[6].date;
 
-            self.announcementtitle8=response.data.data[7].title;
+            self.announcementtitle8=response.data.data[7].title.substring(0,18);
             self.announcementurl8=response.data.data[7].link;
             self.announcementdate8=response.data.data[7].date;
         }).catch(function (response) {
