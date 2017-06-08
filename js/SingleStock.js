@@ -198,7 +198,7 @@ var vm = new Vue({
                 }
             },
             legend: {
-                data: ['KLine', 'MA5']
+                data: ['KLine', 'MA5','MA10','MA20','MA30','MA60','MA120']
             },
             grid: [           {
                 left: '3%',
@@ -207,12 +207,12 @@ var vm = new Vue({
             },{
                 left: '3%',
                 right: '1%',
-                top: '71%',
+                top: '76%',
                 height: '10%'
             },{
                 left: '3%',
                 right: '1%',
-                top: '82%',
+                top: '88%',
                 height: '14%'
             }],
             xAxis: [{
@@ -324,6 +324,60 @@ var vm = new Vue({
                     }
                 }
             },{
+              name:'MA10',
+                type:'line',
+                data:calculateMA(10),
+                smooth:true,
+                lineStyle:{
+                  normal:{
+                      opacity:0.5
+                  }
+                }
+            },{
+              name:'MA20',
+                type:'line',
+                data:calculateMA(20),
+                smooth:true,
+                lineStyle:{
+                  normal:{
+                      opacity:0.5
+                  }
+                }
+            },
+                {
+                    name:'MA30',
+                    type:'line',
+                    data:calculateMA(30),
+                    smooth:true,
+                    lineStyle:{
+                        normal:{
+                            opacity:0.5
+                        }
+                    }
+                },
+                {
+                    name:'MA60',
+                    type:'line',
+                    data:calculateMA(60),
+                    smooth:true,
+                    lineStyle:{
+                        normal:{
+                            opacity:0.5
+                        }
+                    }
+                },
+                {
+                    name:'MA120',
+                    type:'line',
+                    data:calculateMA(120),
+                    smooth:true,
+                    lineStyle:{
+                        normal:{
+                            opacity:0.5
+                        }
+                    }
+                },
+                {
                 name: 'Volumn',
                 type: 'bar',
                 xAxisIndex: 1,
@@ -377,5 +431,10 @@ var vm = new Vue({
             ]
         };
         mychart.setOption(option);
+
+
+
+
+
     }
 })
