@@ -67,35 +67,38 @@ Vue.prototype.$echarts = echarts
 var vm = new Vue({
     el:'#app',
     data:{
+
+        testUrl:"http://www.baidu.com",
+
         stockname:'顺络电子',
         stockCode:'',
+        quote_change:'',
+        quote_change_per:'',
 
-        location:'TIANJI',
-        range:'邓聪邓聪邓聪',
-        business:'邓聪，曾锡豪，陈远志，蔡其旻',
-        date:'2013-12-12',
-        propertyperstock:'666',
-        incomeperstock:'888',
-        income:'12',
-        incomeincrease:'12.1%',
-        marincome:'1000',
-        cashperstock:'0.15',
+        location:'',
+        range:'',
+        business:'',
+        date:'',
+        propertyperstock:'',
+        incomeperstock:'',
+        income:'',
+        incomeincrease:'',
+        marincome:'',
+        cashperstock:'',
         fundsperstock:'1.34',
         notprofit:'000',
         total:'10000',
         flowstock:'900',
+
         topenprice:'18.3',
         thighprice:'22',
         tlowprice:'11',
         pprice:'10',
-        tvolumn:'666',
-        tamounttotal:'280亿',
-        tvalue:'999',
-        flowvalue:'1111',
-        trange:'0.2',
-        tchange:'1',
-        tvaluep:'9090',
-        fvaluep:'000',
+        price:'',
+        tvolume:'',
+        total:'',
+        market:'',
+
 
 
         newstitle1:'私募调研热情创年内新高 市场有望演绎“明星效应”',
@@ -139,7 +142,7 @@ var vm = new Vue({
         announcementurl5:'',
         announcementurl6:'',
         announcementurl7:'',
-        announcementurl1:'',
+        announcementurl8:'',
         announcementdate1:'2017-05-17',
         announcementdate2:'2017-05-12',
         announcementdate3:'2017-04-29',
@@ -161,11 +164,24 @@ var vm = new Vue({
         var klineData;
         const self = this;
 
+        this.$http.get("htttp://localhost:8080/company/details/"+code).then(function (reponse) {
+            self.topenprice = response.data.data.open;
+            self.thighprice = response.data.data.high;
+            self.tlowprice = response.data.data.low;
+            self.pprice = response.data.data.close;
+            self.price = response.data.data.currentPrice;
+            self.tvolume = response.data.data.volume;
+            self.total = response.data.data.turnover;
+            self.market = response.data.data.market;
+        });
+
+
+
         this.$http.get("http://localhost:8080/company/info/"+code).then(function (response) {
             // console.log(response.data);
             self.location = response.data.data.area;
             self.range = response.data.data.concept;
-            self.business = response.data.data.businessDetail;
+            self.business = response.data.data.businessDetail.substring(0,15);
             self.date = response.data.data.listingDate;
             self.propertyperstock = response.data.data.netAssetPerShare;
             self.incomeperstock = response.data.data.incomePerShare;
@@ -184,9 +200,77 @@ var vm = new Vue({
 
         this.$http.get("http://localhost:8080/company/news/"+code).then(function (response) {
 
+            self.newstitle1=response.data.data[0].title;
+            self.newsurl1=response.data.data[0].link;
+            self.newsdate1=response.data.data[0].date;
+
+            self.newstitle2=response.data.data[1].title;
+            self.newsurl2=response.data.data[1].link;
+            self.newsdate2=response.data.data[1].date;
+
+            self.newstitle3=response.data.data[2].title;
+            self.newsurl3=response.data.data[2].link;
+            self.newsdate3=response.data.data[2].date;
+
+            self.newstitle4=response.data.data[3].title;
+            self.newsurl4=response.data.data[3].link;
+            self.newsdate4=response.data.data[3].date;
+
+            self.newstitle5=response.data.data[4].title;
+            self.newsurl5=response.data.data[4].link;
+            self.newsdate5=response.data.data[4].date;
+
+            self.newstitle6=response.data.data[5].title;
+            self.newsurl6=response.data.data[5].link;
+            self.newsdate6=response.data.data[5].date;
+
+            self.newstitle7=response.data.data[6].title;
+            self.newsurl7=response.data.data[6].link;
+            self.newsdate7=response.data.data[6].date;
+
+            self.newstitle8=response.data.data[7].title;
+            self.newsurl8=response.data.data[7].link;
+            self.newsdate8=response.data.data[7].date;
+
         }).catch(function (response) {
             alert("出现了未知的错误！");
-        })
+        });
+
+        this.$http.get("http://localhost:8080/company/announcement/"+code).then(function (response) {
+            self.announcementtitle1=response.data.data[0].title;
+            self.announcementurl1=response.data.data[0].link;
+            self.announcementdate1=response.data.data[0].date;
+
+            self.announcementtitle2=response.data.data[1].title;
+            self.announcementurl2=response.data.data[1].link;
+            self.announcementdate2=response.data.data[1].date;
+
+            self.announcementtitle3=response.data.data[2].title;
+            self.announcementurl3=response.data.data[2].link;
+            self.announcementdate3=response.data.data[2].date;
+
+            self.announcementtitle4=response.data.data[3].title;
+            self.announcementurl4=response.data.data[3].link;
+            self.announcementdate4=response.data.data[3].date;
+
+            self.announcementtitle5=response.data.data[4].title;
+            self.announcementurl5=response.data.data[4].link;
+            self.announcementdate5=response.data.data[4].date;
+
+            self.announcementtitle6=response.data.data[5].title;
+            self.announcementurl6=response.data.data[5].link;
+            self.announcementdate6=response.data.data[5].date;
+
+            self.announcementtitle7=response.data.data[6].title;
+            self.announcementurl7=response.data.data[6].link;
+            self.announcementdate7=response.data.data[6].date;
+
+            self.announcementtitle8=response.data.data[7].title;
+            self.announcementurl8=response.data.data[7].link;
+            self.announcementdate8=response.data.data[7].date;
+        }).catch(function (response) {
+            alert("出现了未知的错误！");
+        });
 
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
             params:{
