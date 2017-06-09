@@ -62,7 +62,7 @@ function changeTag() {
 
 
 
-Vue.prototype.$echarts = echarts
+Vue.prototype.$echarts = echarts;
 
 var vm = new Vue({
     el:'#app',
@@ -449,7 +449,6 @@ var vm = new Vue({
                 }
                 return result;
             }
-            mychart.showLoading();
             var option = {
                 title: {
                     text: '',
@@ -686,6 +685,8 @@ var vm = new Vue({
             };
             mychart.hideLoading();
             mychart.setOption(option);
+
+
 
             if(this.getCookieValue("history") === "") {
                 //不存在history

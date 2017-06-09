@@ -877,7 +877,13 @@
     <i class="layui-icon">&#xe602;</i>
 </div>
 <div class="site-mobile-shade"></div>
+<script src="//res.layui.com/layui/build/layui.js?t=1496845305865" charset="utf-8"></script>
 <script>
+    layui.config({
+        base: '//res.layui.com/lay/modules/layui/'
+        ,version: '1496845305865'
+    }).use('global');
+
     window.global = {
         preview: function(){
             var preview = document.getElementById('LAY_preview');
@@ -885,7 +891,7 @@
         }()
     };
 </script>
-<!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
 <script src="../vue/vue.js"></script>
 <script src="../vue-resource/vue-resource.js"></script>
 <script src="../js/SingleStock.js"></script>
