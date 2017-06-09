@@ -283,9 +283,10 @@
                         <span class="ml_10" style="font-size: large">　　结束日期:　　　　</span>
                         <input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:200px;height:35px;text-align:center" readonly>
                         <span class="ml_10" style="font-size: large">　</span>
-                        <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default" style="width: 40px">Go</button>
-                        </div>
+
+
+                        <button type="button" class="btn btn-default" id="goButton" style="width: 40px" onclick="buttonClicked()">Go</button>
+
                     </div>
 
                     <script type="text/javascript">
@@ -426,7 +427,6 @@
 
                 <script type="text/javascript">
 
-
                     function LoadingBar(id)
                     {
                         this.loadbar = $("#" + id);
@@ -455,10 +455,7 @@
                         }
                     };
 
-
-                    $(function ()
-                    {
-
+                    function buttonClicked() {
                         var loadbar = new LoadingBar("loadBar01");
                         var max = 1000;
                         loadbar.setMax(max);
@@ -466,14 +463,19 @@
                         var time = setInterval(function ()
                         {
                             loadbar.setProgress(i);
+                            if(0<i<max)
+                            {
+                                document.getElementById("goButton").disabled = true;
+                            }
                             if (i == max)
                             {
                                 clearInterval(time);
+                                document.getElementById("goButton").disabled = false;
                                 return;
                             }
                             i += 10;
                         }, 40);
-                    });
+                    }
 
                 </script>
 
