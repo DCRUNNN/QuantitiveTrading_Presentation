@@ -88,7 +88,7 @@
                     <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
                 </li>
                 <li class="layui-nav-item" >
-                    <a href="javascript:;">个性化</a>
+                    <a href="#">个性化</a>
                     <dl class="layui-nav-child">
                         <dd><a href="PersonnalDevice.html" target="_blank">我的信息</a></dd>
                         <dd><a href="History.html" target="_blank">浏览记录</a></dd>
@@ -142,7 +142,7 @@
         <section class="content" style="margin-left: 15%">
 
             <!-- row -->
-            <div class="row">
+            <div class="row" id="app">
                 <div class="col-md-10">
                     <div class="box box-info">
                         <div class="box-header with-border" style="text-align: left">
@@ -151,18 +151,18 @@
                         <!-- The time line -->
                         <ul class="timeline">
                             <!-- timeline item -->
-                            <li>
-                                <i class="fa fa-envelope bg-blue"></i>
+                            <li v-for="item in getHistory">
+                                <i class="fa fa-link bg-blue"></i>
 
                                 <div class="timeline-item">
-                                    <span class="time"><i class="fa fa-clock-o"></i>{{date}}</span>
-
-                                    <h3 class="timeline-header"><a href="#">Support Team sent you an email</a></h3>
+                                    <span class="time" v-text="item.date"><i class="fa fa-clock-o"></i></span>
+                                    <h3 class="timeline-header"><a :href="'../SingleStock.html?code='+item.code.split('--')[0]" v-text="item.code"></a></h3>
                                 </div>
                             </li>
-                            <!-- END timeline item -->
+
+
                             <!-- timeline item -->
-                            <li>
+                            <!--<li>
                                 <i class="fa fa-user bg-aqua"></i>
 
                                 <div class="timeline-item">
@@ -170,10 +170,10 @@
 
                                     <h3 class="timeline-header no-border"><a href="#">Sarah Young accepted your friend request</a></h3>
                                 </div>
-                            </li>
+                            </li>-->
                             <!-- END timeline item -->
                             <!-- timeline item -->
-                            <li>
+                           <!-- <li>
                                 <i class="fa fa-comments bg-yellow"></i>
 
                                 <div class="timeline-item">
@@ -182,10 +182,10 @@
                                     <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
 
                                 </div>
-                            </li>
+                            </li>-->
                             <!-- END timeline item -->
                             <!-- timeline item -->
-                            <li>
+                           <!-- <li>
                                 <i class="fa fa-home bg-red"></i>
 
                                 <div class="timeline-item">
@@ -194,10 +194,10 @@
                                     <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
 
                                 </div>
-                            </li>
+                            </li>-->
                             <!-- END timeline item -->
                             <!-- timeline item -->
-                            <li>
+                           <!-- <li>
                                 <i class="fa fa-map bg-olive"></i>
 
                                 <div class="timeline-item">
@@ -207,8 +207,8 @@
 
                                 </div>
                             </li>
-                            <!-- END timeline item -->
-                            <!-- timeline item -->
+                            &lt;!&ndash; END timeline item &ndash;&gt;
+                            &lt;!&ndash; timeline item &ndash;&gt;
                             <li>
                                 <i class="fa fa-link bg-gray-light"></i>
 
@@ -219,8 +219,8 @@
 
                                 </div>
                             </li>
-                            <!-- END timeline item -->
-                            <!-- timeline item -->
+                            &lt;!&ndash; END timeline item &ndash;&gt;
+                            &lt;!&ndash; timeline item &ndash;&gt;
                             <li>
                                 <i class="fa fa-heart bg-green"></i>
 
@@ -231,8 +231,8 @@
 
                                 </div>
                             </li>
-                            <!-- END timeline item -->
-                            <!-- timeline item -->
+                            &lt;!&ndash; END timeline item &ndash;&gt;
+                            &lt;!&ndash; timeline item &ndash;&gt;
                             <li>
                                 <i class="fa fa-weixin bg-yellow"></i>
 
@@ -243,8 +243,8 @@
 
                                 </div>
                             </li>
-                            <!-- END timeline item -->
-                            <!-- timeline item -->
+                            &lt;!&ndash; END timeline item &ndash;&gt;
+                            &lt;!&ndash; timeline item &ndash;&gt;
                             <li>
                                 <i class="fa fa-qq bg-blue"></i>
 
@@ -255,8 +255,8 @@
 
                                 </div>
                             </li>
-                            <!-- END timeline item -->
-                            <!-- timeline item -->
+                            &lt;!&ndash; END timeline item &ndash;&gt;
+                            &lt;!&ndash; timeline item &ndash;&gt;
                             <li>
                                 <i class="fa fa-adn bg-success"></i>
 
@@ -266,8 +266,7 @@
                                     <h3 class="timeline-header"><a href="#">Jay White commented on your post</a></h3>
 
                                 </div>
-                            </li>
-                            <!-- END timeline item -->
+                            </li>-->
 
                         </ul>
                         <div style="text-align: center">
@@ -327,6 +326,42 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
 
-
+<script src="../../vue/vue.js"></script>
+<script src="../../vue-resource/vue-resource.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+        },
+        computed:{
+            getHistory:function () {
+                var array = this.getCookieValue("history").split("|");
+                var jsonArray = new Array();
+                for(var i=0;i<array.length;i++) {
+                    var code = array[i].split("/")[0];
+                    var date = array[i].split("/")[1];
+                    var json = {
+                        "code":code,
+                        "date":date
+                    };
+                    jsonArray.push(json);
+                }
+                return jsonArray.reverse();
+            }
+        },
+        methods:{
+            getCookieValue:function (cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+        }
+    });
+</script>
 </body>
 </html>
