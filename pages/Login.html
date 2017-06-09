@@ -113,7 +113,8 @@
 //                          console.log("登录成功！");
                           var x_token = response.data.data;
                           self.setCookie("x_token", x_token, 1);
-                          alert("登录成功！");
+                          self.setCookie("phoneNumber", self.phoneNumber, 1);
+//                          alert("登录成功！");
                           window.location.href = "Homepage.html";
                       }else if(response.data.errorCode === 30000001){
                           alert("输入的帐号密码不匹配！");
