@@ -62,7 +62,7 @@ function changeTag() {
 
 
 
-Vue.prototype.$echarts = echarts;
+Vue.prototype.$echarts = echarts
 
 var vm = new Vue({
     el:'#app',
@@ -228,9 +228,9 @@ var vm = new Vue({
     computed: {
         classObject: function () {
             if (this.quote_change >= 0) {
-                return "info-box-icon bg-red";
+                return "info-box-icon bg-green";
             }
-            return "info-box-icon bg-green";
+            return "info-box-icon bg-red";
         },
 
         iObject: function () {
@@ -286,7 +286,8 @@ var vm = new Vue({
             alert("出现了未知的错误！")
         });
 
-        //根据stockCode得到公司信息
+
+
         this.$http.get("http://localhost:8080/company/info/"+code).then(function (response) {
             // console.log(response.data);
             self.location = response.data.data.area;
@@ -347,7 +348,6 @@ var vm = new Vue({
             alert("出现了未知的错误！");
         });
 
-        //根据stockCode得到公司公告
         this.$http.get("http://localhost:8080/company/announcement/"+code).then(function (response) {
             self.announcementtitle1=response.data.data[0].title.substring(0,18);
             self.announcementurl1=response.data.data[0].link;
@@ -384,7 +384,6 @@ var vm = new Vue({
             alert("出现了未知的错误！");
         });
 
-        //根据stockCode得到k线数据
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
             params:{
                 beginDate:'2012-03-02',
@@ -397,7 +396,7 @@ var vm = new Vue({
 
            var data = splitData(klineData);
 
-         //数组处理
+//数组处理
             function splitData(rawData) {
                 var datas = [];
                 var times = [];
@@ -421,7 +420,7 @@ var vm = new Vue({
                 };
             }
 
-         //分段计算
+//分段计算
             function fenduans(){
                 var markLineData = [];
                 var idx = 0; var tag = 0; var vols = 0;
@@ -460,7 +459,7 @@ var vm = new Vue({
                 return markLineData;
             }
 
-         //MA计算公式
+//MA计算公式
             function calculateMA(dayCount) {
                 var result = [];
                 for (var i = 0, len = data.times.length; i < len; i++) {
@@ -476,6 +475,7 @@ var vm = new Vue({
                 }
                 return result;
             }
+            mychart.showLoading();
             var option = {
                 title: {
                     text: '',

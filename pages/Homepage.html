@@ -204,7 +204,9 @@
                                     <td>{{item.open}}</td>
                                     <td>{{item.high}}</td>
                                     <td>{{item.low}}</td>
-                                    <td><button class="font-light" @click="getSingle(item.code)">详情</button></td>
+                                    <td><!--<button class="font-light" @click="getSingle(item.code)">详情</button>-->
+                                        <a :href="'SingleStock.html?code='+item.code">详情</a>
+                                    </td>
                                 </tr>
                                 </tbody>
                                 <tfoot>
