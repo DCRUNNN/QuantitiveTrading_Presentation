@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>UMT - 我的信息</title>
@@ -16,10 +16,7 @@
     <link rel="stylesheet" href="../../bootstrap/css/global.css" media="all">
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -114,7 +111,7 @@
                 <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>城管大队</p>
+                <p>{{userName}}</p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -135,7 +132,7 @@
 </aside>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" style="text-align: center">
+<div class="content-wrapper" style="text-align: center" >
     <!-- Main content -->
     <section class="content" style="margin-left: 15%">
         <div class="row">
@@ -148,25 +145,34 @@
                         <form class="form-horizontal">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="userId" class="col-sm-2 control-label">用户名</label>
+                                    <label for="userName"  class="col-sm-2 control-label">用户名</label>
 
                                     <div class="col-sm-8">
-                                        <input type="email" class="form-control" id="userId" placeholder="用户名">
+                                        <input type="text" class="form-control " id="userName" v-bind:value=userName>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <label for="Password" class="col-sm-2 control-label">密码</label>
-
-                                    <div class="col-sm-8">
-                                        <input type="password" class="form-control" id="Password" placeholder="Password">
+                                    <label class="col-sm-2 control-label">性别</label>
+                                    <div class="col-md-3">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="男" v-model="sex">
+                                            男
+                                        </label>
                                     </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="女" v-model="sex">
+                                            女
+                                        </label>
+                                    </div>
+
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">邮箱</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="email" placeholder="邮箱">
+                                        <input type="text" class="form-control " id="email" v-bind:value=email>
                                     </div>
 
                                 </div>
@@ -175,7 +181,7 @@
                                 <div class="form-group">
                                     <label for="unit" class="col-sm-2 control-label">工作单位</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="unit" placeholder="所处单位">
+                                        <input type="text" class="form-control " id="unit" v-bind:value=unit>
                                     </div>
 
                                 </div>
@@ -183,7 +189,7 @@
                                 <div class="form-group">
                                     <label for="phone" class="col-sm-2 control-label">联系方式</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="phone" placeholder="联系方式">
+                                        <input type="text" class="form-control " id="phone" v-bind:value=phone_number>
                                     </div>
 
                                 </div>
@@ -191,7 +197,7 @@
                                 <div class="form-group">
                                     <label for="place" class="col-sm-2 control-label">现居地</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="place" placeholder="现居地">
+                                        <input type="text" class="form-control " id="place" v-bind:vaule="place">
                                     </div>
 
                                 </div>
@@ -225,9 +231,6 @@
 <div class="control-sidebar-bg"></div>
 </div>
 
-
-
-
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <div class="site-tree-mobile layui-hide">
     <i class="layui-icon">&#xe602;</i>
@@ -248,6 +251,7 @@
     };
 </script>
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+
 <script src="../../vue/vue.js"></script>
 <script src="../../vue-resource"></script>
 <script src="../../js/PersonnalDevice.js"></script>

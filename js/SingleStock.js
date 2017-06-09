@@ -197,8 +197,8 @@ var vm = new Vue({
             }
 
             var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-                + " " + date.getHours() + seperator2 + date.getMinutes()
-                + seperator2 + date.getSeconds();
+                + " " + hour + seperator2 + minute
+                + seperator2 + second;
             return currentdate;
         }
     },
@@ -238,10 +238,12 @@ var vm = new Vue({
 
         var phoneNumber = this.getCookieValue("phoneNumber");
 
+        //根据stockCode得到stockName
         this.$http.get("http://localhost:8080/stockName/"+code).then(function (response) {
             self.stockname = response.data.data;
         });
 
+        //根据stockCode得到本股信息
         this.$http.get("http://localhost:8080/company/details/"+code).then(function (response) {
             self.topenprice = response.data.data.open;
             self.thighprice = response.data.data.high;
@@ -261,8 +263,7 @@ var vm = new Vue({
             alert("出现了未知的错误！")
         });
 
-
-
+        //根据stockCode得到公司信息
         this.$http.get("http://localhost:8080/company/info/"+code).then(function (response) {
             // console.log(response.data);
             self.location = response.data.data.area;
@@ -284,6 +285,7 @@ var vm = new Vue({
             alert("出现了未知的错误");
         });
 
+        //根据stockCode得到公司新闻
         this.$http.get("http://localhost:8080/company/news/"+code).then(function (response) {
 
             self.newstitle1=response.data.data[0].title;
@@ -322,6 +324,7 @@ var vm = new Vue({
             alert("出现了未知的错误！");
         });
 
+        //根据stockCode得到公司公告
         this.$http.get("http://localhost:8080/company/announcement/"+code).then(function (response) {
             self.announcementtitle1=response.data.data[0].title.substring(0,18);
             self.announcementurl1=response.data.data[0].link;
@@ -358,6 +361,7 @@ var vm = new Vue({
             alert("出现了未知的错误！");
         });
 
+        //根据stockCode得到k线数据
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
             params:{
                 beginDate:'2012-03-02',
@@ -370,7 +374,7 @@ var vm = new Vue({
 
            var data = splitData(klineData);
 
-//数组处理
+         //数组处理
             function splitData(rawData) {
                 var datas = [];
                 var times = [];
@@ -394,7 +398,7 @@ var vm = new Vue({
                 };
             }
 
-//分段计算
+         //分段计算
             function fenduans(){
                 var markLineData = [];
                 var idx = 0; var tag = 0; var vols = 0;
@@ -433,7 +437,7 @@ var vm = new Vue({
                 return markLineData;
             }
 
-//MA计算公式
+         //MA计算公式
             function calculateMA(dayCount) {
                 var result = [];
                 for (var i = 0, len = data.times.length; i < len; i++) {
@@ -687,6 +691,7 @@ var vm = new Vue({
             mychart.setOption(option);
 
 
+            //添加本页面股票浏览记录
 
             if(this.getCookieValue("history") === "") {
                 //不存在history

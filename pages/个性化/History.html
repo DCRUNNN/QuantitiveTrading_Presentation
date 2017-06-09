@@ -47,7 +47,7 @@
     </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini site-home">
-<div class="wrapper">
+<div class="wrapper" id="app">
 
     <div id="clearBlock">
         <div id="hidebg"></div>
@@ -60,7 +60,7 @@
                 </div>
                 <br>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary" style="left: 80px;" @click.prevent="">确定</button>
+                    <button type="button" class="btn btn-primary" style="left: 80px;" @click="clear()">确定</button>
                     <button type="button" class="btn btn-danger" style="left: 230px;" onclick="hide()">取消</button>
                 </div>
                 <hr>
@@ -142,7 +142,7 @@
         <section class="content" style="margin-left: 15%">
 
             <!-- row -->
-            <div class="row" id="app">
+            <div class="row">
                 <div class="col-md-10">
                     <div class="box box-info">
                         <div class="box-header with-border" style="text-align: left">
@@ -319,6 +319,9 @@
     };
 </script>
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+<script src="../../vue/vue.js"></script>
+<script src="../../vue-resource/vue-resource.js"></script>
+
 <script src="../../js/History.js"></script>
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -326,42 +329,5 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
 
-<script src="../../vue/vue.js"></script>
-<script src="../../vue-resource/vue-resource.js"></script>
-<script>
-    new Vue({
-        el: "#app",
-        data:{
-        },
-        computed:{
-            getHistory:function () {
-                var array = this.getCookieValue("history").split("|");
-                var jsonArray = new Array();
-                for(var i=0;i<array.length;i++) {
-                    var code = array[i].split("/")[0];
-                    var date = array[i].split("/")[1];
-                    var json = {
-                        "code":code,
-                        "date":date
-                    };
-                    jsonArray.push(json);
-                }
-                return jsonArray.reverse();
-            }
-        },
-        methods:{
-            getCookieValue:function (cname) {
-                var name = cname + "=";
-                var ca = document.cookie.split(';');
-                for(var i=0; i<ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0)==' ') c = c.substring(1);
-                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-                }
-                return "";
-            }
-        }
-    });
-</script>
 </body>
 </html>
