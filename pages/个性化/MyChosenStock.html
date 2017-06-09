@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>UMT - 自选股</title>
@@ -36,7 +36,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini site-home">
-<div class="wrapper">
+<div class="wrapper" id="container">
 
     <div class="layui-header header header-index">
         <div class="layui-main">
@@ -118,69 +118,15 @@
                         <div class="box-body">
                             <form class="form-horizontal">
                                 <div class="box-body">
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
+                                    <div class="form-group" v-for="item in items">
+                                        <label class="col-md-7 control-label">{{item}}</label>
                                         <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
+                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" v-on:click="deleteStock()"></i></button>
                                         </div>
+                                        <br>
+                                        <hr>
                                     </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="form-group">
-                                        <label class="col-md-7 control-label">000001 - 紫金矿业</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" onclick=""></i></button>
-                                        </div>
-                                    </div>
-                                    <br>
+
                                     <div class="box-footer">
                                         <button type="button" class="btn btn-info pull-left">添加股票</button>
                                         <button type="button" class="btn btn-danger pull-right">清空自选股</button>
@@ -211,9 +157,6 @@
     <div class="control-sidebar-bg"></div>
 </div>
 
-
-
-
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <div class="site-tree-mobile layui-hide">
     <i class="layui-icon">&#xe602;</i>
@@ -233,6 +176,11 @@
     };
 </script>
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+<script src="../../vue/vue.js">
+</script>
+<script src="../../vue-resource/vue-resource.js"></script>
+<script src="../../js/MyChosenStock.js"></script>
+
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>

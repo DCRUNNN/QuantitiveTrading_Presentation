@@ -17,11 +17,11 @@ var vm = new Vue({
     data:{
        item:{
            userName:'陈远志',
-           sex:'男',
+           sex:'女',
            email:'',
-           unit:'',
-           phone_number:'',
-           place:''
+           unit:'南京大学',
+           phone_number:'15951926608',
+           place:'南京'
        }
     },
     methods:{
@@ -42,10 +42,11 @@ var vm = new Vue({
         }
 
     },
-    mounted(){
+    created(){
 
        if(this.getCookieValue("phoneNumber") === ""){
-           window.location.href = "./../pages/Login.html";
+           alert("请先登录！");
+           window.location.href = "../Login.html";
        }else{
 
            if(this.item.sex == '男'){
@@ -53,16 +54,16 @@ var vm = new Vue({
            }else{
                document.getElementById("optionsRadios2").checked="true";
            }
-           this.$http.get("http://localhost:8080/").then(function (response) {
-               this.item.userName = response.data.userName;
-               this.item.sex = response.data.sex;
-               this.item.email=response.data.email;
-               this.item.unit = response.data.unit;
-               this.item.phone_number = response.data.phone_number;
-               this.item.place = response.data.place;
-           }).catch(function (error) {
-               alert("发生了未知的错误！");
-           });
+           // this.$http.get("http://localhost:8080/").then(function (response) {
+           //     this.item.userName = response.data.userName;
+           //     this.item.sex = response.data.sex;
+           //     this.item.email=response.data.email;
+           //     this.item.unit = response.data.unit;
+           //     this.item.phone_number = response.data.phone_number;
+           //     this.item.place = response.data.place;
+           // }).catch(function (error) {
+           //     alert("发生了未知的错误！");
+           // });
 
        }
 

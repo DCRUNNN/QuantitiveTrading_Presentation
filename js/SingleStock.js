@@ -151,6 +151,29 @@ var vm = new Vue({
 
     },
     methods:{
+
+        addStock:function () {
+
+            if(this.getCookieValue("phoneNumber") === ""){
+                alert("请先登录！");
+                window.location.href = "../pages/Login.html";
+            }else{
+                this.$http.get("http://localhost:8080/personnel/addStock",{
+                    params:{
+                        userId:this.getCookieValue("phoneNumber"),
+                        stockCode:this.stockCode
+                    }
+                }).then(function (response) {
+                    if (response.data.errorCode === 0) {
+                        alert("添加自选股成功！");
+                    }
+                }).catch(function (error) {
+                    alert("发生了未知的错误！");
+                });
+            }
+
+        },
+
         setCookie:function (cname,cvalue) {
             var d = new Date();
             d.setTime(d.getTime() + (300*24*60*60*1000)); //300天
