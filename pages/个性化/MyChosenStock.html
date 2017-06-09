@@ -115,26 +115,28 @@
                         <div class="box-header with-border" style="text-align: left">
                             <h3 class="box-title">我的自选股</h3>
                         </div>
-                        <div class="box-body">
-                            <form class="form-horizontal">
-                                <div class="box-body">
-                                    <div class="form-group" v-for="item in items">
-                                        <label class="col-md-7 control-label">{{item}}</label>
-                                        <div class="box-tools col-md-3">
-                                            <button type="button" class="btn btn-box-tool"><i class="fa fa-times" v-on:click="deleteStock()"></i></button>
-                                        </div>
-                                        <br>
-                                        <hr>
-                                    </div>
+                        <!-- The time line -->
+                        <ul class="timeline">
+                            <!-- timeline item -->
+                            <li v-for="item in items">
+                                <i class="fa fa-link bg-blue"></i>
 
-                                    <div class="box-footer">
-                                        <button type="button" class="btn btn-info pull-left">添加股票</button>
-                                        <button type="button" class="btn btn-danger pull-right">清空自选股</button>
-                                    </div>
+                                <div class="timeline-item">
+                                    <button type="button" class="btn btn-box-tool time"><i class="fa fa-times" v-on:click="deleteStock()"></i></button>
+                                    <h3 class="timeline-header"><a :href="'../SingleStock.html?code='+item.split('--')[0]" v-text="item"></a></h3>
                                 </div>
-                                <!-- /.box-footer -->
-                            </form>
-                        </div>
+
+                                <!--<div class="box-tools col-md-3">-->
+                                    <!--<button type="button" class="btn btn-box-tool"><i class="fa fa-times" v-on:click="deleteStock()"></i></button>-->
+                                <!--</div>-->
+                            </li>
+
+                        </ul>
+
+                        <div class="box-footer">
+                        <button type="button" class="btn btn-info pull-left">添加股票</button>
+                        <button type="button" class="btn btn-danger pull-right">清空自选股</button>
+                    </div>
                         <!-- /.box-body -->
                     </div>
                 </div>

@@ -166,6 +166,9 @@ var vm = new Vue({
                 }).then(function (response) {
                     if (response.data.errorCode === 0) {
                         alert("添加自选股成功！");
+                    }else if(response.data.errorCode == 50000001){
+                        // console.log(response.data);
+                        alert("该股票已经是您的自选股！");
                     }
                 }).catch(function (error) {
                     alert("发生了未知的错误！");
