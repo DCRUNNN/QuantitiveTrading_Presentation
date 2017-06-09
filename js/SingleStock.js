@@ -67,10 +67,7 @@ Vue.prototype.$echarts = echarts
 var vm = new Vue({
     el:'#app',
     data:{
-
-        testUrl:"http://www.baidu.com",
-
-        stockname:'顺络电子',
+        stockname:'',
         stockCode:'',
         quote_change:'',
         quote_change_per:'',
@@ -90,14 +87,15 @@ var vm = new Vue({
         total:'10000',
         flowstock:'900',
 
-        topenprice:'1',
-        thighprice:'2',
-        tlowprice:'3',
-        pprice:'4',
-        price:'5',
-        tvolume:'6',
-        ttotal:'7',
-        market:'8',
+        topenprice:'',
+        thighprice:'',
+        tlowprice:'',
+        pprice:'',
+        price:'',
+        tvolume:'',
+        ttotal:'',
+        market:'',
+
 
 
         newstitle1:'',
@@ -153,22 +151,56 @@ var vm = new Vue({
 
     },
     methods:{
-    },// info-box-icon bg-red
-    computed:{
-        classObject:function () {
-            if(self.quote_change>=0){
-                return "info-box-icon bg-red";
+        setCookie:function (cname,cvalue) {
+            var d = new Date();
+            d.setTime(d.getTime() + (300*24*60*60*1000)); //300天
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        },
+        getCookieValue:function (cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
             }
-            return "info-box-icon bg-green";
+            return "";
+        },
+        getNowFormatDate:function () {
+            var date = new Date();
+            var seperator1 = "-";
+            var seperator2 = ":";
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+                + " " + date.getHours() + seperator2 + date.getMinutes()
+                + seperator2 + date.getSeconds();
+            return currentdate;
+        }
+    },
+    computed: {
+        classObject: function () {
+            if (this.quote_change >= 0) {
+                return "info-box-icon bg-green";
+            }
+            return "info-box-icon bg-red";
         },
 
-        iObject:function () {
-            if(self.quote_change>=0) {
+        iObject: function () {
+            if (this.quote_change >= 0) {
                 return "fa fa-arrow-up";
             }
             return "fa fa-arrow-down";
         }
     },
+
     mounted:function () {
 
         var thisUrl = document.URL;
@@ -177,6 +209,8 @@ var vm = new Vue({
         this.stockCode = code;
         var klineData;
         const self = this;
+
+        var phoneNumber = this.getCookieValue("phoneNumber");
 
         this.$http.get("http://localhost:8080/company/details/"+code).then(function (response) {
             self.topenprice = response.data.data.open;
@@ -189,12 +223,15 @@ var vm = new Vue({
             self.market = response.data.data.market;
             self.quote_change=(self.price-self.pprice).toPrecision(2);
             self.quote_change_per=response.data.data.quote_change+"%";
+
         }).catch(function (error) {
             if(error==20000001){
                 alert("股票不存在！")
             }
             alert("出现了未知的错误！")
         });
+
+
 
         this.$http.get("http://localhost:8080/company/info/"+code).then(function (response) {
             // console.log(response.data);
@@ -633,6 +670,25 @@ var vm = new Vue({
             };
             mychart.setOption(option);
 
+            if(this.getCookieValue("history") === "") {
+                //不存在history
+                this.setCookie("history", code+"--"+self.stockname+"/"+this.getNowFormatDate());
+            }else{
+                var historyData = this.getCookieValue("history");
+                //删除cookie
+                var d = new Date();
+                d.setTime(d.getTime() - 4 * 600000);
+                document.cookie = "history=" + historyData + ";expires=" + d.toUTCString() + ";path=/";
+
+                var array = (historyData + "|" + code+"--"+self.stockname+"/"+this.getNowFormatDate()).split("|");
+                if(array.length > 10) {
+                    //元素个数大于１０的话，删除第一个元素
+                    array.shift();
+                }
+
+                var newString = array.join("|");
+                this.setCookie("history", newString);
+            }
         });
 
     }

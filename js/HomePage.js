@@ -16,7 +16,6 @@ var vm = new Vue({
     },
     beforeCreate(){
         const self=this;
-
         this.$http.get("http://localhost:8080/homepage/market/"+"2016-05-12").then(function (response) {
             self.charts=response.data.data;
         });
