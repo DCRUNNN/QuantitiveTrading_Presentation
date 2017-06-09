@@ -231,9 +231,9 @@ var vm = new Vue({
     computed: {
         classObject: function () {
             if (this.quote_change >= 0) {
-                return "info-box-icon bg-green";
+                return "info-box-icon bg-red";
             }
-            return "info-box-icon bg-red";
+            return "info-box-icon bg-green";
         },
 
         iObject: function () {
