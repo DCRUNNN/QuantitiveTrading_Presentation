@@ -301,6 +301,31 @@
                         <div class="post-title mt_8">
                             <span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>
                         </div>
+                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　持有期天数:　　　　　　
+                            <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh">
+                                    <option value="5">5 </option>
+                                    <option value="10"> 10 </option>
+                                    <option value="15"> 15 </option>
+                                    <option value="20"> 20 </option>
+                                    <option value="25"> 25 </option>
+                                    <option value="30"> 30 </option>
+                                </select>
+                            </span>
+                        </div>
+
+                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　形成期天数:　　　　　　
+                            <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh">
+                                    <option value="5">5 </option>
+                                    <option value="10"> 10 </option>
+                                    <option value="15"> 15 </option>
+                                    <option value="20"> 20 </option>
+                                    <option value="25"> 25 </option>
+                                    <option value="30"> 30 </option>
+                                </select>
+                            </span>
+                        </div>
                     </div>
 
                     <div class="well">
@@ -308,34 +333,6 @@
                         <input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:200px;height:35px;text-align:center" readonly>
                         <span class="ml_10" style="font-size: large">　　结束日期:　　　　</span>
                         <input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:200px;height:35px;text-align:center" readonly>
-                    </div>
-
-                    <div class="well">
-                        <div class="input-group-btn">
-                            <span class="ml_10" style="font-size: large">形成期天数:　　　　　　</span>
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择形成期天数 <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">10</a></li>
-                                <li><a href="#">15</a></li>
-                                <li><a href="#">20</a></li>
-                                <li><a href="#">25</a></li>
-                                <li><a href="#">30</a></li>
-                            </ul>
-                        </div><!-- /btn-group -->
-
-                        <div class="input-group-btn">
-                            <span class="ml_10" style="font-size: large">持有期天数:　　　　　　</span>
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">请选择持有期天数 <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">10</a></li>
-                                <li><a href="#">15</a></li>
-                                <li><a href="#">20</a></li>
-                                <li><a href="#">25</a></li>
-                                <li><a href="#">30</a></li>
-                            </ul>
-                        </div><!-- /btn-group -->
                     </div>
 
                     <div class="input-group">
@@ -535,9 +532,9 @@
                 </div>
 
 
-
-                    </div>
+            </div>
                     <!--/preview_body-->
+
 
 
 
