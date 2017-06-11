@@ -246,6 +246,14 @@ var vm = new Vue({
 
     mounted:function () {
 
+        if(this.getCookieValue("phoneNumber") === ""){
+            document.getElementById("login").innerHTML = "登录";
+        }else{
+            document.getElementById("login").innerHTML = "已登录";
+            document.getElementById("login").href = "#";
+        }
+
+
         var mychart = this.$echarts.init(document.getElementById('kline'));
         mychart.showLoading({
             text:'数据loading',

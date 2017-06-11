@@ -69,6 +69,9 @@ var vm = new Vue({
            window.location.href = "../Login.html";
        }else{
 
+               document.getElementById("login1").innerHTML = "已登录";
+               document.getElementById("login1").href = "";
+
            this.$http.get("http://localhost:8080/personnel/"+this.getCookieValue("phoneNumber")).then(function (response) {
                this.item.userName=response.data.data.userName;
                this.item.sex = response.data.data.sex;

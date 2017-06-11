@@ -58,7 +58,15 @@ new Vue({
             alert("9");
             this.setCookie("history", "", -1);
         }
+    },mounted(){
+        if(this.getCookieValue("phoneNumber") === ""){
+            document.getElementById("login1").innerHTML = "登录";
+        }else{
+            document.getElementById("login1").innerHTML = "已登录";
+            document.getElementById("login1").href = "";
+        }
     }
+
 
 });
 // var vm = new Vue({

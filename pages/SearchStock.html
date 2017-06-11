@@ -28,65 +28,69 @@
     <![endif]-->
 </head>
 <body class="hold-transition login-page" style="background-image: url(https://topvet.azureedge.net/Backgrounds/background1.png)">
-<div class="layui-header header header-index">
-    <div class="layui-main">
-        <a class="logo" href="../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
-            UMT
-        </a>
-        <div class="layui-form component">
-            <select lay-search lay-filter="component">
-                <option value="">搜索组件或模块</option>
-                <option value="element/color.html">color 颜色</option>
-            </select>
+<div >
+    <div class="layui-header header header-index">
+        <div class="layui-main">
+            <a class="logo" href="../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
+                UMT
+            </a>
+            <div class="layui-form component">
+                <select lay-search lay-filter="component">
+                    <option value="">搜索组件或模块</option>
+                    <option value="element/color.html">color 颜色</option>
+                </select>
+            </div>
+            <ul class="layui-nav" pc>
+                <li class="layui-nav-item ">
+                    <a href="#">首页</a>
+                </li>
+                <li class="layui-nav-item ">
+                    <a href="../pages/SingleStock.html">个股</a>
+                </li>
+                <li class="layui-nav-item" pc>
+                    <a href="Stategy.html" target="_blank">量化策略</a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="../pages/Strategy/NewStrategy.html" target="_blank">自定义策略</a>
+                </li>
+                <li class="layui-nav-item" >
+                    <a href="javascript:;">个性化</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="../pages/个性化/PersonnalDevice.html" target="_blank">我的信息</a></dd>
+                        <dd><a href="../pages/个性化/History.html" target="_blank">浏览记录</a></dd>
+                        <dd><a href="../pages/个性化/MyChosenStock.html" target="_blank">我的自选股</a></dd>
+                        <dd><a href="../pages/个性化/MyStrategy.html" target="_blank">我的策略</a> </dd>
+                    </dl>
+
+                </li>
+                <li class="layui-nav-item">
+                    <a href="../pages/Login.html" target="_blank" id="login">登录</a>
+                </li>
+
+            </ul>
         </div>
-        <ul class="layui-nav" pc>
-            <li class="layui-nav-item ">
-                <a href="#">首页</a>
-            </li>
-            <li class="layui-nav-item ">
-                <a href="../pages/SingleStock.html">个股</a>
-            </li>
-            <li class="layui-nav-item" pc>
-                <a href="Stategy.html" target="_blank">量化策略</a>
-            </li>
-            <li class="layui-nav-item">
-                <a href="../pages/Strategy/NewStrategy.html" target="_blank">自定义策略</a>
-            </li>
-            <li class="layui-nav-item" >
-                <a href="javascript:;">个性化</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="../pages/个性化/PersonnalDevice.html" target="_blank">我的信息</a></dd>
-                    <dd><a href="../pages/个性化/History.html" target="_blank">浏览记录</a></dd>
-                    <dd><a href="../pages/个性化/MyChosenStock.html" target="_blank">我的自选股</a></dd>
-                    <dd><a href="../pages/个性化/MyStrategy.html" target="_blank">我的策略</a> </dd>
-                </dl>
-
-            </li>
-            <li class="layui-nav-item">
-                <a href="../pages/Login.html" target="_blank">登录</a>
-            </li>
-
-        </ul>
     </div>
-</div>
-<div class="login-box" id="container">
-    <div class="login-logo">
-        <a href="../pages/Init.html" style="color: #f1f1f1"><b>UMT</b>-股票分析师</a>
-    </div>
-    <!-- /.login-logo -->
-    <br>
-    <br>
+    <div class="login-box" id="container">
+        <div class="login-logo">
+            <a href="../pages/Init.html" style="color: #f1f1f1"><b>UMT</b>-股票分析师</a>
+        </div>
+        <!-- /.login-logo -->
+        <br>
+        <br>
 
         <div class="input-group-lg col-lg-11" style="position: absolute; left: 350px;width: 500px">
             <input type="text" class="form-control" placeholder="请输入您想搜索的股票代码或名称：" id="input">
         </div>
-       <div class="col-lg-2" style="left: 375px">
-           <button type="button" class="btn btn-primary btn-lg" @click="search()">搜索</button>
-       </div>
+        <div class="col-lg-2" style="left: 375px">
+            <button type="button" class="btn btn-primary btn-lg" @click="search()">搜索</button>
+        </div>
 
 
-    <!-- /.login-box-body -->
+        <!-- /.login-box-body -->
+    </div>
 </div>
+
+
 <!-- /.login-box -->
 <script src="//res.layui.com/layui/build/layui.js?t=1496845305865" charset="utf-8"></script>
 <script>
