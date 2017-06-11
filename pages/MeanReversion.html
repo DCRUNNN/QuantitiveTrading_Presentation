@@ -287,7 +287,7 @@
                     <input type="hidden" id="backtestId" value="838446">
                     <p>　　均值回归是指股票价格无论高于或低于价值中枢（或均值）都会以很高的概率向价值中枢回归的趋势。根据这个理论，股票价格总是围绕其平均值上下波动。
                     </p><p>　　均值回归理论就是股票收益可预测理论的一个突破性进展，尤其对于长线投资者具有重要指导意义。
-                    </p>
+                </p>
                     <div class="info hidden content" id="content"><img src="../dist/img/MeanReversion.jpg">
                     </div>
                     <p>　　<b>1、</b>均值回归从理论上讲应具有必然性。因为有一点是肯定的，股票价格不能总是上涨或下跌，一种趋势不管其持续的时间多长都不能永远持续下去。在一个趋势内，股票价格呈持续上升或下降，我们称之为均值回避(Mean Aversion)。当出现相反趋势时就呈均值回归(Mean Reversion)。到目前为止，均值回归理论仍不能解决的或者说不能预测的是回归的时间间隔，即回归的周期呈“随机漫步”。不同的股票市场，回归的周期会不一样，就是对同一个股票市场来说，每次回归的周期也不一样。如果能够发现均值回归的时间周期或者回归时间周期的分布范围，股票收益的可预测性就会很强。否则，仅仅是证明某一股票市场是否存在均值回归仍然是没有意义的。现在看来，均值回归理论的研究仅仅是刚刚起步，未来需要做的事情一定很多。
@@ -533,210 +533,210 @@
 
 
             </div>
-                    <!--/preview_body-->
+            <!--/preview_body-->
 
 
 
 
 
-                    <div class="sign-in-please">
-                        您尚未登录，请 <a href="/user/login/index?redirect=/post/1511?f=home&m=alg_example">登录</a> 或者 <a href="/user/register/index">注册</a> 打造专属策略。
-                    </div>
-
-                </div>
-                <form id="edit-reply-form" name="ReplyModel" class="form_pane hidden" novalidate="novalidate" disabled>
-                    <input type="hidden" name="ReplyModel[replyId]" value="" id="reply-replyId">
-                    <div class="item item_detail mt_35">
-                        <div class="form-group form-group-lg">
-                            <div id="wmd-button-bar-reply"></div>
-                            <textarea name="ReplyModel[content]" id="wmd-input-reply" class="wmd-input form-control disabled with-events" rows="3" placeholder=""></textarea>
-                        </div>
-                    </div>
-                    <!--/item_others-->
-                    <div class="item item_submit clearfix">
-                        <div class="form-group form-group-lg">
-                            <div class="pull-right post-submit">
-                                <!-- <a class="btn btn-link f18 link_gray nounderline mr_10">取 消</a> -->
-                                <button id="btn-submit-cancel" class="btn btn-preview btn_l blue_on_white mr_20" type="button">取 消</button>
-                                <button id="btn-submit-reply" class="btn btn-default btn_l blue_on_white mr_20" type="button">提 交</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/item_others-->
-                </form>
-
+            <div class="sign-in-please">
+                您尚未登录，请 <a href="/user/login/index?redirect=/post/1511?f=home&m=alg_example">登录</a> 或者 <a href="/user/register/index">注册</a> 打造专属策略。
             </div>
-            <!--/body-->
-
 
         </div>
-        <!-- 回到顶部 联系我们 -->
-        <div id="leftsead" class="hidden">
-            <ul>
-                <li id="btn">
-                    <a id="top_btn">
-                        <img src="https://cdn.joinquant.com/themes/jq/static/common/img/toTop.png" width="47" height="49" class="shows" />
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <form id="edit-reply-form" name="ReplyModel" class="form_pane hidden" novalidate="novalidate" disabled>
+            <input type="hidden" name="ReplyModel[replyId]" value="" id="reply-replyId">
+            <div class="item item_detail mt_35">
+                <div class="form-group form-group-lg">
+                    <div id="wmd-button-bar-reply"></div>
+                    <textarea name="ReplyModel[content]" id="wmd-input-reply" class="wmd-input form-control disabled with-events" rows="3" placeholder=""></textarea>
+                </div>
+            </div>
+            <!--/item_others-->
+            <div class="item item_submit clearfix">
+                <div class="form-group form-group-lg">
+                    <div class="pull-right post-submit">
+                        <!-- <a class="btn btn-link f18 link_gray nounderline mr_10">取 消</a> -->
+                        <button id="btn-submit-cancel" class="btn btn-preview btn_l blue_on_white mr_20" type="button">取 消</button>
+                        <button id="btn-submit-reply" class="btn btn-default btn_l blue_on_white mr_20" type="button">提 交</button>
+                    </div>
+                </div>
+            </div>
+            <!--/item_others-->
+        </form>
 
-        <script>
-            var g_staticHost = 'https://cdn.joinquant.com';
-
-            var g_isMobile = false;
-
-            var g_isLogin = false;
-
-            var g_isWinApp= false;
-
-        </script>
-        <script src="https://cdn.joinquant.com/common/js/lib.min.js?v=201706011122201706021232"></script>
-        <script src="https://cdn.joinquant.com/themes/jq/static/common/js/setGroIO.js"></script>
-        <script type="text/javascript" src="../plugins/jedate/jedate.js"></script>
+    </div>
+    <!--/body-->
 
 
-        <script>
-            $('.dropdown-toggle').dropdown();
-            $("body").delegate("a","click",function(){
-                if ($(this)[0].hostname.length>0 && $(this)[0].hostname != window.location.hostname) {
-                    window.open($(this)[0].href);
-                    return false;
-                }
-            });
+</div>
+<!-- 回到顶部 联系我们 -->
+<div id="leftsead" class="hidden">
+    <ul>
+        <li id="btn">
+            <a id="top_btn">
+                <img src="https://cdn.joinquant.com/themes/jq/static/common/img/toTop.png" width="47" height="49" class="shows" />
+            </a>
+        </li>
+    </ul>
+</div>
 
-            function addUserIcon(){
-                var user = {
-                    "4c2438ee379986919782ec5aaea31ac0":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "a9a94cbf1fbc67a98acd312753232aec":'<i class="icon icon-trophy icon-trophy-silver" title="2015年最受欢迎策略亚军"></i>',
-                    "179b1b0056b901e816d968d28fa8e81e":'<i class="icon icon-trophy icon-trophy-copper" title="2015年最受欢迎策略季军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "16fd60756833d488b18dac0554f03244":'<i class="icon icon-trophy icon-trophy-gold" title="2015年圣诞节最受欢迎策略冠军"></i>',
-                    "eca7f63f7c3df62982dc6e8e8b29b2ab":'<i class="icon icon-trophy icon-trophy-silver" title="2015年圣诞节最受欢迎策略亚军"></i>',
-                    "a4c98dec350e69891a6df83add745e26":'<i class="icon icon-trophy icon-trophy-copper" title="2015年圣诞节最受欢迎策略季军"></i>',
-                    "aa87bf18818ee992b8583c1330ef846d":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "0f914195a39242d21c29934566e18396":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "f405ebf43640edc10f4f7e12d954ec87":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "47ba0b58397b94aa4ac1a49cb6aa6c66":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "51fcdf0e00a2508bfb79941d668f82a1":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "48c6200451d21c4b3fe6093a39fbd9df":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "31f1ab9f679923fe3f7c9fdfc6257a10":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "9eb156885cf6b7314d8534d630dad77b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "42c36f513d5a18b2364c6ac8e37dc03e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                    "fcf44ad36423fb2cac78ea69ab510919":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "7cc9c0254e6d756a55d208487d2196b4":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "43735a12db3380763d253ec2ffc4b16e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "db948de33bc2e862b5f8f16443394c2b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "e3bde20a826bc82d976f0d286b3b32be":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "86324720004bc022ef8b527c20151cbb":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "0d815da657403ee258f228a168c30489":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "7c94444a5f7e6513c2894f5766a027c6":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    "67240f4041bc73f9461f83d8b1bdca58":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-                    //"00e28d92af2a53a2a4b98b775c8f6bb2":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant"><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-                }
+<script>
+    var g_staticHost = 'https://cdn.joinquant.com';
 
-                $('.user-alias').each(function(){
-                    /*
-                     var alias =  $(this).html();
-                     if(user[alias]){
-                     alias = alias+user[alias];
-                     $(this).html(alias);
-                     }
-                     */
-                    var euid = $(this).attr('href').replace("/user/","");
-                    if(user[euid]){
-                        var alias =  $(this).html();
-                        alias = alias+user[euid];
-                        $(this).html(alias);
-                    }
-                });
+    var g_isMobile = false;
+
+    var g_isLogin = false;
+
+    var g_isWinApp= false;
+
+</script>
+<script src="https://cdn.joinquant.com/common/js/lib.min.js?v=201706011122201706021232"></script>
+<script src="https://cdn.joinquant.com/themes/jq/static/common/js/setGroIO.js"></script>
+<script type="text/javascript" src="../plugins/jedate/jedate.js"></script>
+
+
+<script>
+    $('.dropdown-toggle').dropdown();
+    $("body").delegate("a","click",function(){
+        if ($(this)[0].hostname.length>0 && $(this)[0].hostname != window.location.hostname) {
+            window.open($(this)[0].href);
+            return false;
+        }
+    });
+
+    function addUserIcon(){
+        var user = {
+            "4c2438ee379986919782ec5aaea31ac0":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "a9a94cbf1fbc67a98acd312753232aec":'<i class="icon icon-trophy icon-trophy-silver" title="2015年最受欢迎策略亚军"></i>',
+            "179b1b0056b901e816d968d28fa8e81e":'<i class="icon icon-trophy icon-trophy-copper" title="2015年最受欢迎策略季军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "16fd60756833d488b18dac0554f03244":'<i class="icon icon-trophy icon-trophy-gold" title="2015年圣诞节最受欢迎策略冠军"></i>',
+            "eca7f63f7c3df62982dc6e8e8b29b2ab":'<i class="icon icon-trophy icon-trophy-silver" title="2015年圣诞节最受欢迎策略亚军"></i>',
+            "a4c98dec350e69891a6df83add745e26":'<i class="icon icon-trophy icon-trophy-copper" title="2015年圣诞节最受欢迎策略季军"></i>',
+            "aa87bf18818ee992b8583c1330ef846d":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "0f914195a39242d21c29934566e18396":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "f405ebf43640edc10f4f7e12d954ec87":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "47ba0b58397b94aa4ac1a49cb6aa6c66":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "51fcdf0e00a2508bfb79941d668f82a1":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "48c6200451d21c4b3fe6093a39fbd9df":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "31f1ab9f679923fe3f7c9fdfc6257a10":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "9eb156885cf6b7314d8534d630dad77b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "42c36f513d5a18b2364c6ac8e37dc03e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+            "fcf44ad36423fb2cac78ea69ab510919":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "7cc9c0254e6d756a55d208487d2196b4":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "43735a12db3380763d253ec2ffc4b16e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "db948de33bc2e862b5f8f16443394c2b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "e3bde20a826bc82d976f0d286b3b32be":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "86324720004bc022ef8b527c20151cbb":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "0d815da657403ee258f228a168c30489":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "7c94444a5f7e6513c2894f5766a027c6":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            "67240f4041bc73f9461f83d8b1bdca58":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
+            //"00e28d92af2a53a2a4b98b775c8f6bb2":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant"><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
+        }
+
+        $('.user-alias').each(function(){
+            /*
+             var alias =  $(this).html();
+             if(user[alias]){
+             alias = alias+user[alias];
+             $(this).html(alias);
+             }
+             */
+            var euid = $(this).attr('href').replace("/user/","");
+            if(user[euid]){
+                var alias =  $(this).html();
+                alias = alias+user[euid];
+                $(this).html(alias);
             }
-        </script>
-        <script src="https://cdn.joinquant.com/themes/jq/static/common/js/beforelogin-layer.js?v=201706011122201706021232"></script>
-        <script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/exceptional.min.js?v=201706011122201706021232"></script>
-        <script type="text/javascript" src="https://cdn.joinquant.com/third/pagedown/marked.jq.min.js?v=201706011122201706021232"></script>
-        <script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/detail.min.js?v=201706011122201706021232"></script>
-        <script src='https://cdn.bootcss.com/mathjax/2.6.0-beta.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-        <script type="text/javascript" src="https://cdn.joinquant.com/common/js/trace.js?v=201706011122201706021232"></script>
-        <script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/user/js/loginDialog.js?v=201706011122201706021232"></script>
-        <script>
-            MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-        </script>
+        });
+    }
+</script>
+<script src="https://cdn.joinquant.com/themes/jq/static/common/js/beforelogin-layer.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/exceptional.min.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/third/pagedown/marked.jq.min.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/detail.min.js?v=201706011122201706021232"></script>
+<script src='https://cdn.bootcss.com/mathjax/2.6.0-beta.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/common/js/trace.js?v=201706011122201706021232"></script>
+<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/user/js/loginDialog.js?v=201706011122201706021232"></script>
+<script>
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
 
 
 
 
-        <div style="display:none">
-            <script src="https://s95.cnzz.com/z_stat.php?id=1256107754&web_id=1256107754" language="JavaScript"></script>
-            <!-- 返回顶部 -->
-            <script>
-                function toTop(){
-                    var scrollT=$(window).scrollTop();
-                    if (scrollT>=200) {
-                        $('#leftsead').removeClass('hidden');
-                    }else{
-                        $('#leftsead').addClass('hidden');
-                    }
-                }
-                if (!g_isMobile) {
-                    toTop();
-                }
+<div style="display:none">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1256107754&web_id=1256107754" language="JavaScript"></script>
+    <!-- 返回顶部 -->
+    <script>
+        function toTop(){
+            var scrollT=$(window).scrollTop();
+            if (scrollT>=200) {
+                $('#leftsead').removeClass('hidden');
+            }else{
+                $('#leftsead').addClass('hidden');
+            }
+        }
+        if (!g_isMobile) {
+            toTop();
+        }
 
-                $(window).scroll(function(){
-                    if (!g_isMobile) {
-                        toTop();
-                    }
-                })
-                $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
-                /* var g_isBackToTop = true;
-                 if(g_isBackToTop){
-                 $('#leftsead').removeClass('hidden');
-                 $("#leftsead a").hover(function(){
-                 if($(this).prop("className")=="youhui"){
-                 $(this).children("img.hides").show();
-                 }else{
-                 $(this).children("div.hides").show();
-                 $(this).children("img.shows").hide();
-                 $(this).children("div.hides").animate({marginRight:'0px'},'0');
-                 }
-                 },function(){
-                 if($(this).prop("className")=="youhui"){
-                 $(this).children("img.hides").hide();
-                 }else{
-                 $(this).children("div.hides").animate({marginRight:'-163px'},0,function(){$(this).hide();$(this).next("img.shows").show();});
-                 }
-                 });
-                 $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
+        $(window).scroll(function(){
+            if (!g_isMobile) {
+                toTop();
+            }
+        })
+        $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
+        /* var g_isBackToTop = true;
+         if(g_isBackToTop){
+         $('#leftsead').removeClass('hidden');
+         $("#leftsead a").hover(function(){
+         if($(this).prop("className")=="youhui"){
+         $(this).children("img.hides").show();
+         }else{
+         $(this).children("div.hides").show();
+         $(this).children("img.shows").hide();
+         $(this).children("div.hides").animate({marginRight:'0px'},'0');
+         }
+         },function(){
+         if($(this).prop("className")=="youhui"){
+         $(this).children("img.hides").hide();
+         }else{
+         $(this).children("div.hides").animate({marginRight:'-163px'},0,function(){$(this).hide();$(this).next("img.shows").show();});
+         }
+         });
+         $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
 
-                 //右侧导航 - 二维码
-                 $(".youhui").mouseover(function(){
-                 $(this).children(".2wm").show();
-                 })
-                 $(".youhui").mouseout(function(){
-                 $(this).children(".2wm").hide();
-                 });
-                 }*/
-            </script>
-            <script>
-                var img = new Image();
-                var referer = "https%3A%2F%2Fwww.joinquant.com%2F";
-                var euid = "0";
-                var urd = "0000_00_00";
-                var logHost = '';
-                var timestamp=new Date().getTime();
-                img.src = logHost+'/log/p.gif?euid='+euid+"&referer="+referer+'&urd='+urd+'&_t='+timestamp;
-            </script>
-            <script>
-                /*cnzz点击事件统计*/
-                $('.track_event_click').click(function(){
-                    var cate = $(this).attr('_cate');
-                    var name = $(this).attr('_name');
-                    _czc.push(['_trackEvent', cate, '点击', name]);
-                });
-            </script>
+         //右侧导航 - 二维码
+         $(".youhui").mouseover(function(){
+         $(this).children(".2wm").show();
+         })
+         $(".youhui").mouseout(function(){
+         $(this).children(".2wm").hide();
+         });
+         }*/
+    </script>
+    <script>
+        var img = new Image();
+        var referer = "https%3A%2F%2Fwww.joinquant.com%2F";
+        var euid = "0";
+        var urd = "0000_00_00";
+        var logHost = '';
+        var timestamp=new Date().getTime();
+        img.src = logHost+'/log/p.gif?euid='+euid+"&referer="+referer+'&urd='+urd+'&_t='+timestamp;
+    </script>
+    <script>
+        /*cnzz点击事件统计*/
+        $('.track_event_click').click(function(){
+            var cate = $(this).attr('_cate');
+            var name = $(this).attr('_name');
+            _czc.push(['_trackEvent', cate, '点击', name]);
+        });
+    </script>
 
-            <script src="../dist/js/loadnav.js" type="text/javascript"></script>
-            <script src="../dist/js/jedate-demo.js" type="text/javascript"></script>
+    <script src="../dist/js/loadnav.js" type="text/javascript"></script>
+    <script src="../dist/js/jedate-demo.js" type="text/javascript"></script>
 
-        </div>
+</div>
 </body>
 </html>
