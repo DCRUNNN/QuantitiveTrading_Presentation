@@ -27,7 +27,7 @@
 </head>
 <body class="hold-transition login-page" style="background-image: url(https://topvet.azureedge.net/Backgrounds/background1.png)">
 <div class="login-box">
-    <div class="login-logo">
+    <div class="login-logo">m
         <a href="../pages/Init.html" style="color: #f1f1f1"><b>UMT</b>-股票分析师</a>
     </div>
     <!-- /.login-logo -->
@@ -37,6 +37,10 @@
         <form action="../../index.html" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="phone number" v-model="phoneNumber">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="user_name" v-model="userName">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -90,6 +94,7 @@
         el:"#app",
         data:{
             phoneNumber:"",
+            userName:"",
             password:"",
             re_password:""
         },
@@ -101,6 +106,7 @@
                     const self = this;
                     this.$http.post("http://localhost:8080/signup",{
                         phoneNumber:self.phoneNumber,
+                        userName:self.userName,
                         password:self.password
                     }).then(function (response) {
                         if(response.data.errorCode ===0 ) {

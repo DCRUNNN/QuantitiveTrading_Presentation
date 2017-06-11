@@ -56,7 +56,7 @@
                 </div>
                 <br>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary" style="left: 80px;" @click.prevent="">确定</button>
+                    <button type="button" class="btn btn-primary" style="left: 80px;" @click="save()">确定</button>
                     <button type="button" class="btn btn-danger" style="left: 230px;" onclick="hide()">取消</button>
                 </div>
                 <hr>
@@ -148,7 +148,7 @@
                                     <label for="userName"  class="col-sm-2 control-label">用户名</label>
 
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="userName" v-bind:value=item.userName>
+                                        <input type="text" class="form-control " id="userName" value="" v-model="item.userName">
                                     </div>
                                 </div>
                                 <hr>
@@ -172,7 +172,7 @@
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">邮箱</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="email" v-bind:value=item.email>
+                                        <input type="text" class="form-control " id="email" value="" v-model="item.email">
                                     </div>
 
                                 </div>
@@ -181,7 +181,7 @@
                                 <div class="form-group">
                                     <label for="unit" class="col-sm-2 control-label">工作单位</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="unit" v-bind:value=item.unit>
+                                        <input type="text" class="form-control " id="unit" value="i" v-model="item.unit">
                                     </div>
 
                                 </div>
@@ -189,7 +189,7 @@
                                 <div class="form-group">
                                     <label for="phone" class="col-sm-2 control-label">联系方式</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control " id="phone" v-bind:value=item.phone_number>
+                                        <input type="text" class="form-control " id="phone" value="" v-model="item.phone_number">
                                     </div>
 
                                 </div>
@@ -253,7 +253,7 @@
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
 
 <script src="../../vue/vue.js"></script>
-<script src="../../vue-resource"></script>
+<script src="../../vue-resource/vue-resource.js"></script>
 <script src="../../js/PersonnalDevice.js"></script>
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->

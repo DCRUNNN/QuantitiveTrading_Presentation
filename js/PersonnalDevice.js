@@ -16,18 +16,38 @@ var vm = new Vue({
    el:'#container',
     data:{
        item:{
-           userName:'陈远志',
-           sex:'女',
+           userName:'',
+           sex:'',
            email:'',
-           unit:'南京大学',
-           phone_number:'15951926608',
-           place:'南京'
+           unit:'',
+           phone_number:'',
+           place:''
        }
     },
     methods:{
 
        save:function () {
-
+           if(document.getElementById("optionsRadios1").checked=="true"){
+               this.items.sex="男"
+           }else if(document.getElementById("optionsRadios2").checked=="true"){
+               this.items.sex="女"
+           }
+           this.$http.post("http://localhost:8080/personnel/update",{
+                   phone_number:this.item.phone_number,
+                   user_name:this.item.userName,
+                   sex:this.item.sex,
+                   email:this.item.email,
+                   unit:this.item.unit,
+                   place:this.item.place
+           }).then(function (response) {
+               console.log(response.data.data);
+               if(response.data.errorCode==0){
+                   alert("修改成功！");
+                   window.location.reload()
+               }
+           }).catch(function (error) {
+               alert("发生了未知的错误！");
+           })
        },
 
         getCookieValue:function (cname) {
@@ -42,28 +62,29 @@ var vm = new Vue({
         }
 
     },
-    created(){
+    mounted(){
 
        if(this.getCookieValue("phoneNumber") === ""){
            alert("请先登录！");
            window.location.href = "../Login.html";
        }else{
 
+           this.$http.get("http://localhost:8080/personnel/"+this.getCookieValue("phoneNumber")).then(function (response) {
+               this.item.userName=response.data.data.userName;
+               this.item.sex = response.data.data.sex;
+               this.item.email = response.data.data.email;
+               this.item.unit = response.data.data.unit;
+               this.item.place = response.data.data.place;
+               this.item.phone_number = response.data.data.phoneNumber;
+           }).catch(function (response) {
+               alert("发生了未知的错误！");
+           });
+
            if(this.item.sex == '男'){
                document.getElementById("optionsRadios1").checked="true";
            }else{
                document.getElementById("optionsRadios2").checked="true";
            }
-           // this.$http.get("http://localhost:8080/").then(function (response) {
-           //     this.item.userName = response.data.userName;
-           //     this.item.sex = response.data.sex;
-           //     this.item.email=response.data.email;
-           //     this.item.unit = response.data.unit;
-           //     this.item.phone_number = response.data.phone_number;
-           //     this.item.place = response.data.place;
-           // }).catch(function (error) {
-           //     alert("发生了未知的错误！");
-           // });
 
        }
 
