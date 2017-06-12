@@ -169,90 +169,9 @@
 
     <!--/header-->
     <div class="kk_body  top_50">
-        <!--登录注册弹出框 -->
-        <div class="login-shadow hidden" id="loginDialog-model" style="position: absolute; top: 0px; left: 0px;">
-            <div class="login-container" style="position: absolute;">
-                <div class="login-head clear">
-                    <div class="login-title fleft">登录</div>
-                    <div class="login-close fright"><img src="https://cdn.joinquant.com/themes/jq/static/algorithm/img/x.png" alt=""></div>
-                </div>
-                <div class="login-content">
-                    <div class="title">
-                        <div class="title-item login-title-item active" _id="1">登录</div>
-                        <div class="title-item login-title-item" _id="2">注册</div>
-                    </div>
-                    <div class="form_pane active" index="1">
-
-                        <form class="kkform" name="CyLoginForm" id="loginForm" method="post" action="/user/login/DoLogin">
-                            <div class="form-group form-group-lg">
-                                <input type="text" class="form-control" placeholder="手机号" name="CyLoginForm[username]" autofocus="autofocus">
-                            </div>
-                            <div class="relative">
-                                <div class="form-group form-group-lg">
-                                    <input type="password"  class="form-control" name="CyLoginForm[pwd]" placeholder="密码">
-                                </div>
-                            </div>
-                            <button class="btn btn-primary btn-block btn-lg" type="submit" id="btnSubmit" >登录</button>
-                        </form>
-                        <!-- <div class="password_link fright "></div> -->
-                        <div class="fleft mt_20 cursor">
-                            <a class="link_gray f14" href="/user/account/forgetpwd">忘记密码&nbsp;</a>
-                        </div>
-                        <div class=" fright mt_20 cursor"><span class="link_gray alert_btn f14">无法登录？</span></div>
-                        <div class="alert">
-                            <span>请通过QQ反馈您遇到的问题<br>QQ:1120116269</span><br>
-                            <button type="button" class="btn btn-primary alert_ok">确定
-                            </button>
-                        </div>
-                    </div>
-                    <div class="form_pane" index="2">
-                        <form class="kkform" name="UserModel" id="registerForm" autocomplete="off" method="post" action="/user/login/DoRegister">
-                            <input class="hidden" type="text" style='display:none'/>
-                            <input class="hidden" type="password" style='display:none'/>
-                            <div class="form-group form-group-lg">
-                                <input type="text" class="form-control" name="UserModel[mob]" placeholder="手机号" autofocus="autofocus">
-                            </div>
-                            <div class="form-group form-group-lg">
-                                <div style="" id="valideCode">
-                                    <input type="text" style="width:55%;float:left" class="form-control" name="valideCode" placeholder="图形验证码">
-                                    <img id="valideCode-img" class="valideCode" src="/common/verifyCode/valideCode?width=215" style="margin-left:18px;cursor:pointer">
-                                </div>
-                            </div>
-                            <div class="form-group form-group-lg">
-                                <div id="verifyCode" class="clear">
-                                    <input type="text" style="width:55%;float:left;" class="form-control" name="verifyCode" placeholder="手机验证码">
-                                    <button type="button" id="btnVerifyCode" class="btn btn-primary btn-block" style="width:40%;float:right;height:44px;padding-top:8px;font-size: 14px">获取手机验证码</button>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="form-group form-group-lg">
-                                    <input type="password" id="password" name="UserModel[pwd]" class="form-control" placeholder="密码">
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="form-group form-group-lg">
-                                    <input type="昵称" name="UserModel[alias]" class="form-control" placeholder="昵称">
-                                </div>
-                            </div>
-                            <button class="btn btn-primary btn-block btn-lg" id="btnRegister" type="submit" >注册</button>
-                            <div class="checkbox form_rule gray">
-                                <label class="pl_0i f16 fleft"><div class="icheckbox_square-blue checked" style="position: relative;"><input type="checkbox"  checked="checked" name="privacy" style="margin-top:9px;margin-left:0"></div><span class="pl_10 inline-block " style="padding-left: 15px;font-size: 12px">我已阅读并同意<a>服务协议</a>和<a>隐私政策</a></span></label>
-                                <div class=" absolute top_14 right cursor alert_btn"><span class="link_gray">无法注册？</span></div>
-                            </div>
-                            <div class="alert fleft">
-                                <span>请通过QQ反馈您遇到的问题<br>QQ:1120116269</span><br>
-                                <button type="button" class="btn btn-primary alert_ok">确定
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
 
-        <div class="community_body detail detail_sidebar">
+        <div class="community_body">
 
 
             <a href="/community?fromPost=1511">
@@ -301,7 +220,7 @@
                         <div class="post-title mt_8">
                             <span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>
                         </div>
-                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　持有期天数:　　　　　　
+                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　持有期天数:　　　　　　
                             <span style="margin-left:100px;width:18px;overflow:hidden;">
                                 <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh">
                                     <option value="5">5 </option>
@@ -314,7 +233,7 @@
                             </span>
                         </div>
 
-                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　形成期天数:　　　　　　
+                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　形成期天数:　　　　　　
                             <span style="margin-left:100px;width:18px;overflow:hidden;">
                                 <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh">
                                     <option value="5">5 </option>
@@ -329,27 +248,27 @@
                     </div>
 
                     <div class="well">
-                        <span class="ml_10" style="font-size: large">起始日期:　　　　</span>
+                        <span class="ml_10" style="font-size: large">起始日期　:　　　　　　　　　　  </span>
                         <input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:200px;height:35px;text-align:center" readonly>
-                        <span class="ml_10" style="font-size: large">　　结束日期:　　　　</span>
+                        <span class="ml_10" style="font-size: large">　　结束日期　:　　　　　　　　　　  </span>
                         <input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:200px;height:35px;text-align:center" readonly>
                     </div>
 
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="请输入股票名称或编号...">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" id="goButton" style="width: 40px" onclick="buttonClicked()">Go</button>
-                            </span>
-                    </div><!-- /input-group -->
-
-                    <div id="loadBar01" class="loadBar">
-                        <div>
-                            <span class="percent">
-                                <i></i>
-                            </span>
-                        </div>
-                        <span class="percentNum">0%</span>
-                    </div>
+                    <!--<div class="input-group">-->
+                        <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="请输入股票名称或编号...">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="input-group-btn">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<button type="button" class="btn btn-default" id="goButton" style="width: 40px" onclick="buttonClicked()">Go</button>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                        <!--<form action="" method="get">-->
+                            <!--请选择股票板块　：　　　　　　　　　　-->
+                            <!--<label><input name="Block" type="radio" value="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主板  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+                            <!--<label><input name="Block" type="radio" value="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中小板&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+                            <!--<label><input name="Block" type="radio" value="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创业板&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+                            <!--<label><input name="Block" type="radio" value="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自选  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;　　</label>-->
+                            <!--<label><button type="button" class="btn btn-default" id="addButton" style="width: 50px" onclick="">添加</button>　</label>-->
+                            <!--<label><input type="text" class="form-control" placeholder="请输入股票名称或编号..." style="width: 200px"></label>-->
+                        <!--</form>-->
+                    <!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
 
                     <script type="text/javascript">
                         var datepickerOptions = {
@@ -407,7 +326,7 @@
 
                         .loadBar
                         {
-                            width: 850px;
+                            width: 1100px;
                             height: 20px;
                             border: 2px solid #212121;
                             border-radius: 20px;
@@ -506,7 +425,7 @@
                             }
                         };
 
-                        function buttonClicked() {
+                        function exeButtonClicked() {
                             var loadbar = new LoadingBar("loadBar01");
                             var max = 1000;
                             loadbar.setMax(max);
@@ -516,12 +435,12 @@
                                 loadbar.setProgress(i);
                                 if(0<i<max)
                                 {
-                                    document.getElementById("goButton").disabled = true;
+                                    document.getElementById("exeButton").disabled = true;
                                 }
                                 if (i == max)
                                 {
                                     clearInterval(time);
-                                    document.getElementById("goButton").disabled = false;
+                                    document.getElementById("exeButton").disabled = false;
                                     return;
                                 }
                                 i += 10;
@@ -531,6 +450,100 @@
                     </script>
                 </div>
 
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <form action="" method="get">
+                                    &nbsp;&nbsp;股票池&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label><button type="button" class="btn btn-default" id="addAllButton" style="width: 50px" onclick="">全选</button></label>
+                                </form>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="box-body" style="">
+                                    <table id="example1" class="table table-bordered table-striped" style="text-align: center">
+                                        <thead>
+                                        <tr>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;股票编号</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;股票名称</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所属板块</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;选择</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr v-for="item in items" id="line">
+                                            <td>{{item.code}}</td>
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.block}}</td>
+                                            <td><button type="button" class="btn btn-default" id="addButton" style="width: 50px" onclick="">添加</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <form action="" method="get">
+                                    &nbsp;&nbsp;已选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label><button type="button" class="btn btn-default" id="clearButton" style="width: 100px" onclick="">清空重置</button>&nbsp;&nbsp;</label>
+                                    <label><button type="button" class="btn btn-default" id="exeButton" style="width: 100px" onclick="exeButtonClicked()">开始回测</button></label>
+                                </form>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="box-body" style="">
+                                    <table id="example2" class="table table-bordered table-striped" style="text-align: center">
+                                        <thead>
+                                        <tr>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;股票编号</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;股票名称</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所属板块</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;撤销</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr v-for="item in items" id="line2">
+                                            <td>{{item.code}}</td>
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.block}}</td>
+                                            <td><button type="button" class="btn btn-default" id="deleteButton" style="width: 50px" onclick="">删除</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="loadBar01" class="loadBar">
+                    <div>
+                            <span class="percent">
+                                <i></i>
+                            </span>
+                    </div>
+                    <span class="percentNum">0%</span>
+                </div>
 
             </div>
             <!--/preview_body-->
@@ -544,199 +557,12 @@
             </div>
 
         </div>
-        <form id="edit-reply-form" name="ReplyModel" class="form_pane hidden" novalidate="novalidate" disabled>
-            <input type="hidden" name="ReplyModel[replyId]" value="" id="reply-replyId">
-            <div class="item item_detail mt_35">
-                <div class="form-group form-group-lg">
-                    <div id="wmd-button-bar-reply"></div>
-                    <textarea name="ReplyModel[content]" id="wmd-input-reply" class="wmd-input form-control disabled with-events" rows="3" placeholder=""></textarea>
-                </div>
-            </div>
-            <!--/item_others-->
-            <div class="item item_submit clearfix">
-                <div class="form-group form-group-lg">
-                    <div class="pull-right post-submit">
-                        <!-- <a class="btn btn-link f18 link_gray nounderline mr_10">取 消</a> -->
-                        <button id="btn-submit-cancel" class="btn btn-preview btn_l blue_on_white mr_20" type="button">取 消</button>
-                        <button id="btn-submit-reply" class="btn btn-default btn_l blue_on_white mr_20" type="button">提 交</button>
-                    </div>
-                </div>
-            </div>
-            <!--/item_others-->
-        </form>
 
     </div>
     <!--/body-->
 
 
 </div>
-<!-- 回到顶部 联系我们 -->
-<div id="leftsead" class="hidden">
-    <ul>
-        <li id="btn">
-            <a id="top_btn">
-                <img src="https://cdn.joinquant.com/themes/jq/static/common/img/toTop.png" width="47" height="49" class="shows" />
-            </a>
-        </li>
-    </ul>
-</div>
 
-<script>
-    var g_staticHost = 'https://cdn.joinquant.com';
-
-    var g_isMobile = false;
-
-    var g_isLogin = false;
-
-    var g_isWinApp= false;
-
-</script>
-<script src="https://cdn.joinquant.com/common/js/lib.min.js?v=201706011122201706021232"></script>
-<script src="https://cdn.joinquant.com/themes/jq/static/common/js/setGroIO.js"></script>
-<script type="text/javascript" src="../plugins/jedate/jedate.js"></script>
-
-
-<script>
-    $('.dropdown-toggle').dropdown();
-    $("body").delegate("a","click",function(){
-        if ($(this)[0].hostname.length>0 && $(this)[0].hostname != window.location.hostname) {
-            window.open($(this)[0].href);
-            return false;
-        }
-    });
-
-    function addUserIcon(){
-        var user = {
-            "4c2438ee379986919782ec5aaea31ac0":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "a9a94cbf1fbc67a98acd312753232aec":'<i class="icon icon-trophy icon-trophy-silver" title="2015年最受欢迎策略亚军"></i>',
-            "179b1b0056b901e816d968d28fa8e81e":'<i class="icon icon-trophy icon-trophy-copper" title="2015年最受欢迎策略季军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "16fd60756833d488b18dac0554f03244":'<i class="icon icon-trophy icon-trophy-gold" title="2015年圣诞节最受欢迎策略冠军"></i>',
-            "eca7f63f7c3df62982dc6e8e8b29b2ab":'<i class="icon icon-trophy icon-trophy-silver" title="2015年圣诞节最受欢迎策略亚军"></i>',
-            "a4c98dec350e69891a6df83add745e26":'<i class="icon icon-trophy icon-trophy-copper" title="2015年圣诞节最受欢迎策略季军"></i>',
-            "aa87bf18818ee992b8583c1330ef846d":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "0f914195a39242d21c29934566e18396":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "f405ebf43640edc10f4f7e12d954ec87":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "47ba0b58397b94aa4ac1a49cb6aa6c66":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "51fcdf0e00a2508bfb79941d668f82a1":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "48c6200451d21c4b3fe6093a39fbd9df":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "31f1ab9f679923fe3f7c9fdfc6257a10":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "9eb156885cf6b7314d8534d630dad77b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "42c36f513d5a18b2364c6ac8e37dc03e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-            "fcf44ad36423fb2cac78ea69ab510919":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "7cc9c0254e6d756a55d208487d2196b4":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "43735a12db3380763d253ec2ffc4b16e":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "db948de33bc2e862b5f8f16443394c2b":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "e3bde20a826bc82d976f0d286b3b32be":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "86324720004bc022ef8b527c20151cbb":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "0d815da657403ee258f228a168c30489":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "7c94444a5f7e6513c2894f5766a027c6":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            "67240f4041bc73f9461f83d8b1bdca58":'<img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant">',
-            //"00e28d92af2a53a2a4b98b775c8f6bb2":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/huang.png" alt="" title="2016年度明星Quant"><img style="position:relative;top:-1px" src="https://cdn.joinquant.com/common/img/fire.png" alt="" title="2016年度分享达人">',
-        }
-
-        $('.user-alias').each(function(){
-            /*
-             var alias =  $(this).html();
-             if(user[alias]){
-             alias = alias+user[alias];
-             $(this).html(alias);
-             }
-             */
-            var euid = $(this).attr('href').replace("/user/","");
-            if(user[euid]){
-                var alias =  $(this).html();
-                alias = alias+user[euid];
-                $(this).html(alias);
-            }
-        });
-    }
-</script>
-<script src="https://cdn.joinquant.com/themes/jq/static/common/js/beforelogin-layer.js?v=201706011122201706021232"></script>
-<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/exceptional.min.js?v=201706011122201706021232"></script>
-<script type="text/javascript" src="https://cdn.joinquant.com/third/pagedown/marked.jq.min.js?v=201706011122201706021232"></script>
-<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/community/js/detail.min.js?v=201706011122201706021232"></script>
-<script src='https://cdn.bootcss.com/mathjax/2.6.0-beta.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-<script type="text/javascript" src="https://cdn.joinquant.com/common/js/trace.js?v=201706011122201706021232"></script>
-<script type="text/javascript" src="https://cdn.joinquant.com/themes/jq/static/user/js/loginDialog.js?v=201706011122201706021232"></script>
-<script>
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-
-
-
-
-<div style="display:none">
-    <script src="https://s95.cnzz.com/z_stat.php?id=1256107754&web_id=1256107754" language="JavaScript"></script>
-    <!-- 返回顶部 -->
-    <script>
-        function toTop(){
-            var scrollT=$(window).scrollTop();
-            if (scrollT>=200) {
-                $('#leftsead').removeClass('hidden');
-            }else{
-                $('#leftsead').addClass('hidden');
-            }
-        }
-        if (!g_isMobile) {
-            toTop();
-        }
-
-        $(window).scroll(function(){
-            if (!g_isMobile) {
-                toTop();
-            }
-        })
-        $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
-        /* var g_isBackToTop = true;
-         if(g_isBackToTop){
-         $('#leftsead').removeClass('hidden');
-         $("#leftsead a").hover(function(){
-         if($(this).prop("className")=="youhui"){
-         $(this).children("img.hides").show();
-         }else{
-         $(this).children("div.hides").show();
-         $(this).children("img.shows").hide();
-         $(this).children("div.hides").animate({marginRight:'0px'},'0');
-         }
-         },function(){
-         if($(this).prop("className")=="youhui"){
-         $(this).children("img.hides").hide();
-         }else{
-         $(this).children("div.hides").animate({marginRight:'-163px'},0,function(){$(this).hide();$(this).next("img.shows").show();});
-         }
-         });
-         $("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});
-
-         //右侧导航 - 二维码
-         $(".youhui").mouseover(function(){
-         $(this).children(".2wm").show();
-         })
-         $(".youhui").mouseout(function(){
-         $(this).children(".2wm").hide();
-         });
-         }*/
-    </script>
-    <script>
-        var img = new Image();
-        var referer = "https%3A%2F%2Fwww.joinquant.com%2F";
-        var euid = "0";
-        var urd = "0000_00_00";
-        var logHost = '';
-        var timestamp=new Date().getTime();
-        img.src = logHost+'/log/p.gif?euid='+euid+"&referer="+referer+'&urd='+urd+'&_t='+timestamp;
-    </script>
-    <script>
-        /*cnzz点击事件统计*/
-        $('.track_event_click').click(function(){
-            var cate = $(this).attr('_cate');
-            var name = $(this).attr('_name');
-            _czc.push(['_trackEvent', cate, '点击', name]);
-        });
-    </script>
-
-    <script src="../dist/js/loadnav.js" type="text/javascript"></script>
-    <script src="../dist/js/jedate-demo.js" type="text/javascript"></script>
-
-</div>
 </body>
 </html>
