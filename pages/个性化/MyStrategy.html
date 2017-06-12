@@ -42,7 +42,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini site-home">
-<div class="wrapper">
+<div class="wrapper" id="container">
 
     <div class="layui-header header header-index">
         <div class="layui-main">
@@ -58,10 +58,10 @@
                     <a href="../../pages/SearchStock.html">个股</a>
                 </li>
                 <li class="layui-nav-item" pc>
-                    <a href="../../pages/" target="_blank">量化策略</a>
+                    <a href="../../pages/Stategy.html" target="_blank">量化策略</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
+                    <a href="../Strategy/NewStrategy.html" target="_blank">自定义策略</a>
                 </li>
                 <li class="layui-nav-item" >
                     <a href="javascript:;">个性化</a>
@@ -73,7 +73,7 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="../Login.html" target="_blank">登录</a>
+                    <a href="../Login.html" target="_blank" id="login1">登录</a>
                 </li>
             </ul>
         </div>
@@ -238,6 +238,10 @@
             return preview ? preview.innerHTML : '';
         }()
     };
+</script>
+<script src="../../vue/vue.js"></script>
+<script src="../../vue-resource"></script>
+<script src="../../js/MyStrategy.js">
 </script>
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
