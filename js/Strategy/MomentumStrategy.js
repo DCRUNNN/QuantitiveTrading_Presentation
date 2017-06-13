@@ -12,6 +12,8 @@ var vm = new Vue({
         beita:'',
         sharp:'',
         maxBack:'',
+
+
         dateRange:'',
         createDays:'99',
         holdingDays:'',
@@ -35,8 +37,8 @@ var vm = new Vue({
         MomentumPrimaryDate:[
             '100','200','300','280','50'
         ],
-        MeanReversionWinRates:[],
-        MeanReversionRateNums:[]
+        MomentumWinRates:[],
+        MomentumRateNums:[]
 
 
     },
@@ -57,153 +59,159 @@ var vm = new Vue({
             this.$http.get("http://localhost:8080/exhibition/momentumStrategy",{
                 params:{
                     stockPool:this.stockPool,
-                   dateRange:this.dateRange,
+                   dateRange:document.getElementById("reservation").value,
                     dayNumFormative:this.createDays,
-                    dayNumHolding:this.holdingDayNum
+                    dayNumHolding:this.holdingDays
                 }
             }).then(function (response) {
-                this.MeanReversionDate = response.data.data.dateList;
-                this.MeanReversionFieldRate = response.data.data.yieldRates;
-                this.MeanReversionPrimaryDate = response.data.data.primaryRates;
-                this.MeanReversionWinRates = response.data.data.winRates;
-                this.MeanReversionRateNums = response.data.data.rateNums;
-                this.yearProfit = response.data.data;
-                this.primaryYearProfit = response.data.data;
-                this.alafa = response.data.data;
-                this.beita = response.data.data;
-                this.sharp = response.data.data;
-                this.maxBack = response.data.data;
+                console.log(response.data.data.winRates);
+                this.MomentumDate = response.data.data.dateList;
+                this.MomentumFieldRate = response.data.data.yieldRates;
+                this.MomentumPrimaryDate = response.data.data.primaryRates;
+                this.MomentumWinRates = response.data.data.winRates;
+                this.MomentumRateNums = response.data.data.rateNums;
+                // this.yearProfit = response.data.data.yearYield.substring(0,4);
+                // this.primaryYearProfit = response.data.data.primaryYearYield.substring(0,4);
+                // this.alafa = response.data.data.alpha.substring(0,4);
+                // this.beita = response.data.data.beta.substring(0,4);
+                // this.sharp = response.data.data.shapeRatio.substring(0,4);
+                // this.maxBack = response.data.data.maxDrawnDown.substring(0,4);
+
+                var option1 = {
+                    title : {
+                        text:'柱状显示数据'
+
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },             legend: {
+                        data:['基准收益','策略收益']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['line', 'bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : this.MomentumDate
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel : {
+                                formatter: '{value} %'
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'基准收益',
+                            type:'line',
+                            data:this.MomentumFieldRate,
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'策略收益',
+                            type:'line',
+                            data:this.MomentumPrimaryDate,
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name : '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                };
+                mychart.hideLoading();
+                mychart.setOption(option1);
+
+
+                var option2 = {
+                    title : {
+
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['频数']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {show: true, type: ['bar']},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            axisLabel : {
+                                formatter: '{value}% '
+                            },
+                            data:this.MomentumWinRates
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'频数',
+                            type:'bar',
+                            data:this.MomentumRateNums,
+                            markPoint : {
+                                data : [
+                                    {type : 'max', name: '最大值'},
+                                    {type : 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine : {
+                                data : [
+                                    {type : 'average', name: '平均值'}
+                                ]
+                            }
+                        }
+                    ]
+                };
+                barchart.hideLoading();
+                barchart.setOption(option2);
             }).catch(function (error) {
                 alert("发生了未知的错误！")
             });
 
-            var option1 = {
-                title : {
-                    text:'柱状显示数据'
-
-                },
-                tooltip : {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data:['最高气温','最低气温']
-                },
-                toolbox: {
-                    show : true,
-                    feature : {
-                        mark : {show: true},
-                        dataView : {show: true, readOnly: false},
-                        magicType : {show: true, type: ['line', 'bar']},
-                        restore : {show: true},
-                        saveAsImage : {show: true}
-                    }
-                },
-                calculable : true,
-                xAxis : [
-                    {
-                        type : 'category',
-                        boundaryGap : false,
-                        data : this.MeanReversionDate
-                    }
-                ],
-                yAxis : [
-                    {
-                        type : 'value',
-                        axisLabel : {
-                            formatter: '{value} °C'
-                        }
-                    }
-                ],
-                series : [
-                    {
-                        name:'基准收益',
-                        type:'line',
-                        data:this.MeanReversionFieldRate,
-                        markPoint : {
-                            data : [
-                                {type : 'max', name: '最大值'},
-                                {type : 'min', name: '最小值'}
-                            ]
-                        },
-                        markLine : {
-                            data : [
-                                {type : 'average', name: '平均值'}
-                            ]
-                        }
-                    },
-                    {
-                        name:'策略收益',
-                        type:'line',
-                        data:this.MeanReversionPrimaryDate,
-                        markPoint : {
-                            data : [
-                                {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
-                            ]
-                        },
-                        markLine : {
-                            data : [
-                                {type : 'average', name : '平均值'}
-                            ]
-                        }
-                    }
-                ]
-            };
-            var option2 = {
-                title : {
-                    text: '超额收益频数分布直方图'
-                },
-                tooltip : {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data:['频数']
-                },
-                toolbox: {
-                    show : true,
-                    feature : {
-                        mark : {show: true},
-                        dataView : {show: true, readOnly: false},
-                        magicType : {show: true, type: ['bar']},
-                        restore : {show: true},
-                        saveAsImage : {show: true}
-                    }
-                },
-                calculable : true,
-                xAxis : [
-                    {
-                        type : 'category',
-                        data : []
-                    }
-                ],
-                yAxis : [
-                    {
-                        type : 'value'
-                    }
-                ],
-                series : [
-                    {
-                        name:'频数',
-                        type:'bar',
-                        data:[],
-                        markPoint : {
-                            data : [
-                                {type : 'max', name: '最大值'},
-                                {type : 'min', name: '最小值'}
-                            ]
-                        },
-                        markLine : {
-                            data : [
-                                {type : 'average', name: '平均值'}
-                            ]
-                        }
-                    }
-                ]
-            };
-            mychart.hideLoading();
-            mychart.setOption(option1);
-
-            barchart.hideLoading();
-            barchart.setOption(option2);
         },
 
         add:function (code,name,sector) {

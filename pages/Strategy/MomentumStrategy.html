@@ -167,7 +167,7 @@
                             <label for="createDayNum" class="control-label">形成天数</label>
 
                             <div>
-                                <input type="text" class="form-control" id="createDayNum" placeholder="请输入形成期天数" v-model="createDayNum">
+                                <input type="text" class="form-control" id="createDayNum" placeholder="请输入形成期天数" v-model="createDays">
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -185,7 +185,7 @@
                             <label for="holdingDayNum" class="control-label">持有天数</label>
 
                             <div>
-                                <input type="text" class="form-control" id="holdingDayNum" placeholder="请输入持有期天数" v-model="holdingDayNum">
+                                <input type="text" class="form-control" id="holdingDayNum" placeholder="请输入持有期天数" v-model="holdingDays">
                             </div>
                         </div>
 
@@ -309,7 +309,7 @@
                                                 <td v-text="primaryYearProfit"></td>
                                                 <td v-text="alafa"></td>
                                                 <td v-text="beita"></td>
-                                                <td v-text="sharpRate"></td>
+                                                <td v-text="sharp"></td>
                                                 <td v-text="maxBack"></td>
 
                                             </tr>
@@ -393,11 +393,6 @@
             $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         }
     );
-
-    //Date picker
-    $('#datepicker').datepicker({
-        autoclose: true
-    });
 
 </script>
 </body>

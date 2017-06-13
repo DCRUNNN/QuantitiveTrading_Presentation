@@ -70,6 +70,17 @@
         });
     </script>
     <style>
+
+
+        loginRemind { margin:0px;padding:0px;text-align: center;}
+        #hidebg { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login1 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
         span.new{
             background: rgba(0,0,0,0);
         }
@@ -91,6 +102,25 @@
 
 </head>
 <body >
+<div id="loginRemind">
+    <div id="hidebg"></div>
+    <form class="form-horizontal">
+        <div id="login1" class="box-body">
+            <hr>
+            <br>
+            <div class="form-group" style="text-align: center">
+                <label class=" control-label">您输入的信息不完整!</label>
+            </div>
+            <br>
+            <br>
+            <div class="btn-group" style="left: 43%;">
+                <button type="button" class="btn btn-primary" onclick="hide()">确定</button>
+            </div>
+            <hr>
+        </div>
+    </form>
+</div>
+
 <div class="kk_main in_wrap" id="container">
 
     <header id="kk_nav" class="fixed-top kk_nav navbar narbar-static-top">
@@ -336,7 +366,7 @@
                                                     <td v-text="primaryYearProfit"></td>
                                                     <td v-text="alafa"></td>
                                                     <td v-text="beita"></td>
-                                                    <td v-text="sharpRate"></td>
+                                                    <td v-text="sharp"></td>
                                                     <td v-text="maxBack"></td>
 
                                                 </tr>
