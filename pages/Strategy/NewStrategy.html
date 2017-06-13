@@ -68,7 +68,7 @@
         textarea{border:1px solid #7f9db9;font-size:9pt;width:100%;height:auto;color:#000}
         .grey{color:#999}
         #msg1,#msg2,#msg3,#msg4{ display:none}
-        #ol{position:absolute;z-index:1;padding:0px;margin:0px;border:0px;background:#ecf0f5;width:4%;height:100%;text-align:left; }
+        #ol{position:absolute;z-index:1;padding:0px;margin:0px;border:0px;background:#ecf0f5;width:3%;height:100%;text-align:left; }
         #li{background:#ecf0f5;height:160px;overflow:hidden;width:100%;height:100%;border-right:0;line-height:20px;margin:0px;padding:0px;text-align:center}
         #c2{font-family:Arial, Helvetica, sans-serif;font-size:20px;height:160px; margin:0px; width:100%;height:100%;padding:0 0 0 35px;overflow-x: hidden;line-height:20px;}
 
@@ -271,25 +271,97 @@
         el: '#app',
         data: {
             message: "" +
-                "import cn.edu.nju.p.dao.StockDao;\n"+
-                "import cn.edu.nju.p.po.StockPO;\n"+
-                "import java.time.LocalDate;\n"+
-                "import cn.edu.nju.p.utils.beans.ToolSpring;\n\n"+
-                "public class MyStrategy {\n" +
-                "    public static void main(String[] args) {\n"+
-                "        //设置查询日期\n"+
-                "        LocalDate date = LocalDate.of(2017, 6, 12);\n"+
-                "        //设置查询股票代码\n"+
-                "        String code = \"000001\";\n\n"+
-                "        //使用如下方法获取StockDao实例\n"+
-                "        StockDao stockDao = ToolSpring.getBeans(StockDao.class);\n"+
-                "        //使用如下方法获取StockPO\n"+
-                "        StockPO po=stockDao.getStockPO(code,date);\n\n"+
-                "        //打印出该股票PO的信息\n"+
-                "        System.out.println(po.toString());\n"+
-                "        System.out.println(\"Hello World.\");\n"+
-                "    }\n"+
-                "}",
+            "import cn.edu.nju.p.po.StockPO;\n" +
+            "import cn.edu.nju.p.utils.StockHelper;\n" +
+            "import cn.edu.nju.p.utils.beans.ToolSpring;\n" +
+            "import cn.edu.nju.p.utils.redis.StockRedisDataUtils;\n" +
+            "import cn.edu.nju.p.strategy.StrategyRunner;\n" +
+            "import cn.edu.nju.p.strategy.Strategy;\n" +
+            "\n" +
+            "import java.math.BigDecimal;\n" +
+            "import java.time.LocalDate;\n" +
+            "import java.util.ArrayList;\n" +
+            "import java.util.LinkedHashMap;\n" +
+            "import java.util.List;\n" +
+            "import java.util.Map;\n" +
+            "import java.util.stream.Collectors;\n" +
+            "\n" +
+            "public class MomentumStrategy2Impl implements Strategy {\n" +
+            "\n" +
+            "    private StockHelper stockHelper;\n" +
+            "    private StockRedisDataUtils redisDataUtils;\n" +
+            "    private int holdingDayNum;\n" +
+            "    private int formativeDayNum;\n" +
+            "    private LocalDate beginDate;\n" +
+            "    private LocalDate endDate;\n" +
+            "\n" +
+            "    public MomentumStrategy2Impl() {\n" +
+            "        this.stockHelper = ToolSpring.getBeans(StockHelper.class);\n" +
+            "        this.redisDataUtils = ToolSpring.getBeans(StockRedisDataUtils.class);\n" +
+            "        this.holdingDayNum = 5;\n" +
+            "        this.formativeDayNum = 5;\n" +
+            "        this.beginDate = LocalDate.of(2016,5,10);\n" +
+            "        this.endDate = LocalDate.of(2016, 7, 10);\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public List<String> setStockPool() {\n" +
+            "        return stockHelper.getRecommendStock();\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public List<String> setWinner(LocalDate beginDate, LocalDate endDate, List<String> stockPool) {\n" +
+            "\n" +
+            "        Map<String, Double> fieldRates = new LinkedHashMap<>();\n" +
+            "        stockPool.forEach(stockCode -> fieldRates.put(stockCode,countRate(beginDate,endDate,stockCode)));\n" +
+            "\n" +
+            "        //对收益率进行排序\n" +
+            "        List<Map.Entry<String, Double>> rateList = new ArrayList<>(fieldRates.entrySet());\n" +
+            "        rateList.sort((rate1, rate2) -> new BigDecimal(rate2.getValue()).compareTo(new BigDecimal(rate1.getValue())));\n" +
+            "\n" +
+            "        int winnerNum = rateList.size() / 5;\n" +
+            "        return rateList.subList(0,winnerNum)\n" +
+            "                .parallelStream()\n" +
+            "                .map(Map.Entry::getKey)\n" +
+            "                .collect(Collectors.toList());\n" +
+            "    }\n" +
+            "\n" +
+            "    private double countRate(LocalDate beginDate, LocalDate endDate, String stockCode) {\n" +
+            "\n" +
+            "        try {\n" +
+            "            StockPO beginPo = redisDataUtils.getStockPO(stockCode, beginDate);\n" +
+            "            StockPO endPo = redisDataUtils.getStockPO(stockCode, endDate);\n" +
+            "            double beginClose = beginPo.getClose();\n" +
+            "            double endClose = endPo.getClose();\n" +
+            "            return (endClose - beginClose) / beginClose;\n" +
+            "        } catch (NullPointerException ne) {\n" +
+            "            return -99;\n" +
+            "        }\n" +
+            "    }\n" +
+            "    @Override\n" +
+            "    public LocalDate setBeginDate() {\n" +
+            "        return beginDate;\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public LocalDate setEndDate() {\n" +
+            "        return endDate;\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public int setHoldingDay() {\n" +
+            "        return holdingDayNum;\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public int setFormativeDayNum() {\n" +
+            "        return formativeDayNum;\n" +
+            "    }\n" +
+            "\n" +
+            "    public static void main(String args[]){\n" +
+            "        StrategyRunner.run(new MomentumStrategy2Impl());\n" +
+            "}\n" +
+            "}",
             result:"这里显示运行结果",
             runerror:"这里显示运行时错误",
             log:"这里显示日志",
