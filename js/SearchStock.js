@@ -2,6 +2,43 @@
  * Created by pc on 2017/6/1.
  */
 
+function show1()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg1");
+    hidebg1.style.display="block";  //显示隐藏层
+    hidebg1.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login1").style.display="block";  //显示弹出层
+}
+function hide1()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg1").style.display="none";
+    document.getElementById("login1").style.display="none";
+}
+function show2()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg2");
+    hidebg2.style.display="block";  //显示隐藏层
+    hidebg2.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login2").style.display="block";  //显示弹出层
+}
+function hide2()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg2").style.display="none";
+    document.getElementById("login2").style.display="none";
+}
+
+function show3()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg3");
+    hidebg3.style.display="block";  //显示隐藏层
+    hidebg3.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login3").style.display="block";  //显示弹出层
+}
+function hide3()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg3").style.display="none";
+    document.getElementById("login3").style.display="none";
+}
 function isChinese(str){
     var reg = /[\u4E00-\u9FA5\uF900-\uFA2D]/;
     return reg.test(str);
@@ -37,15 +74,15 @@ var vm = new Vue({
         search: function () {
             var code = document.getElementById("input").value;
             if(code==null||code==""){
-                alert("请输入搜索内容！")
+               show1();
             } else if(!isChinese(code)&&!isNum(code)){
-                alert("请输入中文或者数字！")
+                show2();
             }else{
                 this.$http.get("http://localhost:8080/check/"+code).then(function (response) {
                     if(response.data.errorCode === 0) {
                         window.location.href = "../pages/SingleStock.html?code=" + code;
                     }else if(response.data.errorCode === 20000001){
-                        alert("股票不存在！");
+                        show3();
                     }else {
                         alert("出现了未知的错误！");
                     }
