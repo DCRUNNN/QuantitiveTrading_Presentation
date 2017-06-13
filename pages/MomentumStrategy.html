@@ -196,10 +196,19 @@
                         <div class="post-title mt_8">
                             <span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>
                         </div>
-                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　持有期天数:　　　　　　
+                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　选择策略:　　　　　　
                             <span style="margin-left:100px;width:18px;overflow:hidden;">
-                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh">
-                                    <option value="5">5 </option>
+                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh" v-model="strategyType">
+                                    <option value="动量策略"> 动量策略 </option>
+                                    <option value="最优动量策略"> 最优动量策略 </option>
+                                </select>
+                            </span>
+                        </div>
+
+                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　几日均线:　　　　　　
+                            <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh" v-model="momentumStrategyDays">
+                                    <option value="5"> 5 </option>
                                     <option value="10"> 10 </option>
                                     <option value="15"> 15 </option>
                                     <option value="20"> 20 </option>
@@ -210,18 +219,14 @@
                         </div>
 
                         <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　形成期天数:　　　　　　
-                            <span style="margin-left:100px;width:18px;overflow:hidden;">
-                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh">
-                                    <option value="5">5 </option>
-                                    <option value="10"> 10 </option>
-                                    <option value="15"> 15 </option>
-                                    <option value="20"> 20 </option>
-                                    <option value="25"> 25 </option>
-                                    <option value="30"> 30 </option>
-                                </select>
-                            </span>
+                            <input type="text" class="form-control" placeholder="请输入形成期天数..." aria-describedby="basic-addon2">
+                        </div>
+
+                        <div style="position:relative;">　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　持有期天数:　　　　　　
+                            <input type="text" class="form-control" placeholder="请输入持有期天数..." aria-describedby="basic-addon2">
                         </div>
                     </div>
+
 
                     <div class="well">
                         <span class="ml_10" style="font-size: large">起始日期　:　　　　　　　　　　  </span>
