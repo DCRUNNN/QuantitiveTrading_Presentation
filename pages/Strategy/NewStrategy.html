@@ -80,42 +80,30 @@
 </head>
 <body class="hold-transition login-page" style="height: 100%;width:100%;" onLoad="keyUp();">
 
-<div id="saveArea">
-    <div id="hidebg"></div>
-    <form class="form-horizontal">
-            <div id="saveBody" class="box-body">
-
-                <div class="" style="text-align: center">
-                    <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
-                    <label>请输入策略名称</label>
-                    <input type="text" id="strategyname" class="" placeholder="在这里输入策略名称">
-                </div>
-                <div class="btn-group" style="">
-                    <button type="button" class="btn btn-primary" @click="saveCode">保存</button>
-                    <button type="button" class="btn btn-primary" onclick="hide()">取消</button>
-                </div>
-
-            </div>
-        </form>
-</div>
 
 <div class="layui-header header header-index" >
     <div class="layui-main">
         <a class="logo" href="../../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
             UMT
         </a>
-        <ul class="layui-nav" pc>
+        <div class="layui-form component">
+            <select lay-search lay-filter="component">
+                <option value="">搜索组件或模块</option>
+                <option value="element/color.html">color 颜色</option>
+            </select>
+        </div>
+        <ul class="layui-nav">
             <li class="layui-nav-item ">
-                <a href="../../pages/Homepage.html">首页</a>
+                <a href="../../pages/Homepage.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;">首页</a>
             </li>
             <li class="layui-nav-item ">
-                <a href="../../pages/SingleStock.html">个股</a>
-            </li>
-            <li class="layui-nav-item" pc>
-                <a href="../Strategy.html" target="_blank">量化策略</a>
+                <a href="../../pages/SearchStock.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;">个股</a>
             </li>
             <li class="layui-nav-item">
-                <a href="../Strategy/NewStrategy.html" target="_blank">自定义策略</a>
+                <a href="../Strategy.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;" target="_blank">量化策略</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="../../pages/Strategy/NewStrategy.html" target="_blank">自定义策略</a>
             </li>
             <li class="layui-nav-item" >
                 <a href="javascript:;">个性化</a>
@@ -127,7 +115,7 @@
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="../../pages/Login.html" target="_blank">登录</a>
+                <a href="../../pages/Login.html" target="_blank" id="login">登录</a>
             </li>
 
         </ul>
@@ -158,6 +146,31 @@
         <!--<button class="btn btn-success btn-sm pull-right">保存</button>-->
         <!--<button class="btn btn-success btn-sm pull-right" @click="runCode">编译运行</button>-->
     <!--</div>-->
+
+
+    <div id="saveArea">
+        <div id="hidebg"></div>
+        <form class="form-horizontal">
+            <div id="saveBody" class="box-body">
+                <br>
+                <div class="row" style="text-align: center">
+                    <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
+                    <label>请输入策略名称</label>
+                    <input type="text" v-model="strategyName" id="strategyname" class="" placeholder="在这里输入策略名称">
+                </div>
+                <br>
+                <div class="row" style="text-align: center">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" @click.prevent="saveCode()">保存</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" onclick="hide()">取消</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </form>
+    </div>
 
 
     <div class="well well-sm">
@@ -264,7 +277,7 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            message: "" +
+            message:""+
             "import cn.edu.nju.p.po.StockPO;\n" +
             "import cn.edu.nju.p.utils.StockHelper;\n" +
             "import cn.edu.nju.p.utils.beans.ToolSpring;\n" +
@@ -363,6 +376,7 @@
             endDate:"",
             money:"",
             strategyName:"",
+            phoneNumber:""
         },
         methods:{
             runCode:function () {
@@ -417,9 +431,45 @@
                     alert("出现了未知的错误！请重新进行输入")
                 })
             },
-
             saveCode:function () {
-                alert( );
+                const self=this;
+                this.$http.post("http://localhost:8080/strategy",{
+                    phoneNumber:self.getCookieValue("phoneNumber"),
+                    strategyName:self.strategyName,
+                    code:self.message
+                }).then(function (response) {
+                    var check=response.data.errorCode;
+                    if(check==50000001) {
+                        alert("该策略名称已经存在了哟！");
+                    }else if(check==0) {
+                        alert("添加策略成功");
+                    }
+                    hide();
+                }).catch(function(error){
+                    alert("很抱歉，保存策略时出现了错误！")
+                })
+            },
+
+            getCookieValue:function (cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+        },
+        mounted:function () {
+
+            if (this.getCookieValue("phoneNumber") === "") {
+                document.getElementById("login").innerHTML = "登录";
+                alert("请先登录!");
+                window.location.href = "../../pages/Login.html";
+            } else {
+                document.getElementById("login").innerHTML = "已登录";
+                document.getElementById("login").href = "#";
             }
         }
     });
