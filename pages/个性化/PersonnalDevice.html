@@ -41,6 +41,26 @@
             display:none; /* http://www.jb51.net */
             z-Index:2;}
         #login { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+        remind { margin:0px;padding:0px;text-align: center;}
+        #hidebg2 { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login2 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+        loginRemind { margin:0px;padding:0px;text-align: center;}
+        #hidebg2 { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login3 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+
+
     </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini site-home">
@@ -58,6 +78,40 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary" style="left: 80px;" @click="save()">确定</button>
                     <button type="button" class="btn btn-danger" style="left: 230px;" onclick="hide()">取消</button>
+                </div>
+                <hr>
+            </div>
+        </form>
+    </div>
+    <div id="loginRemind">
+        <div id="hidebg1"></div>
+        <form class="form-horizontal">
+            <div id="login2" class="box-body">
+                <hr>
+                <div class="form-group" style="text-align: center">
+                    <label class=" control-label">请先登录以查看个人信息！</label>
+                </div>
+                <br>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" style="left: 80px;" onclick="hide1()">确定</button>
+
+                </div>
+                <hr>
+            </div>
+        </form>
+    </div>
+    <div id="remind">
+        <div id="hidebg2"></div>
+        <form class="form-horizontal">
+            <div id="login3" class="box-body">
+                <hr>
+                <div class="form-group" style="text-align: center">
+                    <label class=" control-label">修改成功！</label>
+                </div>
+                <br>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" style="left: 80px;" onclick="hide2()">确定</button>
+
                 </div>
                 <hr>
             </div>

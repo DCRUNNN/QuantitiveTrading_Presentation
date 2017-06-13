@@ -14,6 +14,33 @@ function hide()  //去除隐藏层和弹出层
     document.getElementById("login").style.display="none";
 }
 
+function show1()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg1");
+    hidebg1.style.display="block";  //显示隐藏层
+    hidebg1.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login2").style.display="block";  //显示弹出层
+}
+function hide1()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg1").style.display="none";
+    document.getElementById("login2").style.display="none";
+    window.location.reload();
+}
+
+function show2()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg1");
+    hidebg2.style.display="block";  //显示隐藏层
+    hidebg2.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login3").style.display="block";  //显示弹出层
+}
+function hide2()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg2").style.display="none";
+    document.getElementById("login3").style.display="none";
+    window.location.href = "../Login.html"
+}
 var vm = new Vue({
    el:'#container',
     data:{
@@ -39,8 +66,8 @@ var vm = new Vue({
        deleteAllStock:function () {
            this.$http.get("http://localhost:8080/personnel/deleteAllStock/"+this.getCookieValue("phoneNumber")).then(function (response) {
                if(response.data.errorCode == 0){
-                   alert("删除成功");
-                   window.location.reload();
+                   hide();
+                   show1();
                }
            }).catch(function (error) {
                alert("发生了未知的错误！");
@@ -63,10 +90,8 @@ var vm = new Vue({
         }
     },
     mounted(){
-
         if(this.getCookieValue("phoneNumber") === ""){
-            alert("请先登录！");
-            window.location.href = "../Login.html";
+            show2();
         }else{
             document.getElementById("login1").innerHTML = "已登录";
             document.getElementById("login1").href = "";
