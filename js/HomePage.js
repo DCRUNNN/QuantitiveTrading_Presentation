@@ -8,7 +8,10 @@ var vm = new Vue({
     data:{
         items:[
         ],
-        charts:{}
+        charts:{},
+        pie:[
+
+        ]
     },
     methods:{
         getCookieValue:function (cname) {
@@ -36,8 +39,13 @@ var vm = new Vue({
 
         const self=this;
 
-        var mychart = this.$echarts.init(document.getElementById('bar-chart'));
+        var mychart = this.$echarts.init(document.getElementById('bar-chart'),'macarons');
         mychart.showLoading({
+            text:'数据加载中'
+        });
+
+        var mypie = this.$echarts.init(document.getElementById('pie-chart'),'macarons');
+        mypie.showLoading({
             text:'数据加载中'
         });
 
@@ -66,6 +74,10 @@ var vm = new Vue({
             request.send();
             mychart.title = '';
             var option = {
+                title:{
+                  text:'柱状显示数据',
+                    x:'center'
+                },
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {
@@ -84,6 +96,8 @@ var vm = new Vue({
                     }
                 },
                 legend: {
+                    x:'center',
+                    y:'bottom',
                     data:['数量']
                 },
                 xAxis: [
@@ -113,15 +127,128 @@ var vm = new Vue({
                         type:'bar',
                         data:[self.charts.volume, self.charts.amountOfLimitUp, self.charts.amountOfLimitDown, self.charts.amountOf5PercentUp, self.charts.amountOf5PercentDown, self.charts.amountOf5PercentUptolastClose, self.charts.amountOf5PercentDowntolastClose]
                     }
-                    // {
-                    //     name:'数量',
-                    //     type:'line',
-                    //     data:[self.charts.volume, self.charts.amountOfLimitUp, self.charts.amountOfLimitDown, self.charts.amountOf5PercentUp, self.charts.amountOf5PercentDown, self.charts.amountOf5PercentUptolastClose, self.charts.amountOf5PercentDowntolastClose]
-                    // }
                 ]
             };
             mychart.hideLoading();
             mychart.setOption(option);
+
+            //pie图部分
+            var option1 = {
+                title : {
+                    text: '饼状显示比例',
+                    x:'center'
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    x : 'center',
+                    y : 'bottom',
+                    data:['涨停数','跌停数','涨超5%数','跌超5%数','开减收>5%昨日数','开减收<5%昨日数']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {
+                            show: true,
+                            type: ['pie', 'funnel']
+                        },
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                calculable : true,
+                series : [
+                    // {
+                    //     name:'数量',
+                    //     type:'pie',
+                    //     center : ['25%', 200],
+                    //     roseType : 'radius',
+                    //     width: '40%',       // for funnel
+                    //     max: 40,            // for funnel
+                    //     itemStyle : {
+                    //         normal : {
+                    //             label : {
+                    //                 show : false
+                    //             },
+                    //             labelLine : {
+                    //                 show : false
+                    //             }
+                    //         },
+                    //         emphasis : {
+                    //             label : {
+                    //                 show : true
+                    //             },
+                    //             labelLine : {
+                    //                 show : true
+                    //             }
+                    //         }
+                    //     },
+                    //     data:[
+                    //         {value:this.charts.amountOfLimitUp, name:'涨停数'},
+                    //         {value:this.charts.amountOfLimitDown, name:'跌停数'},
+                    //         {value:this.charts.amountOf5PercentUp, name:'涨超5%数'},
+                    //         {value:this.charts.amountOf5PercentDown, name:'跌超5%数'},
+                    //         {value:this.charts.amountOf5PercentUptolastClose, name:'开减收>5%昨日数'},
+                    //         {value:this.charts.amountOf5PercentDowntolastClose, name:'开减收<5%昨日数'}
+                    //     ]
+                    // },
+
+                    {
+                        name:'访问来源',
+                        type:'pie',
+                        center:['25%',200],
+                        radius : ['50%', '70%'],
+                        itemStyle : {
+                            normal : {
+                                label : {
+                                    show : false
+                                },
+                                labelLine : {
+                                    show : false
+                                }
+                            },
+                            emphasis : {
+                                label : {
+                                    show : true
+                                }
+                            }
+                        },
+                        data:[
+                            {value:this.charts.amountOfLimitUp, name:'涨停数'},
+                            {value:this.charts.amountOfLimitDown, name:'跌停数'},
+                            {value:this.charts.amountOf5PercentUp, name:'涨超5%数'},
+                            {value:this.charts.amountOf5PercentDown, name:'跌超5%数'},
+                            {value:this.charts.amountOf5PercentUptolastClose, name:'开减收>5%昨日数'},
+                            {value:this.charts.amountOf5PercentDowntolastClose, name:'开减收<5%昨日数'}
+                        ]
+                    },
+                    {
+                        name:'数量',
+                        type:'pie',
+                        center : ['75%', 200],
+                        roseType : 'area',
+                        x: '50%',               // for funnel
+                        max: 40,                // for funnel
+                        sort : 'ascending',     // for funnel
+                        data:[
+                            {value:this.charts.amountOfLimitUp, name:'涨停数'},
+                            {value:this.charts.amountOfLimitDown, name:'跌停数'},
+                            {value:this.charts.amountOf5PercentUp, name:'涨超5%数'},
+                            {value:this.charts.amountOf5PercentDown, name:'跌超5%数'},
+                            {value:this.charts.amountOf5PercentUptolastClose, name:'开减收>5%昨日数'},
+                            {value:this.charts.amountOf5PercentDowntolastClose, name:'开减收<5%昨日数'},
+                        ]
+                    }
+                ]
+            };
+            mypie.hideLoading();
+            mypie.setOption(option1)
+
+
         }).catch(function (error) {
             alert("发生了未知的错误！");
         });

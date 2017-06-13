@@ -14,6 +14,13 @@
 
     <link rel="stylesheet" href="../bootstrap/css/layui.css" media="all">
     <link rel="stylesheet" href="../bootstrap/css/global.css" media="all">
+    <link rel="stylesheet" href="../js/lib/icoroll/icomoon/style.css" />
+    <link rel="stylesheet" href="../js/lib/icoroll/icoroll.css" />
+    <link rel="stylesheet" href="../js/lib/icoroll/dark.css" />
+
+    <script src="../js/lib/icoroll/jquery.js"></script>
+    <script src="../js/lib/icoroll/icoroll.js"></script>
+
     <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -28,20 +35,43 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-<script src="../js/echarts.js"></script>
+<script src="../js/lib/echarts.js"></script>
+    <script src="../js/lib/macarons.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
     <!-- Bootstrap core CSS -->
 
     <link href="../dist/css/carousel.css" rel="stylesheet">
+
+    <script>
+        $(function(){
+
+            icoroll({
+                links:$('.scroll'),
+                tip_distance:30,
+                back_enabled:true,
+                time:1500
+            },{
+                position:'left',
+                elements:[
+                    { 'class':'icon-home-2','href':'#top','content':'top'},
+                    { 'class':'icon-chrome','href':'#recommendStock','content':'热门股票'},
+                    { 'class':'icon-mobile','href':'#benchData','content':'大盘数据'},
+                    { 'class':'icon-pencil','href':'#marketTemperature','content':'市场情况温度计'},
+                    { 'class':'icon-box-add','href':'#bottom','content':'bottom'}
+                ]
+            });
+
+        });
+    </script>
+
 </head>
 <!-- NAVBAR
 ================================================== -->
 <body class="site-home" style="background-color: #eee">
 <div id="container">
-    <div class="layui-header header header-index">
+    <div class="layui-header header header-index" id="top">
         <div class="layui-main">
             <a class="logo" href="../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
                 UMT
@@ -113,7 +143,7 @@
                 <div class="carousel-caption">
                     <h1>个性设置</h1>
                     <p>记录您的股票收藏，分析您想要的数据</p>
-                    <p><a class="btn btn-lg btn-primary" href="../pages/个性化/PersonnalDevice.htmlc " role="button">查看详情</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="../pages/个性化/PersonnalDevice.html" role="button">查看详情</a></p>
                 </div>
             </div>
         </div>
@@ -133,7 +163,7 @@
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 <div style="background-color: #ecf0f5">
-    <div class="container marketing">
+    <div class="container marketing" id="recommendStock">
 
         <table align="center">
             <tr>
@@ -390,7 +420,7 @@
 
         <!-- START THE FEATURETTES -->
 
-        <div class = "row">
+        <div class = "row" id="benchData">
             <div class = "col-lg-12">
                 <h1 class="page-header">大盘数据</h1>
             </div>
@@ -459,13 +489,22 @@
         </div>
 
         <br>
-        <div class="row">
+        <div class="row" id="marketTemperature">
             <div class = "col-lg-12 col-md-12">
                 <h1 class="page-header">市场情况温度计</h1>
             </div>
         </div>
 
+        <br>
+        <div class="row">
 
+            <div class="col-lg-12 " style="margin-left: -5%">
+                <div id="pie-chart" style="width:1250px; height: 400px"></div>
+            </div>
+
+        </div>
+        <br>
+        <br>
         <div class="row">
 
             <div class="col-lg-12 " style="margin-left: -5%">
@@ -475,11 +514,12 @@
         </div>
 
 
+
     </div><!-- /.container -->
 </div>
 
     <br>
-    <div class="layui-main" style="background-color: #eee">
+    <div class="layui-main" style="background-color: #eee" id="bottom">
         <ul class="site-idea">
             <li>
                 <fieldset class="layui-elem-field layui-field-title" style="margin: 2px">
@@ -555,7 +595,7 @@
         }()
     };
 </script>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+<!--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>-->
 
 <script src="../vue/vue.js"></script>
 <script src="../vue-resource/vue-resource.js"></script>
