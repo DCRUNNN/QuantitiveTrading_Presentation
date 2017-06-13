@@ -667,6 +667,65 @@
                         <!-- /.box-body -->
                     </div>
                 </div>
+                <div class="col-md-9">
+                    <div class="info-box" style="height:260px"><!--原来这里height是100px 下一行style中height原来也是100px-->
+                        <span class="info-box-icon bg-primary" style="height: 260px;"><i class="fa fa-star-o"><br>股<br>票<br>诊<br>断</i></span>
+                        <div class="info-box-content">
+                            <div class="col-md-12">
+                                <div class="panel panel-default" style="border:none; margin-bottom: 0">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h1 style="font-size: 25px;"><strong>整体判断</strong></h1>
+                                                <ul>
+                                                    <li>
+                                                        <span style="font-size: 25px ;margin-left: 5%">得分：<strong style="color:red;font-size:25px">{{point}}</strong></span>
+                                                        <span style="font-size: 20px;margin-left: 30px"><strong>{{beat}}</strong></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="row" style="height:30%;">
+                                            <div class="col-md-6">
+                                                <h4 style="font-size: 25px;"><strong>股票趋势</strong></h4>
+                                                <ul class="list-unstyled">
+                                                    <li style="font-size: 15px ;margin-left: 5%">短期趋势：{{shortTrend}}</li>
+                                                    <li style="font-size: 15px ;margin-left: 5%">中期趋势：{{midTrend}}</li>
+                                                    <li style="font-size: 15px ;margin-left: 5%">长期趋势：{{longTrend}}</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="col-md-6" style="margin-top: -5%">
+                                                <h4 style="font-size: 25px;"><strong>股票总结</strong></h4>
+                                                <ul class="list-unstyled">
+                                                    <li style="font-size: 14px ;margin-left: 5%">{{conclude}}</li>
+                                                    <li style="font-size: 14px ;margin-left: 5%">{{testDate}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="height:40%;">
+                                            <h4 style="font-size: 25px;"><strong>全方面诊股</strong></h4>
+                                            <ul class="list-inline">
+                                                <li style="font-size: 15px ;margin-left: 5%">技术面诊股：{{technical_test}}分</li>
+                                                <li style="font-size: 15px ;margin-left: 5%">资金面诊股：{{fund_test}}分</li>
+                                                <li style="font-size: 15px ;margin-left: 5%">消息面诊股：{{info_test}}分</li>
+                                                <li style="font-size: 15px ;margin-left: 5%">行业面诊股：{{industry_test}}分</li>
+                                                <li style="font-size: 15px ;margin-left: 5%">基本面诊股：{{basic_test}}分</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
 
                 <div class="col-md-5">
                     <div class="box box-success">
@@ -679,7 +738,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body no-padding"  style="height: 350px">
+                        <div class="box-body no-padding"  style="height: 330px">
                             <div class="row">
                                 <div class="col-md-12 col-xs-8 box-body">
 
@@ -751,7 +810,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body no-padding"  style="height: 350px">
+                        <div class="box-body no-padding"  style="height: 330px">
                             <div class="row">
                                 <div class="col-md-12 col-sm-8 box-body">
                                     <div class="col-md-9 form-news">
@@ -806,65 +865,6 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="info-box" style="height: 300px;"><!--原来这里height是100px 下一行style中height原来也是100px-->
-                        <span class="info-box-icon bg-primary " style="height: 300px;"><i class="fa fa-star-o"><p style=""><br>股<br>票<br>诊<br>断</p></i></span>
-                        <div class="info-box-content">
-                            <div class="col-md-12">
-                                <div class="panel panel-default" style="border:none; ">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h1 style="font-size: 25px;"><strong>整体判断</strong></h1>
-                                                <ul>
-                                                    <li>
-                                                        <span style="font-size: 25px ;margin-left: 5%">得分：<strong style="color:red;font-size:25px">{{point}}</strong></span>
-                                                        <span style="font-size: 20px;margin-left: 30px"><strong>{{beat}}</strong></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <h4 style="font-size: 25px;"><strong>股票趋势</strong></h4>
-                                                <ul class="list-unstyled">
-                                                    <li style="font-size: 15px ;margin-left: 5%">短期趋势：{{shortTrend}}</li>
-                                                    <li style="font-size: 15px ;margin-left: 5%">中期趋势：{{midTrend}}</li>
-                                                    <li style="font-size: 15px ;margin-left: 5%">长期趋势：{{longTrend}}</li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <h4 style="font-size: 25px;"><strong>股票总结</strong></h4>
-                                                <ul class="list-unstyled">
-                                                    <li style="font-size: 14px ;margin-left: 5%">{{conclude}}</li>
-                                                    <li style="font-size: 14px ;margin-left: 5%">{{testDate}}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <h4 style="font-size: 25px;"><strong>全方面诊股</strong></h4>
-                                            <ul class="list-inline">
-                                                <li style="font-size: 15px ;margin-left: 5%">技术面诊股：{{technical_test}}分</li>
-                                                <li style="font-size: 15px ;margin-left: 5%">资金面诊股：{{fund_test}}分</li>
-                                                <li style="font-size: 15px ;margin-left: 5%">消息面诊股：{{info_test}}分</li>
-                                                <li style="font-size: 15px ;margin-left: 5%">行业面诊股：{{industry_test}}分</li>
-                                                <li style="font-size: 15px ;margin-left: 5%">基本面诊股：{{basic_test}}分</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
                 </div>
             </div>
             <!-- /.row -->
