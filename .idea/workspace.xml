@@ -39,9 +39,17 @@
       <file leaf-file-name="MeanReversion.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/Strategy/MeanReversion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-216">
-              <caret line="86" column="44" lean-forward="true" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
-              <folding />
+            <state relative-caret-position="7884">
+              <caret line="358" column="56" lean-forward="true" selection-start-line="358" selection-start-column="56" selection-end-line="358" selection-end-column="56" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,61 +57,61 @@
       <file leaf-file-name="MeanReversion.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Strategy/MeanReversion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="47" lean-forward="true" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+            <state relative-caret-position="405">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="15" selection-end-column="1" />
               <folding>
-                <element signature="e#1875#2231#0" expanded="false" />
-                <element signature="e#3354#6288#0" expanded="false" />
-                <element signature="e#6418#8543#0" expanded="false" />
+                <element signature="e#1820#2176#0" expanded="false" />
+                <element signature="e#3299#6233#0" expanded="false" />
+                <element signature="e#6363#8488#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Strategy.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Strategy/Strategy.js">
+      <file leaf-file-name="MomentumStrategy.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Strategy/MomentumStrategy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="432">
+              <caret line="88" column="62" lean-forward="false" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+              <folding>
+                <element signature="e#2913#5655#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BestMomentumStrategy.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Strategy/BestMomentumStrategy.js">
+      <file leaf-file-name="BestMeanReversion.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/Strategy/BestMeanReversion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="428">
+              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+              <folding>
+                <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchStock.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/SearchStock.js">
+      <file leaf-file-name="SingleStock.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/SingleStock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="15" selection-end-column="1" />
-              <folding />
+            <state relative-caret-position="27">
+              <caret line="531" column="28" lean-forward="false" selection-start-line="531" selection-start-column="28" selection-end-line="531" selection-end-column="28" />
+              <folding>
+                <marker date="1497374206146" expanded="true" signature="2751:4596" ph="{&quot;stockname&quot;: ''...}" />
+                <marker date="1497374206146" expanded="true" signature="15416:15429" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Strategy.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/Strategy.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1863">
-              <caret line="165" column="28" lean-forward="true" selection-start-line="165" selection-start-column="28" selection-end-line="165" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleStock.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SingleStock.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/SingleStock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2376">
+            <state relative-caret-position="-18663">
               <caret line="120" column="39" lean-forward="false" selection-start-line="120" selection-start-column="39" selection-end-line="120" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -215,11 +223,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="History.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewStrategy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/Strategy/NewStrategy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="63" column="19" lean-forward="false" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MomentumStrategy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/Strategy/MomentumStrategy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6688">
+              <caret line="338" column="72" lean-forward="true" selection-start-line="338" selection-start-column="72" selection-end-line="338" selection-end-column="72" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="History.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/个性化/History.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5427">
-              <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+            <state relative-caret-position="385">
+              <caret line="45" column="140" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="45" selection-end-column="140" />
               <folding />
             </state>
           </provider>
@@ -233,16 +270,6 @@
               <folding>
                 <element signature="e#1368#78242#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MomentumStrategy.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/Strategy/MomentumStrategy.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -319,10 +346,10 @@
         <option value="$PROJECT_DIR$/js/SingleStock.js" />
         <option value="$PROJECT_DIR$/pages/SingleStock.html" />
         <option value="$PROJECT_DIR$/pages/Strategy/NewStrategy.html" />
-        <option value="$PROJECT_DIR$/pages/Strategy/MomentumStrategy.html" />
-        <option value="$PROJECT_DIR$/js/Strategy/MomentumStrategy.js" />
-        <option value="$PROJECT_DIR$/pages/Strategy/MeanReversion.html" />
         <option value="$PROJECT_DIR$/js/Strategy/MeanReversion.js" />
+        <option value="$PROJECT_DIR$/js/Strategy/MomentumStrategy.js" />
+        <option value="$PROJECT_DIR$/pages/Strategy/MomentumStrategy.html" />
+        <option value="$PROJECT_DIR$/pages/Strategy/MeanReversion.html" />
       </list>
     </option>
   </component>
@@ -1008,7 +1035,7 @@
       <workItem from="1497403494871" duration="9966000" />
       <workItem from="1497423527938" duration="2034000" />
       <workItem from="1497370358821" duration="33000" />
-      <workItem from="1497370501491" duration="10736000" />
+      <workItem from="1497370501491" duration="12018000" />
     </task>
     <task id="LOCAL-00001" summary="迭代三前端大致框架和部分图表">
       <created>1496387063159</created>
@@ -1164,11 +1191,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497375872364</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="xiugai">
+      <created>1497381808293</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1497381808293</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105907000" />
+    <option name="totallyTimeSpent" value="107189000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1239,7 +1273,8 @@
     <MESSAGE value="均值回归&amp;动量策略" />
     <MESSAGE value="均值回归&amp;动量策略&amp;（最优）" />
     <MESSAGE value="修改一下个股页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改一下个股页面" />
+    <MESSAGE value="xiugai" />
+    <option name="LAST_COMMIT_MESSAGE" value="xiugai" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1411,120 +1446,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/Strategy/BestMeanReversion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/HomePage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/SingleStock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="531" column="28" lean-forward="false" selection-start-line="531" selection-start-column="28" selection-end-line="531" selection-end-column="28" />
-          <folding>
-            <marker date="1497374206146" expanded="true" signature="2751:4596" ph="{&quot;stockname&quot;: ''...}" />
-            <marker date="1497374206146" expanded="true" signature="15416:15429" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="15416:26806" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="15503:15626" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="15524:15616" ph="{&quot;beginDate&quot;: '2016-06-02'...}" />
-            <marker date="1497374206146" expanded="true" signature="15653:26797" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="15861:16342" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="16015:16184" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="16208:16327" ph="{&quot;datas&quot;: datas...}" />
-            <marker date="1497374206146" expanded="true" signature="16382:18228" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="16539:18177" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="16626:16716" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="16836:17414" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="16880:17323" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="16881:17126" ph="{&quot;xAxis&quot;: idx...}" />
-            <marker date="1497374206146" expanded="true" signature="17128:17322" ph="{&quot;xAxis&quot;: i...}" />
-            <marker date="1497374206146" expanded="true" signature="17562:18159" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="17606:18077" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="17607:17880" ph="{&quot;xAxis&quot;: idx...}" />
-            <marker date="1497374206146" expanded="true" signature="17882:18076" ph="{&quot;xAxis&quot;: i...}" />
-            <marker date="1497374206146" expanded="true" signature="18282:18817" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="18388:18772" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="18428:18527" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="18616:18692" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="18878:25828" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="18903:18980" ph="{&quot;text&quot;: ''...}" />
-            <marker date="1497374206146" expanded="true" signature="19007:19157" ph="{&quot;trigger&quot;: 'axis'...}" />
-            <marker date="1497374206146" expanded="true" signature="19079:19139" ph="{&quot;type&quot;: 'line'...}" />
-            <marker date="1497374206146" expanded="true" signature="19183:19281" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="19305:19769" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="19317:19465" ph="{&quot;left&quot;: '8%'...}" />
-            <marker date="1497374206146" expanded="true" signature="19466:19616" ph="{&quot;left&quot;: '8%'...}" />
-            <marker date="1497374206146" expanded="true" signature="19617:19768" ph="{&quot;left&quot;: '3%'...}" />
-            <marker date="1497374206146" expanded="true" signature="19794:20519" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="19795:20168" ph="{&quot;type&quot;: 'category'...}" />
-            <marker date="1497374206146" expanded="true" signature="20169:20343" ph="{&quot;type&quot;: 'category'...}" />
-            <marker date="1497374206146" expanded="true" signature="20344:20518" ph="{&quot;type&quot;: 'category'...}" />
-            <marker date="1497374206146" expanded="true" signature="20544:21233" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="20545:20688" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="20611:20670" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="20689:20960" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="20961:21232" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="21261:21827" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="21262:21417" ph="{&quot;type&quot;: 'inside'...}" />
-            <marker date="1497374206146" expanded="true" signature="21418:21637" ph="{&quot;type&quot;: 'slider'...}" />
-            <marker date="1497374206146" expanded="true" signature="21638:21826" ph="{&quot;type&quot;: 'slider'...}" />
-            <marker date="1497374206146" expanded="true" signature="21853:25814" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="21854:22835" ph="{&quot;name&quot;: ''...}" />
-            <marker date="1497374206146" expanded="true" signature="21996:22276" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="22030:22254" ph="{&quot;color&quot;: '##ef232a'...}" />
-            <marker date="1497374206146" expanded="true" signature="22308:22592" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="22383:22528" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="22421:22502" ph="{&quot;color&quot;: 'Honeydew'...}" />
-            <marker date="1497374206146" expanded="true" signature="22625:22817" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="22657:22795" ph="[...]" />
-            <marker date="1497374206146" expanded="true" signature="22837:23155" ph="{&quot;name&quot;: 'MA5'...}" />
-            <marker date="1497374206146" expanded="true" signature="23013:23137" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="23047:23115" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="23156:23469" ph="{&quot;name&quot;: 'MA10'...}" />
-            <marker date="1497374206146" expanded="true" signature="23329:23451" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="23362:23429" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="23470:23783" ph="{&quot;name&quot;: 'MA20'...}" />
-            <marker date="1497374206146" expanded="true" signature="23643:23765" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="23676:23743" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="23805:24158" ph="{&quot;name&quot;: 'MA30'...}" />
-            <marker date="1497374206146" expanded="true" signature="23998:24136" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="24035:24110" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="24180:24533" ph="{&quot;name&quot;: 'MA60'...}" />
-            <marker date="1497374206146" expanded="true" signature="24373:24511" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="24410:24485" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="24555:24910" ph="{&quot;name&quot;: 'MA120'...}" />
-            <marker date="1497374206146" expanded="true" signature="24750:24888" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="24787:24862" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="24932:25796" ph="{&quot;name&quot;: 'Volumn'...}" />
-            <marker date="1497374206146" expanded="true" signature="25165:25774" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="25203:25748" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="25261:25717" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="25419:25521" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="25527:25629" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="25987:26128" ph="{...}" />
-            <marker date="1497374206146" expanded="true" signature="26574:26669" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/Strategy/NewStrategy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="63" column="19" lean-forward="false" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1661,24 +1586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Strategy/MomentumStrategy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="66" column="57" lean-forward="true" selection-start-line="66" selection-start-column="57" selection-end-line="66" selection-end-column="57" />
-          <folding>
-            <element signature="e#2598#5340#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/Strategy/MomentumStrategy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Strategy/Strategy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1721,29 +1628,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/Strategy/BestMeanReversion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/个性化/History.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="45" column="140" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="45" selection-end-column="140" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Strategy/MeanReversion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="47" lean-forward="true" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        <state relative-caret-position="405">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="15" selection-end-column="1" />
           <folding>
-            <element signature="e#1875#2231#0" expanded="false" />
-            <element signature="e#3354#6288#0" expanded="false" />
-            <element signature="e#6418#8543#0" expanded="false" />
+            <element signature="e#1820#2176#0" expanded="false" />
+            <element signature="e#3299#6233#0" expanded="false" />
+            <element signature="e#6363#8488#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/Strategy/NewStrategy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="63" column="19" lean-forward="false" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Strategy/MomentumStrategy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="88" column="62" lean-forward="false" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+          <folding>
+            <element signature="e#2913#5655#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/Strategy/MeanReversion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="86" column="44" lean-forward="true" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
-          <folding />
+        <state relative-caret-position="7884">
+          <caret line="358" column="56" lean-forward="true" selection-start-line="358" selection-start-column="56" selection-end-line="358" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/Strategy/MomentumStrategy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6688">
+          <caret line="338" column="72" lean-forward="true" selection-start-line="338" selection-start-column="72" selection-end-line="338" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/SingleStock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="531" column="28" lean-forward="false" selection-start-line="531" selection-start-column="28" selection-end-line="531" selection-end-column="28" />
+          <folding>
+            <marker date="1497374206146" expanded="true" signature="2751:4596" ph="{&quot;stockname&quot;: ''...}" />
+            <marker date="1497374206146" expanded="true" signature="15416:15429" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/SingleStock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
+        <state relative-caret-position="-18663">
           <caret line="120" column="39" lean-forward="false" selection-start-line="120" selection-start-column="39" selection-end-line="120" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1851,14 +1833,6 @@
             <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#2;n#section#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#2;n#section#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/个性化/History.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5427">
-          <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

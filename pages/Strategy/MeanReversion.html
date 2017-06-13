@@ -71,7 +71,6 @@
     </script>
     <style>
 
-
         loginRemind { margin:0px;padding:0px;text-align: center;}
         #hidebg { position:absolute;left:0px;top:0px;
             background-color:#000;
@@ -80,7 +79,7 @@
             opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
             display:none; /* http://www.jb51.net */
             z-Index:2;}
-        #login1 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+        #login { position:absolute;width:400px;height:180px;top:800px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
         span.new{
             background: rgba(0,0,0,0);
         }
@@ -102,27 +101,26 @@
 
 </head>
 <body >
-<div id="loginRemind">
-    <div id="hidebg"></div>
-    <form class="form-horizontal">
-        <div id="login1" class="box-body">
-            <hr>
-            <br>
-            <div class="form-group" style="text-align: center">
-                <label class=" control-label">您输入的信息不完整!</label>
-            </div>
-            <br>
-            <br>
-            <div class="btn-group" style="left: 43%;">
-                <button type="button" class="btn btn-primary" onclick="hide()">确定</button>
-            </div>
-            <hr>
-        </div>
-    </form>
-</div>
 
 <div class="kk_main in_wrap" id="container">
+    <div id="loginRemind">
+        <div id="hidebg"></div>
+        <form class="form-horizontal">
+            <div id="login" class="box-body">
+                <hr>
+                <div class="form-group" style="text-align: center">
+                    <label class=" control-label">您输入的信息不完整!</label>
 
+                </div>
+                <br>
+                <div class="btn-group" style="left: 43%;">
+                    <button type="button" class="btn btn-primary" onclick="hide()">确定</button>
+
+                </div>
+                <hr>
+            </div>
+        </form>
+    </div>
     <header id="kk_nav" class="fixed-top kk_nav navbar narbar-static-top">
         <div >
             <div class="layui-header header header-index">
@@ -350,12 +348,12 @@
                                             <table id="table" class="table table-bordered table-striped" style="text-align: center">
                                                 <thead>
                                                 <tr>
-                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年化收益</th>
-                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基准年化收益</th>
-                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;α</th>
-                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;β</th>
-                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夏普比率</th>
-                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最大回撤</th>
+                                                    <th style="text-align: center">年化收益</th>
+                                                    <th style="text-align: center">基准年化收益</th>
+                                                    <th style="text-align: center">α</th>
+                                                    <th style="text-align: center">β</th>
+                                                    <th style="text-align: center">夏普比率</th>
+                                                    <th style="text-align: center">最大回撤</th>
 
                                                 </tr>
                                                 </thead>
