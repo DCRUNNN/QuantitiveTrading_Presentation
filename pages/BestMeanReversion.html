@@ -168,24 +168,16 @@
                     </div>
 
                     <div>
-                    <div class="col-sm-6">
-                        策略类型:　　　　　　
-                        均值回归
-                    </div>
+                        <div class="col-sm-6">
+                            策略类型:　　　　　　
+                            最优均值回归
+                        </div>
 
-                    <div class="col-sm-6">
-                        几日均线:　　　　　　
-                        <span style="margin-left:100px;width:18px;overflow:hidden;">
-                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh" v-model="meanReversionDays">
-                                    <option value="5"> 5 </option>
-                                    <option value="10"> 10 </option>
-                                    <option value="15"> 15 </option>
-                                    <option value="20"> 20 </option>
-                                    <option value="25"> 25 </option>
-                                    <option value="30"> 30 </option>
-                                </select>
-                            </span>
-                    </div>
+                        <div class="col-sm-6">
+                            <p>
+                                　　
+                            </p>
+                        </div>
 
                         <!--插入空行-->
                         <div class="col-sm-12">
@@ -195,10 +187,19 @@
                         </div>
 
 
-                    <div class="col-sm-6">
-                        持有天数:　　　　　　
-                        <input type="text" name="heldDays" placeholder="请输入持有天数..." aria-describedby="basic-addon2">
-                    </div>
+                        <div class="col-sm-6">
+                            几日均线:　　　　　　
+                            <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh" v-model="meanReversionDays">
+                                    <option value="5"> 5 </option>
+                                    <option value="10"> 10 </option>
+                                    <option value="15"> 15 </option>
+                                    <option value="20"> 20 </option>
+                                    <option value="25"> 25 </option>
+                                    <option value="30"> 30 </option>
+                                </select>
+                            </span>
+                        </div>
 
                         <div class="col-sm-6">
                             <!--<span class="ml_10" style="font-size: large">起始日期　:　　　　　　　　　　  </span>-->
@@ -221,13 +222,13 @@
                             <input type="text" name="boughtAmount" placeholder="请输入买入数量..." aria-describedby="basic-addon2">
                         </div>
 
-                    <div class="col-sm-6">
-                        <!--<span class="ml_10" style="font-size: large">　　结束日期　:　　　　　　　　　　  </span>-->
-                        <!--<input type="text" class="form-control" placeholder="请输入结束日期..." aria-describedby="basic-addon2">-->
-                        <div class="input-append dateform-datetime">
-                            请选择结束日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="endDate"/>
+                        <div class="col-sm-6">
+                            <!--<span class="ml_10" style="font-size: large">　　结束日期　:　　　　　　　　　　  </span>-->
+                            <!--<input type="text" class="form-control" placeholder="请输入结束日期..." aria-describedby="basic-addon2">-->
+                            <div class="input-append dateform-datetime">
+                                请选择结束日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="endDate"/>
+                            </div>
                         </div>
-                    </div>
                     </div>
 
                     <!--插入空行-->
