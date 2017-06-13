@@ -11,7 +11,30 @@ function hide() {
     document.getElementById("hidebg").style.display="none";
     document.getElementById("login").style.display="none";
 }
+function show1() {
+    var hideobj=document.getElementById("hidebg1");
+    hidebg1.style.display="block";  //显示隐藏层
+    hidebg1.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login2").style.display="block";  //显示弹出层
+}
+function hide1() {
+    document.getElementById("hidebg1").style.display="none";
+    document.getElementById("login2").style.display="none";
+    window.location.href = "../Login.html";
 
+}
+function show2() {
+    var hideobj=document.getElementById("hidebg2");
+    hidebg2.style.display="block";  //显示隐藏层
+    hidebg2.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login3").style.display="block";  //显示弹出层
+}
+function hide2() {
+    document.getElementById("hidebg2").style.display="none";
+    document.getElementById("login3").style.display="none";
+    window.location.reload();
+
+}
 var vm = new Vue({
    el:'#container',
     data:{
@@ -42,8 +65,8 @@ var vm = new Vue({
            }).then(function (response) {
                console.log(response.data.data);
                if(response.data.errorCode==0){
-                   alert("修改成功！");
-                   window.location.reload()
+                   hide();
+                   show2();
                }
            }).catch(function (error) {
                alert("发生了未知的错误！");
@@ -65,10 +88,11 @@ var vm = new Vue({
     mounted(){
 
        if(this.getCookieValue("phoneNumber") === ""){
-           alert("请先登录！");
-           window.location.href = "../Login.html";
-       }else{
 
+           hide();
+           show1();
+
+       }else{
                document.getElementById("login1").innerHTML = "已登录";
                document.getElementById("login1").href = "";
 
