@@ -205,8 +205,52 @@
                                 <p class="perc f16">￥30000</p>
                             </div>
                             <div class="items_last clear">
-                                <button class="fright f14 get_code getCode" _backtestid="1557510" _postid="3132">获取源码</button>
+                                <button class="fright f14 get_code getCode" id="view_momentum" onclick="view_momentumAction()">查看详情</button>
+                                <button class="fright f14 free_order freeOrder" id="add_momentum">加入我的收藏</button>
                             </div>
+
+                            <script language="javascript" type="text/javascript">
+                                function view_momentumAction() {
+                                    window.location.href='Strategy/MomentumStrategy.html';
+                                }
+                            </script>
+                        </div>
+
+                        <div class="item celue_item" postid_backtestid="3594_1810351">
+                            <div class="title clear">
+                                <p class="fleft title_p">
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">最优动量策略</a>
+                                </p>
+                                <span class="fright inline-block title_span trade f12">策略回测</span>
+                                <div class="user_box clear">
+                                    <span class="f14">系统策略</span>
+                                </div>
+                            </div>
+                            <div class="celue_item_tile">
+                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
+                            </div>
+                            <div class="items">
+                                <p class="f12">年化收益</p>
+                                <p class="perc red f16">84.84%</p>
+                            </div>
+                            <div class="items">
+                                <p class="f12">最大回撤</p>
+                                <p class="perc  f16">4.51%</p>
+                            </div>
+                            <div class="items last">
+                                <p class="f12">初始资金</p>
+                                <p class="perc f16">￥30000</p>
+                            </div>
+                            <div class="items_last clear">
+                                <button class="fright f14 get_code getCode" id="view_bestMomentum" onclick="view_bestMomentumAction()">查看详情</button>
+                                <button class="fright f14 free_order freeOrder" id="add_bestMomentum">加入我的收藏</button>
+                            </div>
+
+                            <script language="javascript" type="text/javascript">
+                                function view_bestMomentumAction() {
+                                    window.location.href='Strategy/BestMomentumStrategy.html';
+                                }
+                            </script>
                         </div>
 
                         <div class="item celue_item" postid_backtestid="3594_1810351">
@@ -235,14 +279,21 @@
                                 <p class="perc f16">￥30000</p>
                             </div>
                             <div class="items_last clear">
-                                <button class="fright f14 get_code getCode" _backtestid="1557510" _postid="3132">获取源码</button>
+                                <button class="fright f14 get_code getCode" id="view_mean" onclick="view_meanAction()">查看详情</button>
+                                <button class="fright f14 free_order freeOrder" id="add_mean">加入我的收藏</button>
                             </div>
+
+                            <script language="javascript" type="text/javascript">
+                                function view_meanAction() {
+                                    window.location.href='Strategy/MeanReversion.html';
+                                }
+                            </script>
                         </div>
 
                         <div class="item celue_item" postid_backtestid="3594_1810351">
                             <div class="title clear">
                                 <p class="fleft title_p">
-                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">更多策略</a>
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">最优均值回归</a>
                                 </p>
                                 <span class="fright inline-block title_span trade f12">策略回测</span>
                                 <div class="user_box clear">
@@ -250,25 +301,32 @@
                                 </div>
                             </div>
                             <div class="celue_item_tile">
-
                                 <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
                             </div>
                             <div class="items">
                                 <p class="f12">年化收益</p>
-                                <p class="perc red f16">0</p>
+                                <p class="perc red f16">84.84%</p>
                             </div>
                             <div class="items">
                                 <p class="f12">最大回撤</p>
-                                <p class="perc  f16">0</p>
+                                <p class="perc  f16">4.51%</p>
                             </div>
                             <div class="items last">
                                 <p class="f12">初始资金</p>
-                                <p class="perc f16">￥0</p>
+                                <p class="perc f16">￥30000</p>
                             </div>
                             <div class="items_last clear">
-                                <button class="fright f14 get_code getCode" _backtestid="1557510" _postid="3132">敬请期待</button>
+                                <button class="fright f14 get_code getCode" id="view_bestMean" onclick="view_bestMeanAction()">查看详情</button>
+                                <button class="fright f14 free_order freeOrder" id="add_bestMean">加入我的收藏</button>
                             </div>
+
+                            <script language="javascript" type="text/javascript">
+                                function view_bestMeanAction() {
+                                    window.location.href='Strategy/BestMeanReversion.html';
+                                }
+                            </script>
                         </div>
+
                     </div>
 
                         <!--插入空行-->
@@ -284,7 +342,7 @@
                             </p>
                         </div>
 
-                    <div class="list post-row">
+                    <div class="col-sm-12">
                         <p>
                             <!--插入空行-->
                         </p>
