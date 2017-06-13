@@ -104,7 +104,7 @@ var vm = new Vue({
                        {
                            type : 'value',
                            axisLabel : {
-                               formatter: '{value} '
+                               formatter: '{value}% '
                            }
                        }
                    ],
@@ -170,6 +170,9 @@ var vm = new Vue({
                    xAxis : [
                        {
                            type : 'category',
+                           axisLabel : {
+                               formatter: '{value}% '
+                           },
                            data : this.MeanReversionWinRates
                        }
                    ],

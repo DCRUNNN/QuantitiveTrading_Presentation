@@ -429,13 +429,13 @@ var vm = new Vue({
 
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
             params:{
-                beginDate:'2012-03-02',
-                endDate:'2012-05-03'
+                beginDate:'2016-06-02',
+                endDate:'2017-03-03'
             }
         }).then(function (response) {
 
             klineData = response.data.data.klineData;
-
+            // console.log(response.data.data.klineData);
 
            var data = splitData(klineData);
 
@@ -444,22 +444,15 @@ var vm = new Vue({
                 var datas = [];
                 var times = [];
                 var vols = [];
-                var macds = []; var difs = []; var deas = [];
                 for (var i = 0; i < rawData.length; i++) {
                     datas.push(rawData[i]);
                     times.push(rawData[i].splice(0, 1)[0]);
                     vols.push(rawData[i][4]);
-                    macds.push(rawData[i][6]);
-                    difs.push(rawData[i][7]);
-                    deas.push(rawData[i][8]);
                 }
                 return {
                     datas: datas,
                     times: times,
                     vols: vols,
-                    macds: macds,
-                    difs: difs,
-                    deas: deas
                 };
             }
 
@@ -534,19 +527,19 @@ var vm = new Vue({
                     data: ['KLine', 'MA5','MA10','MA20','MA30','MA60','MA120']
                 },
                 grid: [           {
-                    left: '3%',
+                    left: '8%',
                     right: '1%',
                     top:'7%',
                     height: '60%'
                 },{
                     left: '8%',
                     right: '1%',
-                    top: '73%',
+                    top: '80%',
                     height: '10%'
                 },{
                     left: '3%',
                     right: '1%',
-                    top: '82%',
+                    top: '120%',
                     height: '14%'
                 }],
                 xAxis: [{
@@ -719,37 +712,6 @@ var vm = new Vue({
                                 },
                             }
                         }
-                    },{
-                        name: 'MACD',
-                        type: 'bar',
-                        xAxisIndex: 2,
-                        yAxisIndex: 2,
-                        data: data.macds,
-                        itemStyle: {
-                            normal: {
-                                color: function(params) {
-                                    var colorList;
-                                    if (params.data >= 0) {
-                                        colorList = '#ef232a';
-                                    } else {
-                                        colorList = '#14b143';
-                                    }
-                                    return colorList;
-                                },
-                            }
-                        }
-                    },{
-                        name: 'DIF',
-                        type: 'line',
-                        xAxisIndex: 2,
-                        yAxisIndex: 2,
-                        data: data.difs
-                    },{
-                        name: 'DEA',
-                        type: 'line',
-                        xAxisIndex: 2,
-                        yAxisIndex: 2,
-                        data: data.deas
                     }
                 ]
             };
