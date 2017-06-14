@@ -51,6 +51,7 @@ var vm = new Vue({
 
         // var date=new Date().toLocaleDateString();
         var date="2017-06-14";
+
         this.$http.get("http://localhost:8080/homepage/allstock/"+date).then(function (response) {
             self.items=response.data.data;
             setTimeout(function () {

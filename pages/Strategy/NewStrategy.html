@@ -156,7 +156,7 @@
                 <div class="row" style="text-align: center">
                     <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
                     <label>请输入策略名称</label>
-                    <input type="text" id="strategyname" class="" placeholder="在这里输入策略名称">
+                    <input type="text" v-model="strategyName" id="strategyname" class="" placeholder="在这里输入策略名称">
                 </div>
                 <br>
                 <div class="row" style="text-align: center">
@@ -376,6 +376,7 @@
             endDate:"",
             money:"",
             strategyName:"",
+            phoneNumber:""
         },
         methods:{
             runCode:function () {
@@ -432,9 +433,21 @@
             },
             saveCode:function () {
                 const self=this;
-                strategyName=document.getElementById("strategyname").value;
-                self.result=self.message;
-                hide();
+                this.$http.post("http://localhost:8080/strategy",{
+                    phoneNumber:self.getCookieValue("phoneNumber"),
+                    strategyName:self.strategyName,
+                    code:self.message
+                }).then(function (response) {
+                    var check=response.data.errorCode;
+                    if(check==50000001) {
+                        alert("该策略名称已经存在了哟！");
+                    }else if(check==0) {
+                        alert("添加策略成功");
+                    }
+                    hide();
+                }).catch(function(error){
+                    alert("很抱歉，保存策略时出现了错误！")
+                })
             },
 
             getCookieValue:function (cname) {
