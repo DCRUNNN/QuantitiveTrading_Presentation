@@ -37,7 +37,6 @@
     <script src="../../js/lib/macarons.js"></script>
 
     <!--My97DatePicker-->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <!--<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>-->
     <script type="text/javascript" src="../../js/jquery-1.8.3.js"></script>
@@ -117,7 +116,7 @@
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="../Login.html" target="_blank">登录</a>
+                            <a href="../Login.html" target="_blank" id="loginLabel">登录</a>
                         </li>
 
                     </ul>
@@ -230,7 +229,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label><button type="button" class="btn btn-default" id="addAllButton" style="width: 50px" @click="addAll()">全选</button></label>
+                                    <label><button type="button" class="btn btn-danger" id="addAllButton" style="width: 50px" @click="addAll()">全选</button></label>
                                 </form>
                             </div>
                             <div class="panel-body">
@@ -251,7 +250,7 @@
                                             <td>{{item.code}}</td>
                                             <td>{{item.name}}</td>
                                             <td>{{item.sector}}</td>
-                                            <td><button type="button" class="btn btn-default" id="addButton" style="width: 50px" @click="add(item.code,item.name,item.sector)">添加</button></td>
+                                            <td><button type="button" class="btn btn-primary" id="addButton" style="width: 50px" @click="add(item.code,item.name,item.sector)">添加</button></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -271,8 +270,8 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label><button type="button" class="btn btn-default" id="clearButton" style="width: 100px" @click="deleteAll()">清空重置</button>&nbsp;&nbsp;</label>
-                                    <label><button type="button" class="btn btn-default" id="exeButton" style="width: 100px" @click="run()">开始回测</button></label>
+                                    <label><button type="button" class="btn btn-danger" id="clearButton" style="width: 100px" @click="deleteAll()">清空重置</button>&nbsp;&nbsp;</label>
+                                    <label><button type="button" class="btn btn-primary" id="exeButton" style="width: 100px" @click="run()">开始回测</button></label>
                                 </form>
                             </div>
                             <div class="panel-body">
@@ -293,7 +292,7 @@
                                             <td>{{chosen.code}}</td>
                                             <td>{{chosen.name}}</td>
                                             <td>{{chosen.sector}}</td>
-                                            <td><button type="button" class="btn btn-default" id="deleteOneButton" style="width: 50px" @click="myDelete(chosen.code,chosen.name,chosen.sector)">删除</button></td>
+                                            <td><button type="button" class="btn btn-danger" id="deleteOneButton" style="width: 50px" @click="myDelete(chosen.code,chosen.name,chosen.sector)">删除</button></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -315,7 +314,20 @@
     </div>
     <!--/body-->
 </div>
+<script src="//res.layui.com/layui/build/layui.js?t=1496845305865" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '//res.layui.com/lay/modules/layui/'
+        ,version: '1496845305865'
+    }).use('global');
 
+    window.global = {
+        preview: function(){
+            var preview = document.getElementById('LAY_preview');
+            return preview ? preview.innerHTML : '';
+        }()
+    };
+</script>
 <script src="../../vue/vue.js"></script>
 <script src="../../vue-resource/vue-resource.js"></script>
 <script src="../../js/Strategy/MomentumStrategy.js"></script>

@@ -1,17 +1,16 @@
 /**
- * Created by cyz on 2017/6/12.
+ * Created by cyz on 2017/6/14.
  */
 
 Vue.prototype.$echarts = echarts;
 var vm = new Vue({
     el:'#container',
     data:{
-        createDays:'99',
-        holdDays:'',
         beginDate:'',
         endDate:'',
+        purchaseNum:'',
         stockPool:[],
-
+        average:'',
         items:[
 
         ],
@@ -21,13 +20,13 @@ var vm = new Vue({
         backup:[
 
         ],
-        MomentumDate:['2016-02-10','2016-02-11','2016-02-12','2016-02-13','2016-02-14'
+        BestMeanReversionDate:['2016-02-10','2016-02-11','2016-02-12','2016-02-13','2016-02-14'
 
         ],
-        MomentumFieldRate:[
+        BestMeanReversionFieldRate:[
             '60','290','170','200','90'
         ],
-        MomentumPrimaryDate:[
+        BestMeanReversionPrimaryDate:[
             '100','200','300','280','50'
         ]
 
@@ -43,32 +42,33 @@ var vm = new Vue({
             for(var i=0;i<this.chosens.length;i++){
                 this.stockPool.push(this.chosens[i].stockCode);
             }
-            // this.$http.get("http://localhost:8080/",{
+            // this.$http.get("http://localhost:8080/meanReversionStratey",{
             //     params:{
             //         stockPool:this.stockPool,
             //         beginDate:this.beginDate,
             //         endDate:this.endDate,
-            //         dayNumFormative:this.createDays,
-            //         dayNumHolding:this.holdDays
+            //
+            //         holdingStockNum:this.purchaseNum,
+            //         meanDayNum:this.average
             //     }
             // }).then(function (response) {
-            //     this.MeanReversionDate = response.data.data;
-            //     this.MeanReversionFieldRate = response.data.data;
-            //     this.MeanReversionPrimaryDate = response.data.data;
+            //     this.BestMeanReversionDate = response.data.data;
+            //     this.BestMeanReversionFieldRate = response.data.data;
+            //     this.BestMeanReversionPrimaryDate = response.data.data;
             // }).catch(function (error) {
             //     alert("发生了未知的错误！")
             // });
 
             var option = {
                 title : {
-                    text:'柱状显示数据'
+                    text:'基准和累计收益率图'
 
                 },
                 tooltip : {
                     trigger: 'axis'
                 },
                 legend: {
-                    data:['最高气温','最低气温']
+                    data:['基准收益','累计收益']
                 },
                 toolbox: {
                     show : true,
@@ -117,11 +117,11 @@ var vm = new Vue({
                         name:'策略收益',
                         type:'line',
                         data:this.MeanReversionPrimaryDate,
-                        markPoint : {
-                            data : [
-                                {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
-                            ]
-                        },
+                        // markPoint : {
+                        //     data : [
+                        //         {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                        //     ]
+                        // },
                         markLine : {
                             data : [
                                 {type : 'average', name : '平均值'}
@@ -140,14 +140,13 @@ var vm = new Vue({
                 "name":name,
                 "sector":sector
             });
-            // window.alert(this.items.length);
-            // window.alert("haha");
+
             for(var i=0;i<this.items.length;i+=1){
                 if(this.items[i].code == code&&this.items[i].name == name&&this.items[i].sector == sector){
                     this.items.splice(i,1);
                 }
             }
-            // window.alert(this.items.length);
+
         },
         myDelete:function (code,name,sector){
             for(var i=0;i<this.chosens.length;i++){
@@ -169,6 +168,7 @@ var vm = new Vue({
             this.chosens=[];
             this.items=this.backup;
         },
+
         getCookieValue:function (cname) {
             var name = cname + "=";
             var ca = document.cookie.split(';');
@@ -180,16 +180,14 @@ var vm = new Vue({
             return "";
         }
 
-
     },
     mounted(){
-
         if(this.getCookieValue("phoneNumber") === ""){
-
-        } else{
+        }else {
             document.getElementById("loginLabel").innerHTML = "已登录";
             document.getElementById("loginLabel").href = "";
         }
+
         this.$http.get("http://localhost:8080/stockWithSector/"+"2016-03-02").then(function (response) {
 
             this.items = response.data.data;
