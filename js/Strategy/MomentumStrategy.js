@@ -75,7 +75,9 @@ var vm = new Vue({
                     dayNumHolding:this.holdingDays
                 }
             }).then(function (response) {
+
                 console.log(response.data.data.winRates);
+
                 this.MomentumDate = response.data.data.dateList;
                 this.MomentumFieldRate = response.data.data.yieldRates;
                 this.MomentumPrimaryDate = response.data.data.primaryRates;
@@ -128,7 +130,7 @@ var vm = new Vue({
                         {
                             name:'基准收益',
                             type:'line',
-                            data:this.MomentumFieldRate,
+                            data:this.MomentumPrimaryDate,
                             markPoint : {
                                 data : [
                                     {type : 'max', name: '最大值'},
@@ -144,7 +146,7 @@ var vm = new Vue({
                         {
                             name:'策略收益',
                             type:'line',
-                            data:this.MomentumPrimaryDate,
+                            data:this.MomentumFieldRate,
                             markPoint : {
                                 data : [
                                     {type : 'max', name: '最大值'},

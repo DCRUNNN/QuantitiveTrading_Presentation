@@ -38,10 +38,40 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <![endif]-->
+    <style>
+        loginRemind { margin:0px;padding:0px;text-align: center;}
+        #hidebg { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login1 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+
+    </style>
 </head>
 <body class="site-home" id="LAY_home" style="background-color: #eee;">
-<div id="container">
 
+<div id="loginRemind">
+    <div id="hidebg"></div>
+    <form class="form-horizontal">
+        <div id="login1" class="box-body">
+            <hr>
+            <br>
+            <div class="form-group" style="text-align: center">
+                <label class=" control-label">您尚未登录，请先登录！</label>
+            </div>
+            <br>
+            <br>
+            <div class="btn-group" style="left: 43%;">
+                <button type="button" class="btn btn-primary" onclick="hide()">确定</button>
+            </div>
+            <hr>
+        </div>
+    </form>
+</div>
+<div id="container">
     <div class="layui-header header header-index">
         <div class="layui-main">
             <a class="logo" href="index.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
@@ -145,7 +175,6 @@
                                     <span style="font-size: inherit;margin-left: 5%">时价：<strong >{{price}}</strong></span>
                                     <span style="font-size: inherit;margin-left: 20px">成交量：<strong >{{tvolume}}</strong></span>
                                     <span style="font-size: inherit;margin-left: 20px">成交额：<strong>{{ttotal}}</strong></span>
-                                    <span style="font-size: inherit;margin-left: 20px">市场:<strong>{{market}}</strong></span>
                                 </li>
 
                             </ul>
@@ -287,11 +316,11 @@
                     <!-- Tabs within a box -->
                     <ul class="nav nav-tabs pull-right ui-sortable-handle">
                         <li class="active"><a href="#kline" data-toggle="tab" aria-expanded="true">K线图</a></li>
-                        <li class="pull-left" style="line-height:35px;padding:0 10px;font-size:20px;"><i class="fa fa-inbox" style="margin-right: 10px"></i>图表展示</li>
+                        <li class="pull-left" style="line-height:35px;padding:0 20px;font-size:20px;"><i class="fa fa-inbox" style="margin-right: 10px"></i>图表展示</li>
                     </ul>
                     <div class="tab-content no-padding">
                         <script src="../js/lib/echarts.js"></script>
-                        <div class="tab-pane active" id="kline" style="width: 1500px;height: 580px;left: -20px">
+                        <div class="tab-pane active" id="kline" style="width: 1000px;height: 580px;right: 30px;left: 10px">
 
                         </div>
                     </div>

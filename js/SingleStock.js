@@ -5,6 +5,20 @@
  * Created by cyz on 2017/5/16.
  */
 
+function show()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg");
+    hidebg.style.display="block";  //显示隐藏层
+    hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login1").style.display="block";  //显示弹出层
+}
+function hide()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg").style.display="none";
+    document.getElementById("login1").style.display="none";
+    window.location.href = "../pages/Login.html";
+}
+
 function changeTag() {
     var temp=document.getElementById("select").value;
     if(temp == "opt1"){
@@ -169,8 +183,7 @@ var vm = new Vue({
         addStock:function () {
 
             if(this.getCookieValue("phoneNumber") === ""){
-                alert("请先登录！");
-                window.location.href = "../pages/Login.html";
+                show();
             }else{
                 this.$http.get("http://localhost:8080/personnel/addStock",{
                     params:{

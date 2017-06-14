@@ -127,9 +127,9 @@
                                     <div class="item-body ">
                                         <ul>
                                             <li class="lis" v-for="item in items">
-                                                <a class="session" v-bind:href="item.url" target="_blank" >
+                                                <a class="session" :href="'../Strategy/NewStrategy.html?strategyName='+item" target="_blank" >
                                                     <p class="status"></p>
-                                                    <h5 v-text="item.strategyName"></h5>
+                                                    <h5 v-text="item"></h5>
                                                 </a>
                                             </li>
                                         </ul>

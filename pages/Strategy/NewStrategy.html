@@ -467,9 +467,36 @@
                 document.getElementById("login").innerHTML = "登录";
                 alert("请先登录!");
                 window.location.href = "../../pages/Login.html";
+                return;
             } else {
                 document.getElementById("login").innerHTML = "已登录";
                 document.getElementById("login").href = "#";
+            }
+
+            var thisUrl = document.URL;
+            if(thisUrl.indexOf("?") > 0) {
+//                console.log(thisUrl);
+                var getVal = thisUrl.split('?')[1];
+                var name = getVal.split(':')[0];
+                var strategyName = name.split('=')[1];
+                var phoneNumber = this.getCookieValue("phoneNumber");
+
+//                console.log(strategyName);
+//                console.log(phoneNumber);
+//                console.log(strategyName + ''+phoneNumber);
+
+                const self = this;
+                this.$http.get("http://localhost:8080/strategy",{
+                    params:{
+                        phoneNumber:phoneNumber,
+                        strategyName:strategyName
+                    }
+                }).then(function (response) {
+                    self.message = response.data.data;
+                    console.log(response.data.data);
+                }).catch(function (error){
+                    alert("发生了未知的错误！");
+                })
             }
         }
     });
