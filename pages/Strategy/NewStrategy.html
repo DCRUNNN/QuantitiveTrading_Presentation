@@ -102,32 +102,38 @@
 </div>
 
 <div class="" id="app" style="height: 100%;width:100%">
-    <div class="breadcrumb">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label style="font-size: 17px;color: darkblue">参数选择</label>
+    <!--<div class="breadcrumb">-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--<label style="font-size: 17px;color: darkblue">参数选择</label>-->
 
-        <!--<input type="text" value="2017-01-01" class="">-->
-        <!--<input type="text" value="2017-06-03" class="" >-->
+        <!--&nbsp;从&nbsp;<input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:110px;height:20px;text-align:center" readonly>-->
+        <!--&nbsp;至&nbsp;<input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:110px;height:20px;text-align:center" readonly>-->
+        <!--&nbsp;¥&nbsp;<input type="text" value="100000" >-->
+        <!--<select name="" style="width:60px;height:22px">-->
+            <!--<option value="0">每天</option>-->
+            <!--<option value="1">分钟</option>-->
+        <!--</select>-->
+        <!--<button class="btn btn-success btn-sm pull-right">保存</button>-->
+        <!--<button class="btn btn-success btn-sm pull-right" @click="runCode">编译运行</button>-->
+    <!--</div>-->
+
+
+    <div class="well well-sm">
+        <span class="label label-primary label-lg">参数选择</span>
         &nbsp;从&nbsp;<input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:110px;height:20px;text-align:center" readonly>
         &nbsp;至&nbsp;<input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:110px;height:20px;text-align:center" readonly>
-        &nbsp;¥&nbsp;<input type="text" value="100000" >
+        &nbsp;¥&nbsp;<input id="moneyInput" type="text" value="100000" >
         <select name="" style="width:60px;height:22px">
             <option value="0">每天</option>
             <option value="1">分钟</option>
         </select>
-        <button class="btn btn-success btn-sm pull-right" @click="runCode">编译运行</button>
+        <button class="btn btn-primary btn-sm pull-right">保    存</button>
+        <button class="btn btn-primary btn-sm pull-right" @click="runCode">编译运行</button>
     </div>
-
-    <!--<div id="leftBox">-->
-    <!--<textarea wrap="off" cols="2" id="leftNum" disabled></textarea>-->
-    <!--</div>-->
-    <!--<textarea style="left:50px" id="test" name="content" onkeydown="keyUp()" onscroll="getId('leftNum').scrollTop = this.scrollTop;">-->
-    <!--</textarea>-->
-
 
     <div class="container" style="height: 100%;width:100%">
 
@@ -135,7 +141,7 @@
             <div class="col-md-6" style="height: 100%;width:50%">
                 <div class="panel panel-default" style="height:100%;">
                     <div id="ol"><textarea cols="10" rows="10" id="li" disabled></textarea></div>
-                    <textarea v-model="message" class="form-control" name="co" cols="60" rows="10" wrap="off" id="c2" onblur="check('2')" onKeyUp="keyUp()" onscroll="G('li').scrollTop=this.scrollTop;" oncontextmenu="return false">
+                    <textarea v-model="message" spellcheck="false"  style="background-color:black;color:lightskyblue;" class="form-control" name="co" cols="60" rows="10" wrap="off" id="c2" onblur="check('2')" onKeyUp="keyUp()" onscroll="G('li').scrollTop=this.scrollTop;" oncontextmenu="return false">
                         <!--删除了属性onFocus="clearValue('2')"-->
                 </div>
                 <!--<table width="100%"  border="0" cellspacing="0" cellpadding="0" style="position:relative;height:100%">-->
@@ -218,18 +224,57 @@
         el: '#app',
         data: {
             message: "" +
-            "public class HelloWorld {\n" +
-            "    public static void main(String[] args) {\n"+
-            "        System.out.println(\"Hello World.\");\n"+
-            "    }\n"+
-            "}",
+                "import cn.edu.nju.p.dao.StockDao;\n"+
+                "import cn.edu.nju.p.po.StockPO;\n"+
+                "import java.time.LocalDate;\n"+
+                "import cn.edu.nju.p.utils.beans.ToolSpring;\n\n"+
+                "public class MyStrategy {\n" +
+                "    public static void main(String[] args) {\n"+
+                "        //设置查询日期\n"+
+                "        LocalDate date = LocalDate.of(2017, 6, 12);\n"+
+                "        //设置查询股票代码\n"+
+                "        String code = \"000001\";\n\n"+
+                "        //使用如下方法获取StockDao实例\n"+
+                "        StockDao stockDao = ToolSpring.getBeans(StockDao.class);\n"+
+                "        //使用如下方法获取StockPO\n"+
+                "        StockPO po=stockDao.getStockPO(code,date);\n\n"+
+                "        //打印出该股票PO的信息\n"+
+                "        System.out.println(po.toString());\n"+
+                "        System.out.println(\"Hello World.\");\n"+
+                "    }\n"+
+                "}",
             result:"这里显示运行结果",
             runerror:"这里显示运行时错误",
-            log:"这里显示日志"
+            log:"这里显示日志",
+            beginDate:"",
+            endDate:"",
+            money:"",
         },
         methods:{
             runCode:function () {
                 const self=this;
+                self.beginDate=document.getElementById("datepicker").value;
+                self.endDate=document.getElementById("datepicker2").value;
+                self.money=document.getElementById("moneyInput").value;
+                alert(self.money);
+                var begin=new Date(self.beginDate);
+                var end=new Date(self.endDate);
+                if(self.beginDate==""&&self.endDate==""){
+                    alert("请选择开始日期和结束日期");
+                    return;
+                }else if(self.beginDate==""){
+                    alert("请选择开始日期");
+                    return;
+                } else if(self.endDate==""){
+                    alert("请选择结束日期");
+                    return;
+                }else if(begin.getTime()>end.getTime()) {
+                    alert("日期选择不当，起始日期应在结束日期之前！");
+                    return;
+                }else if(self.money=="") {
+                    alert("请选择回测资金");
+                    return;
+                }
                 this.$http.get("http://localhost:8080/customstrategy",{
                     params:{
                         code:self.message
@@ -238,12 +283,22 @@
                       var check=response.data.errorCode;
                       if(check!=0){
                           self.runerror=response.data.data;
+                          self.result="您的代码有错误，请检查";
+                          var now=new Date()
+                          self.log=self.log+"\n"+(1900+now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds()+"运行失败");
                           document.getElementById("logtab").setAttribute("class","");
                           document.getElementById("errortab").setAttribute("class","active");
                           document.getElementById("tab1").setAttribute("class","tab-pane");
                           document.getElementById("tab2").setAttribute("class","tab-pane active");
                       }else{
                           self.result=response.data.data;
+                          var now=new Date()
+                          self.log=self.log+"\n"+(1900+now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds()+"运行成功");
+                          self.runerror="这里显示运行时错误";
+                          document.getElementById("logtab").setAttribute("class","active");
+                          document.getElementById("errortab").setAttribute("class","");
+                          document.getElementById("tab1").setAttribute("class","tab-pane active");
+                          document.getElementById("tab2").setAttribute("class","tab-pane");
                       }
                     }).catch(function(error){
                     alert("出现了未知的错误！请重新进行输入")
