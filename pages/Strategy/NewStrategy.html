@@ -94,16 +94,16 @@
         </div>
         <ul class="layui-nav">
             <li class="layui-nav-item ">
-                <a href="#">首页</a>
+                <a href="../../pages/Homepage.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;">首页</a>
             </li>
             <li class="layui-nav-item ">
-                <a href="../../pages/SingleStock.html">个股</a>
-            </li>
-            <li class="layui-nav-item" pc>
-                <a href="http://fly.layui.com/" target="_blank">量化策略</a>
+                <a href="../../pages/SearchStock.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;">个股</a>
             </li>
             <li class="layui-nav-item">
-                <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
+                <a href="../Strategy.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;" target="_blank">量化策略</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="../../pages/Strategy/NewStrategy.html" target="_blank">自定义策略</a>
             </li>
             <li class="layui-nav-item" >
                 <a href="javascript:;">个性化</a>
@@ -115,7 +115,7 @@
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="../../pages/Login.html" target="_blank">登录</a>
+                <a href="../../pages/Login.html" target="_blank" id="login">登录</a>
             </li>
 
         </ul>
@@ -277,7 +277,98 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            message:"",
+            message:""+
+            "import cn.edu.nju.p.po.StockPO;\n" +
+            "import cn.edu.nju.p.utils.StockHelper;\n" +
+            "import cn.edu.nju.p.utils.beans.ToolSpring;\n" +
+            "import cn.edu.nju.p.utils.redis.StockRedisDataUtils;\n" +
+            "import cn.edu.nju.p.strategy.StrategyRunner;\n" +
+            "import cn.edu.nju.p.strategy.Strategy;\n" +
+            "\n" +
+            "import java.math.BigDecimal;\n" +
+            "import java.time.LocalDate;\n" +
+            "import java.util.ArrayList;\n" +
+            "import java.util.LinkedHashMap;\n" +
+            "import java.util.List;\n" +
+            "import java.util.Map;\n" +
+            "import java.util.stream.Collectors;\n" +
+            "\n" +
+            "public class MomentumStrategy2Impl implements Strategy {\n" +
+            "\n" +
+            "    private StockHelper stockHelper;\n" +
+            "    private StockRedisDataUtils redisDataUtils;\n" +
+            "    private int holdingDayNum;\n" +
+            "    private int formativeDayNum;\n" +
+            "    private LocalDate beginDate;\n" +
+            "    private LocalDate endDate;\n" +
+            "\n" +
+            "    public MomentumStrategy2Impl() {\n" +
+            "        this.stockHelper = ToolSpring.getBeans(StockHelper.class);\n" +
+            "        this.redisDataUtils = ToolSpring.getBeans(StockRedisDataUtils.class);\n" +
+            "        this.holdingDayNum = 5;\n" +
+            "        this.formativeDayNum = 5;\n" +
+            "        this.beginDate = LocalDate.of(2016,5,10);\n" +
+            "        this.endDate = LocalDate.of(2016, 7, 10);\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public List<String> setStockPool() {\n" +
+            "        return stockHelper.getRecommendStock();\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public List<String> setWinner(LocalDate beginDate, LocalDate endDate, List<String> stockPool) {\n" +
+            "\n" +
+            "        Map<String, Double> fieldRates = new LinkedHashMap<>();\n" +
+            "        stockPool.forEach(stockCode -> fieldRates.put(stockCode,countRate(beginDate,endDate,stockCode)));\n" +
+            "\n" +
+            "        //对收益率进行排序\n" +
+            "        List<Map.Entry<String, Double>> rateList = new ArrayList<>(fieldRates.entrySet());\n" +
+            "        rateList.sort((rate1, rate2) -> new BigDecimal(rate2.getValue()).compareTo(new BigDecimal(rate1.getValue())));\n" +
+            "\n" +
+            "        int winnerNum = rateList.size() / 5;\n" +
+            "        return rateList.subList(0,winnerNum)\n" +
+            "                .parallelStream()\n" +
+            "                .map(Map.Entry::getKey)\n" +
+            "                .collect(Collectors.toList());\n" +
+            "    }\n" +
+            "\n" +
+            "    private double countRate(LocalDate beginDate, LocalDate endDate, String stockCode) {\n" +
+            "\n" +
+            "        try {\n" +
+            "            StockPO beginPo = redisDataUtils.getStockPO(stockCode, beginDate);\n" +
+            "            StockPO endPo = redisDataUtils.getStockPO(stockCode, endDate);\n" +
+            "            double beginClose = beginPo.getClose();\n" +
+            "            double endClose = endPo.getClose();\n" +
+            "            return (endClose - beginClose) / beginClose;\n" +
+            "        } catch (NullPointerException ne) {\n" +
+            "            return -99;\n" +
+            "        }\n" +
+            "    }\n" +
+            "    @Override\n" +
+            "    public LocalDate setBeginDate() {\n" +
+            "        return beginDate;\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public LocalDate setEndDate() {\n" +
+            "        return endDate;\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public int setHoldingDay() {\n" +
+            "        return holdingDayNum;\n" +
+            "    }\n" +
+            "\n" +
+            "    @Override\n" +
+            "    public int setFormativeDayNum() {\n" +
+            "        return formativeDayNum;\n" +
+            "    }\n" +
+            "\n" +
+            "    public static void main(String args[]){\n" +
+            "        StrategyRunner.run(new MomentumStrategy2Impl());\n" +
+            "}\n" +
+            "}",
             result:"这里显示运行结果",
             runerror:"这里显示运行时错误",
             log:"这里显示日志",
@@ -344,32 +435,30 @@
                 strategyName=document.getElementById("strategyname").value;
                 self.result=self.message;
                 hide();
+            },
+
+            getCookieValue:function (cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
             }
         },
+        mounted:function () {
 
-        mounted:function(){
-            this.message="" +
-            "import cn.edu.nju.p.dao.StockDao;\n"+
-            "import cn.edu.nju.p.po.StockPO;\n"+
-            "import java.time.LocalDate;\n"+
-            "import cn.edu.nju.p.utils.beans.ToolSpring;\n\n"+
-            "public class MyStrategy {\n" +
-            "    public static void main(String[] args) {\n"+
-            "        //设置查询日期\n"+
-            "        LocalDate date = LocalDate.of(2017, 6, 12);\n"+
-            "        //设置查询股票代码\n"+
-            "        String code = \"000001\";\n\n"+
-            "        //使用如下方法获取StockDao实例\n"+
-            "        StockDao stockDao = ToolSpring.getBeans(StockDao.class);\n"+
-            "        //使用如下方法获取StockPO\n"+
-            "        StockPO po=stockDao.getStockPO(code,date);\n\n"+
-            "        //打印出该股票PO的信息\n"+
-            "        System.out.println(po.toString());\n"+
-            "        System.out.println(\"Hello World.\");\n"+
-            "    }\n"+
-            "}"
+            if (this.getCookieValue("phoneNumber") === "") {
+                document.getElementById("login").innerHTML = "登录";
+                alert("请先登录!");
+                window.location.href = "../../pages/Login.html";
+            } else {
+                document.getElementById("login").innerHTML = "已登录";
+                document.getElementById("login").href = "#";
+            }
         }
-
     });
 </script>
 
