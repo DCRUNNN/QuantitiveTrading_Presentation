@@ -228,11 +228,20 @@ var vm = new Vue({
         },
 
         add:function (code,name,sector) {
+
+            var dt = $('#table2').DataTable();
+            dt.destroy();
+
             this.chosens.push({
                 "code":code,
                 "name":name,
                 "sector":sector
             });
+
+            this.$nextTick(function(){
+                $('#table2').DataTable();
+            })
+
             // window.alert(this.items.length);
             // window.alert("haha");
             for(var i=0;i<this.items.length;i+=1){
@@ -243,11 +252,20 @@ var vm = new Vue({
             // window.alert(this.items.length);
         },
         myDelete:function (code,name,sector){
+
+            var dt = $('#table2').DataTable();
+            dt.destroy();
+
             for(var i=0;i<this.chosens.length;i++){
                 if(this.chosens[i].code==code && this.chosens[i].name==name &&this.chosens[i].sector==sector) {
                     this.chosens.splice(i, 1);
                 }
             }
+
+            this.$nextTick(function(){
+                $('#table2').DataTable();
+            })
+
             this.items.push({
                 "code":code,
                 "name":name,
@@ -298,5 +316,15 @@ var vm = new Vue({
             alert("发生了未知的错误！");
         });
 
+    },
+    created(){
+
+        setTimeout(
+            function () {
+                $('#table2').DataTable({
+                    data:[]
+                });
+            },0
+        )
     }
 });
