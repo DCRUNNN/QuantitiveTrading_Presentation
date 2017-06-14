@@ -107,7 +107,7 @@
 <div class="kk_main in_wrap">
 
     <header id="kk_nav" class=" kk_nav navbar narbar-static-top">
-        <div id="container">
+        <div>
             <div class="layui-header header header-index">
                 <div class="layui-main">
                     <a class="logo" href="../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
@@ -153,7 +153,7 @@
     </header>
 
     <!--/header-->
-    <div class="kk_body ">
+    <div class="kk_body " id="container">
         <div class="in_body">
 
             <!--/banner-->
@@ -202,7 +202,11 @@
                             </div>
                             <div class="items last">
                                 <p class="f12">初始资金</p>
-                                <p class="perc f16">￥30000</p>
+                                <div style="text-align: center" id="funds" v-model="message">
+                                    <p class="perc f16">{{ message }}</p>
+                                </div>
+
+
                             </div>
                             <div class="items_last clear">
                                 <button class="fright f14 get_code getCode" id="view_momentum" onclick="view_momentumAction()">查看详情</button>
@@ -621,5 +625,10 @@
 
 </div>
 </div>
+
+<!--Vue数据绑定-->
+<script src="../vue/vue.js"></script>
+<script src="../vue-resource/vue-resource.js"></script>
+<script src="../js/Strategy/Strategy.js"></script>
 
 </body></html>
