@@ -22,14 +22,19 @@ var vm = new Vue({
         backup:[
 
         ],
-        MeanReversionDate:['2016-02-10','2016-02-11','2016-02-12','2016-02-13','2016-02-14'
+        MeanReversionDate:[
 
         ],
         MeanReversionFieldRate:[
-            '60','290','170','200','90'
+
         ],
         MeanReversionPrimaryDate:[
-            '100','200','300','280','50'
+
+        ],
+        MeanReversionWinRates:[
+        ],
+        MeanReversionRateNums:[
+
         ]
 
     },
@@ -45,152 +50,160 @@ var vm = new Vue({
            barchart.showLoading({
                text:'数据加载中'
            });
+
            for(var i=0;i<this.chosens.length;i++){
-               this.stockPool.push(this.chosens[i].stockCode);
+               this.stockPool.push(this.chosens[i].code);
            }
+
            this.$http.get("http://localhost:8080/exhibition/meanReversionStrategy",{
                params:{
                    stockPool:this.stockPool,
-                   beginDate:this.beginDate,
-                   endDate:this.endDate,
+                   dateRange:document.getElementById("reservation").value,
                    holdingDayNum:this.holdingDayNum,
                    holdingStockNum:this.purchaseNum,
                    meanDayNum:this.average
                }
            }).then(function (response) {
+               console.log(response.data.data.dateList);
+               console.log(response.data.data.primaryRates);
                this.MeanReversionDate = response.data.data.dateList;
                this.MeanReversionFieldRate = response.data.data.yieldRates;
                this.MeanReversionPrimaryDate = response.data.data.primaryRates;
+               this.MeanReversionWinRates = response.data.data.winRates;
+               this.MeanReversionRateNums = response.data.data.rateNums;
+
+               var option1 = {
+                   title : {
+
+                   },
+                   tooltip : {
+                       trigger: 'axis'
+                   },
+                   legend: {
+                       data:['基准收益','策略收益']
+                   },
+                   toolbox: {
+                       show : true,
+                       feature : {
+                           mark : {show: true},
+                           dataView : {show: true, readOnly: false},
+                           magicType : {show: true, type: ['line', 'bar']},
+                           restore : {show: true},
+                           saveAsImage : {show: true}
+                       }
+                   },
+                   calculable : true,
+                   xAxis : [
+                       {
+                           type : 'category',
+                           boundaryGap : false,
+                           data : this.MeanReversionDate
+                       }
+                   ],
+                   yAxis : [
+                       {
+                           type : 'value',
+                           axisLabel : {
+                               formatter: '{value} '
+                           }
+                       }
+                   ],
+                   series : [
+                       {
+                           name:'基准收益',
+                           type:'line',
+                           data:this.MeanReversionPrimaryDate,
+                           markPoint : {
+                               data : [
+                                   {type : 'max', name: '最大值'},
+                                   {type : 'min', name: '最小值'}
+                               ]
+                           },
+                           markLine : {
+                               data : [
+                                   {type : 'average', name: '平均值'}
+                               ]
+                           }
+                       },
+                       {
+                           name:'策略收益',
+                           type:'line',
+                           data:this.MeanReversionFieldRate,
+                           markPoint : {
+                               data : [
+                                   {type : 'max', name: '最大值'},
+                                   {type : 'min', name: '最小值'}
+                               ]
+                           },
+                           markLine : {
+                               data : [
+                                   {type : 'average', name : '平均值'}
+                               ]
+                           }
+                       }
+                   ]
+               };
+               linechart.hideLoading();
+               linechart.setOption(option1);
+
+
+               var option2 = {
+                   title : {
+                   },
+                   tooltip : {
+                       trigger: 'axis'
+                   },
+                   legend: {
+                       data:['频数']
+                   },
+                   toolbox: {
+                       show : true,
+                       feature : {
+                           mark : {show: true},
+                           dataView : {show: true, readOnly: false},
+                           magicType : {show: true, type: ['bar']},
+                           restore : {show: true},
+                           saveAsImage : {show: true}
+                       }
+                   },
+                   calculable : true,
+                   xAxis : [
+                       {
+                           type : 'category',
+                           data : this.MeanReversionWinRates
+                       }
+                   ],
+                   yAxis : [
+                       {
+                           type : 'value'
+                       }
+                   ],
+                   series : [
+                       {
+                           name:'频数',
+                           type:'bar',
+                           data:this.MeanReversionRateNums,
+                           markPoint : {
+                               data : [
+                                   {type : 'max', name: '最大值'},
+                                   {type : 'min', name: '最小值'}
+                               ]
+                           },
+                           markLine : {
+                               data : [
+                                   {type : 'average', name: '平均值'}
+                               ]
+                           }
+                       }
+                   ]
+               };
+
+               barchart.hideLoading();
+               barchart.setOption(option2);
            }).catch(function (error) {
                alert("发生了未知的错误！")
            });
 
-           var option1 = {
-               title : {
-                   text:'基准和累计收益率图'
-
-               },
-               tooltip : {
-                   trigger: 'axis'
-               },
-               legend: {
-                   data:['最高气温','最低气温']
-               },
-               toolbox: {
-                   show : true,
-                   feature : {
-                       mark : {show: true},
-                       dataView : {show: true, readOnly: false},
-                       magicType : {show: true, type: ['line', 'bar']},
-                       restore : {show: true},
-                       saveAsImage : {show: true}
-                   }
-               },
-               calculable : true,
-               xAxis : [
-                   {
-                       type : 'category',
-                       boundaryGap : false,
-                       data : this.MeanReversionDate
-                   }
-               ],
-               yAxis : [
-                   {
-                       type : 'value',
-                       axisLabel : {
-                           formatter: '{value} °C'
-                       }
-                   }
-               ],
-               series : [
-                   {
-                       name:'基准收益',
-                       type:'line',
-                       data:this.MeanReversionFieldRate,
-                       markPoint : {
-                           data : [
-                               {type : 'max', name: '最大值'},
-                               {type : 'min', name: '最小值'}
-                           ]
-                       },
-                       markLine : {
-                           data : [
-                               {type : 'average', name: '平均值'}
-                           ]
-                       }
-                   },
-                   {
-                       name:'策略收益',
-                       type:'line',
-                       data:this.MeanReversionPrimaryDate,
-                       markPoint : {
-                           data : [
-                               {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
-                           ]
-                       },
-                       markLine : {
-                           data : [
-                               {type : 'average', name : '平均值'}
-                           ]
-                       }
-                   }
-               ]
-           };
-           var option2 = {
-               title : {
-                   text: '超额收益频数分布直方图'
-               },
-               tooltip : {
-                   trigger: 'axis'
-               },
-               legend: {
-                   data:['频数']
-               },
-               toolbox: {
-                   show : true,
-                   feature : {
-                       mark : {show: true},
-                       dataView : {show: true, readOnly: false},
-                       magicType : {show: true, type: ['bar']},
-                       restore : {show: true},
-                       saveAsImage : {show: true}
-                   }
-               },
-               calculable : true,
-               xAxis : [
-                   {
-                       type : 'category',
-                       data : []
-                   }
-               ],
-               yAxis : [
-                   {
-                       type : 'value'
-                   }
-               ],
-               series : [
-                   {
-                       name:'频数',
-                       type:'bar',
-                       data:[],
-                       markPoint : {
-                           data : [
-                               {type : 'max', name: '最大值'},
-                               {type : 'min', name: '最小值'}
-                           ]
-                       },
-                       markLine : {
-                           data : [
-                               {type : 'average', name: '平均值'}
-                           ]
-                       }
-                   }
-               ]
-           };
-           linechart.hideLoading();
-           linechart.setOption(option1);
-           barchart.hideLoading();
-           barchart.setOption(option2);
        },
 
        add:function (code,name,sector) {
