@@ -72,7 +72,8 @@ var vm = new Vue({
         },
 
         search: function () {
-            var code = document.getElementById("input").value;
+            var code = document.getElementById("input").value.split("-")[1];
+           alert(code);
             if(code==null||code==""){
                show1();
             } else if(!isChinese(code)&&!isNum(code)){
