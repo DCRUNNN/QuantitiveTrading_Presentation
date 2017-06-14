@@ -80,24 +80,6 @@
 </head>
 <body class="hold-transition login-page" style="height: 100%;width:100%;" onLoad="keyUp();">
 
-<div id="saveArea">
-    <div id="hidebg"></div>
-    <form class="form-horizontal">
-            <div id="saveBody" class="box-body">
-
-                <div class="" style="text-align: center">
-                    <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
-                    <label>请输入策略名称</label>
-                    <input type="text" id="strategyname" class="" placeholder="在这里输入策略名称">
-                </div>
-                <div class="btn-group" style="">
-                    <button type="button" class="btn btn-primary" @click="saveCode">保存</button>
-                    <button type="button" class="btn btn-primary" onclick="hide()">取消</button>
-                </div>
-
-            </div>
-        </form>
-</div>
 
 <div class="layui-header header header-index" >
     <div class="layui-main">
@@ -110,7 +92,7 @@
                 <option value="element/color.html">color 颜色</option>
             </select>
         </div>
-        <ul class="layui-nav" pc>
+        <ul class="layui-nav">
             <li class="layui-nav-item ">
                 <a href="#">首页</a>
             </li>
@@ -164,6 +146,31 @@
         <!--<button class="btn btn-success btn-sm pull-right">保存</button>-->
         <!--<button class="btn btn-success btn-sm pull-right" @click="runCode">编译运行</button>-->
     <!--</div>-->
+
+
+    <div id="saveArea">
+        <div id="hidebg"></div>
+        <form class="form-horizontal">
+            <div id="saveBody" class="box-body">
+                <br>
+                <div class="row" style="text-align: center">
+                    <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
+                    <label>请输入策略名称</label>
+                    <input type="text" id="strategyname" class="" placeholder="在这里输入策略名称">
+                </div>
+                <br>
+                <div class="row" style="text-align: center">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" @click.prevent="saveCode()">保存</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" onclick="hide()">取消</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </form>
+    </div>
 
 
     <div class="well well-sm">
@@ -270,98 +277,7 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            message: "" +
-            "import cn.edu.nju.p.po.StockPO;\n" +
-            "import cn.edu.nju.p.utils.StockHelper;\n" +
-            "import cn.edu.nju.p.utils.beans.ToolSpring;\n" +
-            "import cn.edu.nju.p.utils.redis.StockRedisDataUtils;\n" +
-            "import cn.edu.nju.p.strategy.StrategyRunner;\n" +
-            "import cn.edu.nju.p.strategy.Strategy;\n" +
-            "\n" +
-            "import java.math.BigDecimal;\n" +
-            "import java.time.LocalDate;\n" +
-            "import java.util.ArrayList;\n" +
-            "import java.util.LinkedHashMap;\n" +
-            "import java.util.List;\n" +
-            "import java.util.Map;\n" +
-            "import java.util.stream.Collectors;\n" +
-            "\n" +
-            "public class MomentumStrategy2Impl implements Strategy {\n" +
-            "\n" +
-            "    private StockHelper stockHelper;\n" +
-            "    private StockRedisDataUtils redisDataUtils;\n" +
-            "    private int holdingDayNum;\n" +
-            "    private int formativeDayNum;\n" +
-            "    private LocalDate beginDate;\n" +
-            "    private LocalDate endDate;\n" +
-            "\n" +
-            "    public MomentumStrategy2Impl() {\n" +
-            "        this.stockHelper = ToolSpring.getBeans(StockHelper.class);\n" +
-            "        this.redisDataUtils = ToolSpring.getBeans(StockRedisDataUtils.class);\n" +
-            "        this.holdingDayNum = 5;\n" +
-            "        this.formativeDayNum = 5;\n" +
-            "        this.beginDate = LocalDate.of(2016,5,10);\n" +
-            "        this.endDate = LocalDate.of(2016, 7, 10);\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public List<String> setStockPool() {\n" +
-            "        return stockHelper.getRecommendStock();\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public List<String> setWinner(LocalDate beginDate, LocalDate endDate, List<String> stockPool) {\n" +
-            "\n" +
-            "        Map<String, Double> fieldRates = new LinkedHashMap<>();\n" +
-            "        stockPool.forEach(stockCode -> fieldRates.put(stockCode,countRate(beginDate,endDate,stockCode)));\n" +
-            "\n" +
-            "        //对收益率进行排序\n" +
-            "        List<Map.Entry<String, Double>> rateList = new ArrayList<>(fieldRates.entrySet());\n" +
-            "        rateList.sort((rate1, rate2) -> new BigDecimal(rate2.getValue()).compareTo(new BigDecimal(rate1.getValue())));\n" +
-            "\n" +
-            "        int winnerNum = rateList.size() / 5;\n" +
-            "        return rateList.subList(0,winnerNum)\n" +
-            "                .parallelStream()\n" +
-            "                .map(Map.Entry::getKey)\n" +
-            "                .collect(Collectors.toList());\n" +
-            "    }\n" +
-            "\n" +
-            "    private double countRate(LocalDate beginDate, LocalDate endDate, String stockCode) {\n" +
-            "\n" +
-            "        try {\n" +
-            "            StockPO beginPo = redisDataUtils.getStockPO(stockCode, beginDate);\n" +
-            "            StockPO endPo = redisDataUtils.getStockPO(stockCode, endDate);\n" +
-            "            double beginClose = beginPo.getClose();\n" +
-            "            double endClose = endPo.getClose();\n" +
-            "            return (endClose - beginClose) / beginClose;\n" +
-            "        } catch (NullPointerException ne) {\n" +
-            "            return -99;\n" +
-            "        }\n" +
-            "    }\n" +
-            "    @Override\n" +
-            "    public LocalDate setBeginDate() {\n" +
-            "        return beginDate;\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public LocalDate setEndDate() {\n" +
-            "        return endDate;\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public int setHoldingDay() {\n" +
-            "        return holdingDayNum;\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public int setFormativeDayNum() {\n" +
-            "        return formativeDayNum;\n" +
-            "    }\n" +
-            "\n" +
-            "    public static void main(String args[]){\n" +
-            "        StrategyRunner.run(new MomentumStrategy2Impl());\n" +
-            "}\n" +
-            "}",
+            message:"",
             result:"这里显示运行结果",
             runerror:"这里显示运行时错误",
             log:"这里显示日志",
@@ -423,11 +339,37 @@
                     alert("出现了未知的错误！请重新进行输入")
                 })
             },
-
             saveCode:function () {
-                alert( );
+                const self=this;
+                strategyName=document.getElementById("strategyname").value;
+                self.result=self.message;
+                hide();
             }
+        },
+
+        mounted:function(){
+            this.message="" +
+            "import cn.edu.nju.p.dao.StockDao;\n"+
+            "import cn.edu.nju.p.po.StockPO;\n"+
+            "import java.time.LocalDate;\n"+
+            "import cn.edu.nju.p.utils.beans.ToolSpring;\n\n"+
+            "public class MyStrategy {\n" +
+            "    public static void main(String[] args) {\n"+
+            "        //设置查询日期\n"+
+            "        LocalDate date = LocalDate.of(2017, 6, 12);\n"+
+            "        //设置查询股票代码\n"+
+            "        String code = \"000001\";\n\n"+
+            "        //使用如下方法获取StockDao实例\n"+
+            "        StockDao stockDao = ToolSpring.getBeans(StockDao.class);\n"+
+            "        //使用如下方法获取StockPO\n"+
+            "        StockPO po=stockDao.getStockPO(code,date);\n\n"+
+            "        //打印出该股票PO的信息\n"+
+            "        System.out.println(po.toString());\n"+
+            "        System.out.println(\"Hello World.\");\n"+
+            "    }\n"+
+            "}"
         }
+
     });
 </script>
 
