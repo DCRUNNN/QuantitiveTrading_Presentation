@@ -165,7 +165,8 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" id="reservation" v-model="average">
+                                <input type="text" class="form-control pull-right" id="reservation" >
+                                <!--v-model="dateRange"-->
                             </div>
                             <!-- /.input group -->
                         </div>
@@ -241,8 +242,8 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label><button type="button" class="btn btn-danger" id="clearButton" style="width: 100px" @click="deleteAll()">清空重置</button>&nbsp;&nbsp;</label>
-                                    <label><button type="button" class="btn btn-primary" id="exeButton" style="width: 100px" @click="run()">开始回测</button></label>
+                                    <label><button type="button" class="btn btn-danger" id="clearButton" style="width: 100px" @click.prevent="deleteAll()">清空重置</button>&nbsp;&nbsp;</label>
+                                    <label><button type="button" class="btn btn-primary" id="exeButton" style="width: 100px" @click.prevent="run()">开始回测</button></label>
                                 </form>
                             </div>
                             <div class="panel-body">
