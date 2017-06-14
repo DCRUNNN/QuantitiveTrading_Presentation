@@ -6,9 +6,15 @@ Vue.prototype.$echarts = echarts;
 var vm = new Vue({
    el:'#container',
     data:{
+       yearProfit:'',
+       primaryYearProfit:'',
+       alafa:'',
+       beita:'',
+       sharp:'',
+       maxBack:'',
+
+
        dateRange:'',
-       beginDate:'',
-       endDate:'',
        average:'',
        purchaseNum:'',
        holdingDayNum:'',
@@ -71,6 +77,12 @@ var vm = new Vue({
                this.MeanReversionPrimaryDate = response.data.data.primaryRates;
                this.MeanReversionWinRates = response.data.data.winRates;
                this.MeanReversionRateNums = response.data.data.rateNums;
+               this.yearProfit = response.data.data;
+               this.primaryYearProfit = response.data.data;
+               this.alafa = response.data.data;
+               this.beita = response.data.data;
+               this.sharp = response.data.data;
+               this.maxBack = response.data.data;
 
                var option1 = {
                    title : {

@@ -41,7 +41,34 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="../../js/lib/echarts.js"></script>
     <script src="../../js/lib/macarons.js"></script>
+    <link rel="stylesheet" href="../../js/lib/icoroll/icomoon/style.css" />
+    <link rel="stylesheet" href="../../js/lib/icoroll/icoroll.css" />
+    <link rel="stylesheet" href="../../js/lib/icoroll/dark.css" />
 
+    <script src="../../js/lib/icoroll/jquery.js"></script>
+    <script src="../../js/lib/icoroll/icoroll.js"></script>
+    <script src="../../js/lib/modernizr-2.6.2.min.js"></script>
+    <script>
+        $(function(){
+
+            icoroll({
+                links:$('.scroll'),
+                tip_distance:30,
+                back_enabled:true,
+                time:1500
+            },{
+                position:'left',
+                elements:[
+                    { 'class':'icon-home-2','href':'#top','content':'top'},
+                    { 'class':'icon-chrome','href':'#start','content':'策略之旅'},
+                    { 'class':'icon-mobile','href':'#stockPool','content':'股票池'},
+                    { 'class':'icon-IcoMoon','href':'#linechart','content':'收益率图'},
+                    { 'class':'icon-box-add','href':'#barchart','content':'频数分布图'},
+                ]
+            });
+
+        });
+    </script>
     <style>
         span.new{
             background: rgba(0,0,0,0);
@@ -145,7 +172,7 @@
 
                 </div>
 
-                <div class="box box-primary">
+                <div class="box box-primary" id="start">
                     <div class="box-header">
                         <h3 class="box-title" style="font-size: x-large">开启我的策略之旅</h3>
                     </div>
@@ -190,7 +217,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" id="stockPool">
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -276,13 +303,56 @@
                     </div>
                 </div>
 
-                    <div class="box box-primary">
+                    <div class="box box-primary" id="linechart">
                         <div class="box-header">
-                            <h3 class="box-title" style="font-size: x-large">基准&&累计收益分布图</h3>
+                            <h3 class="box-title" style="font-size:  x-large">基准&&累计收益分布图</h3>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <div class="box-body">
+                                            <table id="table" class="table table-bordered table-striped" style="text-align: center">
+                                                <thead>
+                                                <tr>
+                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年化收益</th>
+                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基准年化收益</th>
+                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;α</th>
+                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;β</th>
+                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夏普比率</th>
+                                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最大回撤</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                <tr>
+                                                    <td v-text="yearProfit"></td>
+                                                    <td v-text="primaryYearProfit"></td>
+                                                    <td v-text="alafa"></td>
+                                                    <td v-text="beita"></td>
+                                                    <td v-text="sharpRate"></td>
+                                                    <td v-text="maxBack"></td>
+
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
                         <div class="box-body" style="width: 1150px;height: 400px;" id="line-chart"></div>
                     </div>
-                    <div class="box box-primary ">
+                    <div class="box box-primary " id="barchart">
                         <div class="box-header">
                             <h3 class="box-title" style="font-size: x-large">收益率频数分布直方图</h3>
                         </div>

@@ -4,6 +4,9 @@
 var vm = new Vue({
    el:'#container',
     data:{
+       items:[
+
+       ]
 
     },
     methods:{

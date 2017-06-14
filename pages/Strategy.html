@@ -113,12 +113,7 @@
                     <a class="logo" href="../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
                         UMT
                     </a>
-                    <div class="layui-form component">
-                        <select lay-search lay-filter="component">
-                            <option value="">搜索组件或模块</option>
-                            <option value="element/color.html">color 颜色</option>
-                        </select>
-                    </div>
+
                     <ul class="layui-nav" pc>
                         <li class="layui-nav-item ">
                             <a href="../pages/Homepage.html">首页</a>
@@ -135,10 +130,10 @@
                         <li class="layui-nav-item" >
                             <a href="javascript:;">个性化</a>
                             <dl class="layui-nav-child">
-                                <dd><a href="../pages/个性化/MyStrategy.html" target="_blank">我的策略</a></dd>
-                                <dd><a href="../pages/个性化/MyChosenStock.html" target="_blank">我的收藏</a></dd>
+                                <dd><a href="../pages/个性化/PersonnalDevice.html" target="_blank">我的信息</a></dd>
                                 <dd><a href="../pages/个性化/History.html" target="_blank">浏览记录</a></dd>
-                                <dd><a href="../pages/个性化/PersonnalDevice.html">个人设置</a> </dd>
+                                <dd><a href="../pages/个性化/MyChosenStock.html" target="_blank">我的自选股</a></dd>
+                                <dd><a href="../pages/个性化/MyStrategy.html" target="_blank">我的策略</a> </dd>
                             </dl>
                         </li>
                         <li class="layui-nav-item">
@@ -566,7 +561,6 @@
                         </div>
 
                     </div>
-                    <div class="item-more f16 clear" id="more_item">加载更多策略&gt;&gt;</div>
                 </div>
             </div>
             <!-- 策略示例结束 -->
@@ -617,15 +611,23 @@
             </div>
         </div>
 
-
-
-</div>
-
-
-
 </div>
 </div>
+</div>
+<script src="//res.layui.com/layui/build/layui.js?t=1496845305865" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '//res.layui.com/lay/modules/layui/'
+        ,version: '1496845305865'
+    }).use('global');
 
+    window.global = {
+        preview: function(){
+            var preview = document.getElementById('LAY_preview');
+            return preview ? preview.innerHTML : '';
+        }()
+    };
+</script>
 <!--Vue数据绑定-->
 <script src="../vue/vue.js"></script>
 <script src="../vue-resource/vue-resource.js"></script>

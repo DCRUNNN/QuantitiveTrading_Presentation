@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <title>UMT - 我的策略</title>
@@ -125,68 +125,11 @@
                             <div class="body-container" style="text-align: center">
                                 <div class="item-tutorial active" id="new">
                                     <div class="item-body ">
-                                        <ul >
-                                            <li class="lis">
-                                                <a class="session" href="/post/1025?f=study&m=guide" target="_blank" >
+                                        <ul>
+                                            <li class="lis" v-for="item in items">
+                                                <a class="session" v-bind:href="item.url" target="_blank" >
                                                     <p class="status"></p>
-                                                    <h5>我的策略一</h5>
-                                                </a>
-                                            </li>
-
-                                            <li class="lis">
-                                                <a class="session" href="/post/1435?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>我的策略二</h5>
-                                                </a>
-                                            </li>
-
-                                            <li class="lis">
-                                                <a class="session" href="/post/2447?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>我的策略三</h5>
-                                                </a>
-                                            </li>
-                                            <li class="lis">
-                                                <a class="session" href="/post/5388?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>我的策略四</h5>
-                                                </a>
-                                            </li>
-                                            <li class="lis">
-                                                <a class="session" href="/post/6596?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>我的策略五</h5>
-                                                </a>
-                                            </li>
-                                            <li class="lis">
-                                                <a class="session" href="/post/4589?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>我的策略六</h5>
-                                                </a>
-                                                <div class="tuijian rotate">推荐</div>                          </li>
-                                            <li class="lis">
-                                                <a class="session" href="/post/4479?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>社区干货精选与整理</h5>
-                                                </a>
-                                                <div class="tuijian rotate">推荐</div>                          </li>
-                                            <li class="lis">
-                                                <a class="session" href="/post/3616?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>十行代码带你量化交易入门</h5>
-                                                </a>
-                                                <div class="hot rotate">HOT</div>                          </li>
-
-                                            <li class="lis">
-                                                <a class="session" href="/post/5388?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>我的策略四</h5>
-                                                </a>
-                                            </li>
-                                            <li class="lis">
-                                                <a class="session" href="/post/6596?f=study&m=guide" target="_blank" >
-                                                    <p class="status"></p>
-                                                    <h5>我的策略五</h5>
+                                                    <h5 v-text="item.strategyName"></h5>
                                                 </a>
                                             </li>
                                         </ul>
@@ -196,7 +139,7 @@
                             </div>
                         </div>
                         <div class="box-footer">
-                            <button type="button" class="btn btn-primary pull-left" >添加新的策略</button>
+                            <button type="button" class="btn btn-primary pull-left" onclick="addNewStrategy()">添加新的策略</button>
                             <button type="button" class="btn btn-danger pull-right">删除策略</button>
                         </div>
                     </div>
@@ -240,7 +183,7 @@
     };
 </script>
 <script src="../../vue/vue.js"></script>
-<script src="../../vue-resource"></script>
+<script src="../../vue-resource/vue-resource.js"></script>
 <script src="../../js/MyStrategy.js">
 </script>
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
