@@ -6,11 +6,13 @@ Vue.prototype.$echarts = echarts;
 var vm = new Vue({
    el:'#container',
     data:{
-       createDays:'',
-       holdDays:'',
+       dateRange:'',
        beginDate:'',
        endDate:'',
-
+       average:'',
+       purchaseNum:'',
+       holdingDayNum:'',
+       stockPool:[],
        items:[
 
        ],
@@ -34,34 +36,38 @@ var vm = new Vue({
     methods:{
 
        run:function () {
-           var mychart = this.$echarts.init(document.getElementById('line-chart'),'macarons');
-           mychart.showLoading({
+           var linechart = this.$echarts.init(document.getElementById('line-chart'),'macarons');
+           linechart.showLoading({
                text:'数据加载中'
            });
 
+           var barchart = this.$echarts.init(document.getElementById('bar-chart'),'macarons');
+           barchart.showLoading({
+               text:'数据加载中'
+           });
            for(var i=0;i<this.chosens.length;i++){
                this.stockPool.push(this.chosens[i].stockCode);
            }
-           this.$http.get("http://localhost:8080/",{
+           this.$http.get("http://localhost:8080/exhibition/meanReversionStrategy",{
                params:{
-                   stockPool:'',
-                   beginDate:'',
-                   endDate:'',
-                   dayNum:'',
-                   purchaseNum:'',
-                   average:''
+                   stockPool:this.stockPool,
+                   beginDate:this.beginDate,
+                   endDate:this.endDate,
+                   holdingDayNum:this.holdingDayNum,
+                   holdingStockNum:this.purchaseNum,
+                   meanDayNum:this.average
                }
            }).then(function (response) {
-               this.MeanReversionDate = response.data.data;
-               this.MeanReversionFieldRate = response.data.data;
-               this.MeanReversionPrimaryDate = response.data.data;
+               this.MeanReversionDate = response.data.data.dateList;
+               this.MeanReversionFieldRate = response.data.data.yieldRates;
+               this.MeanReversionPrimaryDate = response.data.data.primaryRates;
            }).catch(function (error) {
                alert("发生了未知的错误！")
            });
 
-           var option = {
+           var option1 = {
                title : {
-                   text:'柱状显示数据'
+                   text:'基准和累计收益率图'
 
                },
                tooltip : {
@@ -130,8 +136,61 @@ var vm = new Vue({
                    }
                ]
            };
-           mychart.hideLoading();
-           mychart.setOption(option);
+           var option2 = {
+               title : {
+                   text: '超额收益频数分布直方图'
+               },
+               tooltip : {
+                   trigger: 'axis'
+               },
+               legend: {
+                   data:['频数']
+               },
+               toolbox: {
+                   show : true,
+                   feature : {
+                       mark : {show: true},
+                       dataView : {show: true, readOnly: false},
+                       magicType : {show: true, type: ['bar']},
+                       restore : {show: true},
+                       saveAsImage : {show: true}
+                   }
+               },
+               calculable : true,
+               xAxis : [
+                   {
+                       type : 'category',
+                       data : []
+                   }
+               ],
+               yAxis : [
+                   {
+                       type : 'value'
+                   }
+               ],
+               series : [
+                   {
+                       name:'频数',
+                       type:'bar',
+                       data:[],
+                       markPoint : {
+                           data : [
+                               {type : 'max', name: '最大值'},
+                               {type : 'min', name: '最小值'}
+                           ]
+                       },
+                       markLine : {
+                           data : [
+                               {type : 'average', name: '平均值'}
+                           ]
+                       }
+                   }
+               ]
+           };
+           linechart.hideLoading();
+           linechart.setOption(option1);
+           barchart.hideLoading();
+           barchart.setOption(option2);
        },
 
        add:function (code,name,sector) {
@@ -170,8 +229,24 @@ var vm = new Vue({
             this.items=this.backup;
         },
 
+        getCookieValue:function (cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
     },
     mounted(){
+        if(this.getCookieValue("phoneNumber") === ""){
+        }else {
+            document.getElementById("loginLabel").innerHTML = "已登录";
+            document.getElementById("loginLabel").href = "";
+        }
 
         this.$http.get("http://localhost:8080/stockWithSector/"+"2016-03-02").then(function (response) {
 

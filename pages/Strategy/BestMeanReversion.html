@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
 
-    <title>UMT-股票分析师</title>
+    <title>UMT-最优均值回归策略</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
@@ -18,12 +18,16 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
 
     <link rel="stylesheet" href="../../bootstrap/css/layui.css" media="all">
     <link rel="stylesheet" href="../../bootstrap/css/global.css" media="all">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link type="text/css" href="https://cdn.joinquant.com/common/css/lib.min.css?v=201706011122201706021232" rel="stylesheet">
@@ -33,15 +37,9 @@
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="../../js/echarts.js"></script>
-    <script src="../../js/macarons.js"></script>
+    <script src="../../js/lib/echarts.js"></script>
+    <script src="../../js/lib/macarons.js"></script>
 
-    <!--My97DatePicker-->
-    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../js/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="../../js/My97DatePicker/WdatePicker.js"></script>
 
     <style>
         span.new{
@@ -62,21 +60,7 @@
             left:-5px;
         }
     </style>
-    <script type='text/javascript'>
-        var _vds = _vds || [];
-        window._vds = _vds;
-        (function(){
-            _vds.push(['setAccountId', '949f6a566feb9b09']);
-            (function() {
-                var vds = document.createElement('script');
-                vds.type='text/javascript';
-                vds.async = true;
-                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(vds, s);
-            })();
-        })();
-    </script>
+
 </head>
 <body >
 <div class="kk_main in_wrap" id="container">
@@ -88,12 +72,6 @@
                     <a class="logo" href="../Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
                         UMT
                     </a>
-                    <div class="layui-form component">
-                        <select lay-search lay-filter="component">
-                            <option value="">搜索组件或模块</option>
-                            <option value="element/color.html">color 颜色</option>
-                        </select>
-                    </div>
                     <ul class="layui-nav" pc>
                         <li class="layui-nav-item ">
                             <a href="../Homepage.html">首页</a>
@@ -117,7 +95,7 @@
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="../Login.html" target="_blank">登录</a>
+                            <a href="../Login.html" target="_blank" id="loginLabel">登录</a>
                         </li>
 
                     </ul>
@@ -137,7 +115,7 @@
             </a>
             <br>
             <div class="item item_title" style="margin-top:0px">
-                <h3 class="title plr_18" id="post-title">均值回归策略，展现个股策略收益率</h3>
+                <h3 class="title plr_18" id="post-title">最优均值回归策略，展现个股策略收益率</h3>
             </div>
 
 
@@ -164,83 +142,42 @@
                 </p><p>　　<b>3、</b>均值回归理论与政府行为。股票收益率均值回归证明市场不会偏离价值中枢时间太久，市场的内在力量会促使其向内在价值回归。从这一点上讲，市场在没有政府利多或利空政策的作用下也会实现有效的目标，即股票价格会在市场机制的作用下自然的向均值回归。但这并不否定政府行为对促进市场有效性的作用，因为市场偏离内在价值后并不等于立即就会向内在价值回归，很可能会出现持续地均值回避。政府行为会起到抑制市场无效和促进市场有效的作用。在促进市场有效方面政府行为是必不可少的因素之一，市场失灵是政府参与调控的直接理由。
                 </p>
 
-                    <div class="list post-row">
-                        <div class="avatar-container">
-                        </div>
-                        <div class="post-title mt_8">
-                            <span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>
-                        </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title" style="font-size: x-large">开启我的策略之旅</h3>
                     </div>
+                    <div class="box-body">
+                        <div class="form-group col-md-6" >
+                            <label for="purchaseNum" class="control-label">买入数量</label>
 
-                    <div>
-                        <div class="col-sm-6">
-                            策略类型:　　　　　　
-                            最优均值回归
-                        </div>
-
-                        <div class="col-sm-6">
-                            <p>
-                                　　
-                            </p>
-                        </div>
-
-                        <!--插入空行-->
-                        <div class="col-sm-12">
-                            <p>
-                                　　
-                            </p>
-                        </div>
-
-
-                        <div class="col-sm-6">
-                            几日均线:　　　　　　
-                            <span style="margin-left:100px;width:18px;overflow:hidden;">
-                                <select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh" v-model="meanReversionDays">
-                                    <option value="5"> 5 </option>
-                                    <option value="10"> 10 </option>
-                                    <option value="15"> 15 </option>
-                                    <option value="20"> 20 </option>
-                                    <option value="25"> 25 </option>
-                                    <option value="30"> 30 </option>
-                                </select>
-                            </span>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <!--<span class="ml_10" style="font-size: large">起始日期　:　　　　　　　　　　  </span>-->
-                            <!--<input type="text" class="form-control" placeholder="请输入起始日期..." aria-describedby="basic-addon2">-->
-                            <div class="input-append dateform-datetime">
-                                请选择起始日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="beginDate"/>
+                            <div>
+                                <input type="text" class="form-control" id="purchaseNum" placeholder="请输入买入数量" v-model="purchaseNum">
                             </div>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label>Date range:</label>
 
-                        <!--插入空行-->
-                        <div class="col-sm-12">
-                            <p>
-                                　　
-                            </p>
-                        </div>
-
-
-                        <div class="col-sm-6">
-                            买入数量:　　　　　　
-                            <input type="text" name="boughtAmount" placeholder="请输入买入数量..." aria-describedby="basic-addon2">
-                        </div>
-
-                        <div class="col-sm-6">
-                            <!--<span class="ml_10" style="font-size: large">　　结束日期　:　　　　　　　　　　  </span>-->
-                            <!--<input type="text" class="form-control" placeholder="请输入结束日期..." aria-describedby="basic-addon2">-->
-                            <div class="input-append dateform-datetime">
-                                请选择结束日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="endDate"/>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="reservation" v-model="dataRange">
                             </div>
+                            <!-- /.input group -->
                         </div>
-                    </div>
+                        <div class="form-group col-md-6">
+                            <label>几日均线</label>
+                            <select class="form-control" v-model="average">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
 
-                    <!--插入空行-->
-                    <div class="col-sm-12">
-                        <p>
-                            　　
-                        </p>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
 
@@ -255,7 +192,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label><button type="button" class="btn btn-default" id="addAllButton" style="width: 50px" @click="addAll()">全选</button></label>
+                                    <label><button type="button" class="btn btn-danger" id="addAllButton" style="width: 50px" @click="addAll()">全选</button></label>
                                 </form>
                             </div>
                             <div class="panel-body">
@@ -276,7 +213,7 @@
                                             <td>{{item.code}}</td>
                                             <td>{{item.name}}</td>
                                             <td>{{item.sector}}</td>
-                                            <td><button type="button" class="btn btn-default" id="addButton" style="width: 50px" @click="add(item.code,item.name,item.sector)">添加</button></td>
+                                            <td><button type="button" class="btn btn-primary" id="addButton" style="width: 50px" @click="add(item.code,item.name,item.sector)">添加</button></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -296,8 +233,8 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <label><button type="button" class="btn btn-default" id="clearButton" style="width: 100px" @click="deleteAll()">清空重置</button>&nbsp;&nbsp;</label>
-                                    <label><button type="button" class="btn btn-default" id="exeButton" style="width: 100px" onclick="exeButtonClicked()">开始回测</button></label>
+                                    <label><button type="button" class="btn btn-danger" id="clearButton" style="width: 100px" @click="deleteAll()">清空重置</button>&nbsp;&nbsp;</label>
+                                    <label><button type="button" class="btn btn-primary" id="exeButton" style="width: 100px" onclick="exeButtonClicked()">开始回测</button></label>
                                 </form>
                             </div>
                             <div class="panel-body">
@@ -318,7 +255,7 @@
                                             <td>{{chosen.code}}</td>
                                             <td>{{chosen.name}}</td>
                                             <td>{{chosen.sector}}</td>
-                                            <td><button type="button" class="btn btn-default" id="deleteOneButton" style="width: 50px" @click="myDelete(chosen.code,chosen.name,chosen.sector)">删除</button></td>
+                                            <td><button type="button" class="btn btn-danger" id="deleteOneButton" style="width: 50px" @click="myDelete(chosen.code,chosen.name,chosen.sector)">删除</button></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -335,25 +272,33 @@
                 <div style="width: 1150px;height: 400px;" id="line-chart"></div>
 
             </div>
-            <!--/preview_body-->
-
-            <!--<div class="sign-in-please">-->
-            <!--您尚未登录，请 <a href="/user/login/index?redirect=/post/1511?f=home&m=alg_example">登录</a> 或者 <a href="/user/register/index">注册</a> 打造专属策略。-->
-            <!--</div>-->
-
         </div>
     </div>
     <!--/body-->
 </div>
+<script src="//res.layui.com/layui/build/layui.js?t=1496845305865" charset="utf-8"></script>
+<script>
+    layui.config({
+        base: '//res.layui.com/lay/modules/layui/'
+        ,version: '1496845305865'
+    }).use('global');
 
+    window.global = {
+        preview: function(){
+            var preview = document.getElementById('LAY_preview');
+            return preview ? preview.innerHTML : '';
+        }()
+    };
+</script>
 <script src="../../vue/vue.js"></script>
 <script src="../../vue-resource/vue-resource.js"></script>
-<script src="../../js/MeanReversion.js"></script>
+<script src="../../js/Strategy/BestMeanReversion.js"></script>
 
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 
 <!-- DataTables -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
@@ -364,5 +309,36 @@
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+<script>
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            startDate: moment().subtract(29, 'days'),
+            endDate: moment()
+        },
+        function (start, end) {
+            $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+        autoclose: true
+    });
+
+</script>
 </body>
 </html>
