@@ -147,7 +147,21 @@ var vm = new Vue({
         announcementdate5:'',
         announcementdate6:'',
         announcementdate7:'',
-        announcementdate8:''
+        announcementdate8:'',
+
+        point:"",
+        overview:"",
+        beat:"",
+        shortTrend:"",
+        midTrend:"",
+        longTrend:"",
+        conclude:"",
+        testDate:"",
+        technical_test: "",
+        fund_test: "",
+        info_test: "",
+        industry_test: "",
+        basic_test: ""
 
     },
     methods:{
@@ -356,7 +370,7 @@ var vm = new Vue({
             self.newsdate8=response.data.data[7].date;
 
         }).catch(function (response) {
-            alert("出现了未知的错误！");
+            alert("加载公司近期新闻时出现了错误");
         });
 
         this.$http.get("http://localhost:8080/company/announcement/"+code).then(function (response) {
@@ -392,7 +406,25 @@ var vm = new Vue({
             self.announcementurl8=response.data.data[7].link;
             self.announcementdate8=response.data.data[7].date;
         }).catch(function (response) {
-            alert("出现了未知的错误！");
+            alert("加载公司公告时出现了错误");
+        });
+
+        this.$http.get("http://localhost:8080/company/diagnosis/"+code).then(function (response) {
+            self.point=response.data.data.point;
+            self.overview=response.data.data.overview;
+            self.beat=response.data.data.beat;
+            self.shortTrend=response.data.data.shortTerm_trend;
+            self.midTrend=response.data.data.midTerm_trend;
+            self.longTrend=response.data.data.longTerm_trend;
+            self.conclude=response.data.data.conclude;
+            self.testDate=response.data.data.testDate;
+            self.technical_test=response.data.data.technical_test;
+            self.fund_test=response.data.data.fund_test;
+            self.info_test=response.data.data.info_test;
+            self.industry_test=response.data.data.industry_test;
+            self.basic_test=response.data.data.basic_test;
+        }).catch(function (response) {
+            alert("诊断股票时发生了错误");
         });
 
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
