@@ -88,10 +88,11 @@
                 <div class="" style="text-align: center">
                     <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
                     <label>请输入策略名称</label>
-                    <input type="text" class="" placeholder="">
+                    <input type="text" id="strategyname" class="" placeholder="在这里输入策略名称">
                 </div>
-                <div class="btn-group" style="left: 43%;">
-                    <button type="button" class="btn btn-primary" onclick="hide()">确定</button>
+                <div class="btn-group" style="">
+                    <button type="button" class="btn btn-primary" @click="saveCode">保存</button>
+                    <button type="button" class="btn btn-primary" onclick="hide()">取消</button>
                 </div>
 
             </div>
@@ -295,6 +296,7 @@
             beginDate:"",
             endDate:"",
             money:"",
+            strategyName:"",
         },
         methods:{
             runCode:function () {
