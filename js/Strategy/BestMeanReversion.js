@@ -6,6 +6,7 @@ Vue.prototype.$echarts = echarts;
 var vm = new Vue({
     el:'#container',
     data:{
+        dateRange:'',
         beginDate:'',
         endDate:'',
         purchaseNum:'',
@@ -20,22 +21,25 @@ var vm = new Vue({
         backup:[
 
         ],
-        BestMeanReversionDate:['2016-02-10','2016-02-11','2016-02-12','2016-02-13','2016-02-14'
+        BestMeanReversionDate:[
 
         ],
         BestMeanReversionFieldRate:[
-            '60','290','170','200','90'
+
         ],
         BestMeanReversionPrimaryDate:[
-            '100','200','300','280','50'
+
+        ],
+        BestMeanReversionNum:[
+
         ]
 
     },
     methods:{
 
         run:function () {
-            var mychart = this.$echarts.init(document.getElementById('line-chart'),'macarons');
-            mychart.showLoading({
+            var linechart = this.$echarts.init(document.getElementById('line-chart'),'macarons');
+            linechart.showLoading({
                 text:'数据加载中'
             });
 
@@ -59,7 +63,7 @@ var vm = new Vue({
             //     alert("发生了未知的错误！")
             // });
 
-            var option = {
+            var option1 = {
                 title : {
                     text:'基准和累计收益率图'
 
@@ -130,8 +134,13 @@ var vm = new Vue({
                     }
                 ]
             };
-            mychart.hideLoading();
-            mychart.setOption(option);
+
+
+            linechart.hideLoading();
+            linechart.setOption(option1);
+
+
+
         },
 
         add:function (code,name,sector) {

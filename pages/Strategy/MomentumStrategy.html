@@ -18,12 +18,14 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
 
     <link rel="stylesheet" href="../../bootstrap/css/layui.css" media="all">
     <link rel="stylesheet" href="../../bootstrap/css/global.css" media="all">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link type="text/css" href="https://cdn.joinquant.com/common/css/lib.min.css?v=201706011122201706021232" rel="stylesheet">
@@ -36,11 +38,6 @@
     <script src="../../js/lib/echarts.js"></script>
     <script src="../../js/lib/macarons.js"></script>
 
-    <!--My97DatePicker-->
-    <link href="../../bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <!--<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>-->
-    <script type="text/javascript" src="../../js/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="../../js/My97DatePicker/WdatePicker.js"></script>
 
     <style>
         span.new{
@@ -61,21 +58,6 @@
             left:-5px;
         }
     </style>
-    <script type='text/javascript'>
-        var _vds = _vds || [];
-        window._vds = _vds;
-        (function(){
-            _vds.push(['setAccountId', '949f6a566feb9b09']);
-            (function() {
-                var vds = document.createElement('script');
-                vds.type='text/javascript';
-                vds.async = true;
-                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(vds, s);
-            })();
-        })();
-    </script>
 </head>
 <body >
 <div class="kk_main in_wrap" id="container">
@@ -87,12 +69,7 @@
                     <a class="logo" href="../Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
                         UMT
                     </a>
-                    <div class="layui-form component">
-                        <select lay-search lay-filter="component">
-                            <option value="">搜索组件或模块</option>
-                            <option value="element/color.html">color 颜色</option>
-                        </select>
-                    </div>
+
                     <ul class="layui-nav" pc>
                         <li class="layui-nav-item ">
                             <a href="../Homepage.html">首页</a>
@@ -153,68 +130,39 @@
                 </p><p>　　动量/反向策略的理论假设是市场并不总是有效的，通过模型开发、大势研判和个股选择可以获得超常收益，而且对于优秀的投资者来说，这种超常收益在一定程度上是持续的。从技术层面上看，一方面随着这种零成本的套利策略的普及，动量/反向现象将消失;另一方面动量/反向策略必然结果是频繁的交易，大量的交易成本抵消动量/反向策略的赢利。
                 </p>
 
-                    <div class="list post-row">
-                        <div class="avatar-container">
-                        </div>
-                        <div class="post-title mt_8">
-                            <span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>
-                        </div>
+                </div>
+
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title" style="font-size: x-large">开启我的策略之旅</h3>
                     </div>
+                    <div class="box-body">
+                        <div class="form-group col-md-6" >
+                            <label for="createDayNum" class="control-label">形成天数</label>
 
-                    <div>
-                        <div class="col-sm-6">
-                            策略类型:　　　　　　
-                            动量策略
+                            <div>
+                                <input type="text" class="form-control" id="createDayNum" placeholder="请输入形成期天数" v-model="createDayNum">
+                            </div>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label>Date range:</label>
 
-                        <!--插入空行-->
-                        <div class="col-sm-12">
-                            <p>
-                                　　
-                            </p>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="reservation">
+                            </div>
+                            <!-- /.input group -->
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="holdingDayNum" class="control-label">持有天数</label>
 
-
-                        <div class="col-sm-6">
-                            形成天数:　　　　　　
-                            <input type="text" name="heldDays" placeholder="请输入持有天数..." aria-describedby="basic-addon2" v-model="createDays">
-                        </div>
-
-                        <div class="col-sm-6">
-                            <!--<span class="ml_10" style="font-size: large">起始日期　:　　　　　　　　　　  </span>-->
-                            <!--<input type="text" class="form-control" placeholder="请输入起始日期..." aria-describedby="basic-addon2">-->
-                            <div class="input-append dateform-datetime">
-                                请选择起始日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="beginDate">
+                            <div>
+                                <input type="text" class="form-control" id="holdingDayNum" placeholder="请输入持有期天数" v-model="holdingDayNum">
                             </div>
                         </div>
 
-                        <!--插入空行-->
-                        <div class="col-sm-12">
-                            <p>
-                                　　
-                            </p>
-                        </div>
-
-
-                        <div class="col-sm-6">
-                            持有天数:　　　　　　
-                            <input type="text" name="boughtAmount" placeholder="请输入买入数量..." aria-describedby="basic-addon2" v-model="holdDays">
-                        </div>
-
-                        <div class="col-sm-6">
-                            <!--<span class="ml_10" style="font-size: large">　　结束日期　:　　　　　　　　　　  </span>-->
-                            <!--<input type="text" class="form-control" placeholder="请输入结束日期..." aria-describedby="basic-addon2">-->
-                            <div class="input-append dateform-datetime">
-                                请选择结束日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="endDate">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--插入空行-->
-                    <div class="col-sm-12">
-                        <p>
-                            　　
-                        </p>
                     </div>
                 </div>
 
@@ -304,9 +252,18 @@
                     </div>
                 </div>
 
-                <br>
-                <br>
-                <div style="width: 1150px;height: 400px;" id="line-chart"></div>
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title" style="font-size: x-large">基准&&累计收益分布图</h3>
+                    </div>
+                    <div class="box-body" style="width: 1150px;height: 350px;" id="line-chart"></div>
+                </div>
+                <div class="box box-primary ">
+                    <div class="box-header">
+                        <h3 class="box-title" style="font-size: x-large">收益率频数分布直方图</h3>
+                    </div>
+                    <div class="box-body" style="width: 1150px;height: 350px;" id="bar-chart"></div>
+                </div>
 
             </div>
 
@@ -335,8 +292,8 @@
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
 <!-- DataTables -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -346,5 +303,35 @@
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script>
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            startDate: moment().subtract(29, 'days'),
+            endDate: moment()
+        },
+        function (start, end) {
+            $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+        autoclose: true
+    });
+
+</script>
 </body>
 </html>

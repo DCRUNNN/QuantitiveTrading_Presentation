@@ -143,86 +143,11 @@
                 </p><p>　　<b>3、</b>均值回归理论与政府行为。股票收益率均值回归证明市场不会偏离价值中枢时间太久，市场的内在力量会促使其向内在价值回归。从这一点上讲，市场在没有政府利多或利空政策的作用下也会实现有效的目标，即股票价格会在市场机制的作用下自然的向均值回归。但这并不否定政府行为对促进市场有效性的作用，因为市场偏离内在价值后并不等于立即就会向内在价值回归，很可能会出现持续地均值回避。政府行为会起到抑制市场无效和促进市场有效的作用。在促进市场有效方面政府行为是必不可少的因素之一，市场失灵是政府参与调控的直接理由。
                 </p>
 
-                    <!--<div class="list post-row">-->
-                        <!--<div class="avatar-container">-->
-                        <!--</div>-->
-                        <!--<div class="post-title mt_8">-->
-                            <!--<span class="ml_20" style="font-size: x-large">开启我的策略之旅</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                    <!--<div>-->
-                    <!--<div class="col-sm-6">-->
-                        <!--策略类型:　　　　　　-->
-                        <!--均值回归-->
-                    <!--</div>-->
-
-                    <!--<div class="col-sm-6">-->
-                        <!--几日均线:　　　　　　-->
-                        <!--<span style="margin-left:100px;width:18px;overflow:hidden;">-->
-                                <!--<select style="width:180px;margin-left:-100px" onchange="this.parentNode.nextSibling.value=this.value" name="hh" v-model="average">-->
-                                    <!--<option value="5"> 5 </option>-->
-                                    <!--<option value="10"> 10 </option>-->
-                                    <!--<option value="20"> 20 </option>-->
-                                    <!--<option value="30"> 30 </option>-->
-                                <!--</select>-->
-                            <!--</span>-->
-                    <!--</div>-->
-
-                        <!--&lt;!&ndash;插入空行&ndash;&gt;-->
-                        <!--<div class="col-sm-12">-->
-                            <!--<p>-->
-                                <!--　　-->
-                            <!--</p>-->
-                        <!--</div>-->
-
-
-                    <!--<div class="col-sm-6">-->
-                        <!--持有天数:　　　　　　-->
-                        <!--<input type="text" name="heldDays" placeholder="请输入持有天数..." aria-describedby="basic-addon2" v-model="dayNum">-->
-                    <!--</div>-->
-
-                        <!--<div class="col-sm-6">-->
-                            <!--&lt;!&ndash;<span class="ml_10" style="font-size: large">起始日期　:　　　　　　　　　　  </span>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="请输入起始日期..." aria-describedby="basic-addon2">&ndash;&gt;-->
-                            <!--<div class="input-append dateform-datetime">-->
-                                <!--请选择起始日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="beginDate">-->
-                            <!--</div>-->
-                        <!--</div>-->
-
-                        <!--&lt;!&ndash;插入空行&ndash;&gt;-->
-                        <!--<div class="col-sm-12">-->
-                            <!--<p>-->
-                                <!--　　-->
-                            <!--</p>-->
-                        <!--</div>-->
-
-
-                        <!--<div class="col-sm-6">-->
-                            <!--买入数量:　　　　　　-->
-                            <!--<input type="text" name="boughtAmount" placeholder="请输入买入数量..." aria-describedby="basic-addon2" v-model="purchaseNum">-->
-                        <!--</div>-->
-
-                    <!--<div class="col-sm-6">-->
-                        <!--&lt;!&ndash;<span class="ml_10" style="font-size: large">　　结束日期　:　　　　　　　　　　  </span>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<input type="text" class="form-control" placeholder="请输入结束日期..." aria-describedby="basic-addon2">&ndash;&gt;-->
-                        <!--<div class="input-append dateform-datetime">-->
-                            <!--请选择结束日期： 　　 <input class="Wdate" style="text-align: center" type="text" onfocus="WdatePicker({lang:'zh-cn'})" v-model="endDate">-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--&lt;!&ndash;插入空行&ndash;&gt;-->
-                    <!--<div class="col-sm-12">-->
-                        <!--<p>-->
-                            <!--　　-->
-                        <!--</p>-->
-                    <!--</div>-->
                 </div>
 
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">开启我的策略之旅</h3>
+                        <h3 class="box-title" style="font-size: x-large">开启我的策略之旅</h3>
                     </div>
                     <div class="box-body">
 
@@ -240,7 +165,7 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" id="reservation">
+                                <input type="text" class="form-control pull-right" id="reservation" v-model="average">
                             </div>
                             <!-- /.input group -->
                         </div>
@@ -253,7 +178,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>几日均线</label>
-                            <select class="form-control">
+                            <select class="form-control" v-model="average">
                                 <option>5</option>
                                 <option>10</option>
                                 <option>20</option>
@@ -263,8 +188,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <div class="row">
                     <div class="col-lg-6">
@@ -352,12 +275,20 @@
                     </div>
                 </div>
 
-                <br>
-                <br>
-                <div style="width: 1150px;height: 400px;" id="line-chart"></div>
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title" style="font-size: x-large">基准&&累计收益分布图</h3>
+                        </div>
+                        <div class="box-body" style="width: 1150px;height: 400px;" id="line-chart"></div>
+                    </div>
+                    <div class="box box-primary ">
+                        <div class="box-header">
+                            <h3 class="box-title" style="font-size: x-large">收益率频数分布直方图</h3>
+                        </div>
+                        <div class="box-body" style="width: 1150px;height: 400px;" id="bar-chart"></div>
+                    </div>
 
             </div>
-
         </div>
     </div>
     <!--/body-->

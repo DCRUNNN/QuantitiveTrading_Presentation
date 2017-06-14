@@ -6,8 +6,9 @@ Vue.prototype.$echarts = echarts;
 var vm = new Vue({
     el:'#container',
     data:{
+        dateRange:'',
         createDays:'99',
-        holdDays:'',
+        holdingDays:'',
         beginDate:'',
         endDate:'',
         stockPool:[],

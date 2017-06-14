@@ -6,8 +6,9 @@ Vue.prototype.$echarts = echarts;
 var vm = new Vue({
     el:'#container',
     data:{
+        dateRange:'',
         createDays:'99',
-        holdDays:'',
+        holdingDays:'',
         beginDate:'',
         endDate:'',
         stockPool:[],
@@ -43,21 +44,21 @@ var vm = new Vue({
             for(var i=0;i<this.chosens.length;i++){
                 this.stockPool.push(this.chosens[i].stockCode);
             }
-            // this.$http.get("http://localhost:8080/",{
-            //     params:{
-            //         stockPool:this.stockPool,
-            //         beginDate:this.beginDate,
-            //         endDate:this.endDate,
-            //         dayNumFormative:this.createDays,
-            //         dayNumHolding:this.holdDays
-            //     }
-            // }).then(function (response) {
-            //     this.MeanReversionDate = response.data.data;
-            //     this.MeanReversionFieldRate = response.data.data;
-            //     this.MeanReversionPrimaryDate = response.data.data;
-            // }).catch(function (error) {
-            //     alert("发生了未知的错误！")
-            // });
+            this.$http.get("http://localhost:8080/exhibition/momentumStrategy",{
+                params:{
+                    stockPool:this.stockPool,
+                    beginDate:this.beginDate,
+                    endDate:this.endDate,
+                    dayNumFormative:this.createDays,
+                    dayNumHolding:this.holdingDayNum
+                }
+            }).then(function (response) {
+                this.MeanReversionDate = response.data.data.dateList;
+                this.MeanReversionFieldRate = response.data.data.yieldRates;
+                this.MeanReversionPrimaryDate = response.data.data.primaryRates;
+            }).catch(function (error) {
+                alert("发生了未知的错误！")
+            });
 
             var option = {
                 title : {
