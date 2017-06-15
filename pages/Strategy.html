@@ -160,297 +160,338 @@
                         <span class="title inline-block">策略广场</span>
                         <!-- <span class="item-line inline-block"></span> -->
 
-                    <div class="list post-row">
-                        <p>
-
-                        </p>
-                        <table>
-                            <tr>
-                                <td><span class="label label-info" style="font-size: 20px">系统策略</span></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="celue_box">
-
-                        <div class="item celue_item">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">动量策略</a>
-                                </p>
-                                <span class="fright inline-block title_span trade f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <span class="f14">系统策略</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-
-                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">84.84%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">4.51%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <div style="text-align: center" id="funds" v-model="message">
-                                    <p class="perc f16">{{ message }}</p>
-                                </div>
-
-
-                            </div>
-                            <div class="items_last clear">
-                                <button class="fright f14 get_code getCode" id="view_momentum" onclick="view_momentumAction()">查看详情</button>
-                                <button class="fright f14 free_order freeOrder" id="add_momentum">加入我的收藏</button>
-                            </div>
-
-                            <script language="javascript" type="text/javascript">
-                                function view_momentumAction() {
-                                    window.location.href='Strategy/MomentumStrategy.html';
-                                }
-                            </script>
-                        </div>
-
-                        <div class="item celue_item" postid_backtestid="3594_1810351">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">最优动量策略</a>
-                                </p>
-                                <span class="fright inline-block title_span trade f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <span class="f14">系统策略</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">84.84%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">4.51%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥30000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <button class="fright f14 get_code getCode" id="view_bestMomentum" onclick="view_bestMomentumAction()">查看详情</button>
-                                <button class="fright f14 free_order freeOrder" id="add_bestMomentum">加入我的收藏</button>
-                            </div>
-
-                            <script language="javascript" type="text/javascript">
-                                function view_bestMomentumAction() {
-                                    window.location.href='Strategy/BestMomentumStrategy.html';
-                                }
-                            </script>
-                        </div>
-
-                        <div class="item celue_item" postid_backtestid="3594_1810351">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">均值回归</a>
-                                </p>
-                                <span class="fright inline-block title_span trade f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <span class="f14">系统策略</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">84.84%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">4.51%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥30000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <button class="fright f14 get_code getCode" id="view_mean" onclick="view_meanAction()">查看详情</button>
-                                <button class="fright f14 free_order freeOrder" id="add_mean">加入我的收藏</button>
-                            </div>
-
-                            <script language="javascript" type="text/javascript">
-                                function view_meanAction() {
-                                    window.location.href='Strategy/MeanReversion.html';
-                                }
-                            </script>
-                        </div>
-
-                        <div class="item celue_item" postid_backtestid="3594_1810351">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">最优均值回归</a>
-                                </p>
-                                <span class="fright inline-block title_span trade f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <span class="f14">系统策略</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">84.84%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">4.51%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥30000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <button class="fright f14 get_code getCode" id="view_bestMean" onclick="view_bestMeanAction()">查看详情</button>
-                                <button class="fright f14 free_order freeOrder" id="add_bestMean">加入我的收藏</button>
-                            </div>
-
-                            <script language="javascript" type="text/javascript">
-                                function view_bestMeanAction() {
-                                    window.location.href='Strategy/BestMeanReversion.html';
-                                }
-                            </script>
-                        </div>
-
-                    </div>
-
-                        <!--插入空行-->
-                        <div class="col-sm-12">
+                        <div class="list post-row">
                             <p>
 
                             </p>
+                            <table>
+                                <tr>
+                                    <td><span class="label label-info" style="font-size: 20px">系统策略</span></td>
+                                </tr>
+                            </table>
                         </div>
-                        <!--插入空行-->
-                        <div class="col-sm-12">
-                            <p>
 
-                            </p>
-                        </div>
+                        <div class="celue_box">
 
-                    <div class="col-sm-12">
-                        <p>
-                            <!--插入空行-->
-                        </p>
-                        <table>
-                            <tr>
-                                <td><span class="label label-info" style="font-size: 20px">用户策略</span></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <!--<div class="celue_box" id="app">-->
-
-                        <!--<div class="tutorial-page" style="background-color: #fff;">-->
-                            <!--<div class="body-container" style="text-align: center">-->
-                                <!--<div class="item-tutorial active" id="new">-->
-                                    <!--<div class="item-body ">-->
-                                        <!--<ul>-->
-                                            <!--<li class="lis" v-for="item in items">-->
-                                                <!--<a class="session" :href="'../Strategy/NewStrategy.html?strategyName='+item" target="_blank" >-->
-                                                    <!--<p class="status"></p>-->
-                                                    <!--<h5 v-text="item.strategyName"></h5>-->
-                                                    <!--<h5 v-text="item.phoneNumber"></h5>-->
-                                                <!--</a>-->
-                                            <!--</li>-->
-                                        <!--</ul>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                        <div id="app">
-                            <div class="item celue_item"  v-for="item in items"  postid_backtestid="6103_957048">
-                                <div class="celue_box" >
-
-                                    <div class="tutorial-page" style="background-color: #fff;">
-                                        <div class="body-container" style="text-align: center">
-                                            <div class="item-tutorial active" id="new">
-                                                <div class="item-body ">
-                                                    <ul>
-                                                        <li class="lis" >
-                                                            <a class="session" :href="'Strategy/NewStrategy.html?strategyName='+item.strategyName" target="_blank" >
-                                                                <p class="status"></p>
-                                                                <h5 v-text="item.strategyName"></h5>
-                                                                <h5 v-text="item.phoneNumber"></h5>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                            <div class="item celue_item">
+                                <div class="title clear">
+                                    <p class="fleft title_p">
+                                        <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">动量策略</a>
+                                    </p>
+                                    <span class="fright inline-block title_span trade f12">策略回测</span>
+                                    <div class="user_box clear">
+                                        <span class="f14">系统策略</span>
                                     </div>
                                 </div>
+                                <div class="celue_item_tile">
+
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">年化收益</p>
+                                    <p class="perc red f16">84.84%</p>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">最大回撤</p>
+                                    <p class="perc  f16">4.51%</p>
+                                </div>
+                                <div class="items last">
+                                    <p class="f12">初始资金</p>
+                                    <div style="text-align: center" id="funds" v-model="message">
+                                        <p class="perc f16">{{ message }}</p>
+                                    </div>
+
+
+                                </div>
+                                <div class="items_last clear">
+                                    <button class="fright f14 get_code getCode" id="view_momentum" onclick="view_momentumAction()">查看详情</button>
+                                    <button class="fright f14 free_order freeOrder" id="add_momentum">加入我的收藏</button>
+                                </div>
+
+                                <script language="javascript" type="text/javascript">
+                                    function view_momentumAction() {
+                                        window.location.href='Strategy/MomentumStrategy.html';
+                                    }
+                                </script>
+                            </div>
+
+                            <div class="item celue_item" postid_backtestid="3594_1810351">
+                                <div class="title clear">
+                                    <p class="fleft title_p">
+                                        <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">最优动量策略</a>
+                                    </p>
+                                    <span class="fright inline-block title_span trade f12">策略回测</span>
+                                    <div class="user_box clear">
+                                        <span class="f14">系统策略</span>
+                                    </div>
+                                </div>
+                                <div class="celue_item_tile">
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">年化收益</p>
+                                    <p class="perc red f16">84.84%</p>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">最大回撤</p>
+                                    <p class="perc  f16">4.51%</p>
+                                </div>
+                                <div class="items last">
+                                    <p class="f12">初始资金</p>
+                                    <p class="perc f16">￥30000</p>
+                                </div>
+                                <div class="items_last clear">
+                                    <button class="fright f14 get_code getCode" id="view_bestMomentum" onclick="view_bestMomentumAction()">查看详情</button>
+                                    <button class="fright f14 free_order freeOrder" id="add_bestMomentum">加入我的收藏</button>
+                                </div>
+
+                                <script language="javascript" type="text/javascript">
+                                    function view_bestMomentumAction() {
+                                        window.location.href='Strategy/BestMomentumStrategy.html';
+                                    }
+                                </script>
+                            </div>
+
+                            <div class="item celue_item" postid_backtestid="3594_1810351">
+                                <div class="title clear">
+                                    <p class="fleft title_p">
+                                        <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">均值回归</a>
+                                    </p>
+                                    <span class="fright inline-block title_span trade f12">策略回测</span>
+                                    <div class="user_box clear">
+                                        <span class="f14">系统策略</span>
+                                    </div>
+                                </div>
+                                <div class="celue_item_tile">
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">年化收益</p>
+                                    <p class="perc red f16">84.84%</p>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">最大回撤</p>
+                                    <p class="perc  f16">4.51%</p>
+                                </div>
+                                <div class="items last">
+                                    <p class="f12">初始资金</p>
+                                    <p class="perc f16">￥30000</p>
+                                </div>
+                                <div class="items_last clear">
+                                    <button class="fright f14 get_code getCode" id="view_mean" onclick="view_meanAction()">查看详情</button>
+                                    <button class="fright f14 free_order freeOrder" id="add_mean">加入我的收藏</button>
+                                </div>
+
+                                <script language="javascript" type="text/javascript">
+                                    function view_meanAction() {
+                                        window.location.href='Strategy/MeanReversion.html';
+                                    }
+                                </script>
+                            </div>
+
+                            <div class="item celue_item" postid_backtestid="3594_1810351">
+                                <div class="title clear">
+                                    <p class="fleft title_p">
+                                        <a href="/post/3594?f=home&amp;m=alg_example" target="_blank">最优均值回归</a>
+                                    </p>
+                                    <span class="fright inline-block title_span trade f12">策略回测</span>
+                                    <div class="user_box clear">
+                                        <span class="f14">系统策略</span>
+                                    </div>
+                                </div>
+                                <div class="celue_item_tile">
+                                    <a href="/post/3594?f=home&amp;m=alg_example" target="_blank"> </a>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">年化收益</p>
+                                    <p class="perc red f16">84.84%</p>
+                                </div>
+                                <div class="items">
+                                    <p class="f12">最大回撤</p>
+                                    <p class="perc  f16">4.51%</p>
+                                </div>
+                                <div class="items last">
+                                    <p class="f12">初始资金</p>
+                                    <p class="perc f16">￥30000</p>
+                                </div>
+                                <div class="items_last clear">
+                                    <button class="fright f14 get_code getCode" id="view_bestMean" onclick="view_bestMeanAction()">查看详情</button>
+                                    <button class="fright f14 free_order freeOrder" id="add_bestMean">加入我的收藏</button>
+                                </div>
+
+                                <script language="javascript" type="text/javascript">
+                                    function view_bestMeanAction() {
+                                        window.location.href='Strategy/BestMeanReversion.html';
+                                    }
+                                </script>
                             </div>
 
                         </div>
+
+                        <!--插入空行-->
+                        <div class="col-sm-12">
+                            <p>
+
+                            </p>
+                        </div>
+                        <!--插入空行-->
+                        <div class="col-sm-12">
+                            <p>
+
+                            </p>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <p>
+                                <!--插入空行-->
+                            </p>
+                            <table>
+                                <tr>
+                                    <td><span class="label label-info" style="font-size: 20px">用户策略</span></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!--<div class="celue_box" id="app">-->
+
+                        <!--<div class="tutorial-page" style="background-color: #fff;">-->
+                        <!--<div class="body-container" style="text-align: center">-->
+                        <!--<div class="item-tutorial active" id="new">-->
+                        <!--<div class="item-body ">-->
+                        <!--<ul>-->
+                        <!--<li class="lis" v-for="item in items">-->
+                        <!--<a class="session" :href="'../Strategy/NewStrategy.html?strategyName='+item" target="_blank" >-->
+                        <!--<p class="status"></p>-->
+                        <!--<h5 v-text="item.strategyName"></h5>-->
+                        <!--<h5 v-text="item.phoneNumber"></h5>-->
+                        <!--</a>-->
+                        <!--</li>-->
+                        <!--</ul>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <div id="app">
+                        <div class="item celue_item" v-for="item in items" postid_backtestid="3594_1810351">
+                        <div class="title clear">
+                        <p class="fleft title_p">
+                            <a class="session" :href="'Strategy/NewStrategy.html?strategyName='+item.strategyName" target="_blank" >
+                                {{item.strategyName}}
+                        </p>
+                        <span class="fright inline-block title_span trade f12">策略回测</span>
+                        <div class="user_box clear">
+                        <span class="f14">创建人ID：{{item.phoneNumber}}</span>
+                        </div>
+                        </div>
+                        <div class="celue_item_tile">
+                        <a href="Strategy/NewStrategy.html?strategyName='+item.strategyName" target="_blank"> </a>
+                        </div>
+                        <div class="items">
+                        <p class="f12">年化收益</p>
+                        <p class="perc red f16">运</p>
+                        </div>
+                        <div class="items">
+                        <p class="f12">最大回撤</p>
+                        <p class="perc red f16">行</p>
+                        </div>
+                        <div class="items last">
+                        <p class="f12">初始资金</p>
+                        <p class="perc f16">￥100000</p>
+                        </div>
+                        <div class="items_last clear">
+                        <button class="fright f14 get_code getCode" id="view_mean3" onclick="view_meanAction()">查看详情</button>
+                        <button class="fright f14 free_order freeOrder" id="add_mean3">加入我的收藏</button>
+                        </div>
+
+                        <script language="javascript" type="text/javascript">
+                        function view_meanAction() {
+                        window.location.href='Strategy/MeanReversion.html';
+                        }
+                        </script>
+                        </div>
+                        </div>>
+
+
+                        <!--<div id="app">-->
+                            <!--<div class="item celue_item"  v-for="item in items"  postid_backtestid="6103_957048">-->
+                                <!--<div class="celue_box" >-->
+
+                                    <!--<div class="tutorial-page" style="background-color: #fff;">-->
+                                        <!--<div class="body-container" style="text-align: center">-->
+                                            <!--<div class="item-tutorial active" id="new">-->
+                                                <!--<div class="item-body ">-->
+                                                    <!--<ul>-->
+                                                        <!--<li class="lis" >-->
+                                                            <!--<a class="session" :href="'Strategy/NewStrategy.html?strategyName='+item.strategyName" target="_blank" >-->
+                                                                <!--<p class="status"></p>-->
+                                                                <!--<h5 v-text="item.strategyName"></h5>-->
+                                                                <!--<h5 v-text="item.phoneNumber"></h5>-->
+                                                            <!--</a>-->
+                                                        <!--</li>-->
+                                                    <!--</ul>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
 
                     </div>
                 </div>
             </div>
             <!-- 策略示例结束 -->
 
-                <div class="layui-main">
-                    <ul class="site-idea">
-                        <li>
-                            <fieldset class="layui-elem-field layui-field-title" style="margin: 2px">
-                                <legend>频道资讯</legend>
-                                <a href="http://stock.10jqka.com.cn/chuangye/" style="position: absolute;left:125px;top: 70px">创业板</a>
-                                <a href="http://xinsanban.10jqka.com.cn/" style="position: absolute;left: 220px;top: 70px">中心板</a>
-                                <a href="http://xinsanban.10jqka.com.cn/" style="position: absolute;left: 315px;top: 70px">新三板</a>
-                                <a href="http://news.10jqka.com.cn/today_list/" style="top: 110px;left: 125px; position: absolute">财经新闻</a>
-                                <a href="http://stock.10jqka.com.cn/" style="top: 110px;left: 220px; position: absolute">大盘资讯</a>
-                                <a href="http://news.10jqka.com.cn/guojicj_list/" style="top: 110px;left: 312px; position: absolute">国际财经</a>
-                            </fieldset>
-                        </li>
-                        <li>
-                            <fieldset class="layui-elem-field layui-field-title">
-                                <legend>投资热点</legend>
-                                <a href="index.html" style="position: absolute;left:450px;top: 70px">个股期权</a>
-                                <a href="http://news.10jqka.com.cn/hudong/" style="position: absolute;left: 545px;top: 70px">互动平台</a>
-                                <a href="http://stock.10jqka.com.cn/bktt_list/" style="position: absolute;left: 630px;top: 70px">四大报刊</a>
-                                <a href="http://stock.10jqka.com.cn/thsgd/" style="top: 110px;left: 450px; position: absolute">新闻联播</a>
-                                <a href="InitialPage.htmlhttp://data.10jqka.com.cn/tradetips/tfpts/" style="top: 110px;left: 545px; position: absolute">投资参考</a>
-                                <a href="http://stock.10jqka.com.cn/api/znxg/index.html" style="top: 110px;left: 630px; position: absolute">智能选股</a>
-                            </fieldset>
-                        </li>
-                        <li>
-                            <fieldset class="layui-elem-field layui-field-title">
-                                <legend>数据精华</legend>
-                                <a href="http://data.10jqka.com.cn/market/longhu/" style="position: absolute;left: 780px;top: 70px">龙虎榜单</a>
-                                <a href="http://data.10jqka.com.cn/market/dzjy/" style="position: absolute;left: 870px;top: 70px">大宗交易</a>
-                                <a href="http://data.10jqka.com.cn/market/ggsyl/" style="position: absolute;left: 960px;top: 70px">指数列表</a>
-                                <a href="http://data.10jqka.com.cn/funds/hyzjl/" style="top: 110px;left: 780px; position: absolute">行业资金</a>
-                                <a href="http://data.10jqka.com.cn/financial/yjyg/" style="top: 110px;left: 870px; position: absolute">业绩预告</a>
-                                <a href="http://data.10jqka.com.cn/market/rzrq/" style="top: 110px;left: 960px; position: absolute">融资融券</a>
-                            </fieldset>
-                        </li>
-                    </ul>
+            <div class="layui-main">
+                <ul class="site-idea">
+                    <li>
+                        <fieldset class="layui-elem-field layui-field-title" style="margin: 2px">
+                            <legend>频道资讯</legend>
+                            <a href="http://stock.10jqka.com.cn/chuangye/" target="_blank" style="position: absolute;left:125px;top: 70px">创业板</a>
+                            <a href="http://xinsanban.10jqka.com.cn/" target="_blank" style="position: absolute;left: 220px;top: 70px">中心板</a>
+                            <a href="http://xinsanban.10jqka.com.cn/" target="_blank" style="position: absolute;left: 315px;top: 70px">新三板</a>
+                            <a href="http://news.10jqka.com.cn/today_list/" target="_blank" style="top: 110px;left: 125px; position: absolute">财经新闻</a>
+                            <a href="http://stock.10jqka.com.cn/" target="_blank" style="top: 110px;left: 220px; position: absolute">大盘资讯</a>
+                            <a href="http://news.10jqka.com.cn/guojicj_list/" target="_blank" style="top: 110px;left: 312px; position: absolute">国际财经</a>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset class="layui-elem-field layui-field-title">
+                            <legend>投资热点</legend>
+                            <a href="index.html" target="_blank" style="position: absolute;left:450px;top: 70px">个股期权</a>
+                            <a href="http://news.10jqka.com.cn/hudong/" target="_blank" style="position: absolute;left: 545px;top: 70px">互动平台</a>
+                            <a href="http://stock.10jqka.com.cn/bktt_list/" target="_blank" style="position: absolute;left: 630px;top: 70px">四大报刊</a>
+                            <a href="http://stock.10jqka.com.cn/thsgd/" target="_blank" style="top: 110px;left: 450px; position: absolute">新闻联播</a>
+                            <a href="http://data.10jqka.com.cn/tradetips/tfpts/" target="_blank" style="top: 110px;left: 545px; position: absolute">投资参考</a>
+                            <a href="http://stock.10jqka.com.cn/api/znxg/index.html" target="_blank" style="top: 110px;left: 630px; position: absolute">智能选股</a>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset class="layui-elem-field layui-field-title">
+                            <legend>数据精华</legend>
+                            <a href="http://data.10jqka.com.cn/market/longhu/" target="_blank" style="position: absolute;left: 780px;top: 70px">龙虎榜单</a>
+                            <a href="http://data.10jqka.com.cn/market/dzjy/" target="_blank" style="position: absolute;left: 870px;top: 70px">大宗交易</a>
+                            <a href="http://data.10jqka.com.cn/market/ggsyl/" target="_blank" style="position: absolute;left: 960px;top: 70px">指数列表</a>
+                            <a href="http://data.10jqka.com.cn/funds/hyzjl/" target="_blank" style="top: 110px;left: 780px; position: absolute">行业资金</a>
+                            <a href="http://data.10jqka.com.cn/financial/yjyg/" target="_blank" style="top: 110px;left: 870px; position: absolute">业绩预告</a>
+                            <a href="http://data.10jqka.com.cn/market/rzrq/" target="_blank" style="top: 110px;left: 960px; position: absolute">融资融券</a>
+                        </fieldset>
+                    </li>
+                </ul>
 
-                </div>
-                <div class="layui-footer footer footer-index">
-                    <div class="layui-main">
-                        <p>&copy; 2017 <a href="/">UMT</a>—股票分析师</p>
-                    </div>
+            </div>
+            <div class="layui-footer footer footer-index">
+                <div class="layui-main">
+                    <p>&copy; 2017 <a href="/">UMT</a>—股票分析师</p>
                 </div>
             </div>
         </div>
+    </div>
 
 </div>
 </div>

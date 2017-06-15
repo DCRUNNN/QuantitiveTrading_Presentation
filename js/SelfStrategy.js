@@ -309,9 +309,8 @@ var vm = new Vue({
                 }
             }).then(function (response) {
                 self.message = response.data.data;
-                console.log(response.data.data);
             }).catch(function (error){
-                alert("发生了未知的错误！");
+                alert("加载代码时发生错误");
             })
         }
     }

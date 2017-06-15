@@ -58,25 +58,28 @@ var vm = new Vue({
             }
 
             var check=1;
-            this.$http.post("http://localhost:8080/strategy/deleteStrategy",{
-                phoneNumber:self.getCookieValue("phoneNumber"),
-                strategyName:self.strategyName_delete,
+            this.$http.get("http://localhost:8080/strategy/deleteStrategy",{
+                params:{
+                    phoneNumber:this.getCookieValue("phoneNumber"),
+                    strategyName:this.strategyName_delete
+                }
             }).then(function (response) {
                 check=response.data.errorCode;
                 // if(check==50000001) {
                 //     alert("该策略名称已经存在了哟！");
                 // }else
-                alert(strategyName);
                 if(check!=0) {
-                    alert("很抱歉，删除策略时出现了错误！");
+                    alert("很抱歉，删除策略时出现了错误1！");
                 }
             }).catch(function(error){
-                alert("很抱歉，删除策略时出现了错误！")
+                alert("很抱歉，删除策略时出现了错误2！")
             })
 
-            this.$http.post("http://localhost:8080/strategysquare/deleteStrategy",{
-                phoneNumber:self.getCookieValue("phoneNumber"),
-                strategyName:self.strategyName_delete,
+            this.$http.get("http://localhost:8080/strategysquare/deleteStrategy",{
+                params:{
+                    phoneNumber:this.getCookieValue("phoneNumber"),
+                    strategyName:this.strategyName_delete
+                }
             }).then(function (response) {
                 check=response.data.errorCode;
                 // if(check==50000001) {
@@ -85,11 +88,12 @@ var vm = new Vue({
                 if(check==0) {
                     alert("删除策略成功");
                     hide2();
+                    window.location.reload()
                 }else{
-                    alert("很抱歉，删除策略时出现了错误！");
+                    alert("很抱歉，删除策略时出现了错误3！");
                 }
             }).catch(function(error){
-                alert("很抱歉，删除策略时出现了错误！")
+                alert("很抱歉，删除策略时出现了错误4！")
             })
         },
 
@@ -104,9 +108,12 @@ var vm = new Vue({
                 return;
             }
             this.$http.get("http://localhost:8080/strategy/deleteSaveStrategy",{
-                phoneNumber:this.getCookieValue("phoneNumber"),
-                strategyName:this.strategyName_delete,
+                params:{
+                    phoneNumber:this.getCookieValue("phoneNumber"),
+                    strategyName:this.saveStrategyName_delete
+                }
             }).then(function (response) {
+
                 var check=response.data.errorCode;
                 // if(check==50000001) {
                 //     alert("该策略名称已经存在了哟！");
@@ -114,6 +121,7 @@ var vm = new Vue({
                 if(check==0) {
                     alert("删除策略成功");
                     hide3();
+                    window.location.reload()
                 }else{
                     alert("很抱歉，删除收藏策略时出现了错误！");
                 }
