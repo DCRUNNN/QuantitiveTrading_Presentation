@@ -88,12 +88,6 @@
         <a class="logo" href="../../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
             UMT
         </a>
-        <div class="layui-form component">
-            <select lay-search lay-filter="component">
-                <option value="">搜索组件或模块</option>
-                <option value="element/color.html">color 颜色</option>
-            </select>
-        </div>
         <ul class="layui-nav">
             <li class="layui-nav-item ">
                 <a href="../../pages/Homepage.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;">首页</a>
@@ -175,19 +169,6 @@
     </div>
 
 
-    <div class="well well-sm">
-        <span class="label label-primary label-lg">参数选择</span>
-        &nbsp;从&nbsp;<input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:110px;height:20px;text-align:center" readonly>
-        &nbsp;至&nbsp;<input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:110px;height:20px;text-align:center" readonly>
-        &nbsp;¥&nbsp;<input id="moneyInput" type="text" value="100000" >
-        <select name="" style="width:60px;height:22px">
-            <option value="0">每天</option>
-            <option value="1">分钟</option>
-        </select>
-        <button class="btn btn-primary btn-sm pull-right" onclick="save()">保    存</button>
-        <button class="btn btn-primary btn-sm pull-right" @click="runCode">编译运行</button>
-    </div>
-
 
 
     <div class="container" style="height: 100%;width:100%">
@@ -218,7 +199,16 @@
                         <div class="panel-body" style="height:100%;width: 100%">
                         <!--<img src="../../dist/img/运行截图.png" style="max-width: 100%;max-height: 100%;">-->
                             <fieldset style="height: 100%;width:100%">
-                                <legend>Console</legend>
+                                <div >
+                                    <div class="pull-left">
+                                        <legend>Console</legend>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn btn-primary btn-sm pull-right" onclick="save()">保    存</button>
+                                        <button class="btn btn-primary btn-sm pull-right" @click="runCode">编译运行</button>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                                 <div class="box-body">
                                                     <table id="table" class="table table-bordered table-striped" style="text-align: center">
@@ -304,50 +294,6 @@
 <script src="../../vue/vue.js"></script>
 <script src="../../vue-resource/vue-resource.js"></script>
 <script src="../../js/SelfStrategy.js"></script>
-
-
-<script src="../../plugins/jedate/jedate.js"></script>
-
-<script type="text/javascript">
-    var datepickerOptions = {
-        dateCell:"#datepicker", //目标元素。由于jedate.js封装了一个轻量级的选择器，因此dateCell还允许你传入class、tag这种方式 '#id .class'
-        format:"YYYY-MM-DD", //日期格式
-        minDate:"1900-01-01 00:00:00", //最小日期
-        maxDate:"2099-12-31 23:59:59", //最大日期
-//                            skinCell:"jedateblue",
-        isinitVal:false, //是否初始化时间
-        isTime:true, //是否开启时间选择
-        isClear:true, //是否显示清空
-        festival:false, //是否显示节日
-        zIndex:999,  //弹出层的层级高度
-        marks:null, //给日期做标注
-        choosefun:function(val) {},  //选中日期后的回调
-        clearfun:function(val) {},   //清除日期后的回调
-        okfun:function(val) {}       //点击确定后的回调
-    };
-    jeDate(datepickerOptions);
-</script>
-
-<script type="text/javascript">
-    var datepickerOptions = {
-        dateCell:"#datepicker2", //目标元素。由于jedate.js封装了一个轻量级的选择器，因此dateCell还允许你传入class、tag这种方式 '#id .class'
-        format:"YYYY-MM-DD", //日期格式
-        minDate:"1900-01-01 00:00:00", //最小日期
-        maxDate:"2099-12-31 23:59:59", //最大日期
-//                            skinCell:"jedateblue",
-        isinitVal:false, //是否初始化时间
-        isTime:true, //是否开启时间选择
-        isClear:true, //是否显示清空
-        festival:false, //是否显示节日
-        zIndex:999,  //弹出层的层级高度
-        marks:null, //给日期做标注
-        choosefun:function(val) {},  //选中日期后的回调
-        clearfun:function(val) {},   //清除日期后的回调
-        okfun:function(val) {}       //点击确定后的回调
-    };
-    jeDate(datepickerOptions);
-</script>
-
 
 <script src="../../js/NewStrategy.js"></script>
 

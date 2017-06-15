@@ -126,27 +126,7 @@ var vm = new Vue({
     methods:{
         runCode:function () {
             const self=this;
-            self.beginDate=document.getElementById("datepicker").value;
-            self.endDate=document.getElementById("datepicker2").value;
-            self.money=document.getElementById("moneyInput").value;
-            var begin=new Date(self.beginDate);
-            var end=new Date(self.endDate);
-            if(self.beginDate==""&&self.endDate==""){
-                alert("请选择开始日期和结束日期");
-                return;
-            }else if(self.beginDate==""){
-                alert("请选择开始日期");
-                return;
-            } else if(self.endDate==""){
-                alert("请选择结束日期");
-                return;
-            }else if(begin.getTime()>end.getTime()) {
-                alert("日期选择不当，起始日期应在结束日期之前！");
-                return;
-            }else if(self.money=="") {
-                alert("请选择回测资金");
-                return;
-            }
+
             var linechart = this.$echarts.init(document.getElementById('line-chart'),'macarons');
             linechart.showLoading({
                 text:'数据加载中'
