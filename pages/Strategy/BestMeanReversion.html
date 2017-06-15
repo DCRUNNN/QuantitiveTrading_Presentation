@@ -40,7 +40,33 @@
     <script src="../../js/lib/echarts.js"></script>
     <script src="../../js/lib/macarons.js"></script>
 
+    <link rel="stylesheet" href="../../js/lib/icoroll/icomoon/style.css" />
+    <link rel="stylesheet" href="../../js/lib/icoroll/icoroll.css" />
+    <link rel="stylesheet" href="../../js/lib/icoroll/dark.css" />
 
+    <script src="../../js/lib/icoroll/jquery.js"></script>
+    <script src="../../js/lib/icoroll/icoroll.js"></script>
+    <script src="../../js/lib/modernizr-2.6.2.min.js"></script>
+    <script>
+        $(function(){
+
+            icoroll({
+                links:$('.scroll'),
+                tip_distance:30,
+                back_enabled:true,
+                time:1500
+            },{
+                position:'left',
+                elements:[
+                    { 'class':'icon-home-2','href':'#top','content':'top'},
+                    { 'class':'icon-chrome','href':'#start','content':'策略之旅'},
+                    { 'class':'icon-mobile','href':'#stockPool','content':'股票池'},
+                    { 'class':'icon-IcoMoon','href':'#chart1 ','content':'比较图'},
+                ]
+            });
+
+        });
+    </script>
     <style>
 
         loginRemind { margin:0px;padding:0px;text-align: center;}
@@ -138,7 +164,7 @@
             <a href="../Strategy.html">
                 <div class="back-to-community plr_18">
                     <div class="back-icon" style="margin-top:5px"></div>
-                    <div class="back-text">返回主题列表</div>
+                    <div class="back-text" id="top">返回主题列表</div>
                 </div>
             </a>
             <br>
@@ -172,7 +198,7 @@
 
                 </div>
 
-                <div class="box box-primary">
+                <div class="box box-primary" id="start">
                     <div class="box-header">
                         <h3 class="box-title" style="font-size: x-large">开启我的策略之旅</h3>
                     </div>
@@ -209,7 +235,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" id="stockPool">
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">

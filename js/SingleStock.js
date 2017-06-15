@@ -472,8 +472,8 @@ var vm = new Vue({
 
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
             params:{
-                beginDate:'2016-06-02',
-                endDate:'2017-03-03'
+                beginDate:'2017-02-02',
+                endDate:'2017-06-14'
             }
         }).then(function (response) {
 
