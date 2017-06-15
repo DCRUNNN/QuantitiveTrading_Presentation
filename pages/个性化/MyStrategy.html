@@ -192,7 +192,7 @@
                 <div class="col-md-12" >
                     <div class="box box-info" >
                         <div class="box-header with-border" style="text-align: left">
-                            <h3 class="box-title">我的策略</h3>
+                            <h3 class="box-title">我的收藏</h3>
                         </div>
                         <div class="tutorial-page" style="background-color: #fff;">
                             <div class="body-container" style="text-align: center">
@@ -218,6 +218,36 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-12" >
+                    <div class="box box-info" >
+                        <div class="box-header with-border" style="text-align: left">
+                            <h3 class="box-title">自定义策略</h3>
+                        </div>
+                        <div class="tutorial-page" style="background-color: #fff;">
+                            <div class="body-container" style="text-align: center">
+                                <div class="item-tutorial active" id="new1">
+                                    <div class="item-body ">
+                                        <ul>
+                                            <li class="lis" v-for="item in items">
+                                                <a class="session" :href="'../Strategy/NewStrategy.html?strategyName='+item" target="_blank" >
+                                                    <p class="status"></p>
+                                                    <h5 v-text="item"></h5>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="button" class="btn btn-primary pull-left" onclick="addNewStrategy()">添加新的策略</button>
+                            <button type="button" class="btn btn-danger pull-right">删除策略</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
