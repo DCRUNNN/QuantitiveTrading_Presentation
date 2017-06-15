@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
 
-    <title>UMT-股票分析师</title>
+    <title>UMT-最优动量策略</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="icon" href="https://cdn.joinquant.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
@@ -38,14 +38,45 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="../../js/lib/echarts.js"></script>
     <script src="../../js/lib/macarons.js"></script>
+    <link rel="stylesheet" href="../../js/lib/icoroll/icomoon/style.css" />
+    <link rel="stylesheet" href="../../js/lib/icoroll/icoroll.css" />
+    <link rel="stylesheet" href="../../js/lib/icoroll/dark.css" />
 
-    <!--My97DatePicker-->
-    <link href="../../bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <!--<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>-->
-    <script type="text/javascript" src="../../js/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="../../js/My97DatePicker/WdatePicker.js"></script>
+    <script src="../../js/lib/icoroll/jquery.js"></script>
+    <script src="../../js/lib/icoroll/icoroll.js"></script>
+    <script src="../../js/lib/modernizr-2.6.2.min.js"></script>
+    <script>
+        $(function(){
+
+            icoroll({
+                links:$('.scroll'),
+                tip_distance:30,
+                back_enabled:true,
+                time:1500
+            },{
+                position:'left',
+                elements:[
+                    { 'class':'icon-home-2','href':'#top','content':'top'},
+                    { 'class':'icon-chrome','href':'#start','content':'策略之旅'},
+                    { 'class':'icon-mobile','href':'#stockPool','content':'股票池'},
+                    { 'class':'icon-IcoMoon','href':'#chart1 ','content':'比较图'},
+                ]
+            });
+
+        });
+    </script>
 
     <style>
+        loginRemind { margin:0px;padding:0px;text-align: center;}
+        #hidebg { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login { position:absolute;width:400px;height:180px;top:800px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+
         span.new{
             background: rgba(0,0,0,0);
         }
@@ -82,10 +113,27 @@
 </head>
 <body >
 <div class="kk_main in_wrap" id="container">
+    <div id="loginRemind">
+        <div id="hidebg"></div>
+        <form class="form-horizontal">
+            <div id="login" class="box-body">
+                <hr>
+                <div class="form-group" style="text-align: center">
+                    <label class=" control-label">您输入的信息不完整!</label>
 
+                </div>
+                <br>
+                <div class="btn-group" style="left: 43%;">
+                    <button type="button" class="btn btn-primary" onclick="hide()">确定</button>
+
+                </div>
+                <hr>
+            </div>
+        </form>
+    </div>
     <header id="kk_nav" class="fixed-top kk_nav navbar narbar-static-top">
         <div >
-            <div class="layui-header header header-index">
+            <div class="layui-header header header-index" >
                 <div class="layui-main">
                     <a class="logo" href="../Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
                         UMT
@@ -128,7 +176,7 @@
             <a href="../Strategy.html">
                 <div class="back-to-community plr_18">
                     <div class="back-icon" style="margin-top:5px"></div>
-                    <div class="back-text">返回主题列表</div>
+                    <div class="back-text" id="top">返回主题列表</div>
                 </div>
             </a>
             <br>
@@ -152,7 +200,7 @@
 
                 </div>
 
-                <div class="box box-primary">
+                <div class="box box-primary" id="start">
                     <div class="box-header">
                         <h3 class="box-title" style="font-size: x-large">开启我的策略之旅</h3>
                     </div>
@@ -185,7 +233,7 @@
 
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="stockPool">
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -271,9 +319,13 @@
                     </div>
                 </div>
 
-                <br>
-                <br>
-                <div style="width: 1150px;height: 400px;" id="line-chart"></div>
+                              <div class="box box-primary col-md-6" id="chart1 " >
+                    <div class="box-body" style="width: 550px;height: 350px;" id="chart1"></div>
+                </div>
+
+                <div class="box box-primary col-md-6" id="chart2 " >
+                    <div class="box-body" style="width: 550px;height: 350px;" id="chart2"></div>
+                </div>
 
             </div>
 

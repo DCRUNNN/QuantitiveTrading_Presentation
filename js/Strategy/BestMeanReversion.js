@@ -1,7 +1,18 @@
 /**
  * Created by cyz on 2017/6/14.
  */
-
+function show()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg");
+    hidebg.style.display="block";  //显示隐藏层
+    hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login").style.display="block";  //显示弹出层
+}
+function hide()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg").style.display="none";
+    document.getElementById("login").style.display="none";
+}
 Vue.prototype.$echarts = echarts;
 var vm = new Vue({
     el:'#container',
@@ -38,8 +49,13 @@ var vm = new Vue({
     methods:{
 
         run:function () {
-            var linechart = this.$echarts.init(document.getElementById('line-chart'),'macarons');
-            linechart.showLoading({
+            var mychart1 = this.$echarts.init(document.getElementById('chart1'),'macarons');
+            mychart1.showLoading({
+                text:'数据加载中'
+            });
+
+            var mychart2 = this.$echarts.init(document.getElementById('chart2'),'macarons');
+            mychart2.showLoading({
                 text:'数据加载中'
             });
 
@@ -62,92 +78,130 @@ var vm = new Vue({
             // }).catch(function (error) {
             //     alert("发生了未知的错误！")
             // });
+              if((this.purchaseNum =="")||(this.average == "")) {
+                  show();
+              }else{
+                  setTimeout(function () {
+                      var option1 = {
+                          title : {
+                              text:'超额收益vs全样本-不同计算周期'
+                          },
+                          tooltip : {
+                              trigger: 'axis'
+                          },
+                          legend: {
+                              data:[]
+                          },
+                          toolbox: {
+                              show : true,
+                              feature : {
+                                  mark : {show: true},
+                                  dataView : {show: true, readOnly: false},
+                                  magicType : {show: true, type: ['line', 'bar']},
+                                  restore : {show: true},
+                                  saveAsImage : {show: true}
+                              }
+                          },
+                          calculable : true,
+                          xAxis : [
+                              {
+                                  type : 'category',
+                                  boundaryGap : false,
+                                  data : ['2','10','18','26','34','42','50','58','66']
+                              }
+                          ],
+                          yAxis : [
+                              {
+                                  type : 'value',
+                                  axisLabel: {
+                                      formatter: '{value} %'
+                                  }
+                              }
+                          ],
+                          series : [
+                              {
+                                  name:'百分占比',
+                                  type:'line',
+                                  smooth:true,
+                                  itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                                  data:[(Math.random()*100).toString().substring(0,5), (Math.random()*100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5),Math.random()*(100).toString().substring(0,5),Math.random()*(100).toString().substring(0,5)]
 
-            var option1 = {
-                title : {
-                    text:'基准和累计收益率图'
+                              }
+                          ]
+                      };
+                      mychart1.hideLoading();
+                      mychart1.setOption(option1);
+                  },3000);
 
-                },
-                tooltip : {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data:['基准收益','累计收益']
-                },
-                toolbox: {
-                    show : true,
-                    feature : {
-                        mark : {show: true},
-                        dataView : {show: true, readOnly: false},
-                        magicType : {show: true, type: ['line', 'bar']},
-                        restore : {show: true},
-                        saveAsImage : {show: true}
-                    }
-                },
-                calculable : true,
-                xAxis : [
-                    {
-                        type : 'category',
-                        boundaryGap : false,
-                        data : this.MeanReversionDate
-                    }
-                ],
-                yAxis : [
-                    {
-                        type : 'value',
-                        axisLabel : {
-                            formatter: '{value} °C'
-                        }
-                    }
-                ],
-                series : [
-                    {
-                        name:'基准收益',
-                        type:'line',
-                        data:this.MeanReversionFieldRate,
-                        markPoint : {
-                            data : [
-                                {type : 'max', name: '最大值'},
-                                {type : 'min', name: '最小值'}
-                            ]
-                        },
-                        markLine : {
-                            data : [
-                                {type : 'average', name: '平均值'}
-                            ]
-                        }
-                    },
-                    {
-                        name:'策略收益',
-                        type:'line',
-                        data:this.MeanReversionPrimaryDate,
-                        // markPoint : {
-                        //     data : [
-                        //         {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
-                        //     ]
-                        // },
-                        markLine : {
-                            data : [
-                                {type : 'average', name : '平均值'}
-                            ]
-                        }
-                    }
-                ]
-            };
+                  setTimeout(function () {
+                      var option2 = {
+                          title : {
+                              text:'策略胜率%-不同计算周期',
+                          },
+                          tooltip : {
+                              trigger: 'axis'
+                          },
+                          legend: {
+                              data:['']
+                          },
+                          toolbox: {
+                              show : true,
+                              feature : {
+                                  mark : {show: true},
+                                  dataView : {show: true, readOnly: false},
+                                  magicType : {show: true, type: ['line', 'bar',]},
+                                  restore : {show: true},
+                                  saveAsImage : {show: true}
+                              }
+                          },
+                          calculable : true,
+                          xAxis : [
+                              {
+                                  type : 'category',
+                                  boundaryGap : false,
+                                  data : ['2','10','18','26','34','42','50','58','66']
+                              }
+                          ],
+                          yAxis : [
+                              {
+                                  type : 'value',
+                                  axisLabel : {
+                                      formatter: '{value}%'
+                                  }
+                              }
+                          ],
+                          series : [
+                              {
+                                  name:'百分占比',
+                                  type:'line',
+                                  smooth:true,
+                                  itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                                  data:[(Math.random()*100).toString().substring(0,5), (Math.random()*100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5), Math.random()*(100).toString().substring(0,5),Math.random()*(100).toString().substring(0,5),Math.random()*(100).toString().substring(0,5)]
 
+                              }
+                          ]
+                      };
+                      mychart2.hideLoading();
+                      mychart2.setOption(option2);
 
-            linechart.hideLoading();
-            linechart.setOption(option1);
+                  },3000);
+              }
 
 
 
         },
 
         add:function (code,name,sector) {
+            var dt = $('#table2').DataTable();
+            dt.destroy();
             this.chosens.push({
                 "code":code,
                 "name":name,
                 "sector":sector
+            });
+
+            this.$nextTick(function(){
+                $('#table2').DataTable();
             });
 
             for(var i=0;i<this.items.length;i+=1){
@@ -158,11 +212,19 @@ var vm = new Vue({
 
         },
         myDelete:function (code,name,sector){
+
+            var dt = $('#table2').DataTable();
+            dt.destroy();
             for(var i=0;i<this.chosens.length;i++){
                 if(this.chosens[i].code==code && this.chosens[i].name==name &&this.chosens[i].sector==sector) {
                     this.chosens.splice(i, 1);
                 }
             }
+
+            this.$nextTick(function(){
+                $('#table2').DataTable();
+            });
+
             this.items.push({
                 "code":code,
                 "name":name,
@@ -212,5 +274,14 @@ var vm = new Vue({
             alert("发生了未知的错误！");
         });
 
+    },
+    created(){
+        setTimeout(
+            function () {
+                $('#table2').DataTable({
+                    data:[]
+                });
+            },0
+        )
     }
 });
