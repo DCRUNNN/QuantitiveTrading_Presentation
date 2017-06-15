@@ -49,6 +49,25 @@
             z-Index:2;}
         #login1 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
 
+        remind1 { margin:0px;padding:0px;text-align: center;}
+        #hidebg1 { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login2 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+        remind2 { margin:0px;padding:0px;text-align: center;}
+        #hidebg2 { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #login3 { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+
     </style>
 </head>
 <body class="site-home" id="LAY_home" style="background-color: #eee;">
@@ -66,6 +85,42 @@
             <br>
             <div class="btn-group" style="left: 43%;">
                 <button type="button" class="btn btn-primary" onclick="hide()">确定</button>
+            </div>
+            <hr>
+        </div>
+    </form>
+</div>
+<div id="remind1">
+    <div id="hidebg1"></div>
+    <form class="form-horizontal">
+        <div id="login2" class="box-body">
+            <hr>
+            <br>
+            <div class="form-group" style="text-align: center">
+                <label class=" control-label">成功添加到您的自选股！</label>
+            </div>
+            <br>
+            <br>
+            <div class="btn-group" style="left: 43%;">
+                <button type="button" class="btn btn-primary" onclick="hide1()">确定</button>
+            </div>
+            <hr>
+        </div>
+    </form>
+</div>
+<div id="remind2">
+    <div id="hidebg2"></div>
+    <form class="form-horizontal">
+        <div id="login3" class="box-body">
+            <hr>
+            <br>
+            <div class="form-group" style="text-align: center">
+                <label class=" control-label">该股票已经是您的自选股！</label>
+            </div>
+            <br>
+            <br>
+            <div class="btn-group" style="left: 43%;">
+                <button type="button" class="btn btn-primary" onclick="hide2()">确定</button>
             </div>
             <hr>
         </div>
@@ -340,7 +395,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body no-padding"  style="height: 470px">
+                        <div class="box-body no-padding"  style="height: 520px">
                             <div class="row">
                                 <div class="col-md-9 col-sm-8" style="text-align: center">
                                     <div class="pad col-md-12" style="text-align: center">
@@ -697,8 +752,8 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="info-box" style="height:260px"><!--原来这里height是100px 下一行style中height原来也是100px-->
-                        <span class="info-box-icon bg-primary" style="height: 260px;"><i class="fa fa-star-o"><br>股<br>票<br>诊<br>断</i></span>
+                    <div class="info-box" style="height:290px"><!--原来这里height是100px 下一行style中height原来也是100px-->
+                        <span class="info-box-icon bg-primary" style="height: 290px;"><i class="fa fa-star-o"><br><br>股<br>票<br>诊<br>断</i></span>
                         <div class="info-box-content">
                             <div class="col-md-12">
                                 <div class="panel panel-default" style="border:none; margin-bottom: 0">
@@ -714,8 +769,6 @@
                                                 </ul>
                                             </div>
                                         </div>
-
-                                        <br>
 
                                         <div class="row" style="height:30%;">
                                             <div class="col-md-6">
@@ -767,7 +820,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body no-padding"  style="height: 330px">
+                        <div class="box-body no-padding"  style="height: 310px">
                             <div class="row">
                                 <div class="col-md-12 col-xs-8 box-body">
 
@@ -839,7 +892,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body no-padding"  style="height: 330px">
+                        <div class="box-body no-padding"  style="height: 310px">
                             <div class="row">
                                 <div class="col-md-12 col-sm-8 box-body">
                                     <div class="col-md-9 form-news">
