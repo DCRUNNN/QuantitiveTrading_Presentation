@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
     <link rel="stylesheet" href="../../bootstrap/css/layui.css" media="all">
     <link rel="stylesheet" href="../../bootstrap/css/global.css" media="all">
-
+    <script src="../../js/lib/echarts.js">
+    </script>
+    <script src="../../js/lib/macarons.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -124,7 +126,7 @@
 
 &nbsp;&nbsp;&nbsp;
 <div class="page-header">
-    <h1 style="color:#000000;font-size: 30px;"><strong>&nbsp;&nbsp;&nbsp;一个简单的策略</strong></h1>
+    <h1 style="color:#FFFFFF;font-size: 30px;"><strong>&nbsp;&nbsp;&nbsp;一个简单的策略</strong></h1>
 </div>
 
 <div class="" id="app" style="height: 100%;width:100%">
@@ -211,21 +213,49 @@
             </div>
 
             <div class="col-md-6" style="height: 100%;width:50%">
-                <div class="row" style="height:50%">
+                <div class="row" style="height:65%">
                     <div class="panel panel-default" style="height:100%">
                         <div class="panel-body" style="height:100%;width: 100%">
                         <!--<img src="../../dist/img/运行截图.png" style="max-width: 100%;max-height: 100%;">-->
                             <fieldset style="height: 100%;width:100%">
                                 <legend>Console</legend>
-                                <div class="bs-component" style="height: 100%;width:100%">
-                                    <textarea v-model="result" id="result" class="form-control" style="height:86%;width: 100%;font-size:18px">{{ result }}</textarea>
+                                <div class="row">
+                                                <div class="box-body">
+                                                    <table id="table" class="table table-bordered table-striped" style="text-align: center">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">年化收益</th>
+                                                            <th style="text-align: center">基准年化收益</th>
+                                                            <th style="text-align: center">α</th>
+                                                            <th style="text-align: center">β</th>
+                                                            <th style="text-align: center">夏普比率</th>
+                                                            <th style="text-align: center">最大回撤</th>
+
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <tr>
+                                                            <td v-text="yearProfit"></td>
+                                                            <td v-text="primaryYearProfit"></td>
+                                                            <td v-text="alafa"></td>
+                                                            <td v-text="beita"></td>
+                                                            <td v-text="sharp"></td>
+                                                            <td v-text="maxBack"></td>
+
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                    </div>
+
                                 </div>
+                                <div class="box-body" style="width: 550px;height: 300px;" id="line-chart"></div>
                             </fieldset>
                         </div>
 
                     </div>
                 </div>
-                <div class="row" style="height:50%">
+                <div class="row" style="height:35%">
 
                     <div class="panel panel-default" style="height:100%;">
                         <div class="tabbable" style="height:100%;"> <!-- Only required for left/right tabs -->
@@ -273,244 +303,8 @@
 
 <script src="../../vue/vue.js"></script>
 <script src="../../vue-resource/vue-resource.js"></script>
-<script>
-    var vm = new Vue({
-        el: '#app',
-        data: {
-            message:""+
-            "import cn.edu.nju.p.po.StockPO;\n" +
-            "import cn.edu.nju.p.utils.StockHelper;\n" +
-            "import cn.edu.nju.p.utils.beans.ToolSpring;\n" +
-            "import cn.edu.nju.p.utils.redis.StockRedisDataUtils;\n" +
-            "import cn.edu.nju.p.strategy.StrategyRunner;\n" +
-            "import cn.edu.nju.p.strategy.Strategy;\n" +
-            "\n" +
-            "import java.math.BigDecimal;\n" +
-            "import java.time.LocalDate;\n" +
-            "import java.util.ArrayList;\n" +
-            "import java.util.LinkedHashMap;\n" +
-            "import java.util.List;\n" +
-            "import java.util.Map;\n" +
-            "import java.util.stream.Collectors;\n" +
-            "\n" +
-            "public class MomentumStrategy2Impl implements Strategy {\n" +
-            "\n" +
-            "    private StockHelper stockHelper;\n" +
-            "    private StockRedisDataUtils redisDataUtils;\n" +
-            "    private int holdingDayNum;\n" +
-            "    private int formativeDayNum;\n" +
-            "    private LocalDate beginDate;\n" +
-            "    private LocalDate endDate;\n" +
-            "\n" +
-            "    public MomentumStrategy2Impl() {\n" +
-            "        this.stockHelper = ToolSpring.getBeans(StockHelper.class);\n" +
-            "        this.redisDataUtils = ToolSpring.getBeans(StockRedisDataUtils.class);\n" +
-            "        this.holdingDayNum = 5;\n" +
-            "        this.formativeDayNum = 5;\n" +
-            "        this.beginDate = LocalDate.of(2016,5,10);\n" +
-            "        this.endDate = LocalDate.of(2016, 7, 10);\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public List<String> setStockPool() {\n" +
-            "        return stockHelper.getRecommendStock();\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public List<String> setWinner(LocalDate beginDate, LocalDate endDate, List<String> stockPool) {\n" +
-            "\n" +
-            "        Map<String, Double> fieldRates = new LinkedHashMap<>();\n" +
-            "        stockPool.forEach(stockCode -> fieldRates.put(stockCode,countRate(beginDate,endDate,stockCode)));\n" +
-            "\n" +
-            "        //sort the rate of return\n" +
-            "        List<Map.Entry<String, Double>> rateList = new ArrayList<>(fieldRates.entrySet());\n" +
-            "        rateList.sort((rate1, rate2) -> new BigDecimal(rate2.getValue()).compareTo(new BigDecimal(rate1.getValue())));\n" +
-            "\n" +
-            "        int winnerNum = rateList.size() / 5;\n" +
-            "        return rateList.subList(0,winnerNum)\n" +
-            "                .parallelStream()\n" +
-            "                .map(Map.Entry::getKey)\n" +
-            "                .collect(Collectors.toList());\n" +
-            "    }\n" +
-            "\n" +
-            "    private double countRate(LocalDate beginDate, LocalDate endDate, String stockCode) {\n" +
-            "\n" +
-            "        try {\n" +
-            "            StockPO beginPo = redisDataUtils.getStockPO(stockCode, beginDate);\n" +
-            "            StockPO endPo = redisDataUtils.getStockPO(stockCode, endDate);\n" +
-            "            double beginClose = beginPo.getClose();\n" +
-            "            double endClose = endPo.getClose();\n" +
-            "            return (endClose - beginClose) / beginClose;\n" +
-            "        } catch (NullPointerException ne) {\n" +
-            "            return -99;\n" +
-            "        }\n" +
-            "    }\n" +
-            "    @Override\n" +
-            "    public LocalDate setBeginDate() {\n" +
-            "        return beginDate;\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public LocalDate setEndDate() {\n" +
-            "        return endDate;\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public int setHoldingDay() {\n" +
-            "        return holdingDayNum;\n" +
-            "    }\n" +
-            "\n" +
-            "    @Override\n" +
-            "    public int setFormativeDayNum() {\n" +
-            "        return formativeDayNum;\n" +
-            "    }\n" +
-            "\n" +
-            "    public static void main(String args[]){\n" +
-            "        StrategyRunner.run(new MomentumStrategy2Impl());\n" +
-            "}\n" +
-            "}",
-            result:"这里显示运行结果",
-            runerror:"这里显示运行时错误",
-            log:"这里显示日志",
-            beginDate:"",
-            endDate:"",
-            money:"",
-            strategyName:"",
-            phoneNumber:""
-        },
-        methods:{
-            runCode:function () {
-                const self=this;
-                self.beginDate=document.getElementById("datepicker").value;
-                self.endDate=document.getElementById("datepicker2").value;
-                self.money=document.getElementById("moneyInput").value;
-                var begin=new Date(self.beginDate);
-                var end=new Date(self.endDate);
-                if(self.beginDate==""&&self.endDate==""){
-                    alert("请选择开始日期和结束日期");
-                    return;
-                }else if(self.beginDate==""){
-                    alert("请选择开始日期");
-                    return;
-                } else if(self.endDate==""){
-                    alert("请选择结束日期");
-                    return;
-                }else if(begin.getTime()>end.getTime()) {
-                    alert("日期选择不当，起始日期应在结束日期之前！");
-                    return;
-                }else if(self.money=="") {
-                    alert("请选择回测资金");
-                    return;
-                }
-                this.$http.get("http://localhost:8080/customstrategy",{
-                    params:{
-                        code:self.message
-                    }
-                }).then(function(response){
-                      var check=response.data.errorCode;
-                      if(check!=0){
-                          self.runerror=response.data.data;
-                          self.result="您的代码有错误，请检查";
-                          var now=new Date()
-                          self.log=self.log+"\n"+(1900+now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds()+"运行失败");
-                          document.getElementById("logtab").setAttribute("class","");
-                          document.getElementById("errortab").setAttribute("class","active");
-                          document.getElementById("tab1").setAttribute("class","tab-pane");
-                          document.getElementById("tab2").setAttribute("class","tab-pane active");
-                      }else{
-                          self.result=response.data.data;
-                          var now=new Date()
-                          self.log=self.log+"\n"+(1900+now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds()+"运行成功");
-                          self.runerror="这里显示运行时错误";
-                          document.getElementById("logtab").setAttribute("class","active");
-                          document.getElementById("errortab").setAttribute("class","");
-                          document.getElementById("tab1").setAttribute("class","tab-pane active");
-                          document.getElementById("tab2").setAttribute("class","tab-pane");
-                      }
-                    }).catch(function(error){
-                    alert("出现了未知的错误！请重新进行输入")
-                })
-            },
-            saveCode:function () {
-                const self=this;
+<script src="../../js/SelfStrategy.js"></script>
 
-//                var regp =/^(?=.*[a-zA-Z]+)(?=.*[0-9]+)[a-zA-Z0-9]+$/;
-//                if(!regp.test(self.strategyName)) {
-//                    alert('策略名称必须是英语或数字的组合，不能有中文哦');
-//                    return;
-//                }
-
-                var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
-                if(reg.test(self.strategyName)){alert("策略名称必须是英语或数字的组合，不能有中文哦!!!");return; }
-
-                this.$http.post("http://localhost:8080/strategy",{
-                    phoneNumber:self.getCookieValue("phoneNumber"),
-                    strategyName:self.strategyName,
-                    code:self.message
-                }).then(function (response) {
-                    var check=response.data.errorCode;
-                    if(check==50000001) {
-                        alert("该策略名称已经存在了哟！");
-                    }else if(check==0) {
-                        alert("添加策略成功");
-                    }
-                    hide();
-                }).catch(function(error){
-                    alert("很抱歉，保存策略时出现了错误！")
-                })
-            },
-
-            getCookieValue:function (cname) {
-                var name = cname + "=";
-                var ca = document.cookie.split(';');
-                for(var i=0; i<ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0)==' ') c = c.substring(1);
-                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-                }
-                return "";
-            }
-        },
-        mounted:function () {
-
-            if (this.getCookieValue("phoneNumber") === "") {
-                document.getElementById("login").innerHTML = "登录";
-                alert("请先登录!");
-                window.location.href = "../../pages/Login.html";
-                return;
-            } else {
-                document.getElementById("login").innerHTML = "已登录";
-                document.getElementById("login").href = "#";
-            }
-
-            var thisUrl = document.URL;
-            if(thisUrl.indexOf("?") > 0) {
-//                console.log(thisUrl);
-                var getVal = thisUrl.split('?')[1];
-                var name = getVal.split(':')[0];
-                var strategyName = name.split('=')[1];
-                var phoneNumber = this.getCookieValue("phoneNumber");
-
-//                console.log(strategyName);
-//                console.log(phoneNumber);
-//                console.log(strategyName + ''+phoneNumber);
-
-                const self = this;
-                this.$http.get("http://localhost:8080/strategy",{
-                    params:{
-                        phoneNumber:phoneNumber,
-                        strategyName:strategyName
-                    }
-                }).then(function (response) {
-                    self.message = response.data.data;
-                    console.log(response.data.data);
-                }).catch(function (error){
-                    alert("发生了未知的错误！");
-                })
-            }
-        }
-    });
-</script>
 
 <script src="../../plugins/jedate/jedate.js"></script>
 
