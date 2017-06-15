@@ -26,7 +26,8 @@ var vm = new Vue({
 
         ],
         strategyName:"",
-        phoneNumber:""
+        phoneNumber:"",
+        url:""
     },
     methods:{
         getCookieValue:function (cname) {
@@ -57,7 +58,40 @@ var vm = new Vue({
             }).catch(function(error){
                 alert("很抱歉，分享策略时出现了错误！")
             })
-        }
+        },
+
+        addSaveStrategy:function () {
+            const self=this;
+            this.$http.post("http://localhost:8080/strategy/addSaveStrategy",{
+                params:{
+                    // phoneNumber:self.getCookieValue("phoneNumber"),
+                    phoneNumber:self.phoneNumber,
+                    strategyName:self.strategyName,
+                    url:"'Strategy/NewStrategy.html?strategyName='"+self.strategyName
+                }
+            }).then(function (response) {
+                var check=response.data.errorCode;
+                // if(check==50000001) {
+                //     alert("该策略名称已经存在了哟！");
+                // }else
+                    if(check==0) {
+                    alert("收藏策略成功");
+                    }
+                hide();
+            }).catch(function(error){
+                alert("很抱歉，收藏策略时出现了错误！")
+            })
+        },
+        addSave:function (number,name){
+            var hideobj=document.getElementById("hidebg");
+            self.phoneNumber=number;
+            self.strategyName=name;
+            alert(phoneNumber+"hahaha");
+            alert(strategyName);
+            hidebg.style.display="block";  //显示隐藏层
+            hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+            document.getElementById("saveBody").style.display="block";  //显示弹出层
+        },
     },
     mounted:function (){
         var phoneNumber = this.getCookieValue("phoneNumber");
@@ -80,3 +114,10 @@ var vm = new Vue({
         })
     }
 });
+
+
+
+function hide() {
+    document.getElementById("hidebg").style.display="none";
+    document.getElementById("saveBody").style.display="none";
+}
