@@ -84,12 +84,9 @@ var vm = new Vue({
                        meanDayNum:this.average
                    }
                }).then(function (response) {
-                   console.log(response.data.data.dateList);
-                   console.log(response.data.data.primaryRates);
                    console.log("next");
-
-                   console.log(response.data.data.primaryYearYield);
-
+                   console.log(response.data.data.winRates);
+                   console.log(response.data.data.rateNums);
                    console.log("end");
                    this.MeanReversionDate = response.data.data.dateList;
                    this.MeanReversionFieldRate = response.data.data.yieldRates;
@@ -202,9 +199,9 @@ var vm = new Vue({
                            {
                                type : 'category',
                                axisLabel : {
-                                   formatter: '{value}% '
+                                   formatter: '{value}'
                                },
-                               data : this.MeanReversionWinRates
+                               data :["-9以下","-9~-8","-8~-7","-7~-6","-6~-5","-5~-4","-4~-3","-3~-2","-2~-1","-1~0","0~1","1~2","2~3","3~4","4~5","5~6","6~7","7~8","8~9","9以上"]
                            }
                        ],
                        yAxis : [

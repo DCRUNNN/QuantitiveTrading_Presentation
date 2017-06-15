@@ -26,7 +26,7 @@ var vm = new Vue({
 
 
         dateRange:'',
-        createDays:'99',
+        createDays:'',
         holdingDays:'',
         stockPool:[],
 
@@ -39,14 +39,14 @@ var vm = new Vue({
         backup:[
 
         ],
-        MomentumDate:['2016-02-10','2016-02-11','2016-02-12','2016-02-13','2016-02-14'
+        MomentumDate:[
 
         ],
         MomentumFieldRate:[
-            '60','290','170','200','90'
+
         ],
         MomentumPrimaryDate:[
-            '100','200','300','280','50'
+
         ],
         MomentumWinRates:[],
         MomentumRateNums:[]
@@ -77,6 +77,7 @@ var vm = new Vue({
             }).then(function (response) {
 
                 console.log(response.data.data.winRates);
+                console.log(response.data.data.rateNums);
 
                 this.MomentumDate = response.data.data.dateList;
                 this.MomentumFieldRate = response.data.data.yieldRates;
@@ -190,9 +191,9 @@ var vm = new Vue({
                         {
                             type : 'category',
                             axisLabel : {
-                                formatter: '{value}% '
+                                formatter: '{value}'
                             },
-                            data:this.MomentumWinRates
+                            data:["-9以下","-9~-8","-8~-7","-7~-6","-6~-5","-5~-4","-4~-3","-3~-2","-2~-1","-1~0","0~1","1~2","2~3","3~4","4~5","5~6","6~7","7~8","8~9","9以上"]
                         }
                     ],
                     yAxis : [
