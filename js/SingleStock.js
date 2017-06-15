@@ -18,6 +18,34 @@ function hide()  //去除隐藏层和弹出层
     document.getElementById("login1").style.display="none";
     window.location.href = "../pages/Login.html";
 }
+function show1()  //显示隐藏层和弹出层
+{
+    var hideobj1=document.getElementById("hidebg1");
+    hidebg1.style.display="block";  //显示隐藏层
+    hidebg1.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login2").style.display="block";  //显示弹出层
+}
+function hide1()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg1").style.display="none";
+    document.getElementById("login2").style.display="none";
+}
+
+function show2()  //显示隐藏层和弹出层
+{
+    var hideobj2=document.getElementById("hidebg2");
+    hidebg2.style.display="block";  //显示隐藏层
+    hidebg2.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login3").style.display="block";  //显示弹出层
+}
+function hide2()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg2").style.display="none";
+    document.getElementById("login3").style.display="none";
+
+}
+
+
 
 function changeTag() {
     var temp=document.getElementById("select").value;
@@ -192,10 +220,10 @@ var vm = new Vue({
                     }
                 }).then(function (response) {
                     if (response.data.errorCode === 0) {
-                        alert("添加自选股成功！");
+                       show1();
                     }else if(response.data.errorCode == 50000001){
                         // console.log(response.data);
-                        alert("该股票已经是您的自选股！");
+                     show2();
                     }
                 }).catch(function (error) {
                     alert("发生了未知的错误！");

@@ -105,7 +105,7 @@ var vm = new Vue({
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['成交量','涨停数','跌停数','涨幅超5%','跌幅超5%','开减收>5%*昨日数','开减收<5%*昨日数'],
+                        data: ['涨停数','跌停数','涨幅超5%','跌幅超5%','开减收>5%*昨日数','开减收<5%*昨日数'],
                         axisPointer: {
                             type: 'shadow'
                         }
@@ -127,7 +127,7 @@ var vm = new Vue({
                     {
                         name:'数量',
                         type:'bar',
-                        data:[self.charts.volume, self.charts.amountOfLimitUp, self.charts.amountOfLimitDown, self.charts.amountOf5PercentUp, self.charts.amountOf5PercentDown, self.charts.amountOf5PercentUptolastClose, self.charts.amountOf5PercentDowntolastClose]
+                        data:[self.charts.amountOfLimitUp, self.charts.amountOfLimitDown, self.charts.amountOf5PercentUp, self.charts.amountOf5PercentDown, self.charts.amountOf5PercentUptolastClose, self.charts.amountOf5PercentDowntolastClose]
                     }
                 ]
             };
@@ -200,7 +200,7 @@ var vm = new Vue({
                     // },
 
                     {
-                        name:'访问来源',
+                        name:'比例',
                         type:'pie',
                         center:['25%',200],
                         radius : ['50%', '70%'],

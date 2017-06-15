@@ -4,7 +4,7 @@
 
 function show1()  //显示隐藏层和弹出层
 {
-    var hideobj=document.getElementById("hidebg1");
+    var hideobj1=document.getElementById("hidebg1");
     hidebg1.style.display="block";  //显示隐藏层
     hidebg1.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
     document.getElementById("login1").style.display="block";  //显示弹出层
@@ -16,7 +16,7 @@ function hide1()  //去除隐藏层和弹出层
 }
 function show2()  //显示隐藏层和弹出层
 {
-    var hideobj=document.getElementById("hidebg2");
+    var hideobj2=document.getElementById("hidebg2");
     hidebg2.style.display="block";  //显示隐藏层
     hidebg2.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
     document.getElementById("login2").style.display="block";  //显示弹出层
@@ -29,7 +29,7 @@ function hide2()  //去除隐藏层和弹出层
 
 function show3()  //显示隐藏层和弹出层
 {
-    var hideobj=document.getElementById("hidebg3");
+    var hideobj3=document.getElementById("hidebg3");
     hidebg3.style.display="block";  //显示隐藏层
     hidebg3.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
     document.getElementById("login3").style.display="block";  //显示弹出层
@@ -72,10 +72,13 @@ var vm = new Vue({
         },
 
         search: function () {
+
+            var comInput = document.getElementById("input").value;
+
             var code = document.getElementById("input").value.split("-")[1];
-            if(code==null||code==""){
+            if(comInput==null||comInput==""){
                show1();
-            } else if(!isChinese(code)&&!isNum(code)){
+            } else if(!isChinese(comInput)&&!isNum(comInput)){
                 show2();
             }else{
                 this.$http.get("http://localhost:8080/check/"+code).then(function (response) {
