@@ -4,12 +4,12 @@
 var vm = new Vue({
    el:'#container',
     data:{
-       items:[
-
-       ],
+        items:[],
+        saveItems:[],
         strategyName:"",
         phoneNumber:"",
-        strategyName_delete:""
+        strategyName_delete:"",
+        saveStrategyName_delete:""
     },
     methods:{
         getCookieValue:function (cname) {
@@ -58,7 +58,6 @@ var vm = new Vue({
             }
 
             var check=1;
-            alert(666);
             this.$http.post("http://localhost:8080/strategy/deleteStrategy",{
                 phoneNumber:self.getCookieValue("phoneNumber"),
                 strategyName:self.strategyName_delete,
@@ -92,11 +91,38 @@ var vm = new Vue({
             }).catch(function(error){
                 alert("很抱歉，删除策略时出现了错误！")
             })
+        },
+
+        addNewSaveStrategy:function () {
+            window.location.href="../Strategy.html";
+        },
+
+        deleteSaveStrategy:function() {
+            const self=this;
+            if(self.saveStrategyName_delete=="") {
+                alert("请输入要删除的策略名称");
+                return;
+            }
+            this.$http.get("http://localhost:8080/strategy/deleteSaveStrategy",{
+                phoneNumber:this.getCookieValue("phoneNumber"),
+                strategyName:this.strategyName_delete,
+            }).then(function (response) {
+                var check=response.data.errorCode;
+                // if(check==50000001) {
+                //     alert("该策略名称已经存在了哟！");
+                // }else
+                if(check==0) {
+                    alert("删除策略成功");
+                    hide3();
+                }else{
+                    alert("很抱歉，删除收藏策略时出现了错误！");
+                }
+            }).catch(function(error){
+                alert("很抱歉，删除收藏策略时出现了错误！")
+            })
         }
     },
     mounted:function (){
-
-        var phoneNumber = this.getCookieValue("phoneNumber");
 
         if(this.getCookieValue("phoneNumber") === ""){
             document.getElementById("login1").innerHTML = "登录";
@@ -108,6 +134,8 @@ var vm = new Vue({
             document.getElementById("login1").href = "#";
         }
 
+        phoneNumber = this.getCookieValue("phoneNumber");
+
 
         const self = this;
         this.$http.get("http://localhost:8080/strategy/"+phoneNumber).then(function (response) {
@@ -115,6 +143,14 @@ var vm = new Vue({
         }).catch(function (error) {
             alert("出现了未知的错误");
         })
+
+        this.$http.get("http://localhost:8080/strategy/save/"+phoneNumber).then(function (response) {
+            self.saveItems = response.data.data;
+        }).catch(function (error) {
+            alert("出现了未知的错误");
+        })
+
+
     }
 });
 
@@ -141,4 +177,16 @@ function myDelete(){
 function hide2() {
     document.getElementById("hidebg1").style.display="none";
     document.getElementById("deleteBody").style.display="none";
+}
+
+function delete2() {
+    var hideobj=document.getElementById("hidebg2");
+    hidebg2.style.display="block";  //显示隐藏层
+    hidebg2.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("deleteBody2").style.display="block";  //显示弹出层
+}
+
+function hide3() {
+    document.getElementById("hidebg2").style.display="none";
+    document.getElementById("deleteBody2").style.display="none";
 }

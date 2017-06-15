@@ -89,7 +89,7 @@ var vm = new Vue({
             return "";
         }
     },
-    mounted(){
+    mounted:function(){
         if(this.getCookieValue("phoneNumber") === ""){
             show2();
         }else{
