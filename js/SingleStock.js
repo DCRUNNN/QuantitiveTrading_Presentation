@@ -5,6 +5,48 @@
  * Created by cyz on 2017/5/16.
  */
 
+function show()  //显示隐藏层和弹出层
+{
+    var hideobj=document.getElementById("hidebg");
+    hidebg.style.display="block";  //显示隐藏层
+    hidebg.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login1").style.display="block";  //显示弹出层
+}
+function hide()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg").style.display="none";
+    document.getElementById("login1").style.display="none";
+    window.location.href = "../pages/Login.html";
+}
+function show1()  //显示隐藏层和弹出层
+{
+    var hideobj1=document.getElementById("hidebg1");
+    hidebg1.style.display="block";  //显示隐藏层
+    hidebg1.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login2").style.display="block";  //显示弹出层
+}
+function hide1()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg1").style.display="none";
+    document.getElementById("login2").style.display="none";
+}
+
+function show2()  //显示隐藏层和弹出层
+{
+    var hideobj2=document.getElementById("hidebg2");
+    hidebg2.style.display="block";  //显示隐藏层
+    hidebg2.style.height=document.body.clientHeight+"px";  //设置隐藏层的高度为当前页面高度
+    document.getElementById("login3").style.display="block";  //显示弹出层
+}
+function hide2()  //去除隐藏层和弹出层
+{
+    document.getElementById("hidebg2").style.display="none";
+    document.getElementById("login3").style.display="none";
+
+}
+
+
+
 function changeTag() {
     var temp=document.getElementById("select").value;
     if(temp == "opt1"){
@@ -147,7 +189,21 @@ var vm = new Vue({
         announcementdate5:'',
         announcementdate6:'',
         announcementdate7:'',
-        announcementdate8:''
+        announcementdate8:'',
+
+        point:"",
+        overview:"",
+        beat:"",
+        shortTrend:"",
+        midTrend:"",
+        longTrend:"",
+        conclude:"",
+        testDate:"",
+        technical_test: "",
+        fund_test: "",
+        info_test: "",
+        industry_test: "",
+        basic_test: ""
 
     },
     methods:{
@@ -155,8 +211,7 @@ var vm = new Vue({
         addStock:function () {
 
             if(this.getCookieValue("phoneNumber") === ""){
-                alert("请先登录！");
-                window.location.href = "../pages/Login.html";
+                show();
             }else{
                 this.$http.get("http://localhost:8080/personnel/addStock",{
                     params:{
@@ -165,10 +220,10 @@ var vm = new Vue({
                     }
                 }).then(function (response) {
                     if (response.data.errorCode === 0) {
-                        alert("添加自选股成功！");
+                       show1();
                     }else if(response.data.errorCode == 50000001){
                         // console.log(response.data);
-                        alert("该股票已经是您的自选股！");
+                     show2();
                     }
                 }).catch(function (error) {
                     alert("发生了未知的错误！");
@@ -356,7 +411,7 @@ var vm = new Vue({
             self.newsdate8=response.data.data[7].date;
 
         }).catch(function (response) {
-            alert("出现了未知的错误！");
+            alert("加载公司近期新闻时出现了错误");
         });
 
         this.$http.get("http://localhost:8080/company/announcement/"+code).then(function (response) {
@@ -392,18 +447,38 @@ var vm = new Vue({
             self.announcementurl8=response.data.data[7].link;
             self.announcementdate8=response.data.data[7].date;
         }).catch(function (response) {
-            alert("出现了未知的错误！");
+            alert("加载公司公告时出现了错误");
+        });
+
+        this.$http.get("http://localhost:8080/company/diagnosis/"+code).then(function (response) {
+            self.point=response.data.data.point;
+            self.overview=response.data.data.overview;
+            self.beat=response.data.data.beat;
+            self.shortTrend=response.data.data.shortTerm_trend;
+            self.midTrend=response.data.data.midTerm_trend;
+            self.longTrend=response.data.data.longTerm_trend;
+            self.conclude=response.data.data.conclude;
+            // self.testDate=response.data.data.testDate;
+            var date=new Date();
+            self.testDate="诊断日期："+date.toLocaleDateString()+" "+date.toLocaleTimeString();
+            self.technical_test=response.data.data.technical_test;
+            self.fund_test=response.data.data.fund_test;
+            self.info_test=response.data.data.info_test;
+            self.industry_test=response.data.data.industry_test;
+            self.basic_test=response.data.data.basic_test;
+        }).catch(function (response) {
+            alert("诊断股票时发生了错误");
         });
 
         this.$http.get("http://localhost:8080/exhibition/kline/"+code,{
             params:{
-                beginDate:'2012-03-02',
-                endDate:'2012-05-03'
+                beginDate:'2016-06-02',
+                endDate:'2017-03-03'
             }
         }).then(function (response) {
 
             klineData = response.data.data.klineData;
-
+            // console.log(response.data.data.klineData);
 
            var data = splitData(klineData);
 
@@ -412,22 +487,15 @@ var vm = new Vue({
                 var datas = [];
                 var times = [];
                 var vols = [];
-                var macds = []; var difs = []; var deas = [];
                 for (var i = 0; i < rawData.length; i++) {
                     datas.push(rawData[i]);
                     times.push(rawData[i].splice(0, 1)[0]);
                     vols.push(rawData[i][4]);
-                    macds.push(rawData[i][6]);
-                    difs.push(rawData[i][7]);
-                    deas.push(rawData[i][8]);
                 }
                 return {
                     datas: datas,
                     times: times,
                     vols: vols,
-                    macds: macds,
-                    difs: difs,
-                    deas: deas
                 };
             }
 
@@ -502,19 +570,19 @@ var vm = new Vue({
                     data: ['KLine', 'MA5','MA10','MA20','MA30','MA60','MA120']
                 },
                 grid: [           {
-                    left: '3%',
+                    left: '8%',
                     right: '1%',
                     top:'7%',
                     height: '60%'
                 },{
                     left: '8%',
                     right: '1%',
-                    top: '73%',
+                    top: '80%',
                     height: '10%'
                 },{
                     left: '3%',
                     right: '1%',
-                    top: '82%',
+                    top: '120%',
                     height: '14%'
                 }],
                 xAxis: [{
@@ -687,37 +755,6 @@ var vm = new Vue({
                                 },
                             }
                         }
-                    },{
-                        name: 'MACD',
-                        type: 'bar',
-                        xAxisIndex: 2,
-                        yAxisIndex: 2,
-                        data: data.macds,
-                        itemStyle: {
-                            normal: {
-                                color: function(params) {
-                                    var colorList;
-                                    if (params.data >= 0) {
-                                        colorList = '#ef232a';
-                                    } else {
-                                        colorList = '#14b143';
-                                    }
-                                    return colorList;
-                                },
-                            }
-                        }
-                    },{
-                        name: 'DIF',
-                        type: 'line',
-                        xAxisIndex: 2,
-                        yAxisIndex: 2,
-                        data: data.difs
-                    },{
-                        name: 'DEA',
-                        type: 'line',
-                        xAxisIndex: 2,
-                        yAxisIndex: 2,
-                        data: data.deas
                     }
                 ]
             };

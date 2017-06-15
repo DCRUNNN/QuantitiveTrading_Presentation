@@ -89,12 +89,12 @@ var vm = new Vue({
             return "";
         }
     },
-    mounted(){
+    mounted:function(){
         if(this.getCookieValue("phoneNumber") === ""){
             show2();
         }else{
             document.getElementById("login1").innerHTML = "已登录";
-            document.getElementById("login1").href = "";
+            document.getElementById("login1").href = "#";
             var phone_number=this.getCookieValue("phoneNumber");
             // console.log(phone_number);
             this.$http.get("http://localhost:8080/personnel/mystock/"+phone_number).then(function (response) {

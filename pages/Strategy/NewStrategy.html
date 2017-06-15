@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
     <link rel="stylesheet" href="../../bootstrap/css/layui.css" media="all">
     <link rel="stylesheet" href="../../bootstrap/css/global.css" media="all">
-
+    <script src="../../js/lib/echarts.js">
+    </script>
+    <script src="../../js/lib/macarons.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,11 +42,35 @@
         /*#pic{width:600px;height: 50%;border:1px solid black;}*/
         /*#log{width:600px;height:50%}*/
 
+
+        /*saveArea { margin:0px;padding:0px;text-align: center;}*/
+        /*#hidebg { position:absolute;left:0px;top:0px;*/
+            /*background-color:#000;*/
+            /*width:100%;  !*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*!*/
+            /*filter:alpha(opacity=60);  !*设置透明度为60%*!*/
+            /*opacity:0.6;  !*非IE浏览器下设置透明度为60%*!*/
+            /*display:none; !* http://www.jb51.net *!*/
+            /*z-Index:2;*/
+        /*}*/
+        /*#saveBody { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}*/
+
+
+        saveArea { margin:0px;padding:0px;text-align: center;}
+        #hidebg { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #saveBody { position:absolute;width:400px;height:100px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+
+
         #main{color:#666}
         textarea{border:1px solid #7f9db9;font-size:9pt;width:100%;height:auto;color:#000}
         .grey{color:#999}
         #msg1,#msg2,#msg3,#msg4{ display:none}
-        #ol{position:absolute;z-index:1;padding:0px;margin:0px;border:0px;background:#ecf0f5;width:4%;height:100%;text-align:left; }
+        #ol{position:absolute;z-index:1;padding:0px;margin:0px;border:0px;background:#ecf0f5;width:3%;height:100%;text-align:left; }
         #li{background:#ecf0f5;height:160px;overflow:hidden;width:100%;height:100%;border-right:0;line-height:20px;margin:0px;padding:0px;text-align:center}
         #c2{font-family:Arial, Helvetica, sans-serif;font-size:20px;height:160px; margin:0px; width:100%;height:100%;padding:0 0 0 35px;overflow-x: hidden;line-height:20px;}
 
@@ -54,42 +80,38 @@
     </style>
 
 </head>
-<body class="hold-transition login-page" style="height: 100%;width:100%;background-image: url(https://topvet.azureedge.net/Backgrounds/background1.png)" onLoad="keyUp();">
+<body class="hold-transition login-page" style="height: 100%;width:100%;" onLoad="keyUp();">
+
+
 <div class="layui-header header header-index" >
     <div class="layui-main">
         <a class="logo" href="../../pages/Init.html" style="font-family: '等线 Light';font-size: large;color: #f1f1f1;" >
             UMT
         </a>
-        <div class="layui-form component">
-            <select lay-search lay-filter="component">
-                <option value="">搜索组件或模块</option>
-                <option value="element/color.html">color 颜色</option>
-            </select>
-        </div>
-        <ul class="layui-nav" pc>
+        <ul class="layui-nav">
             <li class="layui-nav-item ">
-                <a href="#">首页</a>
+                <a href="../../pages/Homepage.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;">首页</a>
             </li>
             <li class="layui-nav-item ">
-                <a href="../../pages/SingleStock.html">个股</a>
-            </li>
-            <li class="layui-nav-item" pc>
-                <a href="http://fly.layui.com/" target="_blank">量化策略</a>
+                <a href="../../pages/SearchStock.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;">个股</a>
             </li>
             <li class="layui-nav-item">
-                <a href="http://fly.layui.com/" target="_blank">自定义策略</a>
+                <a href="../Strategy.html" onclick="if(confirm('您的修改不会被保存，确定离开当前界面?')==false)return false;" target="_blank">量化策略</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#">自定义策略</a>
             </li>
             <li class="layui-nav-item" >
                 <a href="javascript:;">个性化</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="http://layim.layui.com/" target="_blank">我的策略</a></dd>
-                    <dd><a href="http://fly.layui.com/jie/8157.html" target="_blank">我的收藏</a></dd>
-                    <dd><a href="http://fly.layui.com/jie/9842.html" target="_blank">浏览记录</a></dd>
-                    <dd><a href="#" target="_blank">个人设置</a> </dd>
+                    <dd><a href="../../pages/个性化/PersonnalDevice.html" target="_blank">我的信息</a></dd>
+                    <dd><a href="../../pages/个性化/History.html" target="_blank">浏览记录</a></dd>
+                    <dd><a href="../../pages/个性化/MyChosenStock.html" target="_blank">我的自选股</a></dd>
+                    <dd><a href="../../pages/个性化/MyStrategy.html" target="_blank">我的策略</a> </dd>
                 </dl>
             </li>
             <li class="layui-nav-item">
-                <a href="../../pages/Login.html" target="_blank">登录</a>
+                <a href="../../pages/Login.html" target="_blank" id="login">登录</a>
             </li>
 
         </ul>
@@ -102,31 +124,51 @@
 </div>
 
 <div class="" id="app" style="height: 100%;width:100%">
-    <div class="breadcrumb">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label style="font-size: 17px;color: darkblue">参数选择</label>
+    <!--<div class="breadcrumb">-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <!--<label style="font-size: 17px;color: darkblue">参数选择</label>-->
 
-        <!--<input type="text" value="2017-01-01" class="">-->
-        <!--<input type="text" value="2017-06-03" class="" >-->
-        &nbsp;从&nbsp;<input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:110px;height:20px;text-align:center" readonly>
-        &nbsp;至&nbsp;<input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:110px;height:20px;text-align:center" readonly>
-        &nbsp;¥&nbsp;<input type="text" value="100000" >
-        <select name="" style="width:60px;height:22px">
-            <option value="0">每天</option>
-            <option value="1">分钟</option>
-        </select>
-        <button class="btn btn-success btn-sm pull-right" @click="runCode">编译运行</button>
+        <!--&nbsp;从&nbsp;<input id="datepicker" type="text" placeholder="请选择起始日期"  style="width:110px;height:20px;text-align:center" readonly>-->
+        <!--&nbsp;至&nbsp;<input id="datepicker2" type="text" placeholder="请选择结束日期"  style="width:110px;height:20px;text-align:center" readonly>-->
+        <!--&nbsp;¥&nbsp;<input type="text" value="100000" >-->
+        <!--<select name="" style="width:60px;height:22px">-->
+            <!--<option value="0">每天</option>-->
+            <!--<option value="1">分钟</option>-->
+        <!--</select>-->
+        <!--<button class="btn btn-success btn-sm pull-right">保存</button>-->
+        <!--<button class="btn btn-success btn-sm pull-right" @click="runCode">编译运行</button>-->
+    <!--</div>-->
+
+
+    <div id="saveArea">
+        <div id="hidebg"></div>
+        <form class="form-horizontal">
+            <div id="saveBody" class="box-body">
+                <br>
+                <div class="row" style="text-align: center">
+                    <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
+                    <label>请输入策略名称</label>
+                    <input type="text" v-model="strategyName" id="strategyname" class="" placeholder="在这里输入策略名称">
+                </div>
+                <br>
+                <div class="row" style="text-align: center">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" @click.prevent="saveCode()">保存</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" onclick="hide()">取消</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </form>
     </div>
 
-    <!--<div id="leftBox">-->
-    <!--<textarea wrap="off" cols="2" id="leftNum" disabled></textarea>-->
-    <!--</div>-->
-    <!--<textarea style="left:50px" id="test" name="content" onkeydown="keyUp()" onscroll="getId('leftNum').scrollTop = this.scrollTop;">-->
-    <!--</textarea>-->
+
 
 
     <div class="container" style="height: 100%;width:100%">
@@ -135,8 +177,9 @@
             <div class="col-md-6" style="height: 100%;width:50%">
                 <div class="panel panel-default" style="height:100%;">
                     <div id="ol"><textarea cols="10" rows="10" id="li" disabled></textarea></div>
-                    <textarea v-model="message" class="form-control" name="co" cols="60" rows="10" wrap="off" id="c2" onblur="check('2')" onKeyUp="keyUp()" onscroll="G('li').scrollTop=this.scrollTop;" oncontextmenu="return false">
+                    <textarea v-model="message" spellcheck="false"  style="background-color:black;color:lightskyblue;" class="form-control" name="co" cols="60" rows="10" wrap="off" id="c2" onblur="check('2')" onKeyUp="keyUp()" onscroll="G('li').scrollTop=this.scrollTop;" oncontextmenu="return false">
                         <!--删除了属性onFocus="clearValue('2')"-->
+                    </textarea>
                 </div>
                 <!--<table width="100%"  border="0" cellspacing="0" cellpadding="0" style="position:relative;height:100%">-->
                     <!--<tr>-->
@@ -151,21 +194,58 @@
             </div>
 
             <div class="col-md-6" style="height: 100%;width:50%">
-                <div class="row" style="height:50%">
+                <div class="row" style="height:65%">
                     <div class="panel panel-default" style="height:100%">
                         <div class="panel-body" style="height:100%;width: 100%">
                         <!--<img src="../../dist/img/运行截图.png" style="max-width: 100%;max-height: 100%;">-->
                             <fieldset style="height: 100%;width:100%">
-                                <legend>Console</legend>
-                                <div class="bs-component" style="height: 100%;width:100%">
-                                    <textarea v-model="result" id="result" class="form-control" style="height:86%;width: 100%;font-size:18px">{{ result }}</textarea>
+                                <div >
+                                    <div class="pull-left">
+                                        <legend>Console</legend>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn btn-primary btn-sm pull-right" onclick="save()">保    存</button>
+                                        <button class="btn btn-primary btn-sm pull-right" @click="runCode">编译运行</button>
+                                    </div>
                                 </div>
+
+                                <div class="row">
+                                                <div class="box-body">
+                                                    <table id="table" class="table table-bordered table-striped" style="text-align: center">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="text-align: center">年化收益</th>
+                                                            <th style="text-align: center">基准年化收益</th>
+                                                            <th style="text-align: center">α</th>
+                                                            <th style="text-align: center">β</th>
+                                                            <th style="text-align: center">夏普比率</th>
+                                                            <th style="text-align: center">最大回撤</th>
+
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <tr>
+                                                            <td v-text="yearProfit"></td>
+                                                            <td v-text="primaryYearProfit"></td>
+                                                            <td v-text="alafa"></td>
+                                                            <td v-text="beita"></td>
+                                                            <td v-text="sharp"></td>
+                                                            <td v-text="maxBack"></td>
+
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                    </div>
+
+                                </div>
+                                <div class="box-body" style="width: 550px;height: 300px;" id="line-chart"></div>
                             </fieldset>
                         </div>
 
                     </div>
                 </div>
-                <div class="row" style="height:50%">
+                <div class="row" style="height:35%">
 
                     <div class="panel panel-default" style="height:100%;">
                         <div class="tabbable" style="height:100%;"> <!-- Only required for left/right tabs -->
@@ -195,11 +275,11 @@
 
 
 <!-- /.login-box -->
-<script src="//res.layui.com/layui/build/layui.js?t=1496641896938" charset="utf-8"></script>
+<script src="//res.layui.com/layui/build/layui.js?t=1496845305865" charset="utf-8"></script>
 <script>
     layui.config({
         base: '//res.layui.com/lay/modules/layui/'
-        ,version: '1496641896938'
+        ,version: '1496845305865'
     }).use('global');
 
     window.global = {
@@ -213,88 +293,7 @@
 
 <script src="../../vue/vue.js"></script>
 <script src="../../vue-resource/vue-resource.js"></script>
-<script>
-    var vm = new Vue({
-        el: '#app',
-        data: {
-            message: "" +
-            "public class HelloWorld {\n" +
-            "    public static void main(String[] args) {\n"+
-            "        System.out.println(\"Hello World.\");\n"+
-            "    }\n"+
-            "}",
-            result:"这里显示运行结果",
-            runerror:"这里显示运行时错误",
-            log:"这里显示日志"
-        },
-        methods:{
-            runCode:function () {
-                const self=this;
-                this.$http.get("http://localhost:8080/customstrategy",{
-                    params:{
-                        code:self.message
-                    }
-                }).then(function(response){
-                      var check=response.data.errorCode;
-                      if(check!=0){
-                          self.runerror=response.data.data;
-                          document.getElementById("logtab").setAttribute("class","");
-                          document.getElementById("errortab").setAttribute("class","active");
-                          document.getElementById("tab1").setAttribute("class","tab-pane");
-                          document.getElementById("tab2").setAttribute("class","tab-pane active");
-                      }else{
-                          self.result=response.data.data;
-                      }
-                    }).catch(function(error){
-                    alert("出现了未知的错误！请重新进行输入")
-                })
-            }
-        }
-    });
-</script>
-
-<script src="../../plugins/jedate/jedate.js"></script>
-
-<script type="text/javascript">
-    var datepickerOptions = {
-        dateCell:"#datepicker", //目标元素。由于jedate.js封装了一个轻量级的选择器，因此dateCell还允许你传入class、tag这种方式 '#id .class'
-        format:"YYYY-MM-DD", //日期格式
-        minDate:"1900-01-01 00:00:00", //最小日期
-        maxDate:"2099-12-31 23:59:59", //最大日期
-//                            skinCell:"jedateblue",
-        isinitVal:false, //是否初始化时间
-        isTime:true, //是否开启时间选择
-        isClear:true, //是否显示清空
-        festival:false, //是否显示节日
-        zIndex:999,  //弹出层的层级高度
-        marks:null, //给日期做标注
-        choosefun:function(val) {},  //选中日期后的回调
-        clearfun:function(val) {},   //清除日期后的回调
-        okfun:function(val) {}       //点击确定后的回调
-    };
-    jeDate(datepickerOptions);
-</script>
-
-<script type="text/javascript">
-    var datepickerOptions = {
-        dateCell:"#datepicker2", //目标元素。由于jedate.js封装了一个轻量级的选择器，因此dateCell还允许你传入class、tag这种方式 '#id .class'
-        format:"YYYY-MM-DD", //日期格式
-        minDate:"1900-01-01 00:00:00", //最小日期
-        maxDate:"2099-12-31 23:59:59", //最大日期
-//                            skinCell:"jedateblue",
-        isinitVal:false, //是否初始化时间
-        isTime:true, //是否开启时间选择
-        isClear:true, //是否显示清空
-        festival:false, //是否显示节日
-        zIndex:999,  //弹出层的层级高度
-        marks:null, //给日期做标注
-        choosefun:function(val) {},  //选中日期后的回调
-        clearfun:function(val) {},   //清除日期后的回调
-        okfun:function(val) {}       //点击确定后的回调
-    };
-    jeDate(datepickerOptions);
-</script>
-
+<script src="../../js/SelfStrategy.js"></script>
 
 <script src="../../js/NewStrategy.js"></script>
 

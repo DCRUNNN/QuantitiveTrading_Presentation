@@ -49,22 +49,24 @@ var vm = new Vue({
             text:'数据加载中'
         });
 
+        // var date=new Date().toLocaleDateString();
+        var date="2017-06-14";
 
-        this.$http.get("http://localhost:8080/homepage/allstock/"+"2016-05-17").then(function (response) {
+        this.$http.get("http://localhost:8080/homepage/allstock/"+date).then(function (response) {
             self.items=response.data.data;
             setTimeout(function () {
                 $('#example1').DataTable();
             },0);
         }).catch(function (error) {
-            alert("出现了未知的错误！")
+            alert("加载股票数据时出现了未知的错误！")
         });
 
 
-        this.$http.get("http://localhost:8080/homepage/market/"+"2016-06-16").then(function (response) {
+        this.$http.get("http://localhost:8080/homepage/market/"+date).then(function (response) {
             self.charts=response.data.data;
 
             const request = new XMLHttpRequest();
-            request.open('GET', "http://localhost:8080/market/"+"2016-06-16", true);
+            request.open('GET', "http://localhost:8080/market/"+date, true);
 // request.setRequestHeader('Content-Type', 'application/json');
             request.onload = function () {
                 if(this.status == 200 || this.status == 304) {
@@ -103,7 +105,7 @@ var vm = new Vue({
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['成交量','涨停数','跌停数','涨幅超5%','跌幅超5%','开减收>5%*昨日数','开减收<5%*昨日数'],
+                        data: ['涨停数','跌停数','涨幅超5%','跌幅超5%','开减收>5%*昨日数','开减收<5%*昨日数'],
                         axisPointer: {
                             type: 'shadow'
                         }
@@ -125,7 +127,7 @@ var vm = new Vue({
                     {
                         name:'数量',
                         type:'bar',
-                        data:[self.charts.volume, self.charts.amountOfLimitUp, self.charts.amountOfLimitDown, self.charts.amountOf5PercentUp, self.charts.amountOf5PercentDown, self.charts.amountOf5PercentUptolastClose, self.charts.amountOf5PercentDowntolastClose]
+                        data:[self.charts.amountOfLimitUp, self.charts.amountOfLimitDown, self.charts.amountOf5PercentUp, self.charts.amountOf5PercentDown, self.charts.amountOf5PercentUptolastClose, self.charts.amountOf5PercentDowntolastClose]
                     }
                 ]
             };
@@ -198,7 +200,7 @@ var vm = new Vue({
                     // },
 
                     {
-                        name:'访问来源',
+                        name:'比例',
                         type:'pie',
                         center:['25%',200],
                         radius : ['50%', '70%'],
@@ -250,7 +252,7 @@ var vm = new Vue({
 
 
         }).catch(function (error) {
-            alert("发生了未知的错误！");
+            alert("加载图表时发生了未知的错误！");
         });
 
 
