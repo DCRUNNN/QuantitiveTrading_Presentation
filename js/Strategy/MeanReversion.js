@@ -84,12 +84,9 @@ var vm = new Vue({
                        meanDayNum:this.average
                    }
                }).then(function (response) {
-                   console.log(response.data.data.dateList);
-                   console.log(response.data.data.primaryRates);
                    console.log("next");
-
-                   console.log(response.data.data.primaryYearYield);
-
+                   console.log(response.data.data.winRates);
+                   console.log(response.data.data.rateNums);
                    console.log("end");
                    this.MeanReversionDate = response.data.data.dateList;
                    this.MeanReversionFieldRate = response.data.data.yieldRates;
@@ -202,9 +199,9 @@ var vm = new Vue({
                            {
                                type : 'category',
                                axisLabel : {
-                                   formatter: '{value}% '
+                                   formatter: '{value}'
                                },
-                               data : this.MeanReversionWinRates
+                               data :["-9以下","-9~-8","-8~-7","-7~-6","-6~-5","-5~-4","-4~-3","-3~-2","-2~-1","-1~0","0~1","1~2","2~3","3~4","4~5","5~6","6~7","7~8","8~9","9以上"]
                            }
                        ],
                        yAxis : [
@@ -244,11 +241,20 @@ var vm = new Vue({
        },
 
        add:function (code,name,sector) {
-               this.chosens.push({
-                   "code":code,
-                   "name":name,
-                   "sector":sector
-               });
+
+           var dt = $('#table2').DataTable();
+           dt.destroy();
+
+           this.chosens.push({
+               "code":code,
+               "name":name,
+               "sector":sector
+           });
+
+            this.$nextTick(function(){
+                $('#table2').DataTable();
+            })
+
            // window.alert(this.items.length);
            // window.alert("haha");
            for(var i=0;i<this.items.length;i+=1){
@@ -259,11 +265,20 @@ var vm = new Vue({
            // window.alert(this.items.length);
        },
         myDelete:function (code,name,sector){
+
+            var dt = $('#table2').DataTable();
+            dt.destroy();
+
             for(var i=0;i<this.chosens.length;i++){
                if(this.chosens[i].code==code && this.chosens[i].name==name &&this.chosens[i].sector==sector) {
                    this.chosens.splice(i, 1);
                }
             }
+
+            this.$nextTick(function(){
+                $('#table2').DataTable();
+            })
+
             this.items.push({
                 "code":code,
                 "name":name,
@@ -271,7 +286,15 @@ var vm = new Vue({
             });
         },
         addAll:function () {
+
+            var dt = $('#table2').DataTable();
+            dt.destroy();
+
            this.chosens = this.backup;
+
+            this.$nextTick(function(){
+                $('#table2').DataTable();
+            })
         },
         deleteAll:function () {
 
@@ -304,14 +327,23 @@ var vm = new Vue({
            this.backup = this.items;
            // var dt = $('#table1').DataTable();
            // dt.destroy();
+
            setTimeout(function () {
               $('#table1').DataTable();
-           },0);
-           // $('#table1').DataTable.destroy();
+           },2000);
+
 
        }).catch(function (error) {
            alert("发生了未知的错误！");
        });
-
+    },
+    created(){
+        setTimeout(
+            function () {
+                $('#table2').DataTable({
+                    data:[]
+                });
+            },0
+        )
     }
 });
