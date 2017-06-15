@@ -51,6 +51,18 @@
             display:none; /* http://www.jb51.net */
             z-Index:2;}
         #saveBody { position:absolute;width:430px;height:150px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+
+        deleteArea { margin:0px;padding:0px;text-align: center;}
+        #hidebg1 { position:absolute;left:0px;top:0px;
+            background-color:#000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            filter:alpha(opacity=60);  /*设置透明度为60%*/
+            opacity:0.6;  /*非IE浏览器下设置透明度为60%*/
+            display:none; /* http://www.jb51.net */
+            z-Index:2;}
+        #deleteBody { position:absolute;width:400px;height:180px;top:200px;left:35%;background-color:#fff;display:none;cursor:pointer;z-Index:3;}
+
+
     </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini site-home">
@@ -79,6 +91,31 @@
             </div>
         </form>
     </div>
+
+    <div id="deleteArea">
+        <div id="hidebg1"></div>
+        <form class="form-horizontal">
+            <div id="deleteBody" class="box-body">
+                <br>
+                <div class="row" style="text-align: center">
+                    <!--<span class="label label-primary label-lg">请输入策略名称：</span>-->
+                    <label>请输入要删除的策略名称</label>
+                    <input type="text" v-model="strategyName_delete" id="strategyname_delete" class="" placeholder="在这里输入要删除的策略名称">
+                </div>
+                <br>
+                <div class="row" style="text-align: center">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" @click.prevent="deleteStrategy()">确认删除</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" onclick="hide2()">取消</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </form>
+    </div>
+
 
     <div class="layui-header header header-index">
         <div class="layui-main">
@@ -177,7 +214,7 @@
                         <div class="box-footer">
                             <button type="button" class="btn btn-primary pull-left" @click="addNewStrategy()">添加新的策略</button>
                             <button type="button" class="btn btn-primary" onclick="save()">分享到策略广场</button>
-                            <button type="button" class="btn btn-danger pull-right">删除策略</button>
+                            <button type="button" class="btn btn-primary pull-right" onclick="myDelete()">删除策略</button>
                         </div>
                     </div>
                 </div>
