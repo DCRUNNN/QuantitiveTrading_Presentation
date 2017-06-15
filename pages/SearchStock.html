@@ -2138,12 +2138,22 @@
         <br>
         <br>
 
-        <div class="input-group-lg col-lg-11" style="position: absolute; left: 350px;width: 500px">
+
+        <div class="input-group">
             <input type="text" class="form-control" placeholder="请输入您想搜索的股票代码或名称：" id="input">
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-primary" @click="search()">搜索</button>
+            </span>
         </div>
-        <div class="col-lg-2" style="left: 375px">
-            <button type="button" class="btn btn-primary btn-lg" @click="search()">搜索</button>
-        </div>
+
+        <!--<div class="input-group-lg col-lg-11" style="position: relative; left: 350px;width: 500px">-->
+            <!--<input type="text" class="form-control" placeholder="请输入您想搜索的股票代码或名称：" id="input">-->
+
+            <!--<span class="input-group-btn">-->
+
+            <!--<button type="button" class="btn btn-primary btn-lg" @click="search()">搜索</button>-->
+                 <!--</span>-->
+        <!--</div>-->
 
 
         <!-- /.login-box-body -->

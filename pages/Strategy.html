@@ -137,7 +137,7 @@
                             </dl>
                         </li>
                         <li class="layui-nav-item">
-                            <a href="../pages/Login.html" target="_blank">登录</a>
+                            <a href="../pages/Login.html" id="login1" target="_blank">登录</a>
                         </li>
 
                     </ul>
@@ -352,212 +352,53 @@
                         </table>
                     </div>
 
-                    <div class="celue_box">
+                    <!--<div class="celue_box" id="app">-->
 
-                        <div class="item celue_item" postid_backtestid="6103_957048">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/6103?f=home&amp;m=alg_example" target="_blank"> 嬴率季胜季</a>
-                                </p>
-                                <span class="fright inline-block title_span trade f12">模拟实盘</span>
-                                <div class="user_box clear">
-                                    <img src="https://image.joinquant.com/dab6a29372be351c2c4fd3f41d5321b1" class="avatar">
-                                    <span class="f14">鏖戰先覺者</span>
+                        <!--<div class="tutorial-page" style="background-color: #fff;">-->
+                            <!--<div class="body-container" style="text-align: center">-->
+                                <!--<div class="item-tutorial active" id="new">-->
+                                    <!--<div class="item-body ">-->
+                                        <!--<ul>-->
+                                            <!--<li class="lis" v-for="item in items">-->
+                                                <!--<a class="session" :href="'../Strategy/NewStrategy.html?strategyName='+item" target="_blank" >-->
+                                                    <!--<p class="status"></p>-->
+                                                    <!--<h5 v-text="item.strategyName"></h5>-->
+                                                    <!--<h5 v-text="item.phoneNumber"></h5>-->
+                                                <!--</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                        <div id="app">
+                            <div class="item celue_item"  v-for="item in items"  postid_backtestid="6103_957048">
+                                <div class="celue_box" >
+
+                                    <div class="tutorial-page" style="background-color: #fff;">
+                                        <div class="body-container" style="text-align: center">
+                                            <div class="item-tutorial active" id="new">
+                                                <div class="item-body ">
+                                                    <ul>
+                                                        <li class="lis" >
+                                                            <a class="session" :href="'Strategy/NewStrategy.html?strategyName='+item.strategyName" target="_blank" >
+                                                                <p class="status"></p>
+                                                                <h5 v-text="item.strategyName"></h5>
+                                                                <h5 v-text="item.phoneNumber"></h5>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="celue_item_tile">
-                                <span class="f12 celue_blue"><span></span>策略收益</span>
-                                <span class="f12 celue_red"><span></span>基准收益</span>
-                                <a href="/post/6103?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/6103?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_fa570000237a8c81d63445030594db32.png" alt=""></a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">305.71%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">13.31%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥50000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <button class="fright f14 free_order freeOrder" _backtestid="957048" _postid="6103">加入我的收藏</button>
-                            </div>
-                        </div>
 
-
-                        <div class="item celue_item" postid_backtestid="3132_1557510">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/3132?f=home&amp;m=alg_example" target="_blank">分级A轮动策略</a>
-                                </p>
-                                <span class="fright inline-block title_span backtest f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <img src="https://image.joinquant.com/634e7bca35fa442aefbba7d053168779" class="avatar">
-                                    <span class="f14">囚徒</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <span class="f12 celue_blue"><span></span>策略收益</span>
-                                <span class="f12 celue_red"><span></span>基准收益</span>
-                                <a href="/post/3132?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/3132?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_850cfd8129fdbea6f8df477166dff567.png" alt=""></a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">18.58%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">1.08%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥300000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <button class="fright f14 free_order freeOrder" _backtestid="957048" _postid="6103">加入我的收藏</button>
-                            </div>
-                        </div>
-
-
-                        <div class="item celue_item" postid_backtestid="2709_1652786">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/2709?f=home&amp;m=alg_example" target="_blank">基于SVM的机器学习策略</a>
-                                </p>
-                                <span class="fright inline-block title_span backtest f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <img src="https://image.joinquant.com/ade9049d89dd2d9a33a2b0f4f49250e3" class="avatar">
-                                    <span class="f14">走得很慢的海龟</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <span class="f12 celue_blue"><span></span>策略收益</span>
-                                <span class="f12 celue_red"><span></span>基准收益</span>
-                                <a href="/post/2709?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/2709?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_8026c2a0bd35c6927e348cc843c38dd7.png" alt=""></a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">10.05%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">20.49%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥1000000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <span class="f14">已有<span class="red f20">694</span>人获取源码</span>
-                                <button class="fright f14 get_code getCode" _backtestid="1652786" _postid="2709">获取源码</button>
-                            </div>
-                        </div>
-
-
-                        <div class="item celue_item" postid_backtestid="1587_773598">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/1587?f=home&amp;m=alg_example" target="_blank">原来B基还可以这么玩，终于可以躺着数钱。</a>
-                                </p>
-                                <span class="fright inline-block title_span backtest f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <img src="https://image.joinquant.com/56bf0b6e36a205ae84ddb34afb4819bf" class="avatar">
-                                    <span class="f14">日记本</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <span class="f12 celue_blue"><span></span>策略收益</span>
-                                <span class="f12 celue_red"><span></span>基准收益</span>
-                                <a href="/post/1587?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/1587?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_e0d4135f6b34ed86187a37dabdbbfb7b.png" alt=""></a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">39.61%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">2.9%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥100000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <span class="f14">已有<span class="red f20">1710</span>人获取源码</span>
-                                <button class="fright f14 get_code getCode" _backtestid="773598" _postid="1587">获取源码</button>
-                            </div>
-                        </div>
-
-
-                        <div class="item celue_item" postid_backtestid="287_60670">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/287?f=home&amp;m=alg_example" target="_blank">【钟摆理论1】量化模型实现</a>
-                                </p>
-                                <span class="fright inline-block title_span backtest f12">策略回测</span>
-                                <div class="user_box clear">
-                                    <img src="https://image.joinquant.com/3e6d9bb897c2c58ab88cf12e57c2efe5" class="avatar">
-                                    <span class="f14">冰柠檬</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <span class="f12 celue_blue"><span></span>策略收益</span>
-                                <span class="f12 celue_red"><span></span>基准收益</span>
-                                <a href="/post/287?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/287?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_91086a8afd18de7c8c1158f7fcc89091.png" alt=""></a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">13.73%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">28.22%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥100000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <span class="f14">已有<span class="red f20">380</span>人获取源码</span>
-                                <button class="fright f14 get_code getCode" _backtestid="60670" _postid="287">获取源码</button>
-                            </div>
-                        </div>
-
-
-                        <div class="item celue_item" postid_backtestid="5993_2854248">
-                            <div class="title clear">
-                                <p class="fleft title_p">
-                                    <a href="/post/5993?f=home&amp;m=alg_example" target="_blank">X2.0 择时优化</a>
-                                </p>
-                                <span class="fright inline-block title_span trade f12">模拟实盘</span>
-                                <div class="user_box clear">
-                                    <img src="https://cdn.joinquant.com/common/img/default_header-2.png" class="avatar">
-                                    <span class="f14">pfrao</span>
-                                </div>
-                            </div>
-                            <div class="celue_item_tile">
-                                <span class="f12 celue_blue"><span></span>策略收益</span>
-                                <span class="f12 celue_red"><span></span>基准收益</span>
-                                <a href="/post/5993?f=home&amp;m=alg_example" target="_blank"> <img class="imgUrl" _href="/post/5993?f=home&amp;m=alg_example" src="https://image.joinquant.com/backtest_d2abfabc525e1720d8295c75d4a1e45e.png" alt=""></a>
-                            </div>
-                            <div class="items">
-                                <p class="f12">年化收益</p>
-                                <p class="perc red f16">19.86%</p>
-                            </div>
-                            <div class="items">
-                                <p class="f12">最大回撤</p>
-                                <p class="perc  f16">8.84%</p>
-                            </div>
-                            <div class="items last">
-                                <p class="f12">初始资金</p>
-                                <p class="perc f16">￥300000</p>
-                            </div>
-                            <div class="items_last clear">
-                                <button class="fright f14 free_order freeOrder" _backtestid="2854248" _postid="5993">加入我的收藏</button>
-                            </div>
                         </div>
 
                     </div>

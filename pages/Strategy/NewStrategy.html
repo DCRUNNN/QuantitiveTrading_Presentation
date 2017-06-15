@@ -124,7 +124,7 @@
 
 &nbsp;&nbsp;&nbsp;
 <div class="page-header">
-    <h1 style="color:#FFFFFF;font-size: 30px;"><strong>&nbsp;&nbsp;&nbsp;一个简单的策略</strong></h1>
+    <h1 style="color:#000000;font-size: 30px;"><strong>&nbsp;&nbsp;&nbsp;一个简单的策略</strong></h1>
 </div>
 
 <div class="" id="app" style="height: 100%;width:100%">
@@ -322,7 +322,7 @@
             "        Map<String, Double> fieldRates = new LinkedHashMap<>();\n" +
             "        stockPool.forEach(stockCode -> fieldRates.put(stockCode,countRate(beginDate,endDate,stockCode)));\n" +
             "\n" +
-            "        //对收益率进行排序\n" +
+            "        //sort the rate of return\n" +
             "        List<Map.Entry<String, Double>> rateList = new ArrayList<>(fieldRates.entrySet());\n" +
             "        rateList.sort((rate1, rate2) -> new BigDecimal(rate2.getValue()).compareTo(new BigDecimal(rate1.getValue())));\n" +
             "\n" +
@@ -433,6 +433,16 @@
             },
             saveCode:function () {
                 const self=this;
+
+//                var regp =/^(?=.*[a-zA-Z]+)(?=.*[0-9]+)[a-zA-Z0-9]+$/;
+//                if(!regp.test(self.strategyName)) {
+//                    alert('策略名称必须是英语或数字的组合，不能有中文哦');
+//                    return;
+//                }
+
+                var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+                if(reg.test(self.strategyName)){alert("策略名称必须是英语或数字的组合，不能有中文哦!!!");return; }
+
                 this.$http.post("http://localhost:8080/strategy",{
                     phoneNumber:self.getCookieValue("phoneNumber"),
                     strategyName:self.strategyName,
